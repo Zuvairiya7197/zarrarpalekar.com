@@ -8,26 +8,25 @@ export function Skills() {
     <section id="skills" className="section-padding">
       <Container>
         <SectionHeading
-          eyebrow="Skills"
-          title="A toolkit built for polished interfaces, scalable systems, and fast iteration."
-          description="From frontend architecture to launch tooling, every piece is chosen to help projects move quickly without compromising quality."
-          centered
+          eyebrow="TECH SKILLS"
+          title="Technologies I work with."
+          description="I use modern technologies, and tools to build fast, scalable, and high-performance web applications."
         />
 
-        <div className="mt-12 grid gap-5 lg:grid-cols-3">
+        <div className="mt-10 grid gap-5 lg:grid-cols-2 xl:grid-cols-3">
           {skillGroups.map((group) => (
             <article
               key={group.title}
-              className="rounded-[30px] border border-[color:rgb(var(--border)/0.75)] bg-[rgb(var(--surface)/0.84)] p-6 shadow-[0_20px_60px_rgba(15,23,42,0.06)] backdrop-blur"
+              className="rounded-[28px] border border-[color:rgb(var(--border)/0.78)] bg-[rgb(var(--surface)/0.72)] p-6 shadow-[0_22px_60px_rgba(0,0,0,0.24)]"
             >
-              <h3 className="text-xl font-semibold text-[rgb(var(--foreground))]">
+              <div className="inline-flex rounded-full border border-[color:rgb(var(--border)/0.8)] px-4 py-2 text-sm font-semibold uppercase tracking-[0.18em] text-white">
                 {group.title}
-              </h3>
+              </div>
               <div className="mt-5 flex flex-wrap gap-2.5">
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className="inline-flex rounded-full border border-[color:rgb(var(--border)/0.8)] bg-[rgb(var(--background)/0.75)] px-3.5 py-2 text-sm font-medium text-[rgb(var(--foreground))]"
+                    className="inline-flex rounded-full border border-[color:rgb(var(--border)/0.8)] bg-[rgb(var(--background)/0.72)] px-3.5 py-2 text-sm font-medium text-white/92"
                   >
                     {item}
                   </span>

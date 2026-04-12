@@ -15,11 +15,11 @@ export const metadata: Metadata = {
   applicationName: siteConfig.name,
   keywords: [
     "Zarrar Palekar",
-    "Frontend Architect",
-    "Next.js Developer",
+    "Full Stack Developer",
+    "MERN Stack Developer",
+    "React Developer",
+    "Node.js Developer",
     "Portfolio Website",
-    "UI Developer",
-    "Freelance Frontend Developer",
   ],
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
@@ -69,9 +69,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className="min-h-screen bg-[rgb(var(--background))] font-[family-name:var(--font-sans)] text-[rgb(var(--foreground))] antialiased"
-      >
+      <body className="min-h-screen bg-[rgb(var(--background))] font-[family-name:var(--font-sans)] text-[rgb(var(--foreground))] antialiased">
         <Providers>{children}</Providers>
       </body>
     </html>

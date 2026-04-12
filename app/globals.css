@@ -1,29 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  color-scheme: light;
-  --font-sans: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
-  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
-  --background: 247 248 252;
-  --foreground: 16 24 40;
-  --surface: 255 255 255;
-  --surface-elevated: 242 245 251;
-  --muted-foreground: 91 102 126;
-  --border: 211 220 232;
-  --accent: 14 116 144;
-  --accent-secondary: 217 119 6;
-}
-
-.dark {
   color-scheme: dark;
-  --background: 8 10 16;
-  --foreground: 241 245 249;
-  --surface: 15 20 31;
-  --surface-elevated: 23 29 42;
-  --muted-foreground: 158 170 194;
-  --border: 46 57 78;
-  --accent: 56 189 248;
-  --accent-secondary: 251 191 36;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --background: 0 0 0;
+  --foreground: 245 247 255;
+  --surface: 15 18 31;
+  --surface-elevated: 19 25 42;
+  --muted-foreground: 164 173 194;
+  --border: 49 58 86;
+  --accent: 108 92 231;
+  --accent-secondary: 59 130 246;
 }
 
 * {
@@ -36,8 +24,7 @@ html {
 
 body {
   min-height: 100vh;
-  background:
-    radial-gradient(circle at top, rgb(var(--surface) / 0.6), transparent 40%),
+  background: radial-gradient(circle at top, rgba(108, 92, 231, 0.14), transparent 25%),
     rgb(var(--background));
   color: rgb(var(--foreground));
 }
@@ -50,12 +37,12 @@ button {
 }
 
 ::selection {
-  background: rgb(var(--accent) / 0.18);
+  background: rgb(var(--accent) / 0.24);
   color: rgb(var(--foreground));
 }
 
 @utility section-padding {
-  @apply px-3 py-16 sm:px-5 sm:py-20 lg:py-24;
+  @apply py-16 sm:py-20 lg:py-24;
 }
 
 @utility text-balance {

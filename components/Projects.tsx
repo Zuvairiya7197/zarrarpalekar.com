@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 
 import { projects } from "@/lib/site";
@@ -12,62 +12,46 @@ export function Projects() {
       <Container>
         <SectionHeading
           eyebrow="Projects"
-          title="Selected work shaped around clarity, trust, and conversion."
-          description="A few examples of the kind of polished, high-intent work I enjoy building for brands that care about both aesthetics and outcomes."
-          centered
+          title="Featured projects."
+          description="Some of the selected work that showcases my skills and passion."
         />
 
-        <div className="mt-12 grid gap-6">
+        <div className="mt-10 grid gap-6 lg:grid-cols-2">
           {projects.map((project) => (
             <article
               key={project.title}
-              className="grid gap-6 overflow-hidden rounded-[34px] border border-[color:rgb(var(--border)/0.75)] bg-[rgb(var(--surface)/0.88)] p-5 shadow-[0_24px_70px_rgba(15,23,42,0.07)] backdrop-blur md:grid-cols-[0.98fr_1.02fr] md:p-6"
+              className="overflow-hidden rounded-[30px] border border-[color:rgb(var(--border)/0.78)] bg-[rgb(var(--surface)/0.72)] p-5 shadow-[0_22px_60px_rgba(0,0,0,0.24)]"
             >
-              <div className="relative overflow-hidden rounded-[28px] border border-[color:rgb(var(--border)/0.72)] bg-[rgb(var(--background)/0.7)] p-2">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(var(--accent),0.1),transparent_42%),radial-gradient(circle_at_bottom_right,rgba(var(--accent-secondary),0.12),transparent_38%)]" />
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  width={1200}
-                  height={900}
-                  className="relative h-full w-full rounded-[24px] object-cover"
-                />
-              </div>
-
-              <div className="flex flex-col justify-between">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[rgb(var(--accent))]">
-                    {project.metric}
-                  </p>
-                  <h3 className="mt-3 text-2xl font-semibold tracking-tight text-[rgb(var(--foreground))] sm:text-3xl">
-                    {project.title}
-                  </h3>
-                  <p className="mt-4 max-w-2xl text-sm leading-7 text-[rgb(var(--muted-foreground))] sm:text-base">
-                    {project.description}
-                  </p>
+              {project.image ? (
+                <div className="relative overflow-hidden rounded-[24px] border border-[color:rgb(var(--border)/0.72)] bg-[rgb(var(--background)/0.78)]">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={1200}
+                    height={900}
+                    className="h-full w-full object-cover"
+                  />
                 </div>
+              ) : (
+                <div className="flex h-[220px] items-center justify-center rounded-[24px] border border-[color:rgb(var(--border)/0.72)] bg-[linear-gradient(135deg,rgba(var(--accent),0.18),rgba(var(--surface),0.8))] p-6">
+                  <p className="text-center text-2xl font-semibold text-white">{project.title}</p>
+                </div>
+              )}
 
-                <div className="mt-8">
-                  <div className="flex flex-wrap gap-2.5">
-                    {project.stack.map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-full border border-[color:rgb(var(--border)/0.8)] bg-[rgb(var(--background)/0.72)] px-3.5 py-2 text-sm font-medium text-[rgb(var(--foreground))]"
-                      >
-                        {item}
-                      </span>
-                    ))}
+              <div className="mt-5">
+                <h3 className="text-2xl font-semibold tracking-tight text-white">{project.title}</h3>
+                <p className="mt-2 text-sm font-semibold text-[rgb(var(--accent-secondary))]">
+                  {project.date}
+                </p>
+                <p className="mt-4 text-sm leading-7 text-[rgb(var(--muted-foreground))]">
+                  {project.description}
+                </p>
+
+                <div className="mt-5 rounded-[22px] border border-[color:rgb(var(--border)/0.7)] bg-[rgb(var(--background)/0.65)] p-4">
+                  <div className="flex items-center justify-between text-sm font-semibold text-white">
+                    Project Details
+                    <ChevronDown className="h-4 w-4" />
                   </div>
-
-                  <a
-                    href={project.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-8 inline-flex items-center gap-2 rounded-full bg-[rgb(var(--foreground))] px-5 py-3 text-sm font-semibold text-[rgb(var(--background))] transition-transform duration-200 hover:-translate-y-0.5"
-                  >
-                    View Live Project
-                    <ArrowUpRight className="h-4 w-4" />
-                  </a>
                 </div>
               </div>
             </article>

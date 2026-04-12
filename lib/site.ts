@@ -1,167 +1,242 @@
 export const siteConfig = {
   name: "Zarrar Palekar",
   shortName: "ZP",
-  title: "Zarrar Palekar | Frontend Architect & Next.js Developer",
+  title: "Zarrar Palekar | Full Stack Developer | MERN Stack Developer",
   description:
-    "Premium, conversion-focused websites and web apps for founders, agencies, and ambitious brands.",
+    "Full Stack Developer & MERN Stack Developer building modern, scalable web applications that solve real-world problems with clean and efficient code.",
   url: "https://zarrarpalekar.com",
-  location: "India",
-  email: "hello@zarrarpalekar.com",
-  calendlyUrl: "https://calendly.com/zarrarpalekar/30min",
-  resumeUrl: "/resume",
+  location: "Mumbai, India",
+  email: "meetzarrarpalekar@gmail.com",
+  phone: "+91 9867363215",
+  calendlyUrl: "https://calendly.com/meetzarrar/30min",
+  whatsappUrl:
+    "https://api.whatsapp.com/send?phone=+919867363215&text=Hi%20Zarrar%21%20I%20came%20here%20from%20your%20portfolio%20website.",
   socialLinks: [
-    {
-      label: "GitHub",
-      href: "https://github.com/zarrarpalekar",
-    },
-    {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/zarrarpalekar",
-    },
+    { label: "GitHub", href: "https://github.com/ZarrarPalekar" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/zarrarpalekar" },
     {
       label: "Instagram",
-      href: "https://www.instagram.com/zarrarpalekar",
+      href: "https://www.instagram.com/palekarzarrar/?hl=en",
     },
   ],
   navLinks: [
     { label: "Home", href: "#home" },
     { label: "About", href: "#about" },
     { label: "Skills", href: "#skills" },
-    { label: "Services", href: "#services" },
+    { label: "Experience", href: "#experience" },
     { label: "Projects", href: "#projects" },
-    { label: "Testimonials", href: "#testimonials" },
     { label: "Contact", href: "#contact" },
   ],
 } as const;
 
-export const heroHighlights = [
-  "Conversion-first landing pages",
-  "High-performance Next.js builds",
-  "Design systems that scale cleanly",
-];
+const assetBase =
+  "https://lightgoldenrodyellow-fox-787789.hostingersite.com/wp-content/uploads/2026/04";
+
+export const heroRoles = [
+  "Full Stack Developer",
+  "UI/UX Enthusiast",
+  "Tech Innovator",
+  "MERN Stack Expert",
+] as const;
 
 export const trustStats = [
-  { value: "7+", label: "Years building web experiences" },
-  { value: "35+", label: "Launches across product and marketing" },
-  { value: "96%", label: "Average Lighthouse performance target" },
-];
+  { value: 9, suffix: "+", label: "Years Experience" },
+  { value: 20, suffix: "+", label: "Project Completed" },
+  { value: 25, suffix: "+", label: "Technical Skills" },
+] as const;
+
+export const aboutHighlights = [
+  {
+    title: "Full Stack",
+    subtitle: "MERN & .Net",
+    image: `${assetBase}/Full-stack-1-e1775234110648.png`,
+  },
+  {
+    title: "Performance",
+    subtitle: "Speed & Efficiency",
+    image: `${assetBase}/peformance-1-e1775234494456.png`,
+  },
+  {
+    title: "Experience",
+    subtitle: "9+ Year",
+    image: `${assetBase}/experience-1-e1775235240646.png`,
+  },
+  {
+    title: "Clean Code",
+    subtitle: "Solutions",
+    image: `${assetBase}/Code-1-e1775234222308.png`,
+  },
+  {
+    title: "UI\\UX",
+    subtitle: "Focused",
+    image: `${assetBase}/UX-1-e1775234427944.png`,
+  },
+  {
+    title: "Scalable",
+    subtitle: "Solutions",
+    image: `${assetBase}/Scalable-1-e1775234763931.png`,
+  },
+] as const;
+
+export const aboutParagraphs = [
+  "Hi there! I am Zarrar Palekar.",
+  "With over 9 years of dedicated experience in Full Stack Web Development, my passion lies in crafting elegant and intuitive web applications that provide seamless user experiences.",
+  "From ideation to deployment, I prioritize delivering exceptional outcomes that surpass expectations.",
+  "Whether working independently or collaboratively, my commitment to excellence remains steadfast.",
+] as const;
 
 export const skillGroups = [
   {
     title: "Frontend",
     items: [
-      "Next.js",
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Framer Motion",
+      "Bootstrap",
+      "React JS",
+      "Redux",
+      "React Router",
       "HTML5",
-      "CSS Architecture",
-      "Accessibility",
+      "React Bootstrap",
+      "JavaScript",
+      "Sass",
+      "Material UI",
+      "CSS3",
+      ".Net",
+      "styled components",
     ],
   },
   {
     title: "Backend",
-    items: [
-      "Node.js",
-      "REST APIs",
-      "Server Actions",
-      "PostgreSQL",
-      "Prisma",
-      "Supabase",
-      "Authentication",
-      "CMS Integrations",
-    ],
+    items: ["Node.js", "Express"],
   },
   {
-    title: "Tools",
-    items: [
-      "Figma",
-      "GitHub",
-      "Vercel",
-      "Lighthouse",
-      "Sanity",
-      "Notion",
-      "Calendly",
-      "Analytics",
-    ],
+    title: "Hosting Platform",
+    items: ["Heroku", "Github"],
+  },
+  {
+    title: "Programming Languages",
+    items: ["Javascript", "Typescript"],
+  },
+  {
+    title: "Version Control",
+    items: ["GIT", "TortoiseSVN"],
+  },
+  {
+    title: "Database",
+    items: ["MS-SQL", "MongoDB", "PL\\SQL"],
   },
 ] as const;
 
-export const services = [
+export const experiences = [
   {
-    icon: "layout",
-    title: "Conversion-Focused Websites",
-    description:
-      "Single-page and multi-page sites designed to turn qualified traffic into booked calls and leads.",
-    points: ["Positioning-led copy blocks", "Premium responsive UI", "Fast handoff and launch"],
+    company: "Azul Arc",
+    title: "Sr. Software Developer",
+    specialization: "MERN Full Stack Developer",
+    logo: `${assetBase}/Azul-Arc.webp`,
+    technologies: ["MERN", "Context API"],
+    start: "2022-10-01",
+    end: "present",
+    points: [
+      "Developing various React based applications with Context API.",
+      "Interacting with the clients directly.",
+    ],
   },
   {
-    icon: "sparkles",
-    title: "Product & Marketing Interfaces",
-    description:
-      "Scalable interfaces for SaaS, internal tools, dashboards, and modern product marketing surfaces.",
-    points: ["Reusable design systems", "Accessible component patterns", "Performance-first builds"],
+    company: "Syndication Pro",
+    title: "Software Engineer L2",
+    specialization: "MERN Full Stack Developer",
+    logo: `${assetBase}/Syndication-pro.jpg`,
+    technologies: ["MERN Stack", "Redux", "GraphQL", "Apollo"],
+    start: "2021-06-01",
+    end: "2022-10-01",
+    points: ["Learning & Implementing React based applications with Apollo GraphQL."],
   },
   {
-    icon: "rocket",
-    title: "Technical Partner for Agencies",
-    description:
-      "Senior-level execution for teams that need a reliable frontend architect without adding headcount.",
-    points: ["White-label delivery", "Clean code architecture", "Async-friendly collaboration"],
+    company: "Euclid – Tenders Info",
+    title: "Senior Software Developer",
+    specialization: ".Net Full Stack Developer",
+    logo: `${assetBase}/Euclid.jpg`,
+    technologies: [".NET", "C#", "MS-SQL"],
+    start: "2019-04-01",
+    end: "2021-06-01",
+    points: [
+      "Developed & enhanced multiple features for our web based CRM & CMS Systems.",
+      "Developed automated mailer applications as well as JSON based Web APIs for the clients.",
+      "Created from scratch many small modules which used to come to us as manual tasks daily so as to reduce our manual task load.",
+    ],
+  },
+  {
+    company: "Tech Mahindra",
+    title: "Software Engineer",
+    specialization: ".Net Full Stack Developer",
+    logo: `${assetBase}/techmahindra.svg`,
+    technologies: [".NET", "C#", "Oracle PL/SQL"],
+    start: "2017-03-01",
+    end: "2019-04-01",
+    points: [
+      "Developed & enhanced multiple features for our web based CRM & CMS Systems.",
+      "Developed Web APIs for the clients other UI projects.",
+    ],
   },
 ] as const;
 
 export const projects = [
   {
-    title: "Danube Luxury Launch",
-    description:
-      "A cinematic real-estate microsite designed to capture premium leads with immersive visuals and strong CTA placement.",
-    stack: ["Next.js", "Tailwind CSS", "Motion", "SEO"],
-    href: "https://danubeproperties.com/",
-    image: "/projects/danube-luxury-launch.svg",
-    metric: "+41% qualified inquiries",
+    title: "E-Shop App",
+    date: "Mar-2021",
+    description: "This is a MERN Full Stack E-Commerce App.",
+    image: `${assetBase}/eshopapp.webp`,
   },
   {
-    title: "Emlak Design Studio",
-    description:
-      "A refined portfolio site for a design-led studio, balancing editorial storytelling with lead generation.",
-    stack: ["Next.js", "TypeScript", "CMS", "Performance"],
-    href: "https://emlakdesign.com/",
-    image: "/projects/emlak-design-studio.svg",
-    metric: "1.8s mobile LCP",
+    title: "Dev Social App",
+    date: "Nov-2020",
+    description: "A Social Media App for developers.",
+    image: `${assetBase}/1DevConnApp.webp`,
   },
   {
-    title: "Zuvi Lead Engine",
-    description:
-      "A high-converting landing experience built for clarity, trust, and measurable acquisition improvements.",
-    stack: ["React", "Analytics", "A/B Testing", "UI Systems"],
-    href: "https://alcenza.ae/",
-    image: "/projects/zuvi-lead-engine.svg",
-    metric: "+28% booked calls",
-  },
-] as const;
-
-export const testimonials = [
-  {
-    quote:
-      "Zarrar blends strong product instincts with polished frontend execution. We shipped faster and the final experience felt far more premium.",
-    name: "Aisha Khan",
-    role: "Founder",
-    company: "Northline Studio",
+    title: "Shopping List App",
+    date: "Oct-2020",
+    description: "This is a Shopping List App.",
+    image: `${assetBase}/7MernShopList.webp`,
   },
   {
-    quote:
-      "What stood out most was the thinking. Every section had a purpose, every interaction felt intentional, and the build quality was excellent.",
-    name: "Rohan Mehta",
-    role: "Growth Lead",
-    company: "LaunchCraft",
+    title: "EJS Todo App",
+    date: "Sep-2020",
+    description: "An app based on EJS & used to maintain a todo list.",
+    image: `${assetBase}/2ToDoApp.webp`,
   },
   {
-    quote:
-      "Reliable, fast, and deeply detail-oriented. Zarrar was the rare technical partner who elevated both the design and the conversion strategy.",
-    name: "Nadia Arif",
-    role: "Creative Director",
-    company: "ModeHaus",
+    title: "My Blogs",
+    date: "Sep-2020",
+    description: "An app that allows users to see my blog posts.",
+    image: undefined,
+  },
+  {
+    title: "My Newsletter",
+    date: "Sep-2020",
+    description: "An app that signs you up for my newsletter.",
+    image: undefined,
+  },
+  {
+    title: "Secrets App",
+    date: "Aug-2020",
+    description: "An app that posts secrets anonymously.",
+    image: undefined,
+  },
+  {
+    title: "Portfolio Website",
+    date: "Jul-2020",
+    description: "This portfolio website.",
+    image: undefined,
+  },
+  {
+    title: "Tindog – Tinder for dogs",
+    date: "Jun-2020",
+    description: "Website is a clone of Tinder and its for your dogs.",
+    image: undefined,
+  },
+  {
+    title: "My First Website",
+    date: "Jun-2020",
+    description: "This website is my earlier portfolio.",
+    image: undefined,
   },
 ] as const;
