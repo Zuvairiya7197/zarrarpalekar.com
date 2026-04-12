@@ -16,11 +16,10 @@ export function Hero() {
             "url(https://lightgoldenrodyellow-fox-787789.hostingersite.com/wp-content/uploads/2026/04/Hero-section-image.png)",
         }}
       />
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(220,0,255,0.22),transparent_16%),linear-gradient(180deg,rgba(6,4,18,0.32),rgba(6,4,18,0.78))]" />
 
       <Container className="relative max-w-[1770px] px-4 sm:px-6 lg:px-10">
         <div className="relative min-h-[720px] px-5 py-6 sm:min-h-[760px] sm:px-8 sm:py-8 lg:px-10 lg:py-10">
-          <div className="relative z-10 max-w-[560px] rounded-[28px] border border-[rgba(138,84,255,0.28)] bg-[rgba(16,8,34,0.78)] px-7 py-8 shadow-[0_25px_80px_rgba(0,0,0,0.28)] backdrop-blur-[2px] sm:ml-2 sm:mt-2 sm:px-8 sm:py-9 lg:ml-4 lg:mt-4">
+          <div className="relative z-10 max-w-[470px] rounded-[28px] border border-[rgba(138,84,255,0.28)] bg-[rgba(16,8,34,0.78)] px-7 py-8 shadow-[0_25px_80px_rgba(0,0,0,0.28)] backdrop-blur-[2px] sm:ml-2 sm:mt-2 sm:px-8 sm:py-9 lg:ml-4 lg:mt-4">
             <h1 className="font-[family-name:var(--font-display)] text-[56px] font-bold leading-[0.92] tracking-[-0.05em] text-white sm:text-[72px] lg:text-[86px]">
               <span className="block">I&apos;m Zarrar</span>
               <span className="mt-2 block bg-[linear-gradient(180deg,#b300ff_0%,#7c11ff_48%,#5f4bff_100%)] bg-clip-text text-transparent">
@@ -56,7 +55,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="relative z-10 mt-5 grid max-w-[610px] gap-4 sm:grid-cols-3 lg:ml-4 lg:mt-5 lg:max-w-[570px]">
+          <div className="relative z-10 mt-5 grid max-w-[470px] gap-4 sm:grid-cols-3 lg:ml-4 lg:mt-5">
             {trustStats.map((stat) => (
               <div
                 key={stat.label}

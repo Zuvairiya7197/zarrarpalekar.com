@@ -32,6 +32,10 @@ export const siteConfig = {
 const assetBase =
   "https://lightgoldenrodyellow-fox-787789.hostingersite.com/wp-content/uploads/2026/04";
 
+const experienceStartYear = 2017;
+
+export const experienceYears = new Date().getUTCFullYear() - experienceStartYear;
+
 export const heroRoles = [
   "Full Stack Developer",
   "UI/UX Enthusiast",
@@ -40,7 +44,7 @@ export const heroRoles = [
 ] as const;
 
 export const trustStats = [
-  { value: 9, suffix: "+", label: "Years Experience" },
+  { value: experienceYears, suffix: "+", label: "Years Experience" },
   { value: 20, suffix: "+", label: "Project Completed" },
   { value: 25, suffix: "+", label: "Technical Skills" },
 ] as const;
@@ -58,7 +62,7 @@ export const aboutHighlights = [
   },
   {
     title: "Experience",
-    subtitle: "9+ Year",
+    subtitle: `${experienceYears}+ Year`,
     image: `${assetBase}/experience-1-e1775235240646.png`,
   },
   {
@@ -78,50 +82,138 @@ export const aboutHighlights = [
   },
 ] as const;
 
+export const aboutIntro = "Hi there! I am Zarrar Palekar." as const;
+
 export const aboutParagraphs = [
-  "Hi there! I am Zarrar Palekar.",
-  "With over 9 years of dedicated experience in Full Stack Web Development, my passion lies in crafting elegant and intuitive web applications that provide seamless user experiences.",
-  "From ideation to deployment, I prioritize delivering exceptional outcomes that surpass expectations.",
-  "Whether working independently or collaboratively, my commitment to excellence remains steadfast.",
+  `With over ${experienceYears} years of dedicated experience in Full Stack Web Development, my passion lies in crafting elegant and intuitive web applications that provide seamless user experiences.`,
+  `With over ${experienceYears} years of dedicated experience in Full Stack Web Development, I excel in utilizing the MERN stack (MongoDB, Express, React, Node.js) and stay up-to-date with the latest technologies and methodologies to deliver innovative, tailor-made solutions that align with clients’ specific needs.`,
+  "From ideation to deployment, I prioritize delivering exceptional outcomes that surpass expectations. My attention to detail ensures visually appealing and functionally robust applications that drive business growth and enhance user engagement.",
+  "Whether working independently or collaboratively, my commitment to excellence remains steadfast. I continuously expand my expertise to remain at the forefront of this dynamic industry.",
+  "Let’s collaborate to turn your vision to reality and create something truly exceptional together!",
 ] as const;
 
 export const skillGroups = [
   {
     title: "Frontend",
     items: [
-      "Bootstrap",
-      "React JS",
-      "Redux",
-      "React Router",
-      "HTML5",
-      "React Bootstrap",
-      "JavaScript",
-      "Sass",
-      "Material UI",
-      "CSS3",
-      ".Net",
-      "styled components",
+      {
+        name: "Bootstrap",
+        icon: `${assetBase}/bootstrap.svg`,
+      },
+      {
+        name: "React JS",
+        icon: `${assetBase}/reactjs.svg`,
+      },
+      {
+        name: "Redux",
+        icon: `${assetBase}/redux.svg`,
+      },
+      {
+        name: "React Router",
+        icon: `${assetBase}/react-router.svg`,
+      },
+      {
+        name: "HTML5",
+        icon: `${assetBase}/html-5.svg`,
+      },
+      {
+        name: "React Bootstrap",
+        icon: `${assetBase}/react-bootstrap-1.svg`,
+      },
+      {
+        name: "JavaScript",
+        icon: `${assetBase}/javascript.svg`,
+      },
+      {
+        name: "Sass",
+        icon: `${assetBase}/sass.svg`,
+      },
+      {
+        name: "Material UI",
+        icon: `${assetBase}/material-ui-.svg`,
+      },
+      {
+        name: "CSS3",
+        icon: `${assetBase}/css3.svg`,
+      },
+      {
+        name: ".Net",
+        icon: `${assetBase}/net.png`,
+      },
+      {
+        name: "styled components",
+        icon: `${assetBase}/Styled-component-1.png`,
+      },
     ],
   },
   {
     title: "Backend",
-    items: ["Node.js", "Express"],
+    items: [
+      {
+        name: "Node.js",
+        icon: `${assetBase}/Node-js-1.png`,
+      },
+      {
+        name: "Express",
+        icon: `${assetBase}/express-1.png`,
+      },
+    ],
   },
   {
     title: "Hosting Platform",
-    items: ["Heroku", "Github"],
+    items: [
+      {
+        name: "Heroku",
+        icon: `${assetBase}/heroku.svg`,
+      },
+      {
+        name: "Github",
+        icon: `${assetBase}/github.png`,
+      },
+    ],
   },
   {
     title: "Programming Languages",
-    items: ["Javascript", "Typescript"],
+    items: [
+      {
+        name: "Javascript",
+        icon: `${assetBase}/javascript.svg`,
+      },
+      {
+        name: "Typescript",
+        icon: `${assetBase}/Type-Script.png`,
+      },
+    ],
   },
   {
     title: "Version Control",
-    items: ["GIT", "TortoiseSVN"],
+    items: [
+      {
+        name: "GIT",
+        icon: `${assetBase}/git-icon.svg`,
+      },
+      {
+        name: "TortoiseSVN",
+        icon: `${assetBase}/Tortoise-e1775477338512.png`,
+      },
+    ],
   },
   {
     title: "Database",
-    items: ["MS-SQL", "MongoDB", "PL\\SQL"],
+    items: [
+      {
+        name: "MS-SQL",
+        icon: `${assetBase}/MSSQL.jpg`,
+      },
+      {
+        name: "MongoDB",
+        icon: `${assetBase}/MongoDB.png`,
+      },
+      {
+        name: "PL\\SQL",
+        icon: `${assetBase}/oracle.jpg`,
+      },
+    ],
   },
 ] as const;
 
