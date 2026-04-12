@@ -5,6 +5,7 @@
   "description": "Premium single-page personal portfolio built with Next.js App Router.",
   "scripts": {
     "dev": "next dev",
+    "clean": "rm -rf .next",
     "build": "next build",
     "start": "next start",
     "lint": "eslint ."
