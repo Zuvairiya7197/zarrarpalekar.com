@@ -26,6 +26,7 @@ export const siteConfig = {
     { label: "Skills", href: "#skills" },
     { label: "Experience", href: "#experience" },
     { label: "Projects", href: "#projects" },
+    { label: "Testimonials", href: "#testimonials" },
     { label: "Contact", href: "#contact" },
   ],
 } as const;
@@ -389,5 +390,73 @@ export const projects = [
       "My Earlier CV",
     ],
     sourceCode: "https://oldcv.zarrarpalekar.com/",
+  },
+] as const;
+
+export const testimonials = [
+  {
+    name: "Swapnil Patil",
+    image: "/Images/swapnil%20patil.jpeg",
+    headline:
+      "Sr Software Developer @ Azul Arc | Technical Architecture, Prompt Engineering, Product Development, AI feature integration",
+    date: "August 25, 2025",
+    relationship: "Swapnil reported to Zarrar directly",
+    quote:
+      "I had the privilege of working with Zarrar, who seamlessly balances his role as a Team Lead and Scrum Master while also being an AI enthusiast constantly exploring ways to bring innovation into our projects.\n\nAs a leader, Zarrar stands out for his ability to foster collaboration, encourage open communication, and guide the team with clarity and purpose. He has an exceptional knack for breaking down complex challenges into achievable steps, ensuring that everyone stays aligned and motivated.\n\nWhat truly sets him apart is his passion for AI and emerging technologies. He actively shares insights, experiments with new ideas, and inspires the team to think beyond conventional solutions. This forward-thinking mindset has helped us improve processes, deliver smarter solutions, and stay ahead of the curve.",
+  },
+  {
+    name: "Sadaf Mirza",
+    image: "/Images/Sadaf%20Mirza.jpeg",
+    headline:
+      "Senior Software Engineer @AzulArc | exLTIM | MERN & MEAN Stack Developer | PERN | AWS accredited | DSA Enthusiast",
+    date: "August 21, 2025",
+    relationship: "Sadaf reported to Zarrar directly",
+    quote:
+      "I’ve had the privilege of working with Zarrar as my team lead, and it has truly been an enriching experience. From the very beginning, Zarrar has been very supportive and approachable, always ready to lend a hand or share his insights whenever needed. His straightforward approach makes communication clear and effective, while also creating a space where ideas and opinions can be freely expressed.\n\nWhat stands out the most about Zarrar is not only his impressive skill set and professionalism but also his genuine willingness to help others grow. He takes the time to guide, mentor, and ensure the team feels supported in every challenge. His ability to balance technical expertise with empathy and encouragement has had a huge impact on my own growth and confidence at work.\n\nZarrar is more than just a great leader, he’s someone who inspires trust, collaboration, and continuous learning within the team. I feel grateful to work under his guidance and would highly recommend him to anyone looking for a strong, supportive, and impactful leader.",
+  },
+  {
+    name: "Nihar Makwana",
+    image: "/Images/Nihar%20Makwana.jpeg",
+    headline: "Sr. Software Developer at AzulArc",
+    date: "August 21, 2025",
+    relationship: "Nihar reported to Zarrar directly",
+    quote:
+      "I've had the pleasure of working with Zarrar for nearly three years, first as a peer and later as a member of his team. Throughout this time, I've seen firsthand that Zarrar is not only a highly skilled and intelligent engineer but also a natural leader.\n\nAs a team leader, Zarrar excels at creating an environment where everyone can thrive. He consistently supported our team, advocated for our needs, and encouraged us to grow while also ensuring we maintained a healthy work-life balance. His approachability and willingness to help made him an incredibly effective leader; I never felt intimidated, and it was always easy to seek his guidance.\n\nIn my seven years of professional experience, Zarrar stands out as the best colleague and team leader I've had the honor of working with. His commitment to both the team's success and individual well-being makes him an exceptional asset.",
+  },
+  {
+    name: "Premraj Tripute",
+    image: "/Images/Premraj%20Tripute.jpeg",
+    headline: "Full stack developer | NodeJs | Express | ReactJs | Angular 2+ | AWS",
+    date: "August 20, 2025",
+    relationship: "Premraj reported to Zarrar directly",
+    quote:
+      "I'm incredibly fortunate to be working alongside Zarrar! As a colleague at Azul Arc, they've proven to be a truly exceptional leader and a master of project management.\n\nTheir deep knowledge of software development, especially with the PERN stack and DevOps, is a huge asset to our team. They've been instrumental in guiding our projects, and their expertise in agile practices ensures we consistently stay on track and deliver high-quality work.\n\nWhat truly sets Zarrar apart is his fantastic approach to team management. They foster a collaborative and positive environment, always providing clear direction and empowering everyone to do their best work. Their ability to lead, mentor, and motivate makes our team incredibly effective.",
+  },
+  {
+    name: "Nikhil Joshi",
+    image: "/Images/Nikhil%20Joshi.jpeg",
+    headline: "International Business Development | Sales | Partnerships | Strategic Alliances",
+    date: "March 8, 2024",
+    relationship: "Nikhil worked with Zarrar but on different teams",
+    quote:
+      "During the time of working alongside Zarrar at Euclid, I was instantly awed by his unwavering zest to go deep into requirements, his working on the problems encountered and coming out with a solution. A curious self learner that he is and technical brilliance that he brought to the table, resonates well with the progress he has done till date and definitely way to go. Onward and Upwards.",
+  },
+  {
+    name: "Shir Avidan",
+    image: "/Images/Shir%20Avidan.jpeg",
+    headline: "Sr. Software Product Manager",
+    date: "February 26, 2024",
+    relationship: "Shir managed Zarrar directly",
+    quote:
+      "Zarrar has skillfully navigated through the project's most challenging aspects. His effective communication and proactive problem-solving reflect his strong commitment to excellence and delivering results. Zarrar's hard work and dedication have greatly contributed to the ongoing success of our organization.",
+  },
+  {
+    name: "Shubham Singh",
+    image: "/Images/Shubham%20Singh.jpeg",
+    headline: "Senior Software Engineer at SponsorCloud",
+    date: "February 27, 2022",
+    relationship: "Shubham worked with Zarrar on the same team",
+    quote:
+      "Zarrar is very passionate and has a great vision for his work. His focus keeps everything moving smoothly, he makes sure all the deadlines are met and makes sure that whatever project he is working on meets the highest standards. His helping nature to other colleagues makes him a more loving employee and person.",
   },
 ] as const;
