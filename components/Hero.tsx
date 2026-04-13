@@ -40,7 +40,7 @@ export function Hero() {
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a
                 href="#projects"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#9f14ff_0%,#6d43ff_100%)] px-6 text-[17px] font-semibold text-white shadow-[0_18px_40px_rgba(148,39,255,0.34)] transition-transform duration-200 hover:-translate-y-0.5"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-6 text-[17px] font-semibold text-white shadow-[0_18px_40px_rgba(108,92,231,0.28)] transition-transform duration-200 hover:-translate-y-0.5"
               >
                 Explore My Work
                 <BriefcaseBusiness className="h-4 w-4" />
