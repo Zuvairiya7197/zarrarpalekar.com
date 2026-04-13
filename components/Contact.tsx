@@ -167,7 +167,7 @@ export function Contact() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(90deg,#7f1dff_0%,#9f2eff_100%)] px-6 py-3.5 text-[15px] font-semibold text-white shadow-[0_14px_34px_rgba(127,29,255,0.32)] transition-transform duration-200 hover:-translate-y-0.5 disabled:opacity-75"
+                    className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-6 text-[17px] font-semibold text-white shadow-[0_18px_40px_rgba(108,92,231,0.28)] transition-transform duration-200 hover:-translate-y-0.5 disabled:opacity-75"
                   >
                     {isSubmitting ? (
                       <>
