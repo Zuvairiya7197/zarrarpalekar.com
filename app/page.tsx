@@ -8,6 +8,7 @@ import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Navbar } from "@/components/Navbar";
 import { Skills } from "@/components/Skills";
+import { Testimonials } from "@/components/Testimonials";
 import { siteConfig } from "@/lib/site";
 
 const jsonLd = {
@@ -39,6 +40,7 @@ export default function HomePage() {
           <About />
           <Skills />
           <ExperienceProjects />
+          <Testimonials />
           <Contact />
         </main>
         <Footer />
