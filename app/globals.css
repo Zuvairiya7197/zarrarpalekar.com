@@ -29,6 +29,40 @@ body {
   color: rgb(var(--foreground));
 }
 
+.calendly-overlay {
+  background: rgba(5, 2, 12, 0.76) !important;
+  backdrop-filter: blur(10px);
+}
+
+.calendly-overlay .calendly-popup,
+.calendly-overlay .calendly-popup-content {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.calendly-overlay .calendly-popup-content {
+  border-radius: 24px !important;
+}
+
+@keyframes timeline-dot-pulse {
+  0% {
+    transform: scale(0.72);
+    opacity: 0.45;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 0.95;
+  }
+  100% {
+    transform: scale(0.72);
+    opacity: 0.45;
+  }
+}
+
+.timeline-dot-pulse {
+  animation: timeline-dot-pulse 2.2s ease-in-out infinite;
+}
+
 a,
 button {
   transition-property: color, background-color, border-color, transform, opacity, box-shadow;

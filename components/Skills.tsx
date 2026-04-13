@@ -9,11 +9,11 @@ type SkillItem = (typeof skillGroups)[number]["items"][number];
 
 function SkillTile({ name, icon }: SkillItem) {
   return (
-    <div className="flex min-h-[94px] w-full min-w-0 flex-col items-center justify-center rounded-[14px] border border-[rgba(105,18,214,0.48)] bg-[rgba(15,6,28,0.84)] px-3 py-3 text-center shadow-[0_16px_36px_rgba(0,0,0,0.2)]">
-      <div className="relative h-[38px] w-[38px]">
+    <div className="group flex size-[80px] shrink-0 flex-col items-center justify-center overflow-hidden rounded-[14px] border border-[rgba(105,18,214,0.48)] bg-[rgba(15,6,28,0.84)] px-2 py-2.5 text-center shadow-[0_16px_36px_rgba(0,0,0,0.2)] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[rgba(193,96,255,0.72)] hover:bg-[linear-gradient(180deg,rgba(212,36,255,0.95)_0%,rgba(123,24,255,0.96)_58%,rgba(96,21,227,0.98)_100%)] hover:shadow-[0_0_18px_rgba(202,68,255,0.65),0_0_40px_rgba(141,30,255,0.48)] sm:size-[84px] md:size-[70px] lg:size-[72px] xl:size-[88px]">
+      <div className="relative h-[24px] w-[24px] sm:h-[27px] sm:w-[27px] md:h-[22px] md:w-[22px] lg:h-[23px] lg:w-[23px] xl:h-[28px] xl:w-[28px]">
         <Image src={icon} alt={name} fill sizes="38px" className="object-contain" />
       </div>
-      <p className="mt-3 text-[11px] font-semibold leading-[1.35] text-white sm:text-[12px]">
+      <p className="mt-2 text-[9px] font-semibold leading-[1.2] text-white transition-colors duration-300 group-hover:text-white sm:mt-2 sm:text-[9px] md:text-[7px] lg:text-[8px] xl:mt-2.5 xl:text-[10px]">
         {name}
       </p>
     </div>
@@ -31,21 +31,29 @@ function SkillGroup({
   fullWidth?: boolean;
   className?: string;
 }) {
+  const tileLayoutClass = fullWidth
+    ? "mt-7 grid grid-cols-3 justify-items-center gap-3 sm:gap-4 md:grid-cols-6 xl:grid-cols-12"
+    : items.length === 3
+      ? "mt-7 mx-auto grid w-fit grid-cols-3 justify-items-center gap-3"
+      : "mt-7 mx-auto grid w-fit grid-cols-2 justify-items-center gap-3";
+  const titleClass =
+    title.length > 18
+      ? "whitespace-nowrap px-3 py-2 text-[8px] sm:text-[10px] md:text-[7px] lg:text-[9px] xl:px-4 xl:text-[12px]"
+      : title.length > 14
+        ? "whitespace-nowrap px-3 py-2 text-[10px] sm:text-[11px] md:text-[8px] lg:text-[10px] xl:px-4 xl:text-[13px]"
+        : "whitespace-nowrap px-3 py-2 text-[11px] sm:text-[12px] md:text-[9px] lg:text-[11px] xl:px-4 xl:text-[13px]";
+
   return (
     <article
-      className={`w-full min-w-0 rounded-[22px] border border-[rgba(105,18,214,0.42)] bg-[rgba(10,4,18,0.84)] p-4 shadow-[0_22px_60px_rgba(0,0,0,0.22)] sm:p-5 ${className}`}
+      className={`h-full w-full min-w-0 overflow-hidden rounded-[22px] border border-[rgba(105,18,214,0.42)] bg-[rgba(10,4,18,0.84)] p-4 shadow-[0_22px_60px_rgba(0,0,0,0.22)] sm:p-5 ${className}`}
     >
-      <div className="inline-flex max-w-full rounded-full bg-[linear-gradient(90deg,#6120be_0%,#6c27d8_100%)] px-4 py-2 text-[12px] font-semibold text-white sm:text-[13px]">
+      <div
+        className={`inline-flex max-w-full rounded-full bg-[linear-gradient(90deg,#6120be_0%,#6c27d8_100%)] font-semibold leading-none text-white ${titleClass}`}
+      >
         {title}
       </div>
 
-      <div
-        className={
-          fullWidth
-            ? "mt-7 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-12"
-            : "mt-7 grid grid-cols-2 gap-4 sm:grid-cols-2"
-        }
-      >
+      <div className={tileLayoutClass}>
         {items.map((item) => (
           <SkillTile key={`${title}-${item.name}`} {...item} />
         ))}
@@ -57,6 +65,8 @@ function SkillGroup({
 export function Skills() {
   const frontendGroup = skillGroups[0];
   const secondaryGroups = skillGroups.slice(1);
+  const primarySecondaryGroups = secondaryGroups.filter((group) => group.title !== "Database");
+  const databaseGroup = secondaryGroups.find((group) => group.title === "Database");
 
   return (
     <section id="skills" className="section-padding">
@@ -85,10 +95,22 @@ export function Skills() {
             <SkillGroup {...frontendGroup} fullWidth />
           </div>
 
-          <div className="mt-8 flex flex-col gap-4 lg:flex-row lg:flex-nowrap">
-            {secondaryGroups.map((group) => (
-              <SkillGroup key={group.title} {...group} className="lg:flex-1" />
-            ))}
+          <div className="mt-8 space-y-4">
+            <div className="grid gap-4 md:grid-cols-4 xl:grid-cols-[repeat(4,minmax(0,1fr))_1.18fr]">
+              {primarySecondaryGroups.map((group) => (
+                <SkillGroup key={group.title} {...group} className="min-w-0" />
+              ))}
+
+              {databaseGroup ? (
+                <SkillGroup key={`${databaseGroup.title}-desktop`} {...databaseGroup} className="hidden xl:block" />
+              ) : null}
+            </div>
+
+            {databaseGroup ? (
+              <div className="xl:hidden">
+                <SkillGroup {...databaseGroup} />
+              </div>
+            ) : null}
           </div>
         </div>
       </Container>

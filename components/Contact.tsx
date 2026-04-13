@@ -14,10 +14,10 @@ import {
 } from "lucide-react";
 import { FormEvent, useState } from "react";
 
+import { openCalendlyPopup } from "@/lib/calendly";
 import { siteConfig } from "@/lib/site";
 
 import { Container } from "./ui/Container";
-import { SectionHeading } from "./ui/SectionHeading";
 
 type StatusState =
   | { type: "idle"; message: string }
@@ -28,16 +28,21 @@ const connectLinks = [
   { label: "GitHub", href: siteConfig.socialLinks[0].href, icon: Github },
   { label: "WhatsApp", href: siteConfig.whatsappUrl, icon: MessageCircleMore },
   { label: "Instagram", href: siteConfig.socialLinks[2].href, icon: Instagram },
-  { label: "Calendly", href: siteConfig.calendlyUrl, icon: CalendarDays },
+  { label: "Calendly", href: siteConfig.calendlyUrl, icon: CalendarDays, isCalendly: true },
   { label: "LinkedIn", href: siteConfig.socialLinks[1].href, icon: Linkedin },
   { label: "Email", href: `mailto:${siteConfig.email}`, icon: Mail },
   { label: "Phone", href: `tel:${siteConfig.phone.replace(/\s+/g, "")}`, icon: Phone },
+  {
+    label: "Location",
+    href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(siteConfig.location)}`,
+    icon: MapPin,
+  },
 ] as const;
 
 export function Contact() {
   const [status, setStatus] = useState<StatusState>({
     type: "idle",
-    message: "Have a project in mind or just want to say hi? I'd love to hear from you.",
+    message: "Have a project in mind or just want to say hi? I’d love to hear from you.",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -85,106 +90,150 @@ export function Contact() {
 
   return (
     <section id="contact" className="section-padding pb-20">
-      <Container>
-        <div className="grid gap-6 xl:grid-cols-[0.9fr_1.05fr_0.75fr]">
-          <div className="rounded-[28px] border border-[color:rgb(var(--border)/0.78)] bg-[rgb(var(--surface)/0.72)] p-6 shadow-[0_22px_60px_rgba(0,0,0,0.24)]">
-            <SectionHeading
-              eyebrow="CONTACT"
-              title="Let’s Build Something Amazing Together."
-              description="Have a project in mind or just want to say hi? I’d love to hear from you."
-            />
+      <Container className="max-w-[1760px]">
+        <div className="rounded-[30px] border border-[rgba(101,17,204,0.35)] bg-[rgba(5,2,12,0.94)] px-5 py-6 shadow-[0_30px_90px_rgba(0,0,0,0.28)] sm:px-8 sm:py-8 lg:px-12 lg:py-10">
+          <div className="grid gap-6 md:grid-cols-[0.95fr_1.05fr] xl:grid-cols-[0.88fr_1.06fr_0.42fr] xl:items-stretch">
+            <div className="flex h-full flex-col px-2 py-2 sm:px-4 lg:px-6 lg:py-6">
+              <div className="inline-flex items-center gap-3 rounded-full bg-[linear-gradient(90deg,#6120be_0%,#8a21ff_100%)] px-5 py-3 text-[14px] font-semibold uppercase tracking-[0.02em] text-white">
+                <Phone className="h-4 w-4" />
+                <span>Contact</span>
+              </div>
 
-            <div className="mt-6 inline-flex items-center gap-3 rounded-full border border-[color:rgb(var(--border)/0.72)] px-4 py-2 text-sm text-[rgb(var(--muted-foreground))]">
-              <MapPin className="h-4 w-4 text-[rgb(var(--accent-secondary))]" />
-              {siteConfig.location}
+              <h2 className="mt-9 max-w-[420px] text-[40px] font-semibold leading-[1.05] tracking-[-0.05em] text-white sm:text-[54px] lg:text-[62px]">
+                <span className="block">Let&apos;s Build</span>
+                <span className="block">Something</span>
+                <span className="block">
+                  Amazing{" "}
+                  <span className="font-serif text-[#b80cff] italic tracking-[-0.03em]">
+                    Together.
+                  </span>
+                </span>
+              </h2>
+
+              <p className="mt-8 max-w-[420px] text-[18px] leading-[1.65] text-[rgba(173,176,210,0.84)]">
+                Have a project in mind or just want to say hi? I&apos;d love to hear from you.
+              </p>
+
+              <div className="mt-auto pt-12 inline-flex items-center gap-4 rounded-full">
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[linear-gradient(180deg,#7f1dff_0%,#962bff_100%)] text-white shadow-[0_14px_34px_rgba(127,29,255,0.32)]">
+                  <MapPin className="h-5 w-5" />
+                </span>
+                <span className="text-[20px] font-medium text-white">{siteConfig.location}</span>
+              </div>
             </div>
-          </div>
 
-          <div className="rounded-[28px] border border-[color:rgb(var(--border)/0.78)] bg-[rgb(var(--surface)/0.72)] p-6 shadow-[0_22px_60px_rgba(0,0,0,0.24)]">
-            <form className="grid gap-4" onSubmit={handleSubmit}>
-              <label className="grid gap-2">
-                <span className="text-sm font-medium text-white">Full Name</span>
-                <input
-                  type="text"
-                  name="name"
-                  required
-                  className="h-12 rounded-2xl border border-[color:rgb(var(--border)/0.82)] bg-[rgb(var(--background)/0.72)] px-4 text-sm text-white outline-none focus:border-[color:rgb(var(--accent-secondary)/0.8)]"
-                />
-              </label>
+            <div className="rounded-[24px] border border-[rgba(122,24,255,0.34)] bg-[rgba(14,6,22,0.94)] p-5 shadow-[0_24px_70px_rgba(0,0,0,0.28)] sm:p-7">
+              <form className="grid h-full gap-4" onSubmit={handleSubmit}>
+                <label className="grid gap-2.5">
+                  <span className="text-[15px] font-semibold text-white">
+                    Full Name <span className="text-rose-400">*</span>
+                  </span>
+                  <input
+                    type="text"
+                    name="name"
+                    required
+                    placeholder="Your full name"
+                    className="h-12 rounded-[18px] border border-white/12 bg-[linear-gradient(180deg,rgba(244,246,255,0.96)_0%,rgba(227,232,245,0.96)_100%)] px-4 text-[15px] text-slate-900 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] outline-none transition-all duration-200 placeholder:text-slate-500 focus:border-[#b80cff] focus:ring-4 focus:ring-[rgba(184,12,255,0.16)]"
+                  />
+                </label>
 
-              <label className="grid gap-2">
-                <span className="text-sm font-medium text-white">Email</span>
-                <input
-                  type="email"
-                  name="email"
-                  required
-                  className="h-12 rounded-2xl border border-[color:rgb(var(--border)/0.82)] bg-[rgb(var(--background)/0.72)] px-4 text-sm text-white outline-none focus:border-[color:rgb(var(--accent-secondary)/0.8)]"
-                />
-              </label>
+                <label className="grid gap-2.5">
+                  <span className="text-[15px] font-semibold text-white">
+                    Email <span className="text-rose-400">*</span>
+                  </span>
+                  <input
+                    type="email"
+                    name="email"
+                    required
+                    placeholder="you@example.com"
+                    className="h-12 rounded-[18px] border border-white/12 bg-[linear-gradient(180deg,rgba(244,246,255,0.96)_0%,rgba(227,232,245,0.96)_100%)] px-4 text-[15px] text-slate-900 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] outline-none transition-all duration-200 placeholder:text-slate-500 focus:border-[#b80cff] focus:ring-4 focus:ring-[rgba(184,12,255,0.16)]"
+                  />
+                </label>
 
-              <label className="grid gap-2">
-                <span className="text-sm font-medium text-white">Message</span>
-                <textarea
-                  name="message"
-                  required
-                  rows={5}
-                  className="min-h-[150px] rounded-[24px] border border-[color:rgb(var(--border)/0.82)] bg-[rgb(var(--background)/0.72)] px-4 py-3 text-sm text-white outline-none focus:border-[color:rgb(var(--accent-secondary)/0.8)]"
-                />
-              </label>
+                <label className="grid gap-2.5">
+                  <span className="text-[15px] font-semibold text-white">
+                    Message <span className="text-rose-400">*</span>
+                  </span>
+                  <textarea
+                    name="message"
+                    required
+                    rows={5}
+                    placeholder="Tell me about your project, goals, or anything you'd like to discuss."
+                    className="min-h-[132px] rounded-[20px] border border-white/12 bg-[linear-gradient(180deg,rgba(244,246,255,0.96)_0%,rgba(227,232,245,0.96)_100%)] px-4 py-3.5 text-[15px] leading-7 text-slate-900 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] outline-none transition-all duration-200 placeholder:text-slate-500 focus:border-[#b80cff] focus:ring-4 focus:ring-[rgba(184,12,255,0.16)]"
+                  />
+                </label>
 
-              <div className="flex flex-col gap-4">
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,rgba(var(--accent),1),rgba(var(--accent-secondary),1))] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_18px_42px_rgba(108,92,231,0.24)] disabled:opacity-75"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <LoaderCircle className="h-4 w-4 animate-spin" />
-                      Sending
-                    </>
-                  ) : (
-                    <>
-                      Send Message
-                      <Send className="h-4 w-4" />
-                    </>
-                  )}
-                </button>
+                <div className="pt-1">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-[linear-gradient(90deg,#7f1dff_0%,#9f2eff_100%)] px-6 py-3.5 text-[15px] font-semibold text-white shadow-[0_14px_34px_rgba(127,29,255,0.32)] transition-transform duration-200 hover:-translate-y-0.5 disabled:opacity-75"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <LoaderCircle className="h-4 w-4 animate-spin" />
+                        Sending
+                      </>
+                    ) : (
+                      <>
+                        Send Message
+                        <Send className="h-4 w-4" />
+                      </>
+                    )}
+                  </button>
+                </div>
 
                 <p
                   aria-live="polite"
-                  className={`text-sm ${
+                  className={`text-[14px] ${
                     status.type === "error"
                       ? "text-rose-400"
                       : status.type === "success"
                         ? "text-emerald-400"
-                        : "text-[rgb(var(--muted-foreground))]"
+                        : "text-[rgba(173,176,210,0.84)]"
                   }`}
                 >
                   {status.message}
                 </p>
-              </div>
-            </form>
-          </div>
+              </form>
+            </div>
 
-          <div className="rounded-[28px] border border-[color:rgb(var(--border)/0.78)] bg-[rgb(var(--surface)/0.72)] p-6 shadow-[0_22px_60px_rgba(0,0,0,0.24)]">
-            <h3 className="text-2xl font-semibold text-white">Let&apos;s Connect</h3>
-            <div className="mt-6 flex flex-wrap gap-3">
-              {connectLinks.map((link) => {
-                const Icon = link.icon;
-                return (
-                  <a
+            <div className="rounded-[24px] border border-[rgba(122,24,255,0.34)] bg-[rgba(14,6,22,0.94)] p-6 shadow-[0_24px_70px_rgba(0,0,0,0.28)] md:col-span-2 xl:col-span-1">
+              <h3 className="text-center text-[22px] font-semibold text-white sm:text-[24px]">
+                Let&apos;s Connect
+              </h3>
+
+              <div className="mt-8 grid grid-cols-4 justify-items-center gap-2.5 sm:gap-3 md:grid-cols-8 md:gap-2 xl:grid-cols-2 xl:gap-4">
+                {connectLinks.map((link) => {
+                  const Icon = link.icon;
+                  return (
+                    <a
                     key={link.label}
-                    href={link.href}
-                    target={link.href.startsWith("http") ? "_blank" : undefined}
-                    rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-                    aria-label={link.label}
-                    className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[color:rgb(var(--border)/0.78)] bg-[rgb(var(--background)/0.72)] text-white transition-transform duration-200 hover:-translate-y-0.5 hover:border-[color:rgb(var(--accent-secondary)/0.8)]"
-                  >
-                    <Icon className="h-5 w-5" />
-                  </a>
-                );
-              })}
+                      href={link.href}
+                      target={
+                        !("isCalendly" in link && link.isCalendly) && link.href.startsWith("http")
+                          ? "_blank"
+                          : undefined
+                      }
+                      rel={
+                        !("isCalendly" in link && link.isCalendly) && link.href.startsWith("http")
+                          ? "noreferrer"
+                          : undefined
+                      }
+                      onClick={(event) => {
+                        if ("isCalendly" in link && link.isCalendly) {
+                          event.preventDefault();
+                          void openCalendlyPopup(link.href);
+                        }
+                      }}
+                      aria-label={link.label}
+                      className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[linear-gradient(180deg,#7f1dff_0%,#962bff_100%)] text-white shadow-[0_14px_28px_rgba(127,29,255,0.22)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_22px_44px_rgba(127,29,255,0.34)] sm:h-14 sm:w-14 md:h-12 md:w-12 xl:h-16 xl:w-16"
+                    >
+                      <Icon className="h-5 w-5 sm:h-6 sm:w-6 md:h-[22px] md:w-[22px] xl:h-7 xl:w-7" />
+                    </a>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </div>

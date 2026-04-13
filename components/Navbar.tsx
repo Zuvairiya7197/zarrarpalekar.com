@@ -1,8 +1,10 @@
 "use client";
 
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
+import { openCalendlyPopup } from "@/lib/calendly";
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -40,8 +42,15 @@ export function Navbar() {
       <Container>
         <nav className="flex items-center justify-between gap-4 py-4" aria-label="Primary navigation">
           <a href="#home" className="flex items-center gap-3">
-            <span className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgba(var(--accent),1),rgba(var(--accent-secondary),1))] text-base font-bold text-white shadow-[0_18px_34px_rgba(108,92,231,0.35)]">
-              {siteConfig.shortName}
+            <span className="relative block h-11 w-[66px] shrink-0 sm:h-12 sm:w-[72px]">
+              <Image
+                src={siteConfig.logo}
+                alt={siteConfig.name}
+                fill
+                sizes="72px"
+                className="object-contain"
+                priority
+              />
             </span>
             <span className="hidden sm:block">
               <span className="block text-sm font-semibold text-white">{siteConfig.name}</span>
@@ -58,10 +67,11 @@ export function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
+                  onClick={() => setActiveSection(id)}
                   className={cn(
                     "rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200",
                     activeSection === id
-                      ? "bg-[linear-gradient(135deg,rgba(var(--accent),1),rgba(var(--accent-secondary),1))] text-white"
+                      ? "bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] text-white shadow-[0_10px_28px_rgba(108,92,231,0.36)]"
                       : "text-[rgb(var(--muted-foreground))] hover:text-white",
                   )}
                 >
@@ -72,14 +82,13 @@ export function Navbar() {
           </div>
 
           <div className="hidden xl:flex">
-            <a
-              href={siteConfig.calendlyUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,rgba(var(--accent),1),rgba(var(--accent-secondary),1))] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(108,92,231,0.28)] transition-transform duration-200 hover:-translate-y-0.5"
-            >
-              Connect Via Calendly
-            </a>
+              <button
+                type="button"
+                onClick={() => void openCalendlyPopup(siteConfig.calendlyUrl)}
+                className="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(108,92,231,0.28)] transition-transform duration-200 hover:-translate-y-0.5"
+              >
+                Connect Via Calendly
+              </button>
           </div>
 
           <button
@@ -102,11 +111,14 @@ export function Navbar() {
                   <a
                     key={link.href}
                     href={link.href}
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => {
+                      setActiveSection(id);
+                      setIsOpen(false);
+                    }}
                     className={cn(
                       "rounded-2xl px-4 py-3 text-sm font-medium transition-colors duration-200",
                       activeSection === id
-                        ? "bg-[linear-gradient(135deg,rgba(var(--accent),1),rgba(var(--accent-secondary),1))] text-white"
+                        ? "bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] text-white shadow-[0_10px_28px_rgba(108,92,231,0.32)]"
                         : "text-[rgb(var(--muted-foreground))]",
                     )}
                   >
@@ -117,14 +129,16 @@ export function Navbar() {
             </div>
 
             <div className="mt-4">
-              <a
-                href={siteConfig.calendlyUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,rgba(var(--accent),1),rgba(var(--accent-secondary),1))] px-5 py-2.5 text-sm font-semibold text-white"
+              <button
+                type="button"
+                onClick={() => {
+                  setIsOpen(false);
+                  void openCalendlyPopup(siteConfig.calendlyUrl);
+                }}
+                className="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 py-2.5 text-sm font-semibold text-white"
               >
                 Connect Via Calendly
-              </a>
+              </button>
             </div>
           </div>
         ) : null}

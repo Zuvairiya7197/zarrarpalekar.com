@@ -14,15 +14,15 @@ function HighlightCard({
   image,
 }: (typeof aboutHighlights)[number]) {
   return (
-    <article className="flex min-h-[178px] flex-col items-center justify-center rounded-[22px] border border-[rgba(122,24,255,0.34)] bg-[rgba(15,6,28,0.84)] px-5 py-5 text-center shadow-[0_18px_50px_rgba(0,0,0,0.26)]">
-      <div className="relative h-[76px] w-[76px] overflow-hidden rounded-full">
+    <article className="flex min-h-[128px] flex-col items-center justify-center rounded-[18px] border border-[rgba(122,24,255,0.34)] bg-[rgba(15,6,28,0.84)] px-2 py-4 text-center shadow-[0_18px_50px_rgba(0,0,0,0.26)] sm:min-h-[142px] sm:px-3 sm:py-4 xl:min-h-[178px] xl:rounded-[22px] xl:px-5 xl:py-5">
+      <div className="relative h-[50px] w-[50px] overflow-hidden rounded-full sm:h-[58px] sm:w-[58px] xl:h-[76px] xl:w-[76px]">
         <Image src={image} alt={title} fill sizes="82px" className="object-cover" />
       </div>
 
-      <h3 className="mt-4 text-[20px] font-semibold leading-tight tracking-[-0.03em] text-white sm:text-[22px]">
+      <h3 className="mt-3 text-[14px] font-semibold leading-tight tracking-[-0.03em] text-white sm:text-[16px] xl:mt-4 xl:text-[22px]">
         {title}
       </h3>
-      <p className="mt-2 text-[16px] leading-none text-[rgba(173,176,210,0.8)] sm:text-[17px]">
+      <p className="mt-1.5 text-[11px] leading-tight text-[rgba(173,176,210,0.8)] sm:text-[12px] xl:mt-2 xl:text-[17px]">
         {subtitle}
       </p>
     </article>
@@ -46,7 +46,7 @@ export function About() {
       <Container className="max-w-[1760px]">
         <div className="rounded-[26px] border border-[rgba(101,17,204,0.35)] bg-[rgba(5,2,12,0.94)] px-5 py-5 shadow-[0_30px_90px_rgba(0,0,0,0.28)] sm:px-7 sm:py-7 lg:px-10 lg:py-7">
           <div className="grid gap-5 xl:grid-cols-[300px_minmax(0,1fr)_300px] xl:items-stretch">
-            <div className="grid gap-5">
+            <div className="grid grid-cols-3 gap-3 sm:gap-4 xl:grid-cols-1 xl:gap-5">
               {leftHighlights.map((item) => (
                 <HighlightCard key={item.title} {...item} />
               ))}
@@ -98,17 +98,28 @@ export function About() {
                     ))
                   : null}
 
-                <button
-                  type="button"
-                  onClick={() => setIsExpanded((current) => !current)}
-                  className="inline-flex items-center rounded-full bg-[linear-gradient(90deg,#7f1dff_0%,#9f2eff_100%)] px-5 py-3 text-[14px] font-semibold text-white shadow-[0_14px_34px_rgba(127,29,255,0.32)] hover:scale-[1.02] hover:shadow-[0_18px_36px_rgba(127,29,255,0.4)]"
-                >
-                  {isExpanded ? "Show Less" : "Show More"}
-                </button>
+                <div className="flex flex-wrap items-center gap-3 pt-1">
+                  <button
+                    type="button"
+                    onClick={() => setIsExpanded((current) => !current)}
+                    className="inline-flex items-center rounded-full bg-[linear-gradient(90deg,#7f1dff_0%,#9f2eff_100%)] px-5 py-3 text-[14px] font-semibold text-white shadow-[0_14px_34px_rgba(127,29,255,0.32)] hover:scale-[1.02] hover:shadow-[0_18px_36px_rgba(127,29,255,0.4)]"
+                  >
+                    {isExpanded ? "Show Less" : "Show More"}
+                  </button>
+
+                  <a
+                    href="/resume"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center rounded-full border border-[rgba(176,104,255,0.6)] bg-transparent px-5 py-3 text-[14px] font-semibold text-white shadow-[0_10px_24px_rgba(0,0,0,0.12)] hover:scale-[1.02] hover:border-[rgba(214,151,255,0.88)] hover:bg-[rgba(38,14,58,0.32)]"
+                  >
+                    See Resume
+                  </a>
+                </div>
               </div>
             </div>
 
-            <div className="grid gap-5">
+            <div className="grid grid-cols-3 gap-3 sm:gap-4 xl:grid-cols-1 xl:gap-5">
               {rightHighlights.map((item) => (
                 <HighlightCard key={item.title} {...item} />
               ))}

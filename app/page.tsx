@@ -2,12 +2,11 @@ import Script from "next/script";
 
 import { About } from "@/components/About";
 import { Contact } from "@/components/Contact";
-import { Experience } from "@/components/Experience";
+import { ExperienceProjects } from "@/components/ExperienceProjects";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Navbar } from "@/components/Navbar";
-import { Projects } from "@/components/Projects";
 import { Skills } from "@/components/Skills";
 import { siteConfig } from "@/lib/site";
 
@@ -39,8 +38,7 @@ export default function HomePage() {
           <Hero />
           <About />
           <Skills />
-          <Experience />
-          <Projects />
+          <ExperienceProjects />
           <Contact />
         </main>
         <Footer />
