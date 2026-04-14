@@ -93,7 +93,7 @@ export function Testimonials() {
                 type="button"
                 onClick={showNext}
                 aria-label="Next testimonials"
-                className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] text-white shadow-[0_16px_38px_rgba(108,92,231,0.28)] hover:-translate-y-0.5"
+                className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] text-white shadow-[0_16px_38px_rgba(108,92,231,0.28)] hover:scale-[1.04]"
               >
                 <ChevronRight className="h-5 w-5" />
               </button>
@@ -117,7 +117,7 @@ export function Testimonials() {
                       return (
                         <article
                           key={`${testimonial.name}-${testimonial.date}`}
-                          className="group relative flex h-full flex-col overflow-hidden rounded-[24px] border border-[rgba(122,24,255,0.34)] bg-[rgba(14,6,22,0.92)] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.24)] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[rgba(203,104,255,0.72)] hover:bg-[linear-gradient(180deg,rgba(32,11,54,0.98)_0%,rgba(18,8,34,0.98)_100%)] hover:shadow-[0_0_28px_rgba(189,73,255,0.14),0_24px_70px_rgba(0,0,0,0.34)] sm:p-6"
+                          className="group relative flex h-full flex-col overflow-hidden rounded-[24px] border border-[rgba(122,24,255,0.34)] bg-[rgba(14,6,22,0.92)] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.24)] transition-all duration-300 ease-out hover:scale-[1.015] hover:border-[rgba(203,104,255,0.72)] hover:bg-[linear-gradient(180deg,rgba(32,11,54,0.98)_0%,rgba(18,8,34,0.98)_100%)] hover:shadow-[0_0_28px_rgba(189,73,255,0.14),0_24px_70px_rgba(0,0,0,0.34)] sm:p-6"
                         >
                           <div className="pointer-events-none absolute right-4 top-4 text-[#c861ff]/20 transition-colors duration-300 group-hover:text-[#e7a4ff]/28">
                             <MessageSquareQuote className="h-10 w-10" />

@@ -238,7 +238,7 @@ function ProjectsPanel() {
                 onClick={() =>
                   setOpenProject((current) => (current === project.title ? null : project.title))
                 }
-                className="mt-6 flex h-12 w-full items-center justify-between rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-6 text-left text-[17px] font-semibold text-white shadow-[0_18px_40px_rgba(108,92,231,0.28)] transition-transform duration-200 hover:-translate-y-0.5"
+                className="mt-6 flex h-12 w-full items-center justify-between rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-6 text-left text-[17px] font-semibold text-white shadow-[0_18px_40px_rgba(108,92,231,0.28)] transition-transform duration-200 hover:scale-[1.01]"
               >
                 <span>Project Details</span>
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] text-white shadow-[0_8px_18px_rgba(108,92,231,0.24)]">
@@ -282,7 +282,7 @@ function ProjectsPanel() {
                         href={project.sourceCode}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex h-10 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 text-[14px] font-semibold text-white shadow-[0_14px_30px_rgba(108,92,231,0.24)] transition-transform duration-200 hover:-translate-y-0.5"
+                        className="inline-flex h-10 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 text-[14px] font-semibold text-white shadow-[0_14px_30px_rgba(108,92,231,0.24)] transition-transform duration-200 hover:scale-[1.03]"
                       >
                         {project.title === "Tindog – Tinder for dogs" ||
                         project.title === "My First Website"
