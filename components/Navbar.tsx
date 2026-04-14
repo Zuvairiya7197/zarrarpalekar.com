@@ -38,14 +38,14 @@ export function Navbar() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[color:rgb(var(--border)/0.45)] bg-[rgb(var(--background)/0.82)] backdrop-blur-xl">
-      <Container className="max-w-[1760px]">
+    <header className="sticky top-0 z-50 border-b border-[rgb(var(--border)/0.45)] bg-[rgb(var(--background)/0.82)] backdrop-blur-xl">
+      <Container className="max-w-440">
         <nav
           className="flex items-center justify-between gap-4 py-4"
           aria-label="Primary navigation"
         >
           <a href="#home" className="flex items-center gap-3">
-            <span className="relative block h-8 w-[44px] shrink-0 sm:h-9 sm:w-[48px]">
+            <span className="relative block h-8 w-11 shrink-0 sm:h-9 sm:w-12">
               <Image
                 src={siteConfig.logo}
                 alt={siteConfig.name}
@@ -65,7 +65,7 @@ export function Navbar() {
             </span>
           </a>
 
-          <div className="hidden items-center gap-1 rounded-full border border-[color:rgb(var(--border)/0.75)] bg-[rgb(var(--surface)/0.7)] px-2 py-1 lg:flex">
+          <div className="hidden items-center gap-1 rounded-full border border-[rgb(var(--border)/0.75)] bg-[rgb(var(--surface)/0.7)] px-2 py-1 lg:flex">
             {siteConfig.navLinks.map((link) => {
               const id = link.href.replace("#", "");
               return (
@@ -109,7 +109,7 @@ export function Navbar() {
             onClick={() => setIsOpen((current) => !current)}
             aria-expanded={isOpen}
             aria-controls="mobile-navigation"
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[color:rgb(var(--border)/0.8)] bg-[rgb(var(--surface)/0.82)] text-white xl:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[rgb(var(--border)/0.8)] bg-[rgb(var(--surface)/0.82)] text-white xl:hidden"
           >
             {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -118,7 +118,7 @@ export function Navbar() {
         {isOpen ? (
           <div
             id="mobile-navigation"
-            className="border-t border-[color:rgb(var(--border)/0.7)] pb-4 pt-4 xl:hidden"
+            className="border-t border-[rgb(var(--border)/0.7)] pb-4 pt-4 xl:hidden"
           >
             <div className="flex flex-col gap-2">
               {siteConfig.navLinks.map((link) => {

@@ -8,19 +8,22 @@ import { CountUp } from "./ui/CountUp";
 
 export function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden pb-12 pt-4 sm:pb-16 sm:pt-8">
+    <section
+      id="home"
+      className="relative overflow-hidden pb-12 pt-4 sm:pb-16 sm:pt-8"
+    >
       <div
-        className="absolute inset-0 -z-10 bg-cover bg-[position:72%_95%] sm:bg-center"
+        className="absolute inset-0 -z-10 bg-cover bg-position-[72%_95%] sm:bg-center"
         style={{
           backgroundImage:
             "url(https://lightgoldenrodyellow-fox-787789.hostingersite.com/wp-content/uploads/2026/04/Hero-section-image.png)",
         }}
       />
 
-      <Container className="relative max-w-[1770px] px-4 sm:px-6 lg:px-10">
-        <div className="relative min-h-[960px] px-0 py-0 sm:min-h-[760px] sm:px-8 sm:py-8 lg:px-10 lg:py-10">
-          <div className="relative z-10 mx-auto mt-[730px] max-w-[470px] rounded-[28px] border border-[rgba(138,84,255,0.28)] bg-[rgba(16,8,34,0.78)] px-7 py-8 shadow-[0_25px_80px_rgba(0,0,0,0.28)] backdrop-blur-[2px] sm:mx-0 sm:ml-2 sm:mt-2 sm:px-8 sm:py-9 lg:ml-4 lg:mt-4">
-            <h1 className="font-[family-name:var(--font-display)] text-[56px] font-bold leading-[0.92] tracking-[-0.05em] text-white sm:text-[72px] lg:text-[86px]">
+      <Container className="relative max-w-442.5 px-4 sm:px-6 lg:px-10">
+        <div className="relative min-h-240 px-0 py-0 sm:min-h-190 sm:px-8 sm:py-8 lg:px-10 lg:py-10">
+          <div className="relative z-10 mx-auto mt-182.5 max-w-117.5 rounded-[28px] border border-[rgba(138,84,255,0.28)] bg-[rgba(16,8,34,0.78)] px-7 py-8 shadow-[0_25px_80px_rgba(0,0,0,0.28)] backdrop-blur-[2px] sm:mx-0 sm:ml-2 sm:mt-2 sm:px-8 sm:py-9 lg:ml-4 lg:mt-4">
+            <h1 className="font-(family-name:--font-display) text-[56px] font-bold leading-[0.92] tracking-[-0.05em] text-white sm:text-[72px] lg:text-[86px]">
               <span className="block">I&apos;m Zarrar</span>
               <span className="mt-2 block bg-[linear-gradient(180deg,#b300ff_0%,#7c11ff_48%,#5f4bff_100%)] bg-clip-text text-transparent">
                 Palekar
@@ -33,8 +36,9 @@ export function Hero() {
               </h2>
             </div>
 
-            <p className="mt-6 max-w-[450px] text-[18px] leading-[1.65] text-[rgb(var(--muted-foreground))] sm:text-[24px] sm:leading-[1.55]">
-              I build modern, scalable web applications that solve real-world problems.
+            <p className="mt-6 max-w-112.5 text-[18px] leading-[1.65] text-[rgb(var(--muted-foreground))] sm:text-[24px] sm:leading-[1.55]">
+              I build modern, scalable web applications that solve real-world
+              problems.
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -63,11 +67,11 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="relative z-10 mx-auto mt-5 grid max-w-[470px] grid-cols-3 gap-2.5 sm:mx-0 sm:ml-2 sm:gap-4 lg:ml-4 lg:mt-5">
+          <div className="relative z-10 mx-auto mt-5 grid max-w-117.5 grid-cols-3 gap-2.5 sm:mx-0 sm:ml-2 sm:gap-4 lg:ml-4 lg:mt-5">
             {trustStats.map((stat) => (
               <div
                 key={stat.label}
-                className="rounded-[22px] border border-[rgba(138,84,255,0.24)] bg-[rgba(14,8,29,0.72)] px-3 py-6 text-center shadow-[0_16px_40px_rgba(0,0,0,0.2)] sm:min-h-[184px] sm:px-7 sm:py-8"
+                className="rounded-[22px] border border-[rgba(138,84,255,0.24)] bg-[rgba(14,8,29,0.72)] px-3 py-6 text-center shadow-[0_16px_40px_rgba(0,0,0,0.2)] sm:min-h-46 sm:px-7 sm:py-8"
               >
                 <p className="text-[28px] font-bold tracking-[-0.04em] text-white sm:text-[42px]">
                   <CountUp value={stat.value} suffix={stat.suffix} />
