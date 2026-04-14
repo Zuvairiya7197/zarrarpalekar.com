@@ -92,7 +92,7 @@ function ExperiencePanel() {
 
       <h2 className="mt-8 text-[38px] font-semibold leading-[1.08] tracking-[-0.05em] text-white sm:text-[50px]">
         <span>My Professional </span>
-        <span className="bg-[linear-gradient(180deg,#d13bff_0%,#7423ff_100%)] bg-clip-text text-transparent">
+        <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text text-transparent">
           Journey.
         </span>
       </h2>
@@ -133,7 +133,9 @@ function ExperiencePanel() {
 
                   <div className="min-w-0">
                     <h3 className="text-[22px] font-semibold text-white">{experience.company}</h3>
-                    <p className="mt-1 text-[15px] font-semibold text-[#b80cff]">{experience.title}</p>
+                    <p className="mt-1 bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text text-[15px] font-semibold text-transparent">
+                      {experience.title}
+                    </p>
                     <p className="mt-4 text-[18px] font-semibold text-white">
                       {experience.specialization}
                     </p>
@@ -156,7 +158,9 @@ function ExperiencePanel() {
                 </p>
 
                 <div className="mt-5">
-                  <p className="text-[16px] font-semibold text-[#b80cff]">Description</p>
+                  <p className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text text-[16px] font-semibold text-transparent">
+                    Description
+                  </p>
                   <ul className="mt-3 space-y-3 text-[15px] leading-7 text-[rgba(220,222,235,0.82)]">
                     {experience.points.map((point) => (
                       <li key={point} className="flex gap-3">
@@ -187,7 +191,7 @@ function ProjectsPanel() {
 
       <h2 className="mt-8 text-[38px] font-semibold leading-[1.08] tracking-[-0.05em] text-white sm:text-[50px]">
         <span>Featured </span>
-        <span className="bg-[linear-gradient(180deg,#d13bff_0%,#7423ff_100%)] bg-clip-text text-transparent">
+        <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text text-transparent">
           Projects.
         </span>
       </h2>
@@ -222,7 +226,9 @@ function ProjectsPanel() {
               <h3 className="text-[22px] font-semibold tracking-tight text-white sm:text-[24px]">
                 {project.title}
               </h3>
-              <p className="mt-1.5 text-[14px] font-semibold text-[#b80cff]">{project.date}</p>
+              <p className="mt-1.5 bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text text-[14px] font-semibold text-transparent">
+                {project.date}
+              </p>
               <p className="mt-4 text-[16px] leading-7 text-[rgba(220,222,235,0.82)]">
                 {project.description}
               </p>
@@ -246,7 +252,9 @@ function ProjectsPanel() {
 
               {openProject === project.title ? (
                 <div className="mt-6">
-                  <p className="text-[16px] font-semibold text-[#b80cff]">Technologies Used:</p>
+                  <p className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text text-[16px] font-semibold text-transparent">
+                    Technologies Used:
+                  </p>
 
                   <div className="mt-3 flex flex-wrap gap-2">
                     {project.technologies.map((technology) => (

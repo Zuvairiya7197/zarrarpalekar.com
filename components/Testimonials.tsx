@@ -68,7 +68,7 @@ export function Testimonials() {
 
               <h2 className="mt-9 text-[38px] font-semibold leading-[1.08] tracking-[-0.05em] text-white sm:text-[50px]">
                 <span>What People </span>
-                <span className="bg-[linear-gradient(180deg,#d13bff_0%,#7423ff_100%)] bg-clip-text text-transparent">
+                <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text text-transparent">
                   Say.
                 </span>
               </h2>

@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
+import { Great_Vibes } from "next/font/google";
 
 import { Providers } from "@/components/Providers";
 import { siteConfig } from "@/lib/site";
 
 import "./globals.css";
+
+const greatVibes = Great_Vibes({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-script",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -69,7 +76,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="min-h-screen bg-[rgb(var(--background))] font-[family-name:var(--font-sans)] text-[rgb(var(--foreground))] antialiased">
+      <body
+        className={`${greatVibes.variable} min-h-screen bg-[rgb(var(--background))] font-[family-name:var(--font-sans)] text-[rgb(var(--foreground))] antialiased`}
+      >
         <Providers>{children}</Providers>
       </body>
     </html>

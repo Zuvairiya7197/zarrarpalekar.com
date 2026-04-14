@@ -99,12 +99,12 @@ export function Contact() {
                 <span>Contact</span>
               </div>
 
-              <h2 className="mt-9 max-w-[420px] text-[40px] font-semibold leading-[1.05] tracking-[-0.05em] text-white sm:text-[54px] lg:text-[62px]">
+              <h2 className="mt-9 max-w-[420px] text-[36px] font-semibold leading-[1.02] tracking-[-0.05em] text-white sm:text-[48px] lg:text-[56px]">
                 <span className="block">Let&apos;s Build</span>
                 <span className="block">Something</span>
                 <span className="block">
                   Amazing{" "}
-                  <span className="font-serif text-[#b80cff] italic tracking-[-0.03em]">
+                  <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text font-[family-name:var(--font-script)] text-[1.08em] font-bold text-transparent tracking-normal [text-shadow:0_10px_28px_rgba(99,102,241,0.22)]">
                     Together.
                   </span>
                 </span>

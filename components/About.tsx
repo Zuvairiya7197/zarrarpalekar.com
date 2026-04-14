@@ -60,12 +60,12 @@ export function About() {
 
               <h2 className="mt-8 max-w-[620px] text-[36px] font-semibold leading-[1.06] tracking-[-0.05em] text-white sm:text-[46px] lg:text-[54px]">
                 <span>More Than </span>
-                <span className="bg-[linear-gradient(180deg,#d13bff_0%,#7423ff_100%)] bg-clip-text text-transparent">
+                <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text text-transparent">
                   Code.
                 </span>
                 <br />
                 <span>I Build </span>
-                <span className="bg-[linear-gradient(180deg,#d13bff_0%,#7423ff_100%)] bg-clip-text text-transparent">
+                <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text text-transparent">
                   Impact.
                 </span>
               </h2>
@@ -74,7 +74,9 @@ export function About() {
                 <p className="text-[19px] font-medium leading-[1.42] text-white sm:text-[21px]">
                   <span className="mr-2 inline-block">👋</span>
                   <span>Hi there! I am </span>
-                  <span className="font-semibold uppercase text-[#8b22ff]">ZARRAR PALEKAR.</span>
+                  <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text font-semibold uppercase text-transparent">
+                    ZARRAR PALEKAR.
+                  </span>
                 </p>
 
                 <p className="max-w-[800px] text-[16px] leading-[1.48] tracking-[-0.015em] text-[rgba(233,236,255,0.9)] sm:text-[17px]">
@@ -84,7 +86,7 @@ export function About() {
                 </p>
 
                 <p className="max-w-[800px] text-[16px] leading-[1.48] tracking-[-0.015em] text-[rgba(233,236,255,0.9)] sm:text-[17px]">
-                  {secondaryParagraph.replace("With over years", `With over ${experienceYears} years`)}
+                  {secondaryParagraph}
                 </p>
 
                 {isExpanded

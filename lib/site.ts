@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Zarrar Palekar",
   shortName: "ZP",
-  logo: "https://lightgoldenrodyellow-fox-787789.hostingersite.com/wp-content/uploads/2026/04/cropped-LOGO.png",
+  logo: "/Images/LOGO.png",
   title: "Zarrar Palekar | Full Stack Developer | MERN Stack Developer",
   description:
     "Full Stack Developer & MERN Stack Developer building modern, scalable web applications that solve real-world problems with clean and efficient code.",
@@ -88,10 +88,10 @@ export const aboutIntro = "Hi there! I am Zarrar Palekar." as const;
 
 export const aboutParagraphs = [
   `With over ${experienceYears} years of dedicated experience in Full Stack Web Development, my passion lies in crafting elegant and intuitive web applications that provide seamless user experiences.`,
-  `With over ${experienceYears} years of dedicated experience in Full Stack Web Development, I excel in utilizing the MERN stack (MongoDB, Express, React, Node.js) and stay up-to-date with the latest technologies and methodologies to deliver innovative, tailor-made solutions that align with clients’ specific needs.`,
+  "I excel in utilizing the MERN stack (MongoDB, Express, React, Node.js) and stay up-to-date with the latest technologies and methodologies to deliver innovative, tailor-made solutions that align with clients' specific needs.",
   "From ideation to deployment, I prioritize delivering exceptional outcomes that surpass expectations. My attention to detail ensures visually appealing and functionally robust applications that drive business growth and enhance user engagement.",
   "Whether working independently or collaboratively, my commitment to excellence remains steadfast. I continuously expand my expertise to remain at the forefront of this dynamic industry.",
-  "Let’s collaborate to turn your vision to reality and create something truly exceptional together!",
+  "Let's collaborate to turn your vision to reality and create something truly exceptional together!",
 ] as const;
 
 export const skillGroups = [
