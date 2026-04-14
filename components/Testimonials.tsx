@@ -180,7 +180,7 @@ export function Testimonials() {
                                       [testimonial.name]: !current[testimonial.name],
                                     }))
                                   }
-                                  className="inline-flex items-center rounded-full border border-[rgba(176,104,255,0.46)] bg-[rgba(22,10,36,0.92)] px-4 py-2.5 text-[13px] font-semibold text-white hover:border-[rgba(214,151,255,0.8)] hover:bg-[rgba(34,14,52,0.98)]"
+                                  className="inline-flex h-10 items-center rounded-full border border-[rgba(176,104,255,0.46)] bg-[rgba(22,10,36,0.92)] px-4 text-[13px] font-semibold text-white hover:border-[rgba(214,151,255,0.8)] hover:bg-[rgba(34,14,52,0.98)]"
                                 >
                                   {isExpanded ? "Show Less" : "Show More"}
                                 </button>

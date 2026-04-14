@@ -102,7 +102,7 @@ export function About() {
                   <button
                     type="button"
                     onClick={() => setIsExpanded((current) => !current)}
-                    className="inline-flex h-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-6 text-[17px] font-semibold text-white shadow-[0_18px_40px_rgba(108,92,231,0.28)] transition-transform duration-200 hover:-translate-y-0.5"
+                    className="inline-flex h-10 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 text-[14px] font-semibold text-white shadow-[0_14px_30px_rgba(108,92,231,0.24)] transition-transform duration-200 hover:-translate-y-0.5"
                   >
                     {isExpanded ? "Show Less" : "Show More"}
                   </button>
@@ -111,7 +111,7 @@ export function About() {
                     href="/resume"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center rounded-full border border-[rgba(176,104,255,0.6)] bg-transparent px-5 py-3 text-[14px] font-semibold text-white shadow-[0_10px_24px_rgba(0,0,0,0.12)] hover:scale-[1.02] hover:border-[rgba(214,151,255,0.88)] hover:bg-[rgba(38,14,58,0.32)]"
+                    className="inline-flex h-10 items-center rounded-full border border-[rgba(176,104,255,0.6)] bg-transparent px-5 text-[14px] font-semibold text-white shadow-[0_10px_24px_rgba(0,0,0,0.12)] hover:scale-[1.02] hover:border-[rgba(214,151,255,0.88)] hover:bg-[rgba(38,14,58,0.32)]"
                   >
                     See Resume
                   </a>
