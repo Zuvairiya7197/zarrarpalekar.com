@@ -53,7 +53,7 @@ export function About() {
             </div>
 
             <div className="rounded-[22px] border border-[rgba(122,24,255,0.34)] bg-[rgba(14,6,22,0.94)] px-6 py-5 shadow-[0_24px_70px_rgba(0,0,0,0.28)] sm:px-7 sm:py-6 lg:px-8 lg:py-6">
-              <div className="inline-flex items-center gap-3 rounded-full bg-[linear-gradient(90deg,#7f1dff_0%,#8f32ff_50%,#6519d5_100%)] px-6 py-3 text-[14px] font-semibold uppercase tracking-[0.02em] text-white">
+              <div className="inline-flex items-center gap-3 rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-6 py-3 text-[14px] font-semibold uppercase tracking-[0.02em] text-white">
                 <Heart className="h-4 w-4 fill-current" />
                 <span>About Me</span>
               </div>
