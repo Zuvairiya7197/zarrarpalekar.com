@@ -9,7 +9,7 @@ type SkillItem = (typeof skillGroups)[number]["items"][number];
 
 function SkillTile({ name, icon }: SkillItem) {
   return (
-    <div className="group flex size-[80px] shrink-0 flex-col items-center justify-center overflow-hidden rounded-[14px] border border-[rgba(105,18,214,0.48)] bg-[rgba(15,6,28,0.84)] px-2 py-2.5 text-center shadow-[0_16px_36px_rgba(0,0,0,0.2)] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[rgba(193,96,255,0.72)] hover:bg-[linear-gradient(180deg,rgba(212,36,255,0.95)_0%,rgba(123,24,255,0.96)_58%,rgba(96,21,227,0.98)_100%)] hover:shadow-[0_0_18px_rgba(202,68,255,0.65),0_0_40px_rgba(141,30,255,0.48)] sm:size-[84px] md:size-[70px] lg:size-[72px] xl:size-[88px]">
+    <div className="group flex size-[80px] shrink-0 flex-col items-center justify-center overflow-hidden rounded-[14px] border border-[rgba(105,18,214,0.48)] bg-[rgba(15,6,28,0.84)] px-2 py-2.5 text-center shadow-[0_16px_36px_rgba(0,0,0,0.2)] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[rgba(99,102,241,0.72)] hover:bg-[linear-gradient(135deg,#6366f1,#06b6d4)] hover:shadow-[0_0_18px_rgba(99,102,241,0.58),0_0_40px_rgba(99,102,241,0.36)] sm:size-[84px] md:size-[70px] lg:size-[72px] xl:size-[88px]">
       <div className="relative h-[24px] w-[24px] sm:h-[27px] sm:w-[27px] md:h-[22px] md:w-[22px] lg:h-[23px] lg:w-[23px] xl:h-[28px] xl:w-[28px]">
         <Image src={icon} alt={name} fill sizes="38px" className="object-contain" />
       </div>
