@@ -119,7 +119,7 @@ function ExperiencePanel() {
                 <span className="absolute h-[18px] w-[18px] rounded-full bg-[linear-gradient(135deg,#6366f1_0%,#06b6d4_100%)] shadow-[0_0_10px_rgba(99,102,241,0.7),0_0_24px_rgba(6,182,212,0.46)]" />
               </div>
 
-              <article className="rounded-[24px] border border-[rgba(122,24,255,0.34)] bg-[rgba(15,6,28,0.84)] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.26)] transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:border-[rgba(203,104,255,0.72)] group-hover:bg-[linear-gradient(180deg,rgba(32,11,54,0.96)_0%,rgba(18,8,34,0.96)_100%)] group-hover:shadow-[0_0_26px_rgba(189,73,255,0.18),0_24px_60px_rgba(0,0,0,0.34)] sm:p-6">
+              <article className="rounded-[24px] border border-[rgba(122,24,255,0.34)] bg-[rgba(15,6,28,0.84)] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.26)] transition-all duration-300 ease-out group-hover:scale-[1.015] group-hover:border-[rgba(99,102,241,0.72)] group-hover:shadow-[0_0_0_1px_rgba(99,102,241,0.22),0_0_28px_rgba(99,102,241,0.28),0_0_56px_rgba(99,102,241,0.16),0_24px_60px_rgba(0,0,0,0.34)] sm:p-6">
                 <div className="flex items-start gap-4">
                   <div className="relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white/95 p-2">
                     <Image
@@ -204,7 +204,7 @@ function ProjectsPanel() {
         {projects.map((project) => (
           <article
             key={project.title}
-            className="overflow-hidden rounded-[26px] border border-[rgba(122,24,255,0.34)] bg-[rgba(15,6,28,0.84)] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.26)] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-[rgba(203,104,255,0.72)] hover:bg-[linear-gradient(180deg,rgba(32,11,54,0.96)_0%,rgba(18,8,34,0.96)_100%)] hover:shadow-[0_0_26px_rgba(189,73,255,0.16),0_24px_60px_rgba(0,0,0,0.34)]"
+            className="overflow-hidden rounded-[26px] border border-[rgba(122,24,255,0.34)] bg-[rgba(15,6,28,0.84)] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.26)] transition-all duration-300 ease-out hover:scale-[1.015] hover:border-[rgba(99,102,241,0.72)] hover:shadow-[0_0_0_1px_rgba(99,102,241,0.22),0_0_28px_rgba(99,102,241,0.28),0_0_56px_rgba(99,102,241,0.16),0_24px_60px_rgba(0,0,0,0.34)]"
           >
             {project.image ? (
               <div className="relative overflow-hidden rounded-[20px] border border-[rgba(122,24,255,0.2)] bg-[rgba(7,3,16,0.95)]">

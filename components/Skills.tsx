@@ -42,7 +42,7 @@ function SkillGroup({
       : title.length > 14
         ? "whitespace-nowrap px-3 py-2 text-[10px] sm:text-[11px] md:text-[8px] lg:text-[10px] xl:px-4 xl:text-[13px]"
         : "whitespace-nowrap px-3 py-2 text-[11px] sm:text-[12px] md:text-[9px] lg:text-[11px] xl:px-4 xl:text-[13px]";
-  const titleBackgroundClass = "bg-[rgb(var(--accent-secondary))]";
+  const titleBackgroundClass = "bg-[linear-gradient(135deg,#6366f1,#06b6d4)]";
 
   return (
     <article
