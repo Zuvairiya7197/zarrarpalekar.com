@@ -40,17 +40,25 @@ export function Hero() {
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <a
                 href="#projects"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-6 text-[17px] font-semibold text-white shadow-[0_18px_40px_rgba(108,92,231,0.28)] transition-transform duration-200 hover:scale-[1.03]"
+                className="group inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-6 text-[17px] font-semibold text-white shadow-[0_18px_40px_rgba(108,92,231,0.28)] transition-transform duration-200 hover:scale-[1.03]"
               >
-                Explore My Work
-                <BriefcaseBusiness className="h-4 w-4" />
+                <span className="transition-transform duration-200 group-hover:-translate-x-1">
+                  Explore My Work
+                </span>
+                <span className="ml-0 inline-flex w-0 items-center justify-center overflow-hidden opacity-0 transition-all duration-200 group-hover:ml-2 group-hover:w-4 group-hover:opacity-100">
+                  <BriefcaseBusiness className="h-4 w-4" />
+                </span>
               </a>
               <a
                 href="#contact"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-transparent [background:linear-gradient(rgb(var(--background)/0.9),rgb(var(--background)/0.9))_padding-box,linear-gradient(135deg,#6366f1,#06b6d4)_border-box] px-6 text-[17px] font-semibold text-white shadow-[0_12px_28px_rgba(99,102,241,0.14)] transition-transform duration-200 hover:scale-[1.03]"
+                className="group inline-flex h-12 items-center justify-center overflow-hidden rounded-full border border-transparent [background:linear-gradient(rgb(var(--background)/0.9),rgb(var(--background)/0.9))_padding-box,linear-gradient(135deg,#6366f1,#06b6d4)_border-box] px-6 text-[17px] font-semibold text-white shadow-[0_12px_28px_rgba(99,102,241,0.14)] transition-transform duration-200 hover:scale-[1.03]"
               >
-                Get In Touch
-                <Mail className="h-4 w-4" />
+                <span className="transition-transform duration-200 group-hover:-translate-x-1">
+                  Get In Touch
+                </span>
+                <span className="ml-0 inline-flex w-0 items-center justify-center overflow-hidden opacity-0 transition-all duration-200 group-hover:ml-2 group-hover:w-4 group-hover:opacity-100">
+                  <Mail className="h-4 w-4" />
+                </span>
               </a>
             </div>
           </div>

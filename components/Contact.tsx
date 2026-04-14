@@ -167,7 +167,7 @@ export function Contact() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-6 text-[17px] font-semibold text-white shadow-[0_18px_40px_rgba(108,92,231,0.28)] transition-transform duration-200 hover:scale-[1.03] disabled:opacity-75"
+                    className="group inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-6 text-[17px] font-semibold text-white shadow-[0_18px_40px_rgba(108,92,231,0.28)] transition-transform duration-200 hover:scale-[1.03] disabled:opacity-75"
                   >
                     {isSubmitting ? (
                       <>
@@ -176,8 +176,12 @@ export function Contact() {
                       </>
                     ) : (
                       <>
-                        Send Message
-                        <Send className="h-4 w-4" />
+                        <span className="transition-transform duration-200 group-hover:-translate-x-1">
+                          Send Message
+                        </span>
+                        <span className="ml-0 inline-flex w-0 items-center justify-center overflow-hidden opacity-0 transition-all duration-200 group-hover:ml-2 group-hover:w-4 group-hover:opacity-100">
+                          <Send className="h-4 w-4" />
+                        </span>
                       </>
                     )}
                   </button>
