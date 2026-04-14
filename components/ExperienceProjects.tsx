@@ -102,9 +102,9 @@ function ExperiencePanel() {
       </p>
 
       <div ref={timelineRef} className="relative mt-10 pl-8 sm:pl-10">
-        <div className="absolute bottom-0 left-[11px] top-0 w-[3px] rounded-full bg-[linear-gradient(180deg,rgba(176,56,255,0.18)_0%,rgba(123,24,255,0.08)_100%)] sm:left-[14px]" />
+        <div className="absolute bottom-0 left-[11px] top-0 w-[3px] rounded-full bg-[linear-gradient(180deg,rgba(99,102,241,0.2)_0%,rgba(6,182,212,0.08)_100%)] sm:left-[14px]" />
         <div
-          className="absolute left-[11px] top-0 w-[3px] rounded-full bg-[linear-gradient(180deg,#f3b6ff_0%,#d13bff_20%,#8b22ff_58%,rgba(139,34,255,0.18)_100%)] shadow-[0_0_18px_rgba(209,59,255,0.6)] transition-[height] duration-200 ease-out sm:left-[14px]"
+          className="absolute left-[11px] top-0 w-[3px] rounded-full bg-[linear-gradient(180deg,#6366f1_0%,#06b6d4_100%)] shadow-[0_0_18px_rgba(99,102,241,0.52)] transition-[height] duration-200 ease-out sm:left-[14px]"
           style={{ height: `${timelineProgress * 100}%` }}
         />
 
@@ -115,8 +115,8 @@ function ExperiencePanel() {
               className="group relative"
             >
               <div className="absolute left-[-38px] top-4 z-10 flex h-9 w-9 items-center justify-center sm:left-[-42px]">
-                <span className="timeline-dot-pulse absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(247,192,255,0.56)_0%,rgba(209,59,255,0.28)_40%,rgba(209,59,255,0.06)_62%,rgba(209,59,255,0)_78%)]" />
-                <span className="absolute h-[18px] w-[18px] rounded-full bg-[radial-gradient(circle_at_35%_35%,#ffe8ff_0%,#e48dff_18%,#d13bff_46%,#8b22ff_72%,#6519d5_100%)] shadow-[0_0_10px_rgba(240,153,255,0.82),0_0_24px_rgba(139,34,255,0.76)]" />
+                <span className="timeline-dot-pulse absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(99,102,241,0.42)_0%,rgba(6,182,212,0.22)_42%,rgba(6,182,212,0.06)_62%,rgba(6,182,212,0)_78%)]" />
+                <span className="absolute h-[18px] w-[18px] rounded-full bg-[linear-gradient(135deg,#6366f1_0%,#06b6d4_100%)] shadow-[0_0_10px_rgba(99,102,241,0.7),0_0_24px_rgba(6,182,212,0.46)]" />
               </div>
 
               <article className="rounded-[24px] border border-[rgba(122,24,255,0.34)] bg-[rgba(15,6,28,0.84)] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.26)] transition-all duration-300 ease-out group-hover:-translate-y-1 group-hover:border-[rgba(203,104,255,0.72)] group-hover:bg-[linear-gradient(180deg,rgba(32,11,54,0.96)_0%,rgba(18,8,34,0.96)_100%)] group-hover:shadow-[0_0_26px_rgba(189,73,255,0.18),0_24px_60px_rgba(0,0,0,0.34)] sm:p-6">
