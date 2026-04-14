@@ -40,20 +40,25 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-[color:rgb(var(--border)/0.45)] bg-[rgb(var(--background)/0.82)] backdrop-blur-xl">
       <Container className="max-w-[1760px]">
-        <nav className="flex items-center justify-between gap-4 py-4" aria-label="Primary navigation">
+        <nav
+          className="flex items-center justify-between gap-4 py-4"
+          aria-label="Primary navigation"
+        >
           <a href="#home" className="flex items-center gap-3">
-            <span className="relative block h-11 w-[66px] shrink-0 sm:h-12 sm:w-[72px]">
+            <span className="relative block h-8 w-[44px] shrink-0 sm:h-9 sm:w-[48px]">
               <Image
                 src={siteConfig.logo}
                 alt={siteConfig.name}
                 fill
-                sizes="72px"
-                className="scale-[2.25] object-contain"
+                sizes="48px"
+                className="scale-[1.5] object-contain"
                 priority
               />
             </span>
             <span className="hidden sm:block">
-              <span className="block text-sm font-semibold text-white">{siteConfig.name}</span>
+              <span className="block text-sm font-semibold text-white">
+                {siteConfig.name}
+              </span>
               <span className="block text-xs text-[rgb(var(--muted-foreground))]">
                 Full Stack Developer
               </span>
@@ -82,21 +87,21 @@ export function Navbar() {
           </div>
 
           <div className="hidden items-center gap-3 xl:flex">
-              <a
-                href="/resume"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center justify-center rounded-full border border-transparent [background:linear-gradient(rgb(var(--background)/0.9),rgb(var(--background)/0.9))_padding-box,linear-gradient(135deg,#6366f1,#06b6d4)_border-box] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(99,102,241,0.14)] transition-transform duration-200 hover:scale-[1.03]"
-              >
-                Resume
-              </a>
-              <button
-                type="button"
-                onClick={() => void openCalendlyPopup(siteConfig.calendlyUrl)}
-                className="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(108,92,231,0.28)] transition-transform duration-200 hover:scale-[1.03]"
-              >
-                Connect Via Calendly
-              </button>
+            <a
+              href="/resume"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center rounded-full border border-transparent [background:linear-gradient(rgb(var(--background)/0.9),rgb(var(--background)/0.9))_padding-box,linear-gradient(135deg,#6366f1,#06b6d4)_border-box] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(99,102,241,0.14)] transition-transform duration-200 hover:scale-[1.03]"
+            >
+              Resume
+            </a>
+            <button
+              type="button"
+              onClick={() => void openCalendlyPopup(siteConfig.calendlyUrl)}
+              className="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(108,92,231,0.28)] transition-transform duration-200 hover:scale-[1.03]"
+            >
+              Connect Via Calendly
+            </button>
           </div>
 
           <button
@@ -111,7 +116,10 @@ export function Navbar() {
         </nav>
 
         {isOpen ? (
-          <div id="mobile-navigation" className="border-t border-[color:rgb(var(--border)/0.7)] pb-4 pt-4 xl:hidden">
+          <div
+            id="mobile-navigation"
+            className="border-t border-[color:rgb(var(--border)/0.7)] pb-4 pt-4 xl:hidden"
+          >
             <div className="flex flex-col gap-2">
               {siteConfig.navLinks.map((link) => {
                 const id = link.href.replace("#", "");
