@@ -94,7 +94,7 @@ export function Contact() {
         <div className="rounded-[30px] border border-[rgba(101,17,204,0.35)] bg-[rgba(5,2,12,0.94)] px-5 py-6 shadow-[0_30px_90px_rgba(0,0,0,0.28)] sm:px-8 sm:py-8 lg:px-12 lg:py-10">
           <div className="grid gap-6 md:grid-cols-[0.95fr_1.05fr] xl:grid-cols-[0.88fr_1.06fr_0.42fr] xl:items-stretch">
             <div className="flex h-full flex-col px-2 py-2 sm:px-4 lg:px-6 lg:py-6">
-              <div className="inline-flex items-center gap-3 rounded-full bg-[linear-gradient(90deg,#6120be_0%,#8a21ff_100%)] px-5 py-3 text-[14px] font-semibold uppercase tracking-[0.02em] text-white">
+              <div className="inline-flex items-center gap-3 rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 py-3 text-[14px] font-semibold uppercase tracking-[0.02em] text-white">
                 <Phone className="h-4 w-4" />
                 <span>Contact</span>
               </div>

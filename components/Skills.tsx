@@ -73,7 +73,7 @@ export function Skills() {
       <Container className="max-w-[1760px]">
         <div className="rounded-[26px] border border-[rgba(101,17,204,0.35)] bg-[rgba(5,2,12,0.94)] px-4 py-6 shadow-[0_30px_90px_rgba(0,0,0,0.28)] sm:px-6 sm:py-8 lg:px-7">
           <div className="max-w-[640px] px-2 sm:px-3">
-            <div className="inline-flex items-center gap-3 rounded-full bg-[linear-gradient(90deg,#6120be_0%,#6c27d8_100%)] px-5 py-3 text-[14px] font-semibold uppercase tracking-[0.02em] text-white">
+            <div className="inline-flex items-center gap-3 rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 py-3 text-[14px] font-semibold uppercase tracking-[0.02em] text-white">
               <Star className="h-4 w-4 fill-current" />
               <span>Tech Skills</span>
             </div>
