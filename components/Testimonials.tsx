@@ -206,7 +206,7 @@ export function Testimonials() {
                   aria-label={`Go to testimonial slide ${index + 1}`}
                   className={`h-2.5 rounded-full transition-all duration-300 ${
                     safePageIndex === index
-                      ? "w-8 bg-[linear-gradient(90deg,#8a15f7_0%,#b117f9_100%)]"
+                      ? "w-8 bg-[linear-gradient(90deg,#6366f1_0%,#06b6d4_100%)]"
                       : "w-2.5 bg-white/20 hover:bg-white/35"
                   }`}
                 />
