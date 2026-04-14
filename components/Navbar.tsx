@@ -48,7 +48,7 @@ export function Navbar() {
                 alt={siteConfig.name}
                 fill
                 sizes="72px"
-                className="object-contain"
+                className="scale-[2.25] object-contain"
                 priority
               />
             </span>
