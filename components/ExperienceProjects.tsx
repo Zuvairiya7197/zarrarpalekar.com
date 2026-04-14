@@ -232,10 +232,10 @@ function ProjectsPanel() {
                 onClick={() =>
                   setOpenProject((current) => (current === project.title ? null : project.title))
                 }
-                className="mt-6 flex w-full items-center justify-between rounded-full bg-[linear-gradient(90deg,#8a15f7_0%,#b117f9_100%)] px-5 py-4 text-left text-[15px] font-semibold text-white shadow-[0_14px_34px_rgba(127,29,255,0.28)]"
+                className="mt-6 flex h-12 w-full items-center justify-between rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-6 text-left text-[17px] font-semibold text-white shadow-[0_18px_40px_rgba(108,92,231,0.28)] transition-transform duration-200 hover:-translate-y-0.5"
               >
                 <span>Project Details</span>
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-white text-[#8a15f7]">
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] text-white shadow-[0_8px_18px_rgba(108,92,231,0.24)]">
                   <ChevronDown
                     className={`h-4 w-4 transition-transform duration-200 ${
                       openProject === project.title ? "rotate-180" : ""

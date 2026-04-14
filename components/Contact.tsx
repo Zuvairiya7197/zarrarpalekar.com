@@ -115,7 +115,7 @@ export function Contact() {
               </p>
 
               <div className="mt-auto pt-12 inline-flex items-center gap-4 rounded-full">
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[linear-gradient(180deg,#7f1dff_0%,#962bff_100%)] text-white shadow-[0_14px_34px_rgba(127,29,255,0.32)]">
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] text-white shadow-[0_14px_34px_rgba(108,92,231,0.28)]">
                   <MapPin className="h-5 w-5" />
                 </span>
                 <span className="text-[20px] font-medium text-white">{siteConfig.location}</span>
@@ -227,7 +227,7 @@ export function Contact() {
                         }
                       }}
                       aria-label={link.label}
-                      className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[linear-gradient(180deg,#7f1dff_0%,#962bff_100%)] text-white shadow-[0_14px_28px_rgba(127,29,255,0.22)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_22px_44px_rgba(127,29,255,0.34)] sm:h-14 sm:w-14 md:h-12 md:w-12 xl:h-16 xl:w-16"
+                      className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] text-white shadow-[0_14px_28px_rgba(108,92,231,0.22)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_22px_44px_rgba(108,92,231,0.34)] sm:h-14 sm:w-14 md:h-12 md:w-12 xl:h-16 xl:w-16"
                     >
                       <Icon className="h-5 w-5 sm:h-6 sm:w-6 md:h-[22px] md:w-[22px] xl:h-7 xl:w-7" />
                     </a>

@@ -93,7 +93,7 @@ export function Testimonials() {
                 type="button"
                 onClick={showNext}
                 aria-label="Next testimonials"
-                className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,#8a15f7_0%,#b117f9_100%)] text-white shadow-[0_16px_38px_rgba(127,29,255,0.28)] hover:-translate-y-0.5"
+                className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] text-white shadow-[0_16px_38px_rgba(108,92,231,0.28)] hover:-translate-y-0.5"
               >
                 <ChevronRight className="h-5 w-5" />
               </button>
