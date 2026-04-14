@@ -14,7 +14,7 @@ function HighlightCard({
   image,
 }: (typeof aboutHighlights)[number]) {
   return (
-    <article className="flex min-h-[128px] flex-col items-center justify-center rounded-[18px] border border-[rgba(122,24,255,0.34)] bg-[rgba(15,6,28,0.84)] px-2 py-4 text-center shadow-[0_18px_50px_rgba(0,0,0,0.26)] sm:min-h-[142px] sm:px-3 sm:py-4 xl:min-h-[178px] xl:rounded-[22px] xl:px-5 xl:py-5">
+    <article className="flex min-h-[128px] flex-col items-center justify-center rounded-[18px] border border-[rgba(122,24,255,0.34)] bg-[rgba(15,6,28,0.84)] px-2 py-4 text-center shadow-[0_18px_50px_rgba(0,0,0,0.26)] transition-all duration-300 ease-out hover:scale-[1.03] hover:border-[rgba(99,102,241,0.68)] hover:shadow-[0_0_22px_rgba(99,102,241,0.18),0_18px_50px_rgba(0,0,0,0.26)] sm:min-h-[142px] sm:px-3 sm:py-4 xl:min-h-[178px] xl:rounded-[22px] xl:px-5 xl:py-5">
       <div className="relative h-[50px] w-[50px] overflow-hidden rounded-full sm:h-[58px] sm:w-[58px] xl:h-[76px] xl:w-[76px]">
         <Image src={image} alt={title} fill sizes="82px" className="object-cover" />
       </div>
