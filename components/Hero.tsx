@@ -47,7 +47,7 @@ export function Hero() {
               </a>
               <a
                 href="#contact"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-white/70 bg-transparent px-6 text-[17px] font-semibold text-white transition-colors duration-200 hover:border-white"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-full border border-transparent [background:linear-gradient(rgb(var(--background)/0.9),rgb(var(--background)/0.9))_padding-box,linear-gradient(135deg,#6366f1,#06b6d4)_border-box] px-6 text-[17px] font-semibold text-white shadow-[0_12px_28px_rgba(99,102,241,0.14)] transition-transform duration-200 hover:scale-[1.03]"
               >
                 Get In Touch
                 <Mail className="h-4 w-4" />

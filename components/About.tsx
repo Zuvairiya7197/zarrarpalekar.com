@@ -113,7 +113,7 @@ export function About() {
                     href="/resume"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex h-10 items-center rounded-full border border-[rgba(176,104,255,0.6)] bg-transparent px-5 text-[14px] font-semibold text-white shadow-[0_10px_24px_rgba(0,0,0,0.12)] hover:scale-[1.02] hover:border-[rgba(214,151,255,0.88)] hover:bg-[rgba(38,14,58,0.32)]"
+                    className="inline-flex h-10 items-center rounded-full border border-transparent [background:linear-gradient(rgb(var(--background)/0.9),rgb(var(--background)/0.9))_padding-box,linear-gradient(135deg,#6366f1,#06b6d4)_border-box] px-5 text-[14px] font-semibold text-white shadow-[0_12px_28px_rgba(99,102,241,0.14)] transition-transform duration-200 hover:scale-[1.03]"
                   >
                     See Resume
                   </a>
