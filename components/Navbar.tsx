@@ -39,7 +39,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[color:rgb(var(--border)/0.45)] bg-[rgb(var(--background)/0.82)] backdrop-blur-xl">
-      <Container>
+      <Container className="max-w-[1760px]">
         <nav className="flex items-center justify-between gap-4 py-4" aria-label="Primary navigation">
           <a href="#home" className="flex items-center gap-3">
             <span className="relative block h-11 w-[66px] shrink-0 sm:h-12 sm:w-[72px]">
@@ -81,7 +81,15 @@ export function Navbar() {
             })}
           </div>
 
-          <div className="hidden xl:flex">
+          <div className="hidden items-center gap-3 xl:flex">
+              <a
+                href="/resume"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center rounded-full border border-transparent [background:linear-gradient(rgb(var(--background)/0.9),rgb(var(--background)/0.9))_padding-box,linear-gradient(135deg,#6366f1,#06b6d4)_border-box] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(99,102,241,0.14)] transition-transform duration-200 hover:-translate-y-0.5"
+              >
+                Resume
+              </a>
               <button
                 type="button"
                 onClick={() => void openCalendlyPopup(siteConfig.calendlyUrl)}
@@ -128,7 +136,16 @@ export function Navbar() {
               })}
             </div>
 
-            <div className="mt-4">
+            <div className="mt-4 flex flex-wrap gap-3">
+              <a
+                href="/resume"
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="inline-flex items-center justify-center rounded-full border border-transparent [background:linear-gradient(rgb(var(--background)/0.9),rgb(var(--background)/0.9))_padding-box,linear-gradient(135deg,#6366f1,#06b6d4)_border-box] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(99,102,241,0.14)] transition-transform duration-200 hover:-translate-y-0.5"
+              >
+                Resume
+              </a>
               <button
                 type="button"
                 onClick={() => {
