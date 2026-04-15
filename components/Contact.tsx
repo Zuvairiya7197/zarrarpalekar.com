@@ -89,7 +89,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="section-padding pb-20">
+    <section id="contact" className="section-padding pb-4 sm:pb-6">
       <Container className="max-w-[1760px]">
         <div className="rounded-[30px] border border-[rgba(101,17,204,0.35)] bg-[rgba(5,2,12,0.94)] px-5 py-6 shadow-[0_30px_90px_rgba(0,0,0,0.28)] sm:px-8 sm:py-8 lg:px-12 lg:py-10">
           <div className="grid gap-6 md:grid-cols-[0.95fr_1.05fr] xl:grid-cols-[0.88fr_1.06fr_0.42fr] xl:items-stretch">
