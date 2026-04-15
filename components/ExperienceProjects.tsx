@@ -86,13 +86,13 @@ function ExperiencePanel() {
   return (
     <section
       id="experience"
-      className="rounded-[28px] border border-[rgba(101,17,204,0.35)] bg-[rgba(5,2,12,0.94)] p-6 shadow-[0_30px_90px_rgba(0,0,0,0.28)] sm:p-8 lg:p-10"
+      className="rounded-[28px] border border-[rgba(185,28,28,0.35)] bg-[rgba(5,2,12,0.94)] p-6 shadow-[0_30px_90px_rgba(0,0,0,0.28)] sm:p-8 lg:p-10"
     >
       <SectionPill icon={<BriefcaseBusiness className="h-4 w-4" />} label="Experience" />
 
       <h2 className="mt-8 text-[30px] font-semibold leading-[1.08] tracking-[-0.05em] text-white sm:text-[50px]">
         <span>My Professional </span>
-        <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text font-bold text-transparent">
+        <span className="bg-[linear-gradient(90deg,#ef4444,#dc2626)] bg-clip-text font-bold text-transparent">
           Journey.
         </span>
       </h2>
@@ -102,9 +102,9 @@ function ExperiencePanel() {
       </p>
 
       <div ref={timelineRef} className="relative mt-10 pl-8 sm:pl-10">
-        <div className="absolute bottom-0 left-[11px] top-0 w-[3px] rounded-full bg-[linear-gradient(180deg,rgba(99,102,241,0.2)_0%,rgba(6,182,212,0.08)_100%)] sm:left-[14px]" />
+        <div className="absolute bottom-0 left-[11px] top-0 w-[3px] rounded-full bg-[linear-gradient(180deg,rgba(239,68,68,0.2)_0%,rgba(220,38,38,0.08)_100%)] sm:left-[14px]" />
         <div
-          className="absolute left-[11px] top-0 w-[3px] rounded-full bg-[linear-gradient(180deg,#6366f1_0%,#06b6d4_100%)] shadow-[0_0_18px_rgba(99,102,241,0.52)] transition-[height] duration-200 ease-out sm:left-[14px]"
+          className="absolute left-[11px] top-0 w-[3px] rounded-full bg-[linear-gradient(180deg,#ef4444_0%,#dc2626_100%)] shadow-[0_0_18px_rgba(239,68,68,0.52)] transition-[height] duration-200 ease-out sm:left-[14px]"
           style={{ height: `${timelineProgress * 100}%` }}
         />
 
@@ -115,11 +115,11 @@ function ExperiencePanel() {
               className="group relative"
             >
               <div className="absolute left-[-38px] top-4 z-10 flex h-9 w-9 items-center justify-center sm:left-[-42px]">
-                <span className="timeline-dot-pulse absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(99,102,241,0.42)_0%,rgba(6,182,212,0.22)_42%,rgba(6,182,212,0.06)_62%,rgba(6,182,212,0)_78%)]" />
-                <span className="absolute h-[18px] w-[18px] rounded-full bg-[linear-gradient(135deg,#6366f1_0%,#06b6d4_100%)] shadow-[0_0_10px_rgba(99,102,241,0.7),0_0_24px_rgba(6,182,212,0.46)]" />
+                <span className="timeline-dot-pulse absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(239,68,68,0.42)_0%,rgba(220,38,38,0.22)_42%,rgba(220,38,38,0.06)_62%,rgba(220,38,38,0)_78%)]" />
+                <span className="absolute h-[18px] w-[18px] rounded-full bg-[linear-gradient(135deg,#ef4444_0%,#dc2626_100%)] shadow-[0_0_10px_rgba(239,68,68,0.7),0_0_24px_rgba(220,38,38,0.46)]" />
               </div>
 
-              <article className="rounded-[24px] border border-[rgba(122,24,255,0.34)] bg-[rgba(15,6,28,0.84)] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.26)] transition-all duration-300 ease-out group-hover:scale-[1.015] group-hover:border-[rgba(99,102,241,0.72)] group-hover:shadow-[0_0_0_1px_rgba(99,102,241,0.22),0_0_28px_rgba(99,102,241,0.28),0_0_56px_rgba(99,102,241,0.16),0_24px_60px_rgba(0,0,0,0.34)] sm:p-6">
+              <article className="rounded-[24px] border border-[rgba(239,68,68,0.34)] bg-[rgba(15,6,28,0.84)] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.26)] transition-all duration-300 ease-out group-hover:scale-[1.015] group-hover:border-[rgba(239,68,68,0.72)] group-hover:shadow-[0_0_0_1px_rgba(239,68,68,0.22),0_0_28px_rgba(239,68,68,0.28),0_0_56px_rgba(239,68,68,0.16),0_24px_60px_rgba(0,0,0,0.34)] sm:p-6">
                 <div className="flex items-start gap-4">
                   <div className="relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white/95 p-2">
                     <Image
@@ -133,7 +133,7 @@ function ExperiencePanel() {
 
                   <div className="min-w-0">
                     <h3 className="text-[20px] font-semibold text-white sm:text-[22px]">{experience.company}</h3>
-                    <p className="mt-1 bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text text-[15px] font-bold text-transparent">
+                    <p className="mt-1 bg-[linear-gradient(90deg,#ef4444,#dc2626)] bg-clip-text text-[15px] font-bold text-transparent">
                       {experience.title}
                     </p>
                     <p className="mt-3 text-[16px] font-semibold text-white sm:mt-4 sm:text-[18px]">
@@ -146,7 +146,7 @@ function ExperiencePanel() {
                   {experience.technologies.map((item) => (
                     <span
                       key={item}
-                      className="rounded-full border border-[rgba(135,49,214,0.55)] bg-[rgba(39,18,61,0.92)] px-3 py-1.5 text-[12px] font-semibold text-white/92"
+                      className="rounded-full border border-[rgba(185,28,28,0.55)] bg-[rgba(39,18,61,0.92)] px-3 py-1.5 text-[12px] font-semibold text-white/92"
                     >
                       {item}
                     </span>
@@ -158,7 +158,7 @@ function ExperiencePanel() {
                 </p>
 
                 <div className="mt-5">
-                  <p className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text text-[16px] font-bold text-transparent">
+                  <p className="bg-[linear-gradient(90deg,#ef4444,#dc2626)] bg-clip-text text-[16px] font-bold text-transparent">
                     Description
                   </p>
                   <ul className="mt-3 space-y-3 text-[15px] leading-7 text-[rgba(220,222,235,0.82)]">
@@ -185,13 +185,13 @@ function ProjectsPanel() {
   return (
     <section
       id="projects"
-      className="rounded-[28px] border border-[rgba(101,17,204,0.35)] bg-[rgba(5,2,12,0.94)] p-6 shadow-[0_30px_90px_rgba(0,0,0,0.28)] sm:p-8 lg:p-10"
+      className="rounded-[28px] border border-[rgba(185,28,28,0.35)] bg-[rgba(5,2,12,0.94)] p-6 shadow-[0_30px_90px_rgba(0,0,0,0.28)] sm:p-8 lg:p-10"
     >
       <SectionPill icon={<FolderOpen className="h-4 w-4" />} label="Projects" />
 
       <h2 className="mt-8 text-[30px] font-semibold leading-[1.08] tracking-[-0.05em] text-white sm:text-[50px]">
         <span>Featured </span>
-        <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text font-bold text-transparent">
+        <span className="bg-[linear-gradient(90deg,#ef4444,#dc2626)] bg-clip-text font-bold text-transparent">
           Projects.
         </span>
       </h2>
@@ -204,9 +204,9 @@ function ProjectsPanel() {
         {projects.map((project) => (
           <article
             key={project.title}
-            className="overflow-hidden rounded-[26px] border border-[rgba(122,24,255,0.34)] bg-[rgba(15,6,28,0.84)] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.26)] transition-all duration-300 ease-out hover:scale-[1.015] hover:border-[rgba(99,102,241,0.72)] hover:shadow-[0_0_0_1px_rgba(99,102,241,0.22),0_0_28px_rgba(99,102,241,0.28),0_0_56px_rgba(99,102,241,0.16),0_24px_60px_rgba(0,0,0,0.34)]"
+            className="overflow-hidden rounded-[26px] border border-[rgba(239,68,68,0.34)] bg-[rgba(15,6,28,0.84)] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.26)] transition-all duration-300 ease-out hover:scale-[1.015] hover:border-[rgba(239,68,68,0.72)] hover:shadow-[0_0_0_1px_rgba(239,68,68,0.22),0_0_28px_rgba(239,68,68,0.28),0_0_56px_rgba(239,68,68,0.16),0_24px_60px_rgba(0,0,0,0.34)]"
           >
-            <div className="relative overflow-hidden rounded-[20px] border border-[rgba(122,24,255,0.2)] bg-[rgba(7,3,16,0.95)]">
+            <div className="relative overflow-hidden rounded-[20px] border border-[rgba(239,68,68,0.2)] bg-[rgba(7,3,16,0.95)]">
               <Image
                 src={project.image}
                 alt={project.title}
@@ -222,7 +222,7 @@ function ProjectsPanel() {
               <h3 className="text-[22px] font-semibold tracking-tight text-white sm:text-[24px]">
                 {project.title}
               </h3>
-              <p className="mt-1.5 bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text text-[14px] font-bold text-transparent">
+              <p className="mt-1.5 bg-[linear-gradient(90deg,#ef4444,#dc2626)] bg-clip-text text-[14px] font-bold text-transparent">
                 {project.date}
               </p>
               <p className="mt-4 text-[16px] leading-7 text-[rgba(220,222,235,0.82)]">
@@ -234,10 +234,10 @@ function ProjectsPanel() {
                 onClick={() =>
                   setOpenProject((current) => (current === project.title ? null : project.title))
                 }
-                className="mt-6 flex h-12 w-full items-center justify-between rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 text-left text-[15px] font-semibold text-white shadow-[0_18px_40px_rgba(108,92,231,0.28)] transition-transform duration-200 hover:scale-[1.01] sm:px-6 sm:text-[17px]"
+                className="mt-6 flex h-12 w-full items-center justify-between rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 text-left text-[15px] font-semibold text-white shadow-[0_18px_40px_rgba(239,68,68,0.28)] transition-transform duration-200 hover:scale-[1.01] sm:px-6 sm:text-[17px]"
               >
                 <span>Project Details</span>
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] text-white shadow-[0_8px_18px_rgba(108,92,231,0.24)]">
+                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] text-white shadow-[0_8px_18px_rgba(239,68,68,0.24)]">
                   <ChevronDown
                     className={`h-4 w-4 transition-transform duration-200 ${
                       openProject === project.title ? "rotate-180" : ""
@@ -248,7 +248,7 @@ function ProjectsPanel() {
 
               {openProject === project.title ? (
                 <div className="mt-6">
-                  <p className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text text-[16px] font-bold text-transparent">
+                  <p className="bg-[linear-gradient(90deg,#ef4444,#dc2626)] bg-clip-text text-[16px] font-bold text-transparent">
                     Technologies Used:
                   </p>
 
@@ -256,7 +256,7 @@ function ProjectsPanel() {
                     {project.technologies.map((technology) => (
                       <span
                         key={`${project.title}-${technology}`}
-                        className="rounded-full border border-[rgba(135,49,214,0.55)] bg-[rgba(39,18,61,0.92)] px-3 py-1.5 text-[12px] font-semibold text-white/92"
+                        className="rounded-full border border-[rgba(185,28,28,0.55)] bg-[rgba(39,18,61,0.92)] px-3 py-1.5 text-[12px] font-semibold text-white/92"
                       >
                         {technology}
                       </span>
@@ -278,7 +278,7 @@ function ProjectsPanel() {
                         href={project.sourceCode}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex h-10 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 text-[14px] font-semibold text-white shadow-[0_14px_30px_rgba(108,92,231,0.24)] transition-transform duration-200 hover:scale-[1.03]"
+                        className="inline-flex h-10 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 text-[14px] font-semibold text-white shadow-[0_14px_30px_rgba(239,68,68,0.24)] transition-transform duration-200 hover:scale-[1.03]"
                       >
                         {project.title === "Tindog – Tinder for dogs" ||
                         project.title === "My First Website"

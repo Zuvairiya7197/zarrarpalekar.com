@@ -33,7 +33,7 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="relative overflow-x-clip">
-        <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-190 bg-[radial-gradient(circle_at_top,rgba(108,92,231,0.28),transparent_26%),radial-gradient(circle_at_top_right,rgba(59,130,246,0.18),transparent_28%)]" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-190 bg-[radial-gradient(circle_at_top,rgba(239,68,68,0.28),transparent_26%),radial-gradient(circle_at_top_right,rgba(220,38,38,0.18),transparent_28%)]" />
         <Navbar />
         <main>
           <Hero />

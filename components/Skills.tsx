@@ -9,7 +9,7 @@ type SkillItem = (typeof skillGroups)[number]["items"][number];
 
 function SkillTile({ name, icon }: SkillItem) {
   return (
-    <div className="group flex size-[74px] shrink-0 flex-col items-center justify-center overflow-hidden rounded-[14px] border border-[rgba(105,18,214,0.48)] bg-[rgba(15,6,28,0.84)] px-2 py-2 text-center shadow-[0_16px_36px_rgba(0,0,0,0.2)] transition-all duration-300 ease-out hover:scale-[1.04] hover:border-[rgba(99,102,241,0.72)] hover:bg-[linear-gradient(135deg,#6366f1,#06b6d4)] hover:shadow-[0_0_18px_rgba(99,102,241,0.58),0_0_40px_rgba(99,102,241,0.36)] sm:size-[84px] md:size-[70px] lg:size-[72px] xl:size-[88px]">
+    <div className="group flex size-[74px] shrink-0 flex-col items-center justify-center overflow-hidden rounded-[14px] border border-[rgba(185,28,28,0.48)] bg-[rgba(15,6,28,0.84)] px-2 py-2 text-center shadow-[0_16px_36px_rgba(0,0,0,0.2)] transition-all duration-300 ease-out hover:scale-[1.04] hover:border-[rgba(239,68,68,0.72)] hover:bg-[linear-gradient(135deg,#ef4444,#dc2626)] hover:shadow-[0_0_18px_rgba(239,68,68,0.58),0_0_40px_rgba(239,68,68,0.36)] sm:size-[84px] md:size-[70px] lg:size-[72px] xl:size-[88px]">
       <div className="relative h-[22px] w-[22px] sm:h-[27px] sm:w-[27px] md:h-[22px] md:w-[22px] lg:h-[23px] lg:w-[23px] xl:h-[28px] xl:w-[28px]">
         <Image src={icon} alt={name} fill sizes="38px" className="object-contain" />
       </div>
@@ -43,11 +43,11 @@ function SkillGroup({
         ? "px-3 py-2 text-center text-[10px] leading-tight sm:whitespace-nowrap sm:text-[11px] md:text-[8px] lg:text-[10px] xl:px-4 xl:text-[13px]"
         : "px-3 py-2 text-center text-[11px] leading-tight sm:whitespace-nowrap sm:text-[12px] md:text-[9px] lg:text-[11px] xl:px-4 xl:text-[13px]";
   const titleBackgroundClass =
-    "border border-[rgba(146,82,255,0.55)] bg-[linear-gradient(135deg,#5e1cc7_0%,#3a0a76_100%)] shadow-[0_10px_24px_rgba(66,20,130,0.35)]";
+    "border border-[rgba(185,28,28,0.55)] bg-[linear-gradient(135deg,#5e1cc7_0%,#3a0a76_100%)] shadow-[0_10px_24px_rgba(127,29,29,0.35)]";
 
   return (
     <article
-      className={`h-full w-full min-w-0 overflow-hidden rounded-[22px] border border-[rgba(105,18,214,0.42)] bg-[rgba(10,4,18,0.84)] p-4 shadow-[0_22px_60px_rgba(0,0,0,0.22)] sm:p-5 ${className}`}
+      className={`h-full w-full min-w-0 overflow-hidden rounded-[22px] border border-[rgba(185,28,28,0.42)] bg-[rgba(10,4,18,0.84)] p-4 shadow-[0_22px_60px_rgba(0,0,0,0.22)] sm:p-5 ${className}`}
     >
       <div
         className={`inline-flex max-w-full rounded-full font-bold leading-none text-white ${titleBackgroundClass} ${titleClass}`}
@@ -73,7 +73,7 @@ export function Skills() {
   return (
     <section id="skills" className="section-padding">
       <Container className="max-w-[1760px]">
-        <div className="rounded-[26px] border border-[rgba(101,17,204,0.35)] bg-[rgba(5,2,12,0.94)] px-4 py-6 shadow-[0_30px_90px_rgba(0,0,0,0.28)] sm:px-6 sm:py-8 lg:px-7">
+        <div className="rounded-[26px] border border-[rgba(185,28,28,0.35)] bg-[rgba(5,2,12,0.94)] px-4 py-6 shadow-[0_30px_90px_rgba(0,0,0,0.28)] sm:px-6 sm:py-8 lg:px-7">
           <div className="max-w-[640px] px-2 sm:px-3">
             <div className="inline-flex items-center gap-3 rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 py-3 text-[14px] font-bold uppercase tracking-[0.02em] text-white">
               <Star className="h-4 w-4 fill-current" />
@@ -82,7 +82,7 @@ export function Skills() {
 
             <h2 className="mt-9 text-[30px] font-semibold leading-[1.08] tracking-[-0.05em] text-white sm:text-[50px]">
               <span>Technologies </span>
-              <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text font-bold text-transparent">
+              <span className="bg-[linear-gradient(90deg,#ef4444,#dc2626)] bg-clip-text font-bold text-transparent">
                 I work with.
               </span>
             </h2>

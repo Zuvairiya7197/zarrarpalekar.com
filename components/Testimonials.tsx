@@ -58,7 +58,7 @@ export function Testimonials() {
   return (
     <section id="testimonials" className="section-padding">
       <Container className="max-w-[1760px]">
-        <div className="rounded-[26px] border border-[rgba(101,17,204,0.35)] bg-[rgba(5,2,12,0.94)] px-4 py-6 shadow-[0_30px_90px_rgba(0,0,0,0.28)] sm:px-6 sm:py-8 lg:px-8">
+        <div className="rounded-[26px] border border-[rgba(185,28,28,0.35)] bg-[rgba(5,2,12,0.94)] px-4 py-6 shadow-[0_30px_90px_rgba(0,0,0,0.28)] sm:px-6 sm:py-8 lg:px-8">
           <div className="flex flex-col gap-6 px-2 sm:px-3 xl:flex-row xl:items-end xl:justify-between">
             <div className="max-w-[760px]">
               <div className="inline-flex items-center gap-3 rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 py-3 text-[14px] font-bold uppercase tracking-[0.02em] text-white">
@@ -68,7 +68,7 @@ export function Testimonials() {
 
               <h2 className="mt-9 text-[30px] font-semibold leading-[1.08] tracking-[-0.05em] text-white sm:text-[50px]">
                 <span>What People </span>
-                <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text font-bold text-transparent">
+                <span className="bg-[linear-gradient(90deg,#ef4444,#dc2626)] bg-clip-text font-bold text-transparent">
                   Say.
                 </span>
               </h2>
@@ -84,7 +84,7 @@ export function Testimonials() {
                 type="button"
                 onClick={showPrevious}
                 aria-label="Previous testimonials"
-                className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[rgba(122,24,255,0.34)] bg-[rgba(14,6,22,0.92)] text-white shadow-[0_16px_38px_rgba(0,0,0,0.2)] hover:border-[rgba(203,104,255,0.72)] hover:bg-[rgba(35,12,57,0.96)]"
+                className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-[rgba(239,68,68,0.34)] bg-[rgba(14,6,22,0.92)] text-white shadow-[0_16px_38px_rgba(0,0,0,0.2)] hover:border-[rgba(248,113,113,0.72)] hover:bg-[rgba(35,12,57,0.96)]"
               >
                 <ChevronLeft className="h-5 w-5" />
               </button>
@@ -93,7 +93,7 @@ export function Testimonials() {
                 type="button"
                 onClick={showNext}
                 aria-label="Next testimonials"
-                className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] text-white shadow-[0_16px_38px_rgba(108,92,231,0.28)] hover:scale-[1.04]"
+                className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] text-white shadow-[0_16px_38px_rgba(239,68,68,0.28)] hover:scale-[1.04]"
               >
                 <ChevronRight className="h-5 w-5" />
               </button>
@@ -117,14 +117,14 @@ export function Testimonials() {
                       return (
                         <article
                           key={`${testimonial.name}-${testimonial.date}`}
-                          className="group relative flex h-full flex-col overflow-hidden rounded-[24px] border border-[rgba(122,24,255,0.34)] bg-[rgba(14,6,22,0.92)] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.24)] transition-all duration-300 ease-out hover:scale-[1.015] hover:border-[rgba(203,104,255,0.72)] hover:bg-[linear-gradient(180deg,rgba(32,11,54,0.98)_0%,rgba(18,8,34,0.98)_100%)] hover:shadow-[0_0_28px_rgba(189,73,255,0.14),0_24px_70px_rgba(0,0,0,0.34)] sm:p-6"
+                          className="group relative flex h-full flex-col overflow-hidden rounded-[24px] border border-[rgba(239,68,68,0.34)] bg-[rgba(14,6,22,0.92)] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.24)] transition-all duration-300 ease-out hover:scale-[1.015] hover:border-[rgba(248,113,113,0.72)] hover:bg-[linear-gradient(180deg,rgba(32,11,54,0.98)_0%,rgba(18,8,34,0.98)_100%)] hover:shadow-[0_0_28px_rgba(239,68,68,0.14),0_24px_70px_rgba(0,0,0,0.34)] sm:p-6"
                         >
                           <div className="pointer-events-none absolute right-4 top-4 text-[#c861ff]/20 transition-colors duration-300 group-hover:text-[#e7a4ff]/28">
                             <MessageSquareQuote className="h-10 w-10" />
                           </div>
 
                           <div className="flex items-start gap-4 pr-10">
-                            <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full border border-[rgba(184,12,255,0.4)] bg-[rgba(32,12,52,0.82)] shadow-[0_14px_28px_rgba(0,0,0,0.18)]">
+                            <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full border border-[rgba(220,38,38,0.4)] bg-[rgba(32,12,52,0.82)] shadow-[0_14px_28px_rgba(0,0,0,0.18)]">
                               <Image
                                 src={testimonial.image}
                                 alt={testimonial.name}
@@ -145,10 +145,10 @@ export function Testimonials() {
                           </div>
 
                           <div className="mt-4 flex flex-wrap gap-2">
-                            <span className="rounded-full border border-[rgba(135,49,214,0.55)] bg-[rgba(39,18,61,0.92)] px-3 py-1.5 text-[12px] font-semibold text-white/92">
+                            <span className="rounded-full border border-[rgba(185,28,28,0.55)] bg-[rgba(39,18,61,0.92)] px-3 py-1.5 text-[12px] font-semibold text-white/92">
                               {testimonial.date}
                             </span>
-                            <span className="rounded-full border border-[rgba(135,49,214,0.4)] bg-[rgba(23,10,37,0.9)] px-3 py-1.5 text-[12px] font-medium text-[rgba(219,223,246,0.82)]">
+                            <span className="rounded-full border border-[rgba(185,28,28,0.4)] bg-[rgba(23,10,37,0.9)] px-3 py-1.5 text-[12px] font-medium text-[rgba(219,223,246,0.82)]">
                               {testimonial.relationship}
                             </span>
                           </div>
@@ -206,7 +206,7 @@ export function Testimonials() {
                   aria-label={`Go to testimonial slide ${index + 1}`}
                   className={`h-2.5 rounded-full transition-all duration-300 ${
                     safePageIndex === index
-                      ? "w-8 bg-[linear-gradient(90deg,#6366f1_0%,#06b6d4_100%)]"
+                      ? "w-8 bg-[linear-gradient(90deg,#ef4444_0%,#dc2626_100%)]"
                       : "w-2.5 bg-white/20 hover:bg-white/35"
                   }`}
                 />

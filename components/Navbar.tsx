@@ -76,7 +76,7 @@ export function Navbar() {
                   className={cn(
                     "rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200",
                     activeSection === id
-                      ? "bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] text-white shadow-[0_10px_28px_rgba(108,92,231,0.36)]"
+                      ? "bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] text-white shadow-[0_10px_28px_rgba(239,68,68,0.36)]"
                       : "text-[rgb(var(--muted-foreground))] hover:text-white",
                   )}
                 >
@@ -91,14 +91,14 @@ export function Navbar() {
               href="/resume"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center justify-center rounded-full border border-transparent [background:linear-gradient(rgb(var(--background)/0.9),rgb(var(--background)/0.9))_padding-box,linear-gradient(135deg,#6366f1,#06b6d4)_border-box] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(99,102,241,0.14)] transition-transform duration-200 hover:scale-[1.03]"
+              className="inline-flex items-center justify-center rounded-full border border-transparent [background:linear-gradient(rgb(var(--background)/0.9),rgb(var(--background)/0.9))_padding-box,linear-gradient(135deg,#ef4444,#dc2626)_border-box] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(239,68,68,0.14)] transition-transform duration-200 hover:scale-[1.03]"
             >
               Resume
             </a>
             <button
               type="button"
               onClick={() => void openCalendlyPopup(siteConfig.calendlyUrl)}
-              className="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(108,92,231,0.28)] transition-transform duration-200 hover:scale-[1.03]"
+              className="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_18px_40px_rgba(239,68,68,0.28)] transition-transform duration-200 hover:scale-[1.03]"
             >
               Connect Via Calendly
             </button>
@@ -134,7 +134,7 @@ export function Navbar() {
                     className={cn(
                       "rounded-2xl px-4 py-3 text-sm font-medium transition-colors duration-200",
                       activeSection === id
-                        ? "bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] text-white shadow-[0_10px_28px_rgba(108,92,231,0.32)]"
+                        ? "bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] text-white shadow-[0_10px_28px_rgba(239,68,68,0.32)]"
                         : "text-[rgb(var(--muted-foreground))]",
                     )}
                   >
@@ -150,7 +150,7 @@ export function Navbar() {
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => setIsOpen(false)}
-                className="inline-flex items-center justify-center rounded-full border border-transparent [background:linear-gradient(rgb(var(--background)/0.9),rgb(var(--background)/0.9))_padding-box,linear-gradient(135deg,#6366f1,#06b6d4)_border-box] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(99,102,241,0.14)] transition-transform duration-200 hover:scale-[1.03]"
+                className="inline-flex items-center justify-center rounded-full border border-transparent [background:linear-gradient(rgb(var(--background)/0.9),rgb(var(--background)/0.9))_padding-box,linear-gradient(135deg,#ef4444,#dc2626)_border-box] px-5 py-2.5 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(239,68,68,0.14)] transition-transform duration-200 hover:scale-[1.03]"
               >
                 Resume
               </a>

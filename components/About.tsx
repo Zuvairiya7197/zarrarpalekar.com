@@ -14,7 +14,7 @@ function HighlightCard({
   image,
 }: (typeof aboutHighlights)[number]) {
   return (
-    <article className="flex min-h-[116px] min-w-[138px] flex-col items-center justify-center rounded-[18px] border border-[rgba(122,24,255,0.34)] bg-[rgba(15,6,28,0.84)] px-2 py-3 text-center shadow-[0_18px_50px_rgba(0,0,0,0.26)] transition-all duration-300 ease-out hover:scale-[1.03] hover:border-[rgba(99,102,241,0.68)] hover:shadow-[0_0_22px_rgba(99,102,241,0.18),0_18px_50px_rgba(0,0,0,0.26)] sm:min-h-[142px] sm:min-w-0 sm:px-3 sm:py-4 xl:min-h-[178px] xl:rounded-[22px] xl:px-5 xl:py-5">
+    <article className="flex min-h-[116px] min-w-[138px] flex-col items-center justify-center rounded-[18px] border border-[rgba(239,68,68,0.34)] bg-[rgba(15,6,28,0.84)] px-2 py-3 text-center shadow-[0_18px_50px_rgba(0,0,0,0.26)] transition-all duration-300 ease-out hover:scale-[1.03] hover:border-[rgba(239,68,68,0.68)] hover:shadow-[0_0_22px_rgba(239,68,68,0.18),0_18px_50px_rgba(0,0,0,0.26)] sm:min-h-[142px] sm:min-w-0 sm:px-3 sm:py-4 xl:min-h-[178px] xl:rounded-[22px] xl:px-5 xl:py-5">
       <div className="relative h-[44px] w-[44px] overflow-hidden rounded-full sm:h-[58px] sm:w-[58px] xl:h-[76px] xl:w-[76px]">
         <Image src={image} alt={title} fill sizes="82px" className="object-cover" />
       </div>
@@ -44,7 +44,7 @@ export function About() {
   return (
     <section id="about" className="section-padding">
       <Container className="max-w-[1760px]">
-        <div className="rounded-[26px] border border-[rgba(101,17,204,0.35)] bg-[rgba(5,2,12,0.94)] px-5 py-5 shadow-[0_30px_90px_rgba(0,0,0,0.28)] sm:px-7 sm:py-7 lg:px-10 lg:py-7">
+        <div className="rounded-[26px] border border-[rgba(185,28,28,0.35)] bg-[rgba(5,2,12,0.94)] px-5 py-5 shadow-[0_30px_90px_rgba(0,0,0,0.28)] sm:px-7 sm:py-7 lg:px-10 lg:py-7">
           <div className="grid gap-5 xl:grid-cols-[300px_minmax(0,1fr)_300px] xl:items-stretch">
             <div className="flex gap-3 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:grid sm:grid-cols-3 sm:gap-4 sm:overflow-visible sm:pb-0 xl:grid-cols-1 xl:gap-5">
               {leftHighlights.map((item) => (
@@ -52,7 +52,7 @@ export function About() {
               ))}
             </div>
 
-            <div className="rounded-[22px] border border-[rgba(122,24,255,0.34)] bg-[rgba(14,6,22,0.94)] px-6 py-5 shadow-[0_24px_70px_rgba(0,0,0,0.28)] sm:px-7 sm:py-6 lg:px-8 lg:py-6">
+            <div className="rounded-[22px] border border-[rgba(239,68,68,0.34)] bg-[rgba(14,6,22,0.94)] px-6 py-5 shadow-[0_24px_70px_rgba(0,0,0,0.28)] sm:px-7 sm:py-6 lg:px-8 lg:py-6">
               <div className="inline-flex items-center gap-3 rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-6 py-3 text-[14px] font-bold uppercase tracking-[0.02em] text-white">
                 <Heart className="h-4 w-4 fill-current" />
                 <span>About Me</span>
@@ -60,12 +60,12 @@ export function About() {
 
               <h2 className="mt-8 max-w-[620px] text-[30px] font-semibold leading-[1.06] tracking-[-0.05em] text-white sm:text-[46px] lg:text-[54px]">
                 <span>More Than </span>
-                <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text font-bold text-transparent">
+                <span className="bg-[linear-gradient(90deg,#ef4444,#dc2626)] bg-clip-text font-bold text-transparent">
                   Code.
                 </span>
                 <br />
                 <span>I Build </span>
-                <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text font-bold text-transparent">
+                <span className="bg-[linear-gradient(90deg,#ef4444,#dc2626)] bg-clip-text font-bold text-transparent">
                   Impact.
                 </span>
               </h2>
@@ -74,14 +74,14 @@ export function About() {
                 <p className="text-[17px] font-medium leading-[1.42] text-white sm:text-[21px]">
                   <span className="mr-2 inline-block">👋</span>
                   <span>Hi there! I am </span>
-                  <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text font-bold uppercase text-transparent">
+                  <span className="bg-[linear-gradient(90deg,#ef4444,#dc2626)] bg-clip-text font-bold uppercase text-transparent">
                     ZARRAR PALEKAR.
                   </span>
                 </p>
 
                 <p className="max-w-[800px] text-[16px] leading-[1.48] tracking-[-0.015em] text-[rgba(233,236,255,0.9)] sm:text-[17px]">
                   <span>With over </span>
-                  <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text font-bold text-transparent">
+                  <span className="bg-[linear-gradient(90deg,#ef4444,#dc2626)] bg-clip-text font-bold text-transparent">
                     {experienceYears} years
                   </span>
                   <span>{primaryParagraph.replace(`With over ${experienceYears} years`, "")}</span>
@@ -106,7 +106,7 @@ export function About() {
                   <button
                     type="button"
                     onClick={() => setIsExpanded((current) => !current)}
-                    className="inline-flex h-10 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 text-[14px] font-semibold text-white shadow-[0_14px_30px_rgba(108,92,231,0.24)] transition-transform duration-200 hover:scale-[1.03]"
+                    className="inline-flex h-10 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 text-[14px] font-semibold text-white shadow-[0_14px_30px_rgba(239,68,68,0.24)] transition-transform duration-200 hover:scale-[1.03]"
                   >
                     {isExpanded ? "Show Less" : "Show More"}
                   </button>
@@ -115,7 +115,7 @@ export function About() {
                     href="/resume"
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex h-10 items-center rounded-full border border-transparent [background:linear-gradient(rgb(var(--background)/0.9),rgb(var(--background)/0.9))_padding-box,linear-gradient(135deg,#6366f1,#06b6d4)_border-box] px-5 text-[14px] font-semibold text-white shadow-[0_12px_28px_rgba(99,102,241,0.14)] transition-transform duration-200 hover:scale-[1.03]"
+                    className="inline-flex h-10 items-center rounded-full border border-transparent [background:linear-gradient(rgb(var(--background)/0.9),rgb(var(--background)/0.9))_padding-box,linear-gradient(135deg,#ef4444,#dc2626)_border-box] px-5 text-[14px] font-semibold text-white shadow-[0_12px_28px_rgba(239,68,68,0.14)] transition-transform duration-200 hover:scale-[1.03]"
                   >
                     See Resume
                   </a>
