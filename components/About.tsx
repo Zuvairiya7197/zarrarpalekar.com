@@ -53,7 +53,7 @@ export function About() {
             </div>
 
             <div className="rounded-[22px] border border-[rgba(122,24,255,0.34)] bg-[rgba(14,6,22,0.94)] px-6 py-5 shadow-[0_24px_70px_rgba(0,0,0,0.28)] sm:px-7 sm:py-6 lg:px-8 lg:py-6">
-              <div className="inline-flex items-center gap-3 rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-6 py-3 text-[14px] font-semibold uppercase tracking-[0.02em] text-white">
+              <div className="inline-flex items-center gap-3 rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-6 py-3 text-[14px] font-bold uppercase tracking-[0.02em] text-white">
                 <Heart className="h-4 w-4 fill-current" />
                 <span>About Me</span>
               </div>
@@ -81,7 +81,9 @@ export function About() {
 
                 <p className="max-w-[800px] text-[16px] leading-[1.48] tracking-[-0.015em] text-[rgba(233,236,255,0.9)] sm:text-[17px]">
                   <span>With over </span>
-                  <span className="font-semibold text-[#8b22ff]">{experienceYears} years</span>
+                  <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text font-bold text-transparent">
+                    {experienceYears} years
+                  </span>
                   <span>{primaryParagraph.replace(`With over ${experienceYears} years`, "")}</span>
                 </p>
 

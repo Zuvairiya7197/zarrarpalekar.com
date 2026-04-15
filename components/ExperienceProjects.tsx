@@ -44,7 +44,7 @@ function SectionPill({
   label: string;
 }) {
   return (
-    <div className="inline-flex items-center gap-3 rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 py-3 text-[14px] font-semibold uppercase tracking-[0.02em] text-white">
+    <div className="inline-flex items-center gap-3 rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 py-3 text-[14px] font-bold uppercase tracking-[0.02em] text-white">
       {icon}
       <span>{label}</span>
     </div>

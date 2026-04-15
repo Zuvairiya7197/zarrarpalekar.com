@@ -42,14 +42,15 @@ function SkillGroup({
       : title.length > 14
         ? "px-3 py-2 text-center text-[10px] leading-tight sm:whitespace-nowrap sm:text-[11px] md:text-[8px] lg:text-[10px] xl:px-4 xl:text-[13px]"
         : "px-3 py-2 text-center text-[11px] leading-tight sm:whitespace-nowrap sm:text-[12px] md:text-[9px] lg:text-[11px] xl:px-4 xl:text-[13px]";
-  const titleBackgroundClass = "bg-[linear-gradient(135deg,#6366f1,#06b6d4)]";
+  const titleBackgroundClass =
+    "border border-[rgba(146,82,255,0.55)] bg-[linear-gradient(135deg,#5e1cc7_0%,#3a0a76_100%)] shadow-[0_10px_24px_rgba(66,20,130,0.35)]";
 
   return (
     <article
       className={`h-full w-full min-w-0 overflow-hidden rounded-[22px] border border-[rgba(105,18,214,0.42)] bg-[rgba(10,4,18,0.84)] p-4 shadow-[0_22px_60px_rgba(0,0,0,0.22)] sm:p-5 ${className}`}
     >
       <div
-        className={`inline-flex max-w-full rounded-full font-semibold leading-none text-white ${titleBackgroundClass} ${titleClass}`}
+        className={`inline-flex max-w-full rounded-full font-bold leading-none text-white ${titleBackgroundClass} ${titleClass}`}
       >
         {title}
       </div>
@@ -74,7 +75,7 @@ export function Skills() {
       <Container className="max-w-[1760px]">
         <div className="rounded-[26px] border border-[rgba(101,17,204,0.35)] bg-[rgba(5,2,12,0.94)] px-4 py-6 shadow-[0_30px_90px_rgba(0,0,0,0.28)] sm:px-6 sm:py-8 lg:px-7">
           <div className="max-w-[640px] px-2 sm:px-3">
-            <div className="inline-flex items-center gap-3 rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 py-3 text-[14px] font-semibold uppercase tracking-[0.02em] text-white">
+            <div className="inline-flex items-center gap-3 rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 py-3 text-[14px] font-bold uppercase tracking-[0.02em] text-white">
               <Star className="h-4 w-4 fill-current" />
               <span>Tech Skills</span>
             </div>
