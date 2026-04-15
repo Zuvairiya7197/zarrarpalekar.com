@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Great_Vibes } from "next/font/google";
+import { DM_Serif_Display, Great_Vibes } from "next/font/google";
 
 import { Providers } from "@/components/Providers";
 import { siteConfig } from "@/lib/site";
@@ -10,6 +10,12 @@ const greatVibes = Great_Vibes({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-script",
+});
+
+const dmSerifDisplay = DM_Serif_Display({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-accent",
 });
 
 export const metadata: Metadata = {
@@ -82,7 +88,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${greatVibes.variable} min-h-screen bg-[rgb(var(--background))] font-[family-name:var(--font-sans)] text-[rgb(var(--foreground))] antialiased`}
+        className={`${greatVibes.variable} ${dmSerifDisplay.variable} min-h-screen bg-[rgb(var(--background))] font-[family-name:var(--font-sans)] text-[rgb(var(--foreground))] antialiased`}
       >
         <Providers>{children}</Providers>
       </body>
