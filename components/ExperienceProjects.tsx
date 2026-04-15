@@ -90,14 +90,14 @@ function ExperiencePanel() {
     >
       <SectionPill icon={<BriefcaseBusiness className="h-4 w-4" />} label="Experience" />
 
-      <h2 className="mt-8 text-[38px] font-semibold leading-[1.08] tracking-[-0.05em] text-white sm:text-[50px]">
+      <h2 className="mt-8 text-[30px] font-semibold leading-[1.08] tracking-[-0.05em] text-white sm:text-[50px]">
         <span>My Professional </span>
         <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text text-transparent">
           Journey.
         </span>
       </h2>
 
-      <p className="mt-4 max-w-[420px] text-[17px] leading-[1.7] text-[rgba(173,176,210,0.84)] sm:text-[18px]">
+      <p className="mt-4 max-w-[420px] text-[16px] leading-[1.7] text-[rgba(173,176,210,0.84)] sm:text-[18px]">
         A timeline of growth, challenges, & impactful solution across leading companies.
       </p>
 
@@ -132,11 +132,11 @@ function ExperiencePanel() {
                   </div>
 
                   <div className="min-w-0">
-                    <h3 className="text-[22px] font-semibold text-white">{experience.company}</h3>
+                    <h3 className="text-[20px] font-semibold text-white sm:text-[22px]">{experience.company}</h3>
                     <p className="mt-1 bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text text-[15px] font-semibold text-transparent">
                       {experience.title}
                     </p>
-                    <p className="mt-4 text-[18px] font-semibold text-white">
+                    <p className="mt-3 text-[16px] font-semibold text-white sm:mt-4 sm:text-[18px]">
                       {experience.specialization}
                     </p>
                   </div>
@@ -189,14 +189,14 @@ function ProjectsPanel() {
     >
       <SectionPill icon={<FolderOpen className="h-4 w-4" />} label="Projects" />
 
-      <h2 className="mt-8 text-[38px] font-semibold leading-[1.08] tracking-[-0.05em] text-white sm:text-[50px]">
+      <h2 className="mt-8 text-[30px] font-semibold leading-[1.08] tracking-[-0.05em] text-white sm:text-[50px]">
         <span>Featured </span>
         <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text text-transparent">
           Projects.
         </span>
       </h2>
 
-      <p className="mt-4 max-w-[500px] text-[17px] leading-[1.7] text-[rgba(173,176,210,0.84)] sm:text-[18px]">
+      <p className="mt-4 max-w-[500px] text-[16px] leading-[1.7] text-[rgba(173,176,210,0.84)] sm:text-[18px]">
         Some of the selected work that showcases my skills and passion.
       </p>
 
@@ -238,7 +238,7 @@ function ProjectsPanel() {
                 onClick={() =>
                   setOpenProject((current) => (current === project.title ? null : project.title))
                 }
-                className="mt-6 flex h-12 w-full items-center justify-between rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-6 text-left text-[17px] font-semibold text-white shadow-[0_18px_40px_rgba(108,92,231,0.28)] transition-transform duration-200 hover:scale-[1.01]"
+                className="mt-6 flex h-12 w-full items-center justify-between rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 text-left text-[15px] font-semibold text-white shadow-[0_18px_40px_rgba(108,92,231,0.28)] transition-transform duration-200 hover:scale-[1.01] sm:px-6 sm:text-[17px]"
               >
                 <span>Project Details</span>
                 <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] text-white shadow-[0_8px_18px_rgba(108,92,231,0.24)]">

@@ -27,6 +27,7 @@ body {
   background: radial-gradient(circle at top, rgba(108, 92, 231, 0.14), transparent 25%),
     rgb(var(--background));
   color: rgb(var(--foreground));
+  overflow-x: clip;
 }
 
 .calendly-overlay {

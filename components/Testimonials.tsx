@@ -66,14 +66,14 @@ export function Testimonials() {
                 <span>Testimonials</span>
               </div>
 
-              <h2 className="mt-9 text-[38px] font-semibold leading-[1.08] tracking-[-0.05em] text-white sm:text-[50px]">
+              <h2 className="mt-9 text-[30px] font-semibold leading-[1.08] tracking-[-0.05em] text-white sm:text-[50px]">
                 <span>What People </span>
                 <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text text-transparent">
                   Say.
                 </span>
               </h2>
 
-              <p className="mt-4 max-w-[640px] text-[17px] leading-[1.7] text-[rgba(173,176,210,0.84)] sm:text-[18px]">
+              <p className="mt-4 max-w-[640px] text-[16px] leading-[1.7] text-[rgba(173,176,210,0.84)] sm:text-[18px]">
                 Feedback from teammates, managers, and collaborators I&apos;ve had the privilege of
                 working with across product, engineering, and delivery.
               </p>

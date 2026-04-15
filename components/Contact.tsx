@@ -99,7 +99,7 @@ export function Contact() {
                 <span>Contact</span>
               </div>
 
-              <h2 className="mt-9 max-w-[420px] text-[36px] font-semibold leading-[1.02] tracking-[-0.05em] text-white sm:text-[48px] lg:text-[56px]">
+              <h2 className="mt-9 max-w-[420px] text-[30px] font-semibold leading-[1.02] tracking-[-0.05em] text-white sm:text-[48px] lg:text-[56px]">
                 <span className="block">Let&apos;s Build</span>
                 <span className="block">Something</span>
                 <span className="block">
@@ -110,15 +110,15 @@ export function Contact() {
                 </span>
               </h2>
 
-              <p className="mt-8 max-w-[420px] text-[18px] leading-[1.65] text-[rgba(173,176,210,0.84)]">
+              <p className="mt-6 max-w-[420px] text-[16px] leading-[1.65] text-[rgba(173,176,210,0.84)] sm:mt-8 sm:text-[18px]">
                 Have a project in mind or just want to say hi? I&apos;d love to hear from you.
               </p>
 
-              <div className="mt-auto pt-12 inline-flex items-center gap-4 rounded-full">
+              <div className="mt-8 inline-flex max-w-full flex-wrap items-center gap-3 rounded-full pt-4 sm:mt-auto sm:gap-4 sm:pt-12">
                 <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] text-white shadow-[0_14px_34px_rgba(108,92,231,0.28)]">
                   <MapPin className="h-5 w-5" />
                 </span>
-                <span className="text-[20px] font-medium text-white">{siteConfig.location}</span>
+                <span className="text-[16px] font-medium text-white sm:text-[20px]">{siteConfig.location}</span>
               </div>
             </div>
 
@@ -189,7 +189,7 @@ export function Contact() {
 
                 <p
                   aria-live="polite"
-                  className={`text-[14px] ${
+                  className={`break-words text-[14px] ${
                     status.type === "error"
                       ? "text-rose-400"
                       : status.type === "success"
