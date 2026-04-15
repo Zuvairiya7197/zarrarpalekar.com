@@ -13,7 +13,7 @@ export function Hero() {
       className="relative overflow-hidden pb-12 pt-4 sm:pb-16 sm:pt-8"
     >
       <div
-        className="absolute inset-0 -z-10 bg-no-repeat [background-position:center_top] [background-size:clamp(280px,92vw,520px)_auto] sm:hidden"
+        className="absolute inset-0 -z-10 bg-contain bg-no-repeat [background-position:center_top] sm:hidden"
         style={{
           backgroundImage: "url('/Images/Mobile hero.png')",
         }}
