@@ -13,7 +13,13 @@ export function Hero() {
       className="relative overflow-hidden pb-12 pt-4 sm:pb-16 sm:pt-8"
     >
       <div
-        className="absolute inset-0 -z-10 bg-cover bg-position-[72%_95%] sm:bg-center"
+        className="absolute inset-0 -z-10 bg-no-repeat [background-position:center_top] [background-size:clamp(280px,92vw,520px)_auto] sm:hidden"
+        style={{
+          backgroundImage: "url('/Images/Mobile hero.png')",
+        }}
+      />
+      <div
+        className="absolute inset-0 -z-10 hidden bg-cover bg-position-[72%_95%] sm:block sm:bg-center"
         style={{
           backgroundImage:
             "url(https://lightgoldenrodyellow-fox-787789.hostingersite.com/wp-content/uploads/2026/04/Hero-section-image.png)",
@@ -22,7 +28,7 @@ export function Hero() {
 
       <Container className="relative max-w-442.5 px-4 sm:px-6 lg:px-10">
         <div className="relative min-h-240 px-0 py-0 sm:min-h-190 sm:px-8 sm:py-8 lg:px-10 lg:py-10">
-          <div className="relative z-10 mx-auto mt-182.5 max-w-117.5 rounded-[28px] border border-[rgba(138,84,255,0.28)] bg-[rgba(16,8,34,0.78)] px-7 py-8 shadow-[0_25px_80px_rgba(0,0,0,0.28)] backdrop-blur-[2px] sm:mx-0 sm:ml-2 sm:mt-2 sm:px-8 sm:py-9 lg:ml-4 lg:mt-4">
+          <div className="relative z-10 mx-auto mt-[270px] max-w-117.5 rounded-[28px] border border-[rgba(138,84,255,0.28)] bg-[rgba(16,8,34,0.78)] px-7 py-8 shadow-[0_25px_80px_rgba(0,0,0,0.28)] backdrop-blur-[2px] sm:mx-0 sm:ml-2 sm:mt-2 sm:px-8 sm:py-9 lg:ml-4 lg:mt-4">
             <h1 className="font-(family-name:--font-display) text-[56px] font-bold leading-[0.92] tracking-[-0.05em] text-white sm:text-[72px] lg:text-[86px]">
               <span className="block">I&apos;m Zarrar</span>
               <span className="mt-2 block bg-[linear-gradient(180deg,#b300ff_0%,#7c11ff_48%,#5f4bff_100%)] bg-clip-text text-transparent">
