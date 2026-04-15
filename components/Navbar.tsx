@@ -39,7 +39,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-[rgb(var(--border)/0.45)] bg-[rgb(var(--background)/0.82)] backdrop-blur-xl">
-      <Container className="max-w-440">
+      <Container className="max-w-none px-4 sm:px-6 lg:px-10 xl:px-12">
         <nav
           className="flex items-center justify-between gap-4 py-4"
           aria-label="Primary navigation"
