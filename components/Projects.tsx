@@ -22,21 +22,17 @@ export function Projects() {
               key={project.title}
               className="overflow-hidden rounded-[30px] border border-[color:rgb(var(--border)/0.78)] bg-[rgb(var(--surface)/0.72)] p-5 shadow-[0_22px_60px_rgba(0,0,0,0.24)]"
             >
-              {project.image ? (
-                <div className="relative overflow-hidden rounded-[24px] border border-[color:rgb(var(--border)/0.72)] bg-[rgb(var(--background)/0.78)]">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    width={1200}
-                    height={900}
-                    className="h-full w-full object-cover"
-                  />
-                </div>
-              ) : (
-                <div className="flex h-[220px] items-center justify-center rounded-[24px] border border-[color:rgb(var(--border)/0.72)] bg-[linear-gradient(135deg,rgba(var(--accent),0.18),rgba(var(--surface),0.8))] p-6">
-                  <p className="text-center text-2xl font-semibold text-white">{project.title}</p>
-                </div>
-              )}
+              <div className="relative overflow-hidden rounded-[24px] border border-[color:rgb(var(--border)/0.72)] bg-[rgb(var(--background)/0.78)]">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={1200}
+                  height={900}
+                  sizes="(min-width: 1024px) 48vw, 100vw"
+                  quality={68}
+                  className="h-full w-full object-cover"
+                />
+              </div>
 
               <div className="mt-5">
                 <h3 className="text-2xl font-semibold tracking-tight text-white">{project.title}</h3>

@@ -206,21 +206,17 @@ function ProjectsPanel() {
             key={project.title}
             className="overflow-hidden rounded-[26px] border border-[rgba(122,24,255,0.34)] bg-[rgba(15,6,28,0.84)] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.26)] transition-all duration-300 ease-out hover:scale-[1.015] hover:border-[rgba(99,102,241,0.72)] hover:shadow-[0_0_0_1px_rgba(99,102,241,0.22),0_0_28px_rgba(99,102,241,0.28),0_0_56px_rgba(99,102,241,0.16),0_24px_60px_rgba(0,0,0,0.34)]"
           >
-            {project.image ? (
-              <div className="relative overflow-hidden rounded-[20px] border border-[rgba(122,24,255,0.2)] bg-[rgba(7,3,16,0.95)]">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  width={1200}
-                  height={900}
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            ) : (
-              <div className="flex h-[220px] items-center justify-center rounded-[20px] border border-[rgba(122,24,255,0.2)] bg-[linear-gradient(135deg,rgba(160,40,255,0.18),rgba(15,6,28,0.88))] p-6">
-                <p className="text-center text-2xl font-semibold text-white">{project.title}</p>
-              </div>
-            )}
+            <div className="relative overflow-hidden rounded-[20px] border border-[rgba(122,24,255,0.2)] bg-[rgba(7,3,16,0.95)]">
+              <Image
+                src={project.image}
+                alt={project.title}
+                width={1200}
+                height={900}
+                sizes="(min-width: 1024px) 48vw, 100vw"
+                quality={68}
+                className="h-full w-full object-cover"
+              />
+            </div>
 
             <div className="mt-5">
               <h3 className="text-[22px] font-semibold tracking-tight text-white sm:text-[24px]">
@@ -276,7 +272,7 @@ function ProjectsPanel() {
                     ))}
                   </ul>
 
-                  {project.sourceCode ? (
+                  {"sourceCode" in project && project.sourceCode ? (
                     <div className="mt-6">
                       <a
                         href={project.sourceCode}
