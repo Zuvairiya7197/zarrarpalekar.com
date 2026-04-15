@@ -76,6 +76,12 @@ button:active {
   transform: scale(0.97);
 }
 
+button,
+a.inline-flex.rounded-full,
+a[class*="inline-flex"][class*="rounded-full"] {
+  font-weight: 700;
+}
+
 ::selection {
   background: rgb(var(--accent) / 0.24);
   color: rgb(var(--foreground));
