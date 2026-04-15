@@ -26,9 +26,9 @@ export function Hero() {
         }}
       />
 
-      <Container className="relative max-w-442.5 px-4 sm:px-6 lg:px-10">
+      <Container className="relative max-w-none px-3 sm:px-5 lg:px-6 xl:px-8">
         <div className="relative min-h-0 px-0 py-0 sm:min-h-190 sm:px-8 sm:py-8 lg:px-10 lg:py-10">
-          <div className="relative z-10 mx-auto [margin-top:clamp(240px,74vw,330px)] max-w-117.5 rounded-[28px] border border-[rgba(138,84,255,0.28)] bg-[rgba(16,8,34,0.78)] px-5 py-6 shadow-[0_25px_80px_rgba(0,0,0,0.28)] backdrop-blur-[2px] sm:mx-0 sm:ml-2 sm:mt-2 sm:px-8 sm:py-9 lg:ml-4 lg:mt-4">
+          <div className="relative z-10 mx-auto [margin-top:clamp(240px,74vw,330px)] max-w-117.5 rounded-[28px] border border-[rgba(138,84,255,0.28)] bg-[rgba(16,8,34,0.78)] py-6 pl-4 pr-5 shadow-[0_25px_80px_rgba(0,0,0,0.28)] backdrop-blur-[2px] sm:mx-0 sm:ml-2 sm:mt-2 sm:py-9 sm:pl-6 sm:pr-8 lg:ml-0 lg:mt-4">
             <h1 className="font-(family-name:--font-display) text-[42px] font-bold leading-[0.94] tracking-[-0.05em] text-white max-[390px]:text-[38px] sm:text-[72px] lg:text-[86px]">
               <span className="block">I&apos;m Zarrar</span>
               <span className="mt-2 block bg-[linear-gradient(180deg,#b300ff_0%,#7c11ff_48%,#5f4bff_100%)] bg-clip-text font-bold text-transparent">
@@ -73,7 +73,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="relative z-10 mx-auto mt-4 grid max-w-117.5 grid-cols-3 gap-2 sm:mt-5 sm:mx-0 sm:ml-2 sm:gap-4 lg:ml-4 lg:mt-5">
+          <div className="relative z-10 mx-auto mt-4 grid max-w-117.5 grid-cols-3 gap-2 sm:mt-5 sm:mx-0 sm:ml-2 sm:gap-4 lg:ml-0 lg:mt-5">
             {trustStats.map((stat) => (
               <div
                 key={stat.label}
