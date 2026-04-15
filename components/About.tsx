@@ -14,7 +14,7 @@ function HighlightCard({
   image,
 }: (typeof aboutHighlights)[number]) {
   return (
-    <article className="flex min-h-[116px] flex-col items-center justify-center rounded-[18px] border border-[rgba(122,24,255,0.34)] bg-[rgba(15,6,28,0.84)] px-2 py-3 text-center shadow-[0_18px_50px_rgba(0,0,0,0.26)] transition-all duration-300 ease-out hover:scale-[1.03] hover:border-[rgba(99,102,241,0.68)] hover:shadow-[0_0_22px_rgba(99,102,241,0.18),0_18px_50px_rgba(0,0,0,0.26)] sm:min-h-[142px] sm:px-3 sm:py-4 xl:min-h-[178px] xl:rounded-[22px] xl:px-5 xl:py-5">
+    <article className="flex min-h-[116px] min-w-[138px] flex-col items-center justify-center rounded-[18px] border border-[rgba(122,24,255,0.34)] bg-[rgba(15,6,28,0.84)] px-2 py-3 text-center shadow-[0_18px_50px_rgba(0,0,0,0.26)] transition-all duration-300 ease-out hover:scale-[1.03] hover:border-[rgba(99,102,241,0.68)] hover:shadow-[0_0_22px_rgba(99,102,241,0.18),0_18px_50px_rgba(0,0,0,0.26)] sm:min-h-[142px] sm:min-w-0 sm:px-3 sm:py-4 xl:min-h-[178px] xl:rounded-[22px] xl:px-5 xl:py-5">
       <div className="relative h-[44px] w-[44px] overflow-hidden rounded-full sm:h-[58px] sm:w-[58px] xl:h-[76px] xl:w-[76px]">
         <Image src={image} alt={title} fill sizes="82px" className="object-cover" />
       </div>
@@ -46,7 +46,7 @@ export function About() {
       <Container className="max-w-[1760px]">
         <div className="rounded-[26px] border border-[rgba(101,17,204,0.35)] bg-[rgba(5,2,12,0.94)] px-5 py-5 shadow-[0_30px_90px_rgba(0,0,0,0.28)] sm:px-7 sm:py-7 lg:px-10 lg:py-7">
           <div className="grid gap-5 xl:grid-cols-[300px_minmax(0,1fr)_300px] xl:items-stretch">
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 xl:grid-cols-1 xl:gap-5">
+            <div className="flex gap-3 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:grid sm:grid-cols-3 sm:gap-4 sm:overflow-visible sm:pb-0 xl:grid-cols-1 xl:gap-5">
               {leftHighlights.map((item) => (
                 <HighlightCard key={item.title} {...item} />
               ))}
@@ -60,12 +60,12 @@ export function About() {
 
               <h2 className="mt-8 max-w-[620px] text-[30px] font-semibold leading-[1.06] tracking-[-0.05em] text-white sm:text-[46px] lg:text-[54px]">
                 <span>More Than </span>
-                <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text text-transparent">
+                <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text font-bold text-transparent">
                   Code.
                 </span>
                 <br />
                 <span>I Build </span>
-                <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text text-transparent">
+                <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text font-bold text-transparent">
                   Impact.
                 </span>
               </h2>
@@ -74,7 +74,7 @@ export function About() {
                 <p className="text-[17px] font-medium leading-[1.42] text-white sm:text-[21px]">
                   <span className="mr-2 inline-block">👋</span>
                   <span>Hi there! I am </span>
-                  <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text font-semibold uppercase text-transparent">
+                  <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text font-bold uppercase text-transparent">
                     ZARRAR PALEKAR.
                   </span>
                 </p>
@@ -121,7 +121,7 @@ export function About() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 xl:grid-cols-1 xl:gap-5">
+            <div className="flex gap-3 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:grid sm:grid-cols-3 sm:gap-4 sm:overflow-visible sm:pb-0 xl:grid-cols-1 xl:gap-5">
               {rightHighlights.map((item) => (
                 <HighlightCard key={item.title} {...item} />
               ))}

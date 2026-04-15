@@ -81,7 +81,7 @@ export function Skills() {
 
             <h2 className="mt-9 text-[30px] font-semibold leading-[1.08] tracking-[-0.05em] text-white sm:text-[50px]">
               <span>Technologies </span>
-              <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text text-transparent">
+              <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text font-bold text-transparent">
                 I work with.
               </span>
             </h2>
