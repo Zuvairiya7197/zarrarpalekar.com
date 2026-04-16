@@ -1,16 +1,18 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { BriefcaseBusiness, ChevronDown, FolderOpen } from "lucide-react";
+import { motion, useInView, useScroll, type Variants } from "framer-motion";
+import { BriefcaseBusiness, CalendarDays, CheckCircle2, MessageSquareQuote } from "lucide-react";
 import Image from "next/image";
+import { type ReactNode, useEffect, useRef, useState } from "react";
 
-import { experiences, projects } from "@/lib/site";
+import { experiences, testimonials } from "@/lib/site";
 
 import { Container } from "./ui/Container";
 
-function formatPeriod(start: string, end: string) {
+function formatExperiencePeriod(start: string, end: string) {
   const startDate = new Date(start);
   const endDate = end === "present" ? new Date() : new Date(end);
+
   const formatter = new Intl.DateTimeFormat("en-US", {
     month: "short",
     year: "numeric",
@@ -31,147 +33,136 @@ function formatPeriod(start: string, end: string) {
     .filter(Boolean)
     .join(" ");
 
-  return `Period : ${formatter.format(startDate)} – ${
+  return `${formatter.format(startDate)} - ${
     end === "present" ? "Till Now" : formatter.format(endDate)
   } | ${duration}`;
 }
 
-function SectionPill({
-  icon,
-  label,
-}: {
-  icon: React.ReactNode;
-  label: string;
-}) {
+function SectionPill({ icon, label }: { icon: ReactNode; label: string }) {
   return (
-    <div className="inline-flex items-center gap-3 rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 py-3 text-[14px] font-bold uppercase tracking-[0.02em] text-white">
-      {icon}
+    <div className="section-capsule inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-[12px] font-medium uppercase tracking-[0.06em] sm:text-[13px]">
+      <span className="section-capsule-icon">{icon}</span>
       <span>{label}</span>
     </div>
   );
 }
 
+const experienceCardVariants: Variants = {
+  hidden: (index: number) => ({
+    opacity: 0,
+    y: 46,
+    filter: "blur(3px)",
+    scale: 0.98,
+    transition: { duration: 0.38, ease: "easeOut", delay: index * 0.03 },
+  }),
+  visible: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    filter: "blur(0px)",
+    scale: 1,
+    transition: {
+      duration: 0.52,
+      ease: "easeOut",
+      delay: index * 0.05,
+    },
+  }),
+};
+
 function ExperiencePanel() {
   const timelineRef = useRef<HTMLDivElement | null>(null);
-  const [timelineProgress, setTimelineProgress] = useState(0);
-
-  useEffect(() => {
-    function updateTimelineProgress() {
-      const timeline = timelineRef.current;
-
-      if (!timeline) {
-        return;
-      }
-
-      const rect = timeline.getBoundingClientRect();
-      const viewportAnchor = window.innerHeight * 0.42;
-      const nextProgress = Math.min(
-        1,
-        Math.max(0, (viewportAnchor - rect.top) / Math.max(rect.height, 1)),
-      );
-
-      setTimelineProgress(nextProgress);
-    }
-
-    updateTimelineProgress();
-    window.addEventListener("scroll", updateTimelineProgress, { passive: true });
-    window.addEventListener("resize", updateTimelineProgress);
-
-    return () => {
-      window.removeEventListener("scroll", updateTimelineProgress);
-      window.removeEventListener("resize", updateTimelineProgress);
-    };
-  }, []);
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start 78%", "end 24%"],
+  });
 
   return (
-    <section
-      id="experience"
-      className="rounded-[28px] border border-[rgba(185,28,28,0.35)] bg-[rgba(5,2,12,0.94)] p-6 shadow-[0_30px_90px_rgba(0,0,0,0.28)] sm:p-8 lg:p-10"
-    >
+    <section id="experience" className="rounded-[20px] bg-[rgba(4,8,20,0.6)] p-4 sm:p-5 lg:p-6">
       <SectionPill icon={<BriefcaseBusiness className="h-4 w-4" />} label="Experience" />
 
-      <h2 className="mt-8 text-[30px] font-semibold leading-[1.08] tracking-[-0.05em] text-white sm:text-[50px]">
-        <span>My Professional </span>
-        <span className="bg-[linear-gradient(90deg,#ef4444,#dc2626)] bg-clip-text font-bold text-transparent">
-          Journey.
-        </span>
+      <h2 className="mt-6 text-[26px] font-semibold leading-[1.12] tracking-[-0.02em] text-white sm:text-[32px] lg:text-[42px]">
+        My Professional <span className="text-[#ff2a3a]">Journey.</span>
       </h2>
 
-      <p className="mt-4 max-w-[420px] text-[16px] leading-[1.7] text-[rgba(173,176,210,0.84)] sm:text-[18px]">
-        A timeline of growth, challenges, & impactful solution across leading companies.
+      <p className="mt-4 max-w-[500px] text-[15px] leading-[1.65] text-[#a8adbd] lg:text-[17px]">
+        A timeline of growth, challenges, and impactful solutions across leading companies.
       </p>
 
-      <div ref={timelineRef} className="relative mt-10 pl-8 sm:pl-10">
-        <div className="absolute bottom-0 left-[11px] top-0 w-[3px] rounded-full bg-[linear-gradient(180deg,rgba(239,68,68,0.2)_0%,rgba(220,38,38,0.08)_100%)] sm:left-[14px]" />
-        <div
-          className="absolute left-[11px] top-0 w-[3px] rounded-full bg-[linear-gradient(180deg,#ef4444_0%,#dc2626_100%)] shadow-[0_0_18px_rgba(239,68,68,0.52)] transition-[height] duration-200 ease-out sm:left-[14px]"
-          style={{ height: `${timelineProgress * 100}%` }}
+      <div ref={timelineRef} className="relative mt-7 pl-7 sm:pl-9">
+        <div className="absolute bottom-4 left-2 top-3 w-[2px] rounded-full bg-[linear-gradient(180deg,rgba(255,107,122,0.2)_0%,rgba(255,107,122,0.04)_100%)]" />
+        <motion.div
+          className="absolute bottom-4 left-2 top-3 w-[2px] origin-top rounded-full bg-[linear-gradient(180deg,#ff7a89_0%,#ff4f66_42%,rgba(255,79,102,0.2)_100%)] shadow-[0_0_20px_rgba(255,92,112,0.4)]"
+          style={{ scaleY: scrollYProgress }}
         />
 
-        <div className="space-y-6 sm:space-y-8">
-          {experiences.map((experience) => (
-            <div
+        <div className="space-y-5 lg:space-y-6">
+          {experiences.map((experience, index) => (
+            <motion.article
               key={`${experience.company}-${experience.start}`}
               className="group relative"
+              variants={experienceCardVariants}
+              custom={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.28 }}
+              transition={{ duration: 0.22, ease: "easeOut" }}
             >
-              <div className="absolute left-[-38px] top-4 z-10 flex h-9 w-9 items-center justify-center sm:left-[-42px]">
-                <span className="timeline-dot-pulse absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(239,68,68,0.42)_0%,rgba(220,38,38,0.22)_42%,rgba(220,38,38,0.06)_62%,rgba(220,38,38,0)_78%)]" />
-                <span className="absolute h-[18px] w-[18px] rounded-full bg-[linear-gradient(135deg,#ef4444_0%,#dc2626_100%)] shadow-[0_0_10px_rgba(239,68,68,0.7),0_0_24px_rgba(220,38,38,0.46)]" />
-              </div>
+              <span className="timeline-dot-pulse absolute left-[-27px] top-6 h-4 w-4 rounded-full border-2 border-[#ff7686] bg-[#ff5f73] shadow-[0_0_0_4px_rgba(255,95,115,0.18)] transition-all duration-300 group-hover:scale-125 group-hover:shadow-[0_0_0_7px_rgba(255,95,115,0.24),0_0_22px_rgba(255,95,115,0.44)] sm:left-[-37px] sm:h-5 sm:w-5" />
 
-              <article className="rounded-[24px] border border-[rgba(239,68,68,0.34)] bg-[rgba(15,6,28,0.84)] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.26)] transition-all duration-300 ease-out group-hover:scale-[1.015] group-hover:border-[rgba(239,68,68,0.72)] group-hover:shadow-[0_0_0_1px_rgba(239,68,68,0.22),0_0_28px_rgba(239,68,68,0.28),0_0_56px_rgba(239,68,68,0.16),0_24px_60px_rgba(0,0,0,0.34)] sm:p-6">
+              <div className="origin-left rounded-[22px] border border-white/12 bg-[rgba(11,14,26,0.84)] px-5 py-5 shadow-[0_12px_26px_rgba(0,0,0,0.24)] backdrop-blur-[2px] transition-all duration-300 group-hover:scale-[1.01] group-hover:border-[rgba(248,84,98,0.42)] group-hover:shadow-[0_16px_34px_rgba(0,0,0,0.34),0_0_0_1px_rgba(248,84,98,0.2)] lg:px-6 lg:py-6">
                 <div className="flex items-start gap-4">
-                  <div className="relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white/95 p-2">
+                  <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl border border-white/12 bg-[rgba(255,255,255,0.95)] p-2">
                     <Image
                       src={experience.logo}
                       alt={experience.company}
                       fill
                       sizes="64px"
-                      className="object-contain p-2"
+                      className="object-contain p-1.5"
                     />
                   </div>
 
                   <div className="min-w-0">
-                    <h3 className="text-[20px] font-semibold text-white sm:text-[22px]">{experience.company}</h3>
-                    <p className="mt-1 bg-[linear-gradient(90deg,#ef4444,#dc2626)] bg-clip-text text-[15px] font-bold text-transparent">
+                    <h3 className="text-[20px] font-semibold leading-none text-white sm:text-[24px] lg:text-[28px]">
+                      {experience.company}
+                    </h3>
+                    <span className="mt-2 inline-flex rounded-full border border-white/14 bg-[rgba(255,255,255,0.06)] px-3 py-1 text-[12px] font-medium text-[#e8ebf4] sm:text-[13px] lg:text-[15px]">
                       {experience.title}
-                    </p>
-                    <p className="mt-3 text-[16px] font-semibold text-white sm:mt-4 sm:text-[18px]">
+                    </span>
+                    <p className="mt-3 text-[15px] font-semibold text-white sm:text-[16px] lg:text-[20px]">
                       {experience.specialization}
                     </p>
                   </div>
                 </div>
 
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {experience.technologies.map((item) => (
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {experience.technologies.map((tech) => (
                     <span
-                      key={item}
-                      className="rounded-full border border-[rgba(185,28,28,0.55)] bg-[rgba(39,18,61,0.92)] px-3 py-1.5 text-[12px] font-semibold text-white/92"
+                      key={`${experience.company}-${tech}`}
+                      className="rounded-full border border-white/10 bg-[rgba(255,255,255,0.05)] px-3 py-1 text-[12px] font-medium text-[#d9ddea] lg:text-[14px]"
                     >
-                      {item}
+                      {tech}
                     </span>
                   ))}
                 </div>
 
-                <p className="mt-4 text-[15px] text-[rgba(220,222,235,0.82)]">
-                  {formatPeriod(experience.start, experience.end)}
+                <p className="mt-4 flex items-center gap-2 text-[14px] text-[#cdd2de] lg:text-[16px]">
+                  <CalendarDays className="h-4 w-4 text-[#f15a68]" />
+                  {formatExperiencePeriod(experience.start, experience.end)}
                 </p>
 
-                <div className="mt-5">
-                  <p className="bg-[linear-gradient(90deg,#ef4444,#dc2626)] bg-clip-text text-[16px] font-bold text-transparent">
-                    Description
-                  </p>
-                  <ul className="mt-3 space-y-3 text-[15px] leading-7 text-[rgba(220,222,235,0.82)]">
-                    {experience.points.map((point) => (
-                      <li key={point} className="flex gap-3">
-                        <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-[rgba(220,222,235,0.82)]" />
-                        <span>{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            </div>
+                <p className="mt-4 text-[15px] font-semibold tracking-[0.02em] text-[#f0f2f8] lg:text-[16px]">
+                  Key Contributions
+                </p>
+
+                <ul className="mt-2 space-y-2 text-[14px] leading-[1.5] text-[#e2e6ef] sm:text-[15px] lg:text-[17px]">
+                  {experience.points.map((point) => (
+                    <li key={point} className="flex items-start gap-2.5">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#ef6f7d]" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.article>
           ))}
         </div>
       </div>
@@ -179,119 +170,111 @@ function ExperiencePanel() {
   );
 }
 
-function ProjectsPanel() {
-  const [openProject, setOpenProject] = useState<string | null>(projects[0]?.title ?? null);
+function TestimonialsPanel() {
+  const testimonialsRef = useRef<HTMLElement | null>(null);
+  const isInView = useInView(testimonialsRef, { amount: 0.35 });
+  const [hasDismissedUnread, setHasDismissedUnread] = useState(false);
+  const [showUnreadPopup, setShowUnreadPopup] = useState(false);
+
+  useEffect(() => {
+    if (!isInView || hasDismissedUnread) {
+      return;
+    }
+
+    setShowUnreadPopup(true);
+  }, [isInView, hasDismissedUnread]);
 
   return (
     <section
-      id="projects"
-      className="rounded-[28px] border border-[rgba(185,28,28,0.35)] bg-[rgba(5,2,12,0.94)] p-6 shadow-[0_30px_90px_rgba(0,0,0,0.28)] sm:p-8 lg:p-10"
+      ref={testimonialsRef}
+      id="testimonials"
+      className="relative rounded-[20px] bg-[rgba(4,8,20,0.6)] p-4 sm:p-5 lg:p-6"
     >
-      <SectionPill icon={<FolderOpen className="h-4 w-4" />} label="Projects" />
+      <SectionPill icon={<MessageSquareQuote className="h-4 w-4" />} label="Testimonials" />
 
-      <h2 className="mt-8 text-[30px] font-semibold leading-[1.08] tracking-[-0.05em] text-white sm:text-[50px]">
-        <span>Featured </span>
-        <span className="bg-[linear-gradient(90deg,#ef4444,#dc2626)] bg-clip-text font-bold text-transparent">
-          Projects.
-        </span>
+      <h2 className="mt-6 text-[26px] font-semibold leading-[1.12] tracking-[-0.02em] text-white sm:text-[32px] lg:text-[42px]">
+        What People <span className="text-[#ff2a3a]">Say.</span>
       </h2>
 
-      <p className="mt-4 max-w-[500px] text-[16px] leading-[1.7] text-[rgba(173,176,210,0.84)] sm:text-[18px]">
-        Some of the selected work that showcases my skills and passion.
+      <p className="mt-4 max-w-[540px] text-[15px] leading-[1.65] text-[#a8adbd] lg:text-[17px]">
+        Feedback from teammates and collaborators I&apos;ve had the privilege of working with.
       </p>
 
-      <div className="mt-10 grid gap-6 lg:grid-cols-2">
-        {projects.map((project) => (
-          <article
-            key={project.title}
-            className="overflow-hidden rounded-[26px] border border-[rgba(239,68,68,0.34)] bg-[rgba(15,6,28,0.84)] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.26)] transition-all duration-300 ease-out hover:scale-[1.015] hover:border-[rgba(239,68,68,0.72)] hover:shadow-[0_0_0_1px_rgba(239,68,68,0.22),0_0_28px_rgba(239,68,68,0.28),0_0_56px_rgba(239,68,68,0.16),0_24px_60px_rgba(0,0,0,0.34)]"
-          >
-            <div className="relative overflow-hidden rounded-[20px] border border-[rgba(239,68,68,0.2)] bg-[rgba(7,3,16,0.95)]">
-              <Image
-                src={project.image}
-                alt={project.title}
-                width={1200}
-                height={900}
-                sizes="(min-width: 1024px) 48vw, 100vw"
-                quality={68}
-                className="h-full w-full object-cover"
-              />
-            </div>
+      <div className="relative mt-6 rounded-[22px] border border-white/12 bg-[rgba(8,10,18,0.84)]">
+        <motion.div
+          initial={{ opacity: 0, y: -12, scale: 0.96 }}
+          animate={
+            showUnreadPopup
+              ? { opacity: 1, y: 0, scale: 1 }
+              : { opacity: 0, y: -12, scale: 0.96 }
+          }
+          transition={{ duration: 0.32, ease: "easeOut" }}
+          className="pointer-events-none absolute left-1/2 top-3 z-20 -translate-x-1/2"
+        >
+          <div className="relative rounded-[18px] border border-[rgba(255,96,118,0.34)] bg-[linear-gradient(90deg,rgba(128,22,36,0.92)_0%,rgba(185,39,58,0.9)_100%)] px-4 py-2.5 text-[11px] font-semibold tracking-[0.05em] text-white uppercase shadow-[0_12px_26px_rgba(0,0,0,0.34)] sm:text-[12px]">
+            <span className="absolute -top-3 left-1/2 inline-flex h-6 w-6 -translate-x-1/2 items-center justify-center rounded-full border border-[rgba(255,140,156,0.58)] bg-[rgba(30,7,13,0.95)] text-white">
+              <MessageSquareQuote className="h-3.5 w-3.5" />
+            </span>
+            <span className="mt-2 block whitespace-nowrap">7 Unseen Messages • Catch Up Now</span>
+          </div>
+        </motion.div>
 
-            <div className="mt-5">
-              <h3 className="text-[22px] font-semibold tracking-tight text-white sm:text-[24px]">
-                {project.title}
-              </h3>
-              <p className="mt-1.5 bg-[linear-gradient(90deg,#ef4444,#dc2626)] bg-clip-text text-[14px] font-bold text-transparent">
-                {project.date}
-              </p>
-              <p className="mt-4 text-[16px] leading-7 text-[rgba(220,222,235,0.82)]">
-                {project.description}
-              </p>
+        <div className="flex items-center border-b border-white/10 px-4 py-3 sm:px-5">
+          <div className="flex items-center gap-2">
+            <span className="h-2 w-2 rounded-full bg-[#ff4f66]" />
+            <span className="h-2 w-2 rounded-full bg-[#ff9d3f]" />
+            <span className="h-2 w-2 rounded-full bg-[#3ccf7a]" />
+          </div>
+          <MessageSquareQuote className="ml-auto h-4 w-4 text-white/55" />
+        </div>
 
-              <button
-                type="button"
-                onClick={() =>
-                  setOpenProject((current) => (current === project.title ? null : project.title))
-                }
-                className="mt-6 flex h-12 w-full items-center justify-between rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 text-left text-[15px] font-semibold text-white shadow-[0_18px_40px_rgba(239,68,68,0.28)] transition-transform duration-200 hover:scale-[1.01] sm:px-6 sm:text-[17px]"
-              >
-                <span>Project Details</span>
-                <span className="flex h-6 w-6 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] text-white shadow-[0_8px_18px_rgba(239,68,68,0.24)]">
-                  <ChevronDown
-                    className={`h-4 w-4 transition-transform duration-200 ${
-                      openProject === project.title ? "rotate-180" : ""
-                    }`}
-                  />
-                </span>
-              </button>
+        <div
+          onScroll={(event) => {
+            const element = event.currentTarget;
+            const reachedBottom = element.scrollTop + element.clientHeight >= element.scrollHeight - 8;
 
-              {openProject === project.title ? (
-                <div className="mt-6">
-                  <p className="bg-[linear-gradient(90deg,#ef4444,#dc2626)] bg-clip-text text-[16px] font-bold text-transparent">
-                    Technologies Used:
-                  </p>
-
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {project.technologies.map((technology) => (
-                      <span
-                        key={`${project.title}-${technology}`}
-                        className="rounded-full border border-[rgba(185,28,28,0.55)] bg-[rgba(39,18,61,0.92)] px-3 py-1.5 text-[12px] font-semibold text-white/92"
-                      >
-                        {technology}
-                      </span>
-                    ))}
-                  </div>
-
-                  <ul className="mt-5 space-y-2.5 text-[15px] leading-7 text-[rgba(220,222,235,0.82)]">
-                    {project.details.map((detail) => (
-                      <li key={detail} className="flex gap-3">
-                        <span className="mt-3 h-2 w-2 shrink-0 rounded-full bg-[rgba(220,222,235,0.82)]" />
-                        <span>{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  {"sourceCode" in project && project.sourceCode ? (
-                    <div className="mt-6">
-                      <a
-                        href={project.sourceCode}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex h-10 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 text-[14px] font-semibold text-white shadow-[0_14px_30px_rgba(239,68,68,0.24)] transition-transform duration-200 hover:scale-[1.03]"
-                      >
-                        {project.title === "Tindog – Tinder for dogs" ||
-                        project.title === "My First Website"
-                          ? "View Project"
-                          : "Source Code"}
-                      </a>
-                    </div>
-                  ) : null}
+            if (reachedBottom && !hasDismissedUnread) {
+              setHasDismissedUnread(true);
+              setShowUnreadPopup(false);
+            }
+          }}
+          className="h-[460px] snap-y snap-mandatory space-y-4 overflow-y-auto scroll-smooth bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.04),transparent_35%),radial-gradient(circle_at_85%_75%,rgba(255,93,112,0.06),transparent_42%)] px-3 py-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:h-[520px] sm:px-4 sm:py-4 lg:h-[640px]"
+        >
+          {testimonials.map((testimonial, index) => (
+            <motion.div
+              key={`${testimonial.name}-${testimonial.date}`}
+              initial={{ opacity: 0.5, y: 14, scale: 0.98, filter: "blur(1.2px)" }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                filter: "blur(0px)",
+                boxShadow: "0 0 0 1px rgba(255,104,123,0.2), 0 14px 30px rgba(0,0,0,0.3)",
+              }}
+              viewport={{ once: false, amount: 0.28, margin: "0px 0px -12% 0px" }}
+              transition={{ duration: 0.42, ease: "easeOut", delay: Math.min(index * 0.02, 0.18) }}
+              className="snap-start space-y-1.5"
+            >
+              <div className="flex items-center gap-2 px-1">
+                <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full border border-white/20 bg-black/40">
+                  <Image src={testimonial.image} alt={testimonial.name} fill sizes="32px" className="object-cover" />
                 </div>
-              ) : null}
-            </div>
-          </article>
-        ))}
+                <div className="min-w-0">
+                  <p className="truncate text-[12px] font-semibold text-white sm:text-[13px]">{testimonial.name}</p>
+                  <p className="truncate text-[10px] text-[#f26b79] sm:text-[11px]">{testimonial.date}</p>
+                </div>
+              </div>
+
+              <div className="max-w-[92%] rounded-[16px] rounded-tl-[6px] border border-white/12 bg-[rgba(255,255,255,0.06)] px-3 py-2.5 text-[13px] leading-[1.55] text-[#e1e5f1] sm:text-[14px]">
+                {testimonial.quote}
+              </div>
+
+              <div className="ml-auto max-w-[80%] rounded-[16px] rounded-tr-[6px] border border-[rgba(255,98,118,0.35)] bg-[linear-gradient(90deg,rgba(142,24,39,0.92)_0%,rgba(192,42,62,0.9)_100%)] px-3 py-2 text-[12px] leading-[1.45] text-white sm:text-[13px]">
+                {testimonial.relationship}
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -299,11 +282,11 @@ function ProjectsPanel() {
 
 export function ExperienceProjects() {
   return (
-    <section className="section-padding">
-      <Container className="max-w-[1760px]">
-        <div className="grid gap-6 xl:grid-cols-[0.88fr_1.12fr] xl:items-start">
+    <section className="py-5 sm:py-7 lg:py-8">
+      <Container className="max-w-[1560px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
+        <div className="grid gap-4 2xl:grid-cols-[0.94fr_1.06fr]">
           <ExperiencePanel />
-          <ProjectsPanel />
+          <TestimonialsPanel />
         </div>
       </Container>
     </section>
