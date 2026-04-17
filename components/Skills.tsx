@@ -69,7 +69,7 @@ export function Skills() {
                   key={group.title}
                   type="button"
                   onClick={() => setActiveTabIndex(index)}
-                  className={`shrink-0 rounded-full border px-4 py-2 text-left !font-medium transition-all duration-200 ${
+                  className={`shrink-0 rounded-full border px-4 py-2 text-left !font-medium transition-all duration-200 min-h-11 ${
                     isActive
                       ? "!border-white/22 !bg-white/10 !text-white !shadow-none"
                       : "btn-secondary !text-[#a3a9bb] hover:!text-white"
@@ -118,7 +118,7 @@ export function Skills() {
                             width={36}
                             height={36}
                             sizes="36px"
-                            className="h-9 w-9 object-contain grayscale brightness-110 contrast-110 saturate-0 opacity-90 transition-all duration-300 group-hover:saturate-100 group-hover:grayscale-0 group-hover:opacity-100"
+                            className="h-auto max-h-9 w-auto max-w-9 object-contain grayscale brightness-110 contrast-110 saturate-0 opacity-90 transition-all duration-300 group-hover:saturate-100 group-hover:grayscale-0 group-hover:opacity-100"
                           />
                         </div>
                         <p className="mt-2.5 flex h-[34px] items-center justify-center px-1 text-center text-[12px] font-medium leading-[1.2] tracking-[0.01em] text-[#c0c4d2] sm:mt-3 sm:h-[36px] sm:text-[13px]">

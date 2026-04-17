@@ -13,13 +13,16 @@ export function Hero() {
   return (
     <section id="home" className="hero-scene relative overflow-hidden">
       <div className="hero-nebula absolute inset-0 -z-20" />
-      <div
-        className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/red-hero-image.png')",
-          opacity: 1,
-        }}
-      />
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/red-hero-image.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </div>
 
       <Container className="relative max-w-[1560px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
         <div className="flex min-h-[calc(100vh-92px)] items-center py-6 sm:py-8 lg:py-12">

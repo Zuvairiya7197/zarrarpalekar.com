@@ -105,7 +105,7 @@ export function Navbar() {
           aria-label="Primary navigation"
         >
           <div className="flex items-center justify-between gap-4">
-            <a href="#home" className="flex items-center gap-4 rounded-full px-1.5 py-1">
+            <a href="#home" className="flex min-h-11 items-center gap-4 rounded-full px-1.5 py-1">
               <span className="relative block h-10 w-12 shrink-0 sm:h-11 sm:w-[52px]">
                 <Image
                   src={siteConfig.logo}
@@ -174,7 +174,7 @@ export function Navbar() {
               aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={isOpen}
               aria-controls="mobile-navigation"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/16 bg-[rgba(14,15,26,0.74)] text-white xl:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/16 bg-[rgba(14,15,26,0.74)] text-white xl:hidden"
             >
               {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
             </button>
@@ -218,7 +218,7 @@ export function Navbar() {
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => setIsOpen(false)}
-                className="btn-secondary inline-flex h-10 items-center justify-center rounded-full border border-[#45465a] bg-[rgba(10,10,19,0.78)] px-4 text-[13px] font-medium text-white"
+                className="btn-secondary inline-flex h-11 items-center justify-center rounded-full border border-[#45465a] bg-[rgba(10,10,19,0.78)] px-4 text-[13px] font-medium text-white"
               >
                 Resume
               </a>
@@ -228,7 +228,7 @@ export function Navbar() {
                   setIsOpen(false);
                   void openCalendlyPopup(siteConfig.calendlyUrl);
                 }}
-                className="inline-flex h-10 items-center justify-center rounded-full border border-[#f34a56] bg-[linear-gradient(90deg,#85131e_0%,#b71a27_45%,#d92635_100%)] px-4 text-[13px] font-medium text-white"
+                className="inline-flex h-11 items-center justify-center rounded-full border border-[#f34a56] bg-[linear-gradient(90deg,#85131e_0%,#b71a27_45%,#d92635_100%)] px-4 text-[13px] font-medium text-white"
               >
                 Book Call
               </button>

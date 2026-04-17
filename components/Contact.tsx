@@ -248,7 +248,7 @@ export function Contact() {
                         void openCalendlyPopup(link.href);
                       }
                     }}
-                    className="inline-flex h-[40px] w-[40px] items-center justify-center rounded-full border border-white/18 bg-[rgba(255,255,255,0.05)] text-white hover:bg-[rgba(255,255,255,0.12)] sm:h-[52px] sm:w-[52px]"
+                    className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/18 bg-[rgba(255,255,255,0.05)] text-white hover:bg-[rgba(255,255,255,0.12)] sm:h-[52px] sm:w-[52px]"
                   >
                     <Icon className="h-[18px] w-[18px] sm:h-6 sm:w-6" />
                   </a>

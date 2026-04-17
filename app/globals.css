@@ -52,57 +52,6 @@ canvas {
   height: auto;
 }
 
-.calendly-overlay {
-  background: rgba(7, 8, 14, 0.8) !important;
-  backdrop-filter: blur(10px);
-}
-
-.calendly-overlay .calendly-popup,
-.calendly-overlay .calendly-popup-content {
-  background: transparent !important;
-  box-shadow: none !important;
-}
-
-.calendly-overlay .calendly-popup-content {
-  border-radius: 24px !important;
-  padding: 10px !important;
-  border: 1px solid rgba(255, 96, 118, 0.32) !important;
-  background: linear-gradient(
-    165deg,
-    rgba(18, 20, 34, 0.9) 0%,
-    rgba(10, 12, 22, 0.88) 100%
-  ) !important;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    0 26px 56px rgba(0, 0, 0, 0.5),
-    0 0 0 1px rgba(255, 78, 101, 0.18) !important;
-}
-
-.calendly-overlay .calendly-popup-content iframe {
-  border-radius: 18px !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  background: rgba(10, 12, 22, 0.95) !important;
-}
-
-@keyframes timeline-dot-pulse {
-  0% {
-    transform: scale(0.72);
-    opacity: 0.45;
-  }
-  50% {
-    transform: scale(1.08);
-    opacity: 0.95;
-  }
-  100% {
-    transform: scale(0.72);
-    opacity: 0.45;
-  }
-}
-
-.timeline-dot-pulse {
-  animation: timeline-dot-pulse 2.2s ease-in-out infinite;
-}
-
 a,
 button {
   transition-property:
@@ -294,11 +243,6 @@ a[class*="inline-flex"][class*="rounded-full"]:focus-visible {
 .skills-marquee-track {
   animation: skills-marquee-scroll 28s linear infinite;
   will-change: transform;
-}
-
-.skills-marquee-track-compact {
-  animation-duration: 16s;
-  animation-direction: reverse;
 }
 
 .skills-marquee:hover .skills-marquee-track {
