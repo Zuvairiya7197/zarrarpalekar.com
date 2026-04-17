@@ -297,11 +297,13 @@ function TestimonialsPanel() {
           transition={{ duration: 0.32, ease: "easeOut" }}
           className="pointer-events-none absolute left-1/2 top-3 z-20 -translate-x-1/2"
         >
-          <div className="relative rounded-[18px] border border-[rgba(255,96,118,0.34)] bg-[linear-gradient(90deg,rgba(128,22,36,0.92)_0%,rgba(185,39,58,0.9)_100%)] px-4 py-2.5 text-[11px] font-semibold tracking-[0.05em] text-white uppercase shadow-[0_12px_26px_rgba(0,0,0,0.34)] sm:text-[12px]">
-            <span className="absolute -top-3 left-1/2 inline-flex h-6 w-6 -translate-x-1/2 items-center justify-center rounded-full border border-[rgba(255,140,156,0.58)] bg-[rgba(30,7,13,0.95)] text-white">
-              <MessageSquareQuote className="h-3.5 w-3.5" />
+          <div className="relative rounded-[16px] border border-[rgba(255,96,118,0.34)] bg-[linear-gradient(90deg,rgba(128,22,36,0.92)_0%,rgba(185,39,58,0.9)_100%)] px-3 py-1.5 text-[10px] font-semibold tracking-[0.04em] text-white uppercase shadow-[0_10px_22px_rgba(0,0,0,0.34)] sm:rounded-[18px] sm:px-4 sm:py-2.5 sm:text-[12px]">
+            <span className="absolute -top-2.5 left-1/2 inline-flex h-5 w-5 -translate-x-1/2 items-center justify-center rounded-full border border-[rgba(255,140,156,0.58)] bg-[rgba(30,7,13,0.95)] text-white sm:-top-3 sm:h-6 sm:w-6">
+              <MessageSquareQuote className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
             </span>
-            <span className="mt-2 block whitespace-nowrap">7 Unseen Messages • Catch Up Now</span>
+            <span className="mt-1.5 block whitespace-nowrap sm:mt-2">
+              {testimonials.length} Unseen Messages
+            </span>
           </div>
         </motion.div>
 
