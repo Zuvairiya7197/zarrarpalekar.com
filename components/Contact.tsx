@@ -40,6 +40,8 @@ const socialBarLinks = [
   { label: "Calendly", href: siteConfig.calendlyUrl, icon: CalendarDays, isCalendly: true },
 ] as const;
 
+const mobileSocialBarLinks = socialBarLinks.filter((link) => link.label !== "WhatsApp");
+
 export function Contact() {
   const [status, setStatus] = useState<StatusState>({
     type: "idle",
@@ -121,7 +123,7 @@ export function Contact() {
       </div>
 
       <Container className="max-w-[1560px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
-        <div className="mx-auto max-w-6xl">
+        <div className="w-full">
           <div className="grid gap-6 xl:grid-cols-[0.94fr_1.06fr] xl:items-start">
             <div className="flex flex-col px-2 py-1 sm:px-3 lg:px-4 lg:py-3">
             <div className="section-capsule inline-flex w-fit items-center gap-2 rounded-full border px-5 py-2.5 text-[12px] font-medium tracking-[0.06em] uppercase sm:text-[13px]">
@@ -230,8 +232,8 @@ export function Contact() {
 
           <div className="mt-8 flex flex-wrap items-center justify-between gap-6 pt-7">
             <div className="w-full rounded-[24px] border border-white/18 bg-[linear-gradient(160deg,rgba(15,12,26,0.85)_0%,rgba(10,10,19,0.82)_100%)] p-2.5 sm:rounded-[32px] sm:p-3 lg:hidden">
-              <div className="grid grid-cols-4 place-items-center gap-2.5 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-3">
-              {socialBarLinks.map((link) => {
+              <div className="flex items-center gap-2.5 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:justify-center sm:gap-3">
+              {mobileSocialBarLinks.map((link) => {
                 const Icon = link.icon;
                 return (
                   <a

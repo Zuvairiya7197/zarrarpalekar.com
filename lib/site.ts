@@ -186,7 +186,7 @@ export const skillGroups = [
     items: [
       {
         name: "Heroku",
-        icon: `${assetBase}/heroku.svg`,
+        icon: "/Images/heroku.svg",
       },
       {
         name: "Github",

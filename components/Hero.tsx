@@ -1,9 +1,7 @@
- "use client";
+"use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
 import { BriefcaseBusiness, Mail } from "lucide-react";
 import Image from "next/image";
-import { useRef } from "react";
 
 import { heroRoles, trustStats } from "@/lib/site";
 
@@ -12,36 +10,21 @@ import { Container } from "./ui/Container";
 import { TypedRoles } from "./TypedRoles";
 
 export function Hero() {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end start"],
-  });
-
-  const nebulaOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.45]);
-  const bgOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.55]);
-  const contentY = useTransform(scrollYProgress, [0, 1], [0, -70]);
-  const contentScale = useTransform(scrollYProgress, [0, 1], [1, 0.97]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.84]);
-  const statsY = useTransform(scrollYProgress, [0, 1], [0, -42]);
-  const imageY = useTransform(scrollYProgress, [0, 1], [0, -92]);
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1.02, 0.95]);
-
   return (
-    <section ref={sectionRef} id="home" className="hero-scene relative overflow-hidden">
-      <motion.div className="hero-nebula absolute inset-0 -z-20" style={{ opacity: nebulaOpacity }} />
-      <motion.div
+    <section id="home" className="hero-scene relative overflow-hidden">
+      <div className="hero-nebula absolute inset-0 -z-20" />
+      <div
         className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: "url('/red-hero-image.png')",
-          opacity: bgOpacity,
+          opacity: 1,
         }}
       />
 
       <Container className="relative max-w-[1560px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
         <div className="flex min-h-[calc(100vh-92px)] items-center py-6 sm:py-8 lg:py-12">
           <div className="grid w-full items-center gap-6 lg:grid-cols-[minmax(0,560px)_minmax(320px,1fr)] lg:gap-8 xl:gap-10">
-            <motion.div className="w-full max-w-[560px]" style={{ y: contentY, scale: contentScale, opacity: contentOpacity }}>
+            <div className="w-full max-w-[560px]">
             <div className="hero-glass-card rounded-[26px] px-5 py-6 sm:rounded-[36px] sm:px-8 sm:py-9 lg:px-[44px] lg:py-[44px]">
               <h1 className="text-[36px] font-bold leading-[1.02] tracking-[-0.03em] text-white sm:text-[52px] lg:text-[72px]">
                 <span className="block">
@@ -81,24 +64,22 @@ export function Hero() {
               </div>
             </div>
 
-            <motion.div className="mt-4 grid w-full grid-cols-3 gap-2 sm:gap-2.5" style={{ y: statsY }}>
+            <div className="mt-4 grid w-full grid-cols-3 gap-2 sm:gap-2.5">
               {trustStats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="hero-glass-card rounded-[16px] px-2.5 py-3 text-center sm:px-3 sm:py-4"
-                >
+                <div key={stat.label} className="hero-glass-card rounded-[16px] px-2.5 py-5 text-center sm:px-3 sm:py-6">
                   <p className="text-[21px] font-bold leading-none text-white sm:text-[26px]">
                     <CountUp value={stat.value} suffix={stat.suffix} />
                   </p>
                   <p className="mt-2 text-[11px] leading-[1.25] text-[#b6b8c7] sm:text-[13px]">
-                    {stat.label}
+                    <span className="block">{stat.label.split(" ")[0]}</span>
+                    <span className="block">{stat.label.split(" ").slice(1).join(" ")}</span>
                   </p>
                 </div>
               ))}
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
 
-            <motion.div className="relative mx-auto hidden w-full max-w-[620px] lg:block" style={{ y: imageY, scale: imageScale }}>
+            <div className="relative mx-auto hidden w-full max-w-[620px] lg:block">
               <div className="hero-apple-frame relative aspect-[6/5] w-full overflow-hidden">
                 <div className="hero-apple-glow pointer-events-none absolute inset-0 z-10" />
                 <Image
@@ -110,7 +91,7 @@ export function Hero() {
                   className="scale-[1.01] object-cover object-center"
                 />
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </Container>

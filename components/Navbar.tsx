@@ -33,21 +33,24 @@ export function Navbar() {
   };
 
   useEffect(() => {
-    const sections = desktopLinks
-      .map((link) => {
-        const id = link.href.replace("#", "");
-        const element = document.getElementById(id);
-        return element ? { id, element } : null;
-      })
-      .filter(Boolean) as Array<{ id: string; element: HTMLElement }>;
-
-    if (sections.length === 0) {
-      return;
-    }
+    const getSections = () =>
+      desktopLinks
+        .map((link) => {
+          const id = link.href.replace("#", "");
+          const element = document.getElementById(id);
+          return element ? { id, element } : null;
+        })
+        .filter(Boolean) as Array<{ id: string; element: HTMLElement }>;
 
     let ticking = false;
 
     const updateActiveSection = () => {
+      const sections = getSections();
+      if (sections.length === 0) {
+        ticking = false;
+        return;
+      }
+
       const navOffset = 120;
       const scrollPosition = window.scrollY + navOffset;
       const isNearPageBottom =
@@ -55,16 +58,14 @@ export function Navbar() {
         document.documentElement.scrollHeight - 4;
 
       let currentSection = sections[0]?.id ?? "home";
-      let bestOffset = Number.NEGATIVE_INFINITY;
+      const sectionPositions = sections.map((section) => ({
+        id: section.id,
+        top: section.element.getBoundingClientRect().top + window.scrollY,
+      }));
 
-      for (const section of sections) {
-        const sectionTop = section.element.offsetTop;
-
-        // Pick the closest section above the viewport.
-        // On ties (same top offset), keep the first one in nav order.
-        if (scrollPosition >= sectionTop && sectionTop > bestOffset) {
+      for (const section of sectionPositions) {
+        if (scrollPosition >= section.top - 1) {
           currentSection = section.id;
-          bestOffset = sectionTop;
         }
       }
 
@@ -87,10 +88,12 @@ export function Navbar() {
     updateActiveSection();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", updateActiveSection);
+    window.addEventListener("hashchange", updateActiveSection);
 
     return () => {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", updateActiveSection);
+      window.removeEventListener("hashchange", updateActiveSection);
     };
   }, [desktopLinks]);
 

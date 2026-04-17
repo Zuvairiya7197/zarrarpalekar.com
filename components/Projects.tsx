@@ -28,7 +28,7 @@ export function Projects() {
   return (
     <section id="projects" className="py-10 sm:py-14 lg:py-16">
       <Container className="max-w-[1560px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
-        <div className="mx-auto max-w-6xl">
+        <div className="w-full">
           <div className="max-w-3xl">
             <p className="section-capsule inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-[12px] font-medium tracking-[0.06em] uppercase sm:text-[13px]">
               Projects
@@ -41,7 +41,7 @@ export function Projects() {
             </p>
           </div>
 
-          <div className="mt-8 grid gap-4 md:grid-cols-2">
+          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {projects.map((project) => {
               const sourceCode = "sourceCode" in project ? project.sourceCode : undefined;
               const isOpen = openProject === project.title;
@@ -49,7 +49,7 @@ export function Projects() {
               return (
                 <article key={project.title} className="[perspective:1400px]">
                   <div
-                    className={`relative h-[380px] w-full transition-transform duration-500 [transform-style:preserve-3d] sm:h-[395px] lg:h-[410px] ${
+                    className={`relative h-[400px] w-full transition-transform duration-500 [transform-style:preserve-3d] sm:h-[415px] lg:h-[430px] ${
                       isOpen ? "[transform:rotateY(180deg)]" : ""
                     }`}
                   >

@@ -33,7 +33,7 @@ export default function HomePage() {
       />
       <div className="relative overflow-x-clip">
         <Navbar />
-        <main className="space-y-6 sm:space-y-8 lg:space-y-10">
+        <main className="space-y-8 sm:space-y-10 lg:space-y-12">
           <Hero />
           <About />
           <Skills />

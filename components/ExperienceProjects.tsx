@@ -277,16 +277,15 @@ function TestimonialsPanel() {
     >
       <SectionPill icon={<MessageSquareQuote className="h-4 w-4" />} label="Testimonials" />
 
-      <h2
-        id="testimonials"
-        className="mt-6 scroll-mt-[120px] text-[26px] font-semibold leading-[1.12] tracking-[-0.02em] text-white sm:text-[32px] lg:text-[42px]"
-      >
+      <h2 className="mt-6 text-[26px] font-semibold leading-[1.12] tracking-[-0.02em] text-white sm:text-[32px] lg:text-[42px]">
         What People <span className="text-[#ff2a3a]">Say.</span>
       </h2>
 
       <p className="mt-4 max-w-[540px] text-[15px] leading-[1.65] text-[#a8adbd] lg:text-[17px]">
         Feedback from teammates and collaborators I&apos;ve had the privilege of working with.
       </p>
+
+      <div id="testimonials" className="scroll-mt-[120px]" aria-hidden="true" />
 
       <div className="relative mt-6 rounded-[22px] border border-white/12 bg-[rgba(8,10,18,0.84)]">
         <motion.div
