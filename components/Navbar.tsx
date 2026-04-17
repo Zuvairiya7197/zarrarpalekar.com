@@ -171,6 +171,7 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setIsOpen((current) => !current)}
+              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={isOpen}
               aria-controls="mobile-navigation"
               className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/16 bg-[rgba(14,15,26,0.74)] text-white xl:hidden"

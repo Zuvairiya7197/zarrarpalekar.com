@@ -37,7 +37,7 @@ function HighlightCard({
         <Icon className="h-5 w-5 text-white/82 sm:h-6 sm:w-6" aria-hidden="true" />
       </div>
 
-      <h3 className="mt-2 text-[18px] font-semibold leading-tight text-white sm:text-[20px]">{title}</h3>
+      <p className="mt-2 text-[18px] font-semibold leading-tight text-white sm:text-[20px]">{title}</p>
       <p className="mt-1 text-[11px] leading-[1.25] text-[#b6b8c7] sm:text-[12px]">{subtitle}</p>
     </article>
   );
