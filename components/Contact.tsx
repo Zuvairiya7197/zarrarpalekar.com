@@ -230,9 +230,9 @@ export function Contact() {
             </div>
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center justify-between gap-6 pt-7">
+          <div className="mt-8 flex flex-wrap items-center justify-between gap-6 pt-7 pb-3 sm:pb-0">
             <div className="w-full rounded-[24px] border border-white/18 bg-[linear-gradient(160deg,rgba(15,12,26,0.85)_0%,rgba(10,10,19,0.82)_100%)] p-2.5 sm:rounded-[32px] sm:p-3 lg:hidden">
-              <div className="flex items-center gap-2.5 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:justify-center sm:gap-3">
+              <div className="flex items-center justify-center gap-2.5 sm:gap-3">
               {mobileSocialBarLinks.map((link) => {
                 const Icon = link.icon;
                 return (
@@ -257,7 +257,7 @@ export function Contact() {
               </div>
             </div>
 
-            <p className="ml-auto text-[15px] text-[#adafbf] sm:text-[17px]">
+            <p className="w-full pt-3 text-center text-[15px] text-[#adafbf] sm:ml-auto sm:w-auto sm:pt-0 sm:text-left sm:text-[17px]">
               © 2026 Made by <span className="font-semibold text-white">{siteConfig.name}</span>
             </p>
           </div>

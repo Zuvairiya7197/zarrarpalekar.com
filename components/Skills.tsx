@@ -69,10 +69,10 @@ export function Skills() {
                   key={group.title}
                   type="button"
                   onClick={() => setActiveTabIndex(index)}
-                  className={`shrink-0 rounded-full border px-4 py-2 text-left transition-all duration-200 ${
+                  className={`shrink-0 rounded-full border px-4 py-2 text-left !font-medium transition-all duration-200 ${
                     isActive
-                      ? "border-white/22 bg-white/10 text-white"
-                      : "border-white/12 bg-[rgba(255,255,255,0.02)] text-[#a3a9bb] hover:border-white/18 hover:text-white"
+                      ? "!border-white/22 !bg-white/10 !text-white !shadow-none"
+                      : "btn-secondary !text-[#a3a9bb] hover:!text-white"
                   }`}
                 >
                   <span className="flex items-center gap-2.5">
