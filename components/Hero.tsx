@@ -1,13 +1,15 @@
  "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
+import { BriefcaseBusiness, Mail } from "lucide-react";
 import Image from "next/image";
 import { useRef } from "react";
 
-import { trustStats } from "@/lib/site";
+import { heroRoles, trustStats } from "@/lib/site";
 
 import { CountUp } from "./ui/CountUp";
 import { Container } from "./ui/Container";
+import { TypedRoles } from "./TypedRoles";
 
 export function Hero() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -49,7 +51,7 @@ export function Hero() {
               </h1>
 
               <p className="mt-5 text-[18px] leading-[1.1] font-semibold tracking-[-0.02em] text-white sm:mt-6 sm:text-[24px] lg:text-[30px]">
-                Full Stack Developer
+                <TypedRoles roles={heroRoles} />
               </p>
 
               <p className="mt-5 max-w-[540px] text-[15px] leading-[1.55] text-[#b6b8c7] sm:mt-7 sm:text-[18px] lg:text-[22px]">
@@ -60,15 +62,21 @@ export function Hero() {
               <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:gap-4">
                 <a
                   href="#projects"
-                  className="inline-flex h-[52px] items-center justify-center rounded-full border border-[#ee4b57] bg-[linear-gradient(90deg,#81101a_0%,#b71825_45%,#d92534_100%)] px-8 text-[15px] font-semibold text-white sm:h-[56px] sm:px-10 sm:text-[17px]"
+                  className="group inline-flex h-[52px] items-center justify-center rounded-full border border-[#ee4b57] bg-[linear-gradient(90deg,#81101a_0%,#b71825_45%,#d92534_100%)] px-8 text-[15px] font-semibold text-white sm:h-[56px] sm:px-10 sm:text-[17px]"
                 >
                   Explore My Work
+                  <span className="ml-0 inline-flex w-0 translate-x-[-6px] overflow-hidden opacity-0 transition-all duration-250 group-hover:ml-2 group-hover:w-4 group-hover:translate-x-0 group-hover:opacity-100">
+                    <BriefcaseBusiness className="h-4 w-4" />
+                  </span>
                 </a>
                 <a
                   href="#contact"
-                  className="btn-secondary inline-flex h-[52px] items-center justify-center rounded-full border border-[#41465f] bg-[rgba(10,11,20,0.82)] px-8 text-[15px] font-semibold text-white sm:h-[56px] sm:px-10 sm:text-[17px]"
+                  className="btn-secondary group inline-flex h-[52px] items-center justify-center rounded-full border border-[#41465f] bg-[rgba(10,11,20,0.82)] px-8 text-[15px] font-semibold text-white sm:h-[56px] sm:px-10 sm:text-[17px]"
                 >
                   Get In Touch
+                  <span className="ml-0 inline-flex w-0 translate-x-[-6px] overflow-hidden opacity-0 transition-all duration-250 group-hover:ml-2 group-hover:w-4 group-hover:translate-x-0 group-hover:opacity-100">
+                    <Mail className="h-4 w-4" />
+                  </span>
                 </a>
               </div>
             </div>

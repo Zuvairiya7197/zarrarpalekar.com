@@ -273,12 +273,14 @@ function TestimonialsPanel() {
   return (
     <section
       ref={testimonialsRef}
-      id="testimonials"
       className="relative rounded-[20px] bg-[rgba(4,8,20,0.6)] p-4 sm:p-5 lg:p-6"
     >
       <SectionPill icon={<MessageSquareQuote className="h-4 w-4" />} label="Testimonials" />
 
-      <h2 className="mt-6 text-[26px] font-semibold leading-[1.12] tracking-[-0.02em] text-white sm:text-[32px] lg:text-[42px]">
+      <h2
+        id="testimonials"
+        className="mt-6 scroll-mt-[120px] text-[26px] font-semibold leading-[1.12] tracking-[-0.02em] text-white sm:text-[32px] lg:text-[42px]"
+      >
         What People <span className="text-[#ff2a3a]">Say.</span>
       </h2>
 

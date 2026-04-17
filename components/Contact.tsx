@@ -2,15 +2,14 @@
 
 import {
   CalendarDays,
-  MessageCircleMore,
   Github,
+  Instagram,
+  Linkedin,
   LoaderCircle,
   Mail,
   MapPin,
   Phone,
   Send,
-  Twitter,
-  BadgeCheck,
 } from "lucide-react";
 import { FormEvent, useState } from "react";
 
@@ -24,18 +23,21 @@ type StatusState =
   | { type: "success"; message: string }
   | { type: "error"; message: string };
 
+function WhatsAppIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
+      <path d="M19.05 4.91A9.82 9.82 0 0 0 12.03 2C6.6 2 2.18 6.42 2.18 11.85c0 1.74.45 3.44 1.31 4.95L2 22l5.36-1.41a9.8 9.8 0 0 0 4.67 1.19h.01c5.43 0 9.85-4.42 9.85-9.85 0-2.63-1.02-5.1-2.84-6.92Zm-7.02 15.2h-.01a8.13 8.13 0 0 1-4.14-1.13l-.3-.18-3.18.84.85-3.1-.2-.32a8.13 8.13 0 0 1-1.25-4.35c0-4.5 3.66-8.16 8.17-8.16 2.18 0 4.23.85 5.77 2.39a8.1 8.1 0 0 1 2.39 5.77c0 4.5-3.66 8.16-8.1 8.16Zm4.47-6.1c-.24-.12-1.4-.69-1.62-.77-.22-.08-.38-.12-.54.12-.16.24-.62.77-.76.93-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.18-.71-.63-1.2-1.4-1.34-1.64-.14-.24-.01-.37.1-.49.1-.1.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.79-.2-.47-.41-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.68 2.56 4.08 3.59.57.25 1.02.4 1.37.51.58.18 1.1.15 1.51.09.46-.07 1.4-.57 1.6-1.11.2-.55.2-1.02.14-1.12-.06-.1-.22-.16-.46-.28Z" />
+    </svg>
+  );
+}
+
 const socialBarLinks = [
   { label: "GitHub", href: siteConfig.socialLinks[0].href, icon: Github },
-  { label: "WhatsApp", href: siteConfig.whatsappUrl, icon: MessageCircleMore },
-  { label: "Twitter", href: "https://x.com", icon: Twitter },
-  { label: "Trust", href: "#testimonials", icon: BadgeCheck },
+  { label: "LinkedIn", href: siteConfig.socialLinks[1].href, icon: Linkedin },
+  { label: "Instagram", href: siteConfig.socialLinks[2].href, icon: Instagram },
+  { label: "WhatsApp", href: siteConfig.whatsappUrl, icon: WhatsAppIcon },
   { label: "Email", href: `mailto:${siteConfig.email}`, icon: Mail },
   { label: "Calendly", href: siteConfig.calendlyUrl, icon: CalendarDays, isCalendly: true },
-  {
-    label: "Location",
-    href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(siteConfig.location)}`,
-    icon: MapPin,
-  },
 ] as const;
 
 export function Contact() {

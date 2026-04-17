@@ -15,6 +15,23 @@ export function Navbar() {
   const [activeSection, setActiveSection] = useState("home");
   const [isOpen, setIsOpen] = useState(false);
 
+  const scrollToSection = (href: string) => {
+    const id = href.replace("#", "");
+    const element = document.getElementById(id);
+    if (!element) {
+      return;
+    }
+
+    const navOffset = 96;
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.setTimeout(() => {
+      window.scrollBy({ top: -navOffset, behavior: "smooth" });
+    }, 0);
+
+    window.history.replaceState(null, "", href);
+    setActiveSection(id);
+  };
+
   useEffect(() => {
     const sections = desktopLinks
       .map((link) => {
@@ -33,13 +50,27 @@ export function Navbar() {
     const updateActiveSection = () => {
       const navOffset = 120;
       const scrollPosition = window.scrollY + navOffset;
+      const isNearPageBottom =
+        window.innerHeight + window.scrollY >=
+        document.documentElement.scrollHeight - 4;
 
       let currentSection = sections[0]?.id ?? "home";
+      let bestOffset = Number.NEGATIVE_INFINITY;
 
       for (const section of sections) {
-        if (scrollPosition >= section.element.offsetTop) {
+        const sectionTop = section.element.offsetTop;
+
+        // Pick the closest section above the viewport.
+        // On ties (same top offset), keep the first one in nav order.
+        if (scrollPosition >= sectionTop && sectionTop > bestOffset) {
           currentSection = section.id;
+          bestOffset = sectionTop;
         }
+      }
+
+      // Ensure the last section (Contact) can become active at the bottom.
+      if (isNearPageBottom) {
+        currentSection = sections[sections.length - 1]?.id ?? currentSection;
       }
 
       setActiveSection(currentSection);
@@ -99,7 +130,10 @@ export function Navbar() {
                   <a
                     key={link.href}
                     href={link.href}
-                    onClick={() => setActiveSection(id)}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      scrollToSection(link.href);
+                    }}
                     className={cn(
                       "rounded-full px-4 py-2 text-[14px] leading-none font-medium tracking-[0.01em] transition-all duration-200",
                       activeSection === id
@@ -156,8 +190,9 @@ export function Navbar() {
                   <a
                     key={link.href}
                     href={link.href}
-                    onClick={() => {
-                      setActiveSection(id);
+                    onClick={(event) => {
+                      event.preventDefault();
+                      scrollToSection(link.href);
                       setIsOpen(false);
                     }}
                     className={cn(
