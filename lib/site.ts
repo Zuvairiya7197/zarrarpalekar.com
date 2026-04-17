@@ -84,8 +84,6 @@ export const aboutHighlights = [
   },
 ] as const;
 
-export const aboutIntro = "Hi there! I am Zarrar Palekar." as const;
-
 export const aboutParagraphs = [
   `With over ${experienceYears} years of dedicated experience in Full Stack Web Development, my passion lies in crafting elegant and intuitive web applications that provide seamless user experiences.`,
   "I excel in utilizing the MERN stack (MongoDB, Express, React, Node.js) and stay up-to-date with the latest technologies and methodologies to deliver innovative, tailor-made solutions that align with clients' specific needs.",
