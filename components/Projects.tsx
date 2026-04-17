@@ -131,7 +131,7 @@ export function Projects() {
                             <a
                               href={sourceCode}
                               target="_blank"
-                              rel="noreferrer"
+                              rel="noopener noreferrer"
                               className="inline-flex h-[46px] items-center gap-2 rounded-full border border-[#f36b79] bg-[linear-gradient(90deg,#6f141f_0%,#992130_50%,#bc3343_100%)] px-6 text-[13px] font-semibold text-white"
                             >
                               Source Code <ArrowRight className="h-4 w-4 text-white" />

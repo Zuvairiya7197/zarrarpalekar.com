@@ -1,5 +1,3 @@
-"use client";
-
 import { BriefcaseBusiness, Mail } from "lucide-react";
 import Image from "next/image";
 
@@ -26,7 +24,7 @@ export function Hero() {
 
       <Container className="relative max-w-[1560px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
         <div className="flex min-h-[calc(100vh-92px)] items-center py-6 sm:py-8 lg:py-12">
-          <div className="grid w-full items-center gap-6 lg:grid-cols-[minmax(0,560px)_minmax(320px,1fr)] lg:gap-8 xl:gap-10">
+          <div className="grid w-full items-center gap-6 md:grid-cols-[minmax(0,1fr)_minmax(300px,0.9fr)] md:gap-6 lg:grid-cols-[minmax(0,560px)_minmax(320px,1fr)] lg:gap-8 xl:gap-10">
             <div className="w-full max-w-[560px]">
             <div className="hero-glass-card rounded-[26px] px-5 py-6 sm:rounded-[36px] sm:px-8 sm:py-9 lg:px-[44px] lg:py-[44px]">
               <h1 className="text-[36px] font-bold leading-[1.02] tracking-[-0.03em] text-white sm:text-[52px] lg:text-[72px]">
@@ -48,7 +46,7 @@ export function Hero() {
               <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:gap-4">
                 <a
                   href="#projects"
-                  className="group inline-flex h-[52px] items-center justify-center rounded-full border border-[#ee4b57] bg-[linear-gradient(90deg,#81101a_0%,#b71825_45%,#d92534_100%)] px-8 text-[15px] font-semibold text-white sm:h-[56px] sm:px-10 sm:text-[17px]"
+                  className="group inline-flex h-[52px] items-center justify-center whitespace-nowrap rounded-full border border-[#ee4b57] bg-[linear-gradient(90deg,#81101a_0%,#b71825_45%,#d92534_100%)] px-8 text-[15px] font-semibold text-white sm:h-[56px] sm:px-10 sm:text-[17px]"
                 >
                   Explore My Work
                   <span className="ml-0 inline-flex w-0 translate-x-[-6px] overflow-hidden opacity-0 transition-all duration-250 group-hover:ml-2 group-hover:w-4 group-hover:translate-x-0 group-hover:opacity-100">
@@ -57,7 +55,7 @@ export function Hero() {
                 </a>
                 <a
                   href="#contact"
-                  className="btn-secondary group inline-flex h-[52px] items-center justify-center rounded-full border border-[#41465f] bg-[rgba(10,11,20,0.82)] px-8 text-[15px] font-semibold text-white sm:h-[56px] sm:px-10 sm:text-[17px]"
+                  className="btn-secondary group inline-flex h-[52px] items-center justify-center whitespace-nowrap rounded-full border border-[#41465f] bg-[rgba(10,11,20,0.82)] px-8 text-[15px] font-semibold text-white sm:h-[56px] sm:px-10 sm:text-[17px]"
                 >
                   Get In Touch
                   <span className="ml-0 inline-flex w-0 translate-x-[-6px] overflow-hidden opacity-0 transition-all duration-250 group-hover:ml-2 group-hover:w-4 group-hover:translate-x-0 group-hover:opacity-100">
@@ -82,7 +80,7 @@ export function Hero() {
             </div>
           </div>
 
-            <div className="relative mx-auto hidden w-full max-w-[620px] lg:block">
+            <div className="relative mx-auto hidden w-full max-w-[460px] md:block lg:max-w-[620px]">
               <div className="hero-apple-frame relative aspect-[6/5] w-full overflow-hidden">
                 <div className="hero-apple-glow pointer-events-none absolute inset-0 z-10" />
                 <Image
@@ -90,7 +88,7 @@ export function Hero() {
                   alt="Zarrar Palekar"
                   fill
                   priority
-                  sizes="(min-width: 1280px) 620px, (min-width: 1024px) 46vw, 100vw"
+                  sizes="(min-width: 1280px) 620px, (min-width: 1024px) 46vw, (min-width: 768px) 460px, 100vw"
                   className="scale-[1.01] object-cover object-center"
                 />
               </div>

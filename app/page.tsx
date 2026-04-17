@@ -1,14 +1,18 @@
+import dynamic from "next/dynamic";
 import Script from "next/script";
 
 import { About } from "@/components/About";
-import { Contact } from "@/components/Contact";
-import { ExperienceProjects } from "@/components/ExperienceProjects";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
 import { Hero } from "@/components/Hero";
 import { Navbar } from "@/components/Navbar";
-import { Projects } from "@/components/Projects";
-import { Skills } from "@/components/Skills";
 import { siteConfig } from "@/lib/site";
+
+const Skills = dynamic(() => import("@/components/Skills").then((module) => module.Skills));
+const ExperienceProjects = dynamic(() =>
+  import("@/components/ExperienceProjects").then((module) => module.ExperienceProjects),
+);
+const Projects = dynamic(() => import("@/components/Projects").then((module) => module.Projects));
+const Contact = dynamic(() => import("@/components/Contact").then((module) => module.Contact));
 
 const jsonLd = {
   "@context": "https://schema.org",

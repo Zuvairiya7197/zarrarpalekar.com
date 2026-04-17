@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 
-import { openCalendlyPopup } from "@/lib/calendly";
+import { openCalendlyPopup, registerCalendlyPageHideCleanup } from "@/lib/calendly";
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -23,14 +23,16 @@ export function Navbar() {
     }
 
     const navOffset = 96;
-    element.scrollIntoView({ behavior: "smooth", block: "start" });
-    window.setTimeout(() => {
-      window.scrollBy({ top: -navOffset, behavior: "smooth" });
-    }, 0);
+    const targetTop = Math.max(0, element.getBoundingClientRect().top + window.scrollY - navOffset);
+    window.scrollTo({ top: targetTop, behavior: "smooth" });
 
     window.history.replaceState(null, "", href);
     setActiveSection(id);
   };
+
+  useEffect(() => {
+    return registerCalendlyPageHideCleanup();
+  }, []);
 
   useEffect(() => {
     const getSections = () =>
@@ -154,7 +156,7 @@ export function Navbar() {
               <a
                 href="/resume"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 className="btn-secondary inline-flex h-[46px] items-center justify-center rounded-full border border-[#45465a] bg-[rgba(10,10,19,0.78)] px-6 text-[14px] font-medium text-white"
               >
                 Resume
@@ -216,7 +218,7 @@ export function Navbar() {
               <a
                 href="/resume"
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
                 className="btn-secondary inline-flex h-11 items-center justify-center rounded-full border border-[#45465a] bg-[rgba(10,10,19,0.78)] px-4 text-[13px] font-medium text-white"
               >

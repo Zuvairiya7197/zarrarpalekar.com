@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import { BriefcaseBusiness, CalendarDays, CheckCircle2, MessageSquareQuote } from "lucide-react";
 import Image from "next/image";
 import { type ReactNode, useEffect, useRef, useState } from "react";
@@ -69,7 +69,7 @@ function ExperiencePanel() {
 
         <div className="space-y-4">
           {experiences.map((experience, index) => (
-            <motion.article
+            <m.article
               key={`mobile-${experience.company}-${experience.start}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -121,7 +121,7 @@ function ExperiencePanel() {
                   {formatExperiencePeriod(experience.start, experience.end)}
                 </p>
               </div>
-            </motion.article>
+            </m.article>
           ))}
         </div>
       </div>
@@ -139,7 +139,7 @@ function ExperiencePanel() {
               {experiences.map((experience, index) => {
                 const isActive = activeExperience === index;
                 return (
-                  <motion.button
+                  <m.button
                     key={`${experience.company}-${experience.start}`}
                     type="button"
                     onMouseEnter={() => setActiveExperience(index)}
@@ -178,7 +178,7 @@ function ExperiencePanel() {
                     <span className="rounded-full border border-white/14 bg-[rgba(10,12,20,0.72)] px-3 py-1 text-[11px] font-medium text-[#dfe3ef]">
                       {new Date(experience.start).getFullYear()} • {experience.company}
                     </span>
-                  </motion.button>
+                  </m.button>
                 );
               })}
             </div>
@@ -186,7 +186,7 @@ function ExperiencePanel() {
         </div>
 
         {selectedExperience ? (
-          <motion.article
+          <m.article
             key={`${selectedExperience.company}-${selectedExperience.start}`}
             initial={{ opacity: 0, y: 16, scale: 0.98, filter: "blur(2px)" }}
             animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
@@ -245,7 +245,7 @@ function ExperiencePanel() {
                 </li>
               ))}
             </ul>
-          </motion.article>
+          </m.article>
         ) : (
           <div className="mt-5 rounded-[18px] border border-dashed border-white/16 bg-[rgba(11,14,26,0.45)] px-4 py-5 text-center text-[14px] text-[#b8bece]">
             Hover a company icon on the road to reveal the experience card.
@@ -258,9 +258,26 @@ function ExperiencePanel() {
 
 function TestimonialsPanel() {
   const testimonialsRef = useRef<HTMLElement | null>(null);
-  const isInView = useInView(testimonialsRef, { amount: 0.35 });
+  const [isInView, setIsInView] = useState(false);
   const [hasDismissedUnread, setHasDismissedUnread] = useState(false);
   const [showUnreadPopup, setShowUnreadPopup] = useState(false);
+
+  useEffect(() => {
+    const node = testimonialsRef.current;
+    if (!node) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting && entry.intersectionRatio >= 0.35);
+      },
+      { threshold: [0.35] },
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!isInView || hasDismissedUnread) {
@@ -288,7 +305,7 @@ function TestimonialsPanel() {
       <div id="testimonials" className="scroll-mt-[120px]" aria-hidden="true" />
 
       <div className="relative mt-6 rounded-[22px] border border-white/12 bg-[rgba(8,10,18,0.84)]">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: -12, scale: 0.96 }}
           animate={
             showUnreadPopup
@@ -306,7 +323,7 @@ function TestimonialsPanel() {
               {testimonials.length} Unseen Messages
             </span>
           </div>
-        </motion.div>
+        </m.div>
 
         <div className="flex items-center border-b border-white/10 px-4 py-3 sm:px-5">
           <div className="flex items-center gap-2">
@@ -330,7 +347,7 @@ function TestimonialsPanel() {
           className="h-[460px] snap-y snap-mandatory space-y-4 overflow-y-auto scroll-smooth bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.04),transparent_35%),radial-gradient(circle_at_85%_75%,rgba(255,93,112,0.06),transparent_42%)] px-3 py-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:h-[520px] sm:px-4 sm:py-4 lg:h-[640px] lg:px-6 lg:py-6"
         >
           {testimonials.map((testimonial, index) => (
-            <motion.div
+            <m.div
               key={`${testimonial.name}-${testimonial.date}`}
               initial={{ opacity: 0.5, y: 14, scale: 0.98, filter: "blur(1.2px)" }}
               whileInView={{
@@ -361,7 +378,7 @@ function TestimonialsPanel() {
               <div className="ml-auto max-w-[80%] rounded-[16px] rounded-tr-[6px] border border-[rgba(255,98,118,0.35)] bg-[linear-gradient(90deg,rgba(142,24,39,0.92)_0%,rgba(192,42,62,0.9)_100%)] px-3 py-2 text-[12px] leading-[1.45] text-white sm:text-[13px]">
                 {testimonial.relationship}
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>
@@ -371,13 +388,15 @@ function TestimonialsPanel() {
 
 export function ExperienceProjects() {
   return (
-    <section className="py-5 sm:py-7 lg:py-8">
+    <LazyMotion features={domAnimation}>
+      <section className="py-5 sm:py-7 lg:py-8">
         <Container className="max-w-[1560px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
           <div className="grid gap-6 sm:gap-7 lg:gap-8 2xl:gap-4 2xl:grid-cols-[0.94fr_1.06fr]">
             <ExperiencePanel />
             <TestimonialsPanel />
           </div>
         </Container>
-    </section>
+      </section>
+    </LazyMotion>
   );
 }

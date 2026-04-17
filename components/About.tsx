@@ -1,6 +1,3 @@
-"use client";
-
-import { useMemo, useState } from "react";
 import {
   type LucideIcon,
   BriefcaseBusiness,
@@ -44,12 +41,8 @@ function HighlightCard({
 }
 
 export function About() {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const [leftHighlights, rightHighlights] = useMemo(
-    () => [aboutHighlights.slice(0, 3), aboutHighlights.slice(3)],
-    [],
-  );
+  const leftHighlights = aboutHighlights.slice(0, 3);
+  const rightHighlights = aboutHighlights.slice(3);
 
   const primaryParagraph = aboutParagraphs[0];
   const secondaryParagraph = aboutParagraphs[1];
@@ -59,8 +52,8 @@ export function About() {
     <section id="about" className="relative overflow-hidden py-2">
 
       <Container className="max-w-[1560px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
-        <div className="grid gap-4 xl:grid-cols-[280px_minmax(0,1fr)_280px] xl:items-stretch">
-          <div className="border-none px-1 py-1 xl:px-4 xl:py-4">
+        <div className="grid gap-4 md:grid-cols-[220px_minmax(0,1fr)_220px] md:items-stretch xl:grid-cols-[280px_minmax(0,1fr)_280px]">
+          <div className="border-none px-1 py-1 md:px-3 md:py-3 xl:px-4 xl:py-4">
             <div className="grid h-full auto-rows-fr gap-4">
               {leftHighlights.map((item) => (
                 <HighlightCard key={item.title} {...item} />
@@ -68,7 +61,7 @@ export function About() {
             </div>
           </div>
 
-          <div className="border-none px-1 py-1 xl:px-4 xl:py-4">
+          <div className="border-none px-1 py-1 md:px-3 md:py-3 xl:px-4 xl:py-4">
             <div className="hero-glass-card h-full rounded-[28px] px-5 py-6 sm:px-7 sm:py-7">
               <div className="section-capsule inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-[12px] font-medium uppercase tracking-[0.06em] sm:text-[13px]">
                 <UserRound className="section-capsule-icon h-4 w-4" />
@@ -97,31 +90,28 @@ export function About() {
 
                 <p className="max-w-[950px] text-[16px] leading-[1.55] text-[#e3e5ee] sm:text-[17px] lg:text-[18px]">{secondaryParagraph}</p>
 
-                {isExpanded
-                  ? extendedParagraphs.map((paragraph, index) => (
+                <details className="group flex flex-col pt-2">
+                  <summary className="btn-secondary order-2 mt-3 inline-flex h-[46px] cursor-pointer list-none items-center justify-center rounded-full border px-6 text-[15px] font-medium text-white/88 sm:mt-4 sm:h-[52px] sm:px-7 sm:text-[16px] [&::-webkit-details-marker]:hidden">
+                    <span className="group-open:hidden">Show More</span>
+                    <span className="hidden group-open:inline">Show Less</span>
+                  </summary>
+
+                  <div className="order-1 space-y-3 sm:space-y-4">
+                    {extendedParagraphs.map((paragraph, index) => (
                       <p
                         key={`${index}-${paragraph.slice(0, 16)}`}
                         className="max-w-[950px] text-[16px] leading-[1.55] text-[#e3e5ee] sm:text-[17px] lg:text-[18px]"
                       >
                         {paragraph}
                       </p>
-                    ))
-                  : null}
-
-                <div className="pt-2">
-                  <button
-                    type="button"
-                    onClick={() => setIsExpanded((current) => !current)}
-                    className="btn-secondary inline-flex h-[46px] items-center justify-center rounded-full border px-6 text-[15px] font-medium text-white/88 sm:h-[52px] sm:px-7 sm:text-[16px]"
-                  >
-                    {isExpanded ? "Show Less" : "Show More"}
-                  </button>
-                </div>
+                    ))}
+                  </div>
+                </details>
               </div>
             </div>
           </div>
 
-          <div className="border-none px-1 py-1 xl:px-4 xl:py-4">
+          <div className="border-none px-1 py-1 md:px-3 md:py-3 xl:px-4 xl:py-4">
             <div className="grid h-full auto-rows-fr gap-4">
               {rightHighlights.map((item) => (
                 <HighlightCard key={item.title} {...item} />

@@ -105,7 +105,11 @@ export function Contact() {
                 key={`desktop-${link.label}`}
                 href={link.href}
                 target={link.href.startsWith("http") && !("isCalendly" in link) ? "_blank" : undefined}
-                rel={link.href.startsWith("http") && !("isCalendly" in link) ? "noreferrer" : undefined}
+                rel={
+                  link.href.startsWith("http") && !("isCalendly" in link)
+                    ? "noopener noreferrer"
+                    : undefined
+                }
                 aria-label={link.label}
                 onClick={(event) => {
                   if ("isCalendly" in link && link.isCalendly) {
@@ -132,11 +136,12 @@ export function Contact() {
             </div>
 
             <h2 className="mt-7 text-[30px] font-semibold leading-[1.02] tracking-[-0.03em] text-white sm:text-[36px] lg:text-[44px]">
-              <span className="block">Let&apos;s Build</span>
-              <span className="block">Something</span>
-              <span className="block">Amazing</span>
-              <span className="mt-1 block font-[family-name:var(--font-script)] text-[1.04em] font-normal leading-[0.9] tracking-normal text-[#ef1f30]">
-                Together.
+              <span className="block">Let&apos;s Build Something</span>
+              <span className="mt-1 block">
+                <span>Amazing </span>
+                <span className="font-[family-name:var(--font-script)] text-[1.04em] font-normal leading-[0.9] tracking-normal text-[#ef1f30]">
+                  Together.
+                </span>
               </span>
             </h2>
 
@@ -240,7 +245,11 @@ export function Contact() {
                     key={link.label}
                     href={link.href}
                     target={link.href.startsWith("http") && !("isCalendly" in link) ? "_blank" : undefined}
-                    rel={link.href.startsWith("http") && !("isCalendly" in link) ? "noreferrer" : undefined}
+                    rel={
+                      link.href.startsWith("http") && !("isCalendly" in link)
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
                     aria-label={link.label}
                     onClick={(event) => {
                       if ("isCalendly" in link && link.isCalendly) {

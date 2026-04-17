@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 type CountUpProps = {
   value: number;
@@ -9,7 +9,6 @@ type CountUpProps = {
 
 export function CountUp({ value, suffix = "" }: CountUpProps) {
   const ref = useRef<HTMLSpanElement | null>(null);
-  const [count, setCount] = useState(0);
 
   useEffect(() => {
     const node = ref.current;
@@ -25,7 +24,10 @@ export function CountUp({ value, suffix = "" }: CountUpProps) {
 
         const animate = (time: number) => {
           const progress = Math.min((time - start) / duration, 1);
-          setCount(Math.floor(progress * value));
+          const nextValue = Math.floor(progress * value);
+          if (ref.current) {
+            ref.current.textContent = `${nextValue}${suffix}`;
+          }
 
           if (progress < 1) {
             frame = window.requestAnimationFrame(animate);
@@ -44,12 +46,7 @@ export function CountUp({ value, suffix = "" }: CountUpProps) {
       observer.disconnect();
       window.cancelAnimationFrame(frame);
     };
-  }, [value]);
+  }, [suffix, value]);
 
-  return (
-    <span ref={ref}>
-      {count}
-      {suffix}
-    </span>
-  );
+  return <span ref={ref}>{`0${suffix}`}</span>;
 }
