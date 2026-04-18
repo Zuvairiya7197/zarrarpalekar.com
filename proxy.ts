@@ -5,6 +5,12 @@ export function proxy(request: NextRequest) {
     return NextResponse.next();
   }
 
+  const { pathname } = request.nextUrl;
+  // Never run protocol redirect logic for framework static assets/source maps.
+  if (pathname.startsWith("/_next/")) {
+    return NextResponse.next();
+  }
+
   const forwardedProto = request.headers.get("x-forwarded-proto");
   const proto = forwardedProto?.split(",")[0]?.trim().toLowerCase();
 
