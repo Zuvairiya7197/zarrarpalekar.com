@@ -103,11 +103,11 @@ export function Navbar() {
     <header className="sticky top-0 z-50 bg-[#05040c]">
       <Container className="max-w-[1560px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
         <nav
-          className="rounded-[26px] border border-white/14 bg-[rgba(10,12,22,0.82)] px-3 py-2.5 shadow-[0_20px_40px_rgba(0,0,0,0.28)] backdrop-blur-[14px] sm:px-4 lg:rounded-[30px] lg:px-5 lg:py-3"
+          className="rounded-[26px] border border-white/14 bg-[rgba(10,12,22,0.82)] px-3 py-2 shadow-[0_20px_40px_rgba(0,0,0,0.28)] backdrop-blur-[14px] sm:px-4 lg:rounded-[30px] lg:px-5 lg:py-2.5"
           aria-label="Primary navigation"
         >
           <div className="flex items-center justify-between gap-4">
-            <a href="#home" className="flex min-h-11 items-center gap-4 rounded-full px-1.5 py-1">
+            <a href="#home" className="flex min-h-10 items-center gap-4 rounded-full px-1.5 py-0.5">
               <span className="relative block h-10 w-12 shrink-0 sm:h-11 sm:w-[52px]">
                 <Image
                   src={siteConfig.logo}
@@ -122,7 +122,7 @@ export function Navbar() {
                 <span className="block text-[20px] leading-none font-semibold text-white">
                   {siteConfig.name}
                 </span>
-                <span className="mt-1 block text-[13px] font-medium tracking-[0.05em] text-[#b8bac9] uppercase">
+                <span className="mt-1 block whitespace-nowrap text-[13px] font-medium tracking-[0.05em] text-[#b8bac9] uppercase">
                   Full Stack Developer
                 </span>
               </span>
@@ -164,7 +164,7 @@ export function Navbar() {
               <button
                 type="button"
                 onClick={() => void openCalendlyPopup(siteConfig.calendlyUrl)}
-                className="inline-flex h-[46px] items-center justify-center rounded-full border border-[#f34a56] bg-[linear-gradient(90deg,#85131e_0%,#b71a27_45%,#d92635_100%)] px-6 text-[14px] font-medium text-white"
+                className="inline-flex h-[46px] items-center justify-center whitespace-nowrap rounded-full border border-[#f34a56] bg-[linear-gradient(90deg,#85131e_0%,#b71a27_45%,#d92635_100%)] px-6 text-[14px] font-medium text-white"
               >
                 Book Call
               </button>
@@ -176,7 +176,7 @@ export function Navbar() {
               aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
               aria-expanded={isOpen}
               aria-controls="mobile-navigation"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/16 bg-[rgba(14,15,26,0.74)] text-white xl:hidden"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/16 bg-[rgba(14,15,26,0.74)] text-white xl:hidden"
             >
               {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
             </button>
@@ -230,7 +230,7 @@ export function Navbar() {
                   setIsOpen(false);
                   void openCalendlyPopup(siteConfig.calendlyUrl);
                 }}
-                className="inline-flex h-11 items-center justify-center rounded-full border border-[#f34a56] bg-[linear-gradient(90deg,#85131e_0%,#b71a27_45%,#d92635_100%)] px-4 text-[13px] font-medium text-white"
+                className="inline-flex h-11 items-center justify-center whitespace-nowrap rounded-full border border-[#f34a56] bg-[linear-gradient(90deg,#85131e_0%,#b71a27_45%,#d92635_100%)] px-4 text-[13px] font-medium text-white"
               >
                 Book Call
               </button>

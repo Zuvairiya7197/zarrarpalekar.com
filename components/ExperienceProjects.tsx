@@ -390,8 +390,8 @@ export function ExperienceProjects() {
   return (
     <LazyMotion features={domAnimation}>
       <section className="py-5 sm:py-7 lg:py-8">
-        <Container className="max-w-[1560px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
-          <div className="grid gap-6 sm:gap-7 lg:gap-8 2xl:gap-4 2xl:grid-cols-[0.94fr_1.06fr]">
+        <Container>
+          <div className="grid gap-6 sm:gap-7 lg:gap-8 xl:gap-6 xl:grid-cols-[0.94fr_1.06fr]">
             <ExperiencePanel />
             <TestimonialsPanel />
           </div>
