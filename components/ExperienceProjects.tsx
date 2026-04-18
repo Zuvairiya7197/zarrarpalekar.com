@@ -53,7 +53,7 @@ function ExperiencePanel() {
     activeExperience !== null ? experiences[activeExperience] : null;
 
   return (
-    <section id="experience" className="rounded-[20px] bg-[rgba(4,8,20,0.6)] p-4 sm:p-5 lg:p-6">
+    <section id="experience" className="overflow-hidden rounded-[20px] bg-[rgba(4,8,20,0.6)] p-3.5 sm:p-4 md:p-4.5 lg:p-6">
       <SectionPill icon={<BriefcaseBusiness className="h-4 w-4" />} label="Experience" />
 
       <h2 className="mt-6 text-[26px] font-semibold leading-[1.12] tracking-[-0.02em] text-white sm:text-[32px] lg:text-[42px]">
@@ -64,7 +64,7 @@ function ExperiencePanel() {
         A timeline of growth, challenges, and impactful solutions across leading companies.
       </p>
 
-      <div className="relative mt-7 pl-7 md:hidden">
+      <div className="relative mt-7 pl-7 min-[600px]:hidden">
         <div className="absolute bottom-3 left-2 top-3 w-[2px] rounded-full bg-[linear-gradient(180deg,rgba(255,107,122,0.35)_0%,rgba(255,107,122,0.08)_100%)]" />
 
         <div className="space-y-4">
@@ -127,11 +127,15 @@ function ExperiencePanel() {
       </div>
 
       <div
-        className="mt-8 hidden md:block"
-        onMouseLeave={() => setActiveExperience(null)}
+        className="mt-8 hidden min-[600px]:block"
+        onPointerLeave={(event) => {
+          if (event.pointerType === "mouse") {
+            setActiveExperience(null);
+          }
+        }}
       >
         <div className="overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          <div className="relative min-w-[680px] px-4 py-10 sm:min-w-[760px] sm:px-5 lg:min-w-0 lg:px-1">
+          <div className="relative min-w-[640px] px-3 py-8 sm:min-w-[700px] sm:px-4 md:min-w-0 md:px-2 lg:px-1 lg:py-10">
             <div className="absolute left-5 right-5 top-1/2 h-[14px] -translate-y-1/2 rounded-full border border-[rgba(255,102,121,0.25)] bg-[linear-gradient(90deg,rgba(47,11,19,0.95)_0%,rgba(74,18,30,0.96)_50%,rgba(47,11,19,0.95)_100%)] shadow-[0_10px_24px_rgba(0,0,0,0.34)]" />
             <div className="absolute left-7 right-7 top-1/2 h-[2px] -translate-y-1/2 bg-[repeating-linear-gradient(90deg,rgba(255,255,255,0.56)_0_18px,transparent_18px_34px)] opacity-70" />
 
@@ -142,11 +146,14 @@ function ExperiencePanel() {
                   <m.button
                     key={`${experience.company}-${experience.start}`}
                     type="button"
-                    onMouseEnter={() => setActiveExperience(index)}
+                    onPointerEnter={(event) => {
+                      if (event.pointerType === "mouse") {
+                        setActiveExperience(index);
+                      }
+                    }}
+                    onPointerDown={() => setActiveExperience(index)}
                     onFocus={() => setActiveExperience(index)}
-                    onClick={() =>
-                      setActiveExperience((current) => (current === index ? null : index))
-                    }
+                    onClick={() => setActiveExperience(index)}
                     whileHover={{ scale: 1.04 }}
                     className={`relative flex flex-col items-center gap-2 border-0 bg-transparent p-0 shadow-none outline-none transition-all duration-300 hover:shadow-none ${
                       index % 2 === 0 ? "-translate-y-7" : "translate-y-7"
@@ -290,7 +297,7 @@ function TestimonialsPanel() {
   return (
     <section
       ref={testimonialsRef}
-      className="relative rounded-[20px] bg-[rgba(4,8,20,0.6)] p-4 sm:p-5 lg:p-6"
+      className="relative overflow-hidden rounded-[20px] bg-[rgba(4,8,20,0.6)] p-3.5 sm:p-4 md:p-4.5 lg:p-6"
     >
       <SectionPill icon={<MessageSquareQuote className="h-4 w-4" />} label="Testimonials" />
 
