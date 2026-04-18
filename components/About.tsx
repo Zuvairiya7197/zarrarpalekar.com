@@ -51,7 +51,7 @@ export function About() {
   return (
     <section id="about" className="relative overflow-hidden py-2">
 
-      <Container className="max-w-[1560px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
+      <Container>
         <div className="grid gap-4 md:grid-cols-[220px_minmax(0,1fr)_220px] md:items-stretch xl:grid-cols-[280px_minmax(0,1fr)_280px]">
           <div className="border-none px-1 py-1 md:px-3 md:py-3 xl:px-4 xl:py-4">
             <div className="grid h-full auto-rows-fr gap-4">

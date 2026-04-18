@@ -96,7 +96,7 @@ export function Contact() {
       id="contact"
       className="relative overflow-hidden py-6 sm:py-8"
     >
-      <div className="pointer-events-none fixed right-4 top-1/2 z-50 hidden -translate-y-1/2 items-center 2xl:flex">
+      <div className="pointer-events-none fixed right-4 top-1/2 z-50 hidden -translate-y-1/2 items-center xl:flex">
         <div className="pointer-events-auto inline-flex flex-col items-center gap-3 rounded-[34px] border border-[rgba(235,34,62,0.26)] bg-[linear-gradient(165deg,rgba(13,8,22,0.72)_0%,rgba(8,7,16,0.7)_100%)] px-3 py-4 shadow-[0_14px_30px_rgba(0,0,0,0.26)] backdrop-blur-[7px]">
           {socialBarLinks.map((link) => {
             const Icon = link.icon;
@@ -126,7 +126,7 @@ export function Contact() {
         </div>
       </div>
 
-      <Container className="max-w-[1560px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
+      <Container>
         <div className="w-full">
           <div className="grid gap-6 xl:grid-cols-[0.94fr_1.06fr] xl:items-start">
             <div className="flex flex-col px-2 py-1 sm:px-3 lg:px-4 lg:py-3">

@@ -23,10 +23,10 @@ export function Hero() {
         />
       </div>
 
-      <Container className="relative max-w-[1560px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
+      <Container className="relative">
         <div className="flex min-h-[calc(100vh-92px)] items-center py-6 sm:py-8 lg:py-12">
           <div className="grid w-full items-center gap-6 md:grid-cols-[minmax(0,1fr)_minmax(300px,0.9fr)] md:gap-6 lg:grid-cols-[minmax(0,560px)_minmax(320px,1fr)] lg:gap-8 xl:gap-10">
-            <div className="w-full max-w-[560px]">
+            <div className="w-full max-w-[500px]">
             <div className="relative mx-auto mb-2 w-full max-w-[380px] md:hidden">
               <div className="relative aspect-[6/5] w-full overflow-hidden rounded-[26px]">
                 <Image
@@ -40,7 +40,7 @@ export function Hero() {
               </div>
             </div>
 
-            <div className="hero-glass-card relative z-10 -mt-6 rounded-[26px] px-5 py-6 sm:-mt-8 sm:rounded-[36px] sm:px-8 sm:py-9 md:mt-0 lg:px-[44px] lg:py-[44px]">
+            <div className="hero-glass-card relative z-10 -mt-6 rounded-[26px] px-4 py-5 sm:-mt-8 sm:rounded-[36px] sm:px-6.5 sm:py-7.5 md:mt-0 lg:px-8 lg:py-8">
               <h1 className="text-[36px] font-bold leading-[1.02] tracking-[-0.03em] text-white sm:text-[52px] lg:text-[72px]">
                 <span className="block">
                   I&apos;m <span className="text-[#d31b28]">Zarrar</span>
