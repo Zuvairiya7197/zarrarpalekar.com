@@ -100,10 +100,10 @@ export function Navbar() {
   }, [desktopLinks]);
 
   return (
-    <header className="sticky top-3 z-50">
+    <header className="sticky top-0 z-50 bg-[#05040c]">
       <Container className="max-w-[1560px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
         <nav
-          className="rounded-[26px] border border-white/14 bg-[linear-gradient(160deg,rgba(10,12,22,0.84)_0%,rgba(8,9,18,0.78)_100%)] px-3 py-2.5 shadow-[0_20px_40px_rgba(0,0,0,0.28)] backdrop-blur-[14px] sm:px-4 lg:rounded-[30px] lg:px-5 lg:py-3"
+          className="rounded-[26px] border border-white/14 bg-[rgba(10,12,22,0.82)] px-3 py-2.5 shadow-[0_20px_40px_rgba(0,0,0,0.28)] backdrop-blur-[14px] sm:px-4 lg:rounded-[30px] lg:px-5 lg:py-3"
           aria-label="Primary navigation"
         >
           <div className="flex items-center justify-between gap-4">

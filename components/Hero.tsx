@@ -1,5 +1,6 @@
 import { BriefcaseBusiness, Mail } from "lucide-react";
 import Image from "next/image";
+import zarruProfessional from "@/public/Images/Zarru Professional.png";
 
 import { heroRoles, trustStats } from "@/lib/site";
 
@@ -26,20 +27,20 @@ export function Hero() {
         <div className="flex min-h-[calc(100vh-92px)] items-center py-6 sm:py-8 lg:py-12">
           <div className="grid w-full items-center gap-6 md:grid-cols-[minmax(0,1fr)_minmax(300px,0.9fr)] md:gap-6 lg:grid-cols-[minmax(0,560px)_minmax(320px,1fr)] lg:gap-8 xl:gap-10">
             <div className="w-full max-w-[560px]">
-            <div className="relative mx-auto mb-4 w-full max-w-[380px] md:hidden">
-              <div className="hero-apple-frame relative aspect-[6/5] w-full overflow-hidden">
-                <div className="hero-apple-glow pointer-events-none absolute inset-0 z-10" />
+            <div className="relative mx-auto mb-2 w-full max-w-[380px] md:hidden">
+              <div className="relative aspect-[6/5] w-full overflow-hidden rounded-[26px]">
                 <Image
-                  src="/Images/Zarru.png"
+                  src={zarruProfessional}
                   alt="Zarrar Palekar"
                   fill
                   sizes="(max-width: 767px) 82vw, 380px"
-                  className="scale-[1.01] object-cover object-center"
+                  className="object-cover"
+                  style={{ objectPosition: "50% calc(40% + 20px)" }}
                 />
               </div>
             </div>
 
-            <div className="hero-glass-card rounded-[26px] px-5 py-6 sm:rounded-[36px] sm:px-8 sm:py-9 lg:px-[44px] lg:py-[44px]">
+            <div className="hero-glass-card relative z-10 -mt-6 rounded-[26px] px-5 py-6 sm:-mt-8 sm:rounded-[36px] sm:px-8 sm:py-9 md:mt-0 lg:px-[44px] lg:py-[44px]">
               <h1 className="text-[36px] font-bold leading-[1.02] tracking-[-0.03em] text-white sm:text-[52px] lg:text-[72px]">
                 <span className="block">
                   I&apos;m <span className="text-[#d31b28]">Zarrar</span>
@@ -94,14 +95,14 @@ export function Hero() {
           </div>
 
             <div className="relative mx-auto hidden w-full max-w-[460px] md:block lg:max-w-[620px]">
-              <div className="hero-apple-frame relative aspect-[6/5] w-full overflow-hidden">
-                <div className="hero-apple-glow pointer-events-none absolute inset-0 z-10" />
+              <div className="relative aspect-[6/5] w-full overflow-hidden rounded-[26px]">
                 <Image
-                  src="/Images/Zarru.png"
+                  src={zarruProfessional}
                   alt="Zarrar Palekar"
                   fill
                   sizes="(min-width: 1280px) 620px, (min-width: 1024px) 46vw, (min-width: 768px) 460px, 100vw"
-                  className="scale-[1.01] object-cover object-center"
+                  className="object-cover"
+                  style={{ objectPosition: "50% calc(40% + 20px)" }}
                 />
               </div>
             </div>

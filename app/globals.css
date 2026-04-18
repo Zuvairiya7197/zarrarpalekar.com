@@ -178,7 +178,7 @@ a[class*="inline-flex"][class*="rounded-full"]:focus-visible {
 
 .hero-apple-frame {
   border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 34% 34% 34% 34% / 46% 46% 46% 46%;
+  border-radius: 26px;
   background: linear-gradient(
     160deg,
     rgba(15, 18, 32, 0.58) 0%,
@@ -192,9 +192,11 @@ a[class*="inline-flex"][class*="rounded-full"]:focus-visible {
 
 .hero-apple-glow {
   background:
-    radial-gradient(circle at 22% 14%, rgba(255, 255, 255, 0.26), transparent 38%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 34%),
-    radial-gradient(circle at 50% 116%, rgba(255, 70, 86, 0.18), transparent 44%);
+    radial-gradient(circle at 18% 16%, rgba(255, 255, 255, 0.2), transparent 36%),
+    radial-gradient(circle at 78% 18%, rgba(255, 86, 104, 0.22), transparent 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), transparent 34%),
+    radial-gradient(circle at 50% 114%, rgba(255, 44, 66, 0.34), transparent 48%),
+    radial-gradient(circle at 50% 126%, rgba(176, 19, 37, 0.2), transparent 56%);
 }
 
 @keyframes skills-marquee-scroll {
