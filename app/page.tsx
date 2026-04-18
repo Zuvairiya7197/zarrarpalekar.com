@@ -1,15 +1,18 @@
+import dynamic from "next/dynamic";
 import Script from "next/script";
 
 import { About } from "@/components/About";
-import { Contact } from "@/components/Contact";
-import { ExperienceProjects } from "@/components/ExperienceProjects";
 import { FloatingWhatsApp } from "@/components/FloatingWhatsApp";
-import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Navbar } from "@/components/Navbar";
-import { Skills } from "@/components/Skills";
-import { Testimonials } from "@/components/Testimonials";
 import { siteConfig } from "@/lib/site";
+
+const Skills = dynamic(() => import("@/components/Skills").then((module) => module.Skills));
+const ExperienceProjects = dynamic(() =>
+  import("@/components/ExperienceProjects").then((module) => module.ExperienceProjects),
+);
+const Projects = dynamic(() => import("@/components/Projects").then((module) => module.Projects));
+const Contact = dynamic(() => import("@/components/Contact").then((module) => module.Contact));
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -33,17 +36,15 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="relative overflow-x-clip">
-        <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-190 bg-[radial-gradient(circle_at_top,rgba(108,92,231,0.28),transparent_26%),radial-gradient(circle_at_top_right,rgba(59,130,246,0.18),transparent_28%)]" />
         <Navbar />
-        <main>
+        <main className="space-y-8 sm:space-y-10 lg:space-y-12">
           <Hero />
           <About />
           <Skills />
           <ExperienceProjects />
-          <Testimonials />
+          <Projects />
           <Contact />
         </main>
-        <Footer />
         <FloatingWhatsApp />
       </div>
     </>

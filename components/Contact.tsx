@@ -8,7 +8,6 @@ import {
   LoaderCircle,
   Mail,
   MapPin,
-  MessageCircleMore,
   Phone,
   Send,
 } from "lucide-react";
@@ -24,20 +23,24 @@ type StatusState =
   | { type: "success"; message: string }
   | { type: "error"; message: string };
 
-const connectLinks = [
+function WhatsAppIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
+      <path d="M19.05 4.91A9.82 9.82 0 0 0 12.03 2C6.6 2 2.18 6.42 2.18 11.85c0 1.74.45 3.44 1.31 4.95L2 22l5.36-1.41a9.8 9.8 0 0 0 4.67 1.19h.01c5.43 0 9.85-4.42 9.85-9.85 0-2.63-1.02-5.1-2.84-6.92Zm-7.02 15.2h-.01a8.13 8.13 0 0 1-4.14-1.13l-.3-.18-3.18.84.85-3.1-.2-.32a8.13 8.13 0 0 1-1.25-4.35c0-4.5 3.66-8.16 8.17-8.16 2.18 0 4.23.85 5.77 2.39a8.1 8.1 0 0 1 2.39 5.77c0 4.5-3.66 8.16-8.1 8.16Zm4.47-6.1c-.24-.12-1.4-.69-1.62-.77-.22-.08-.38-.12-.54.12-.16.24-.62.77-.76.93-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.18-.71-.63-1.2-1.4-1.34-1.64-.14-.24-.01-.37.1-.49.1-.1.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.79-.2-.47-.41-.41-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.68 2.56 4.08 3.59.57.25 1.02.4 1.37.51.58.18 1.1.15 1.51.09.46-.07 1.4-.57 1.6-1.11.2-.55.2-1.02.14-1.12-.06-.1-.22-.16-.46-.28Z" />
+    </svg>
+  );
+}
+
+const socialBarLinks = [
   { label: "GitHub", href: siteConfig.socialLinks[0].href, icon: Github },
-  { label: "WhatsApp", href: siteConfig.whatsappUrl, icon: MessageCircleMore },
-  { label: "Instagram", href: siteConfig.socialLinks[2].href, icon: Instagram },
-  { label: "Calendly", href: siteConfig.calendlyUrl, icon: CalendarDays, isCalendly: true },
   { label: "LinkedIn", href: siteConfig.socialLinks[1].href, icon: Linkedin },
+  { label: "Instagram", href: siteConfig.socialLinks[2].href, icon: Instagram },
+  { label: "WhatsApp", href: siteConfig.whatsappUrl, icon: WhatsAppIcon },
   { label: "Email", href: `mailto:${siteConfig.email}`, icon: Mail },
-  { label: "Phone", href: `tel:${siteConfig.phone.replace(/\s+/g, "")}`, icon: Phone },
-  {
-    label: "Location",
-    href: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(siteConfig.location)}`,
-    icon: MapPin,
-  },
+  { label: "Calendly", href: siteConfig.calendlyUrl, icon: CalendarDays, isCalendly: true },
 ] as const;
+
+const mobileSocialBarLinks = socialBarLinks.filter((link) => link.label !== "WhatsApp");
 
 export function Contact() {
   const [status, setStatus] = useState<StatusState>({
@@ -89,156 +92,183 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="section-padding pb-4 sm:pb-6">
-      <Container className="max-w-[1760px]">
-        <div className="rounded-[30px] border border-[rgba(101,17,204,0.35)] bg-[rgba(5,2,12,0.94)] px-5 py-6 shadow-[0_30px_90px_rgba(0,0,0,0.28)] sm:px-8 sm:py-8 lg:px-12 lg:py-10">
-          <div className="grid gap-6 md:grid-cols-[0.95fr_1.05fr] xl:grid-cols-[0.88fr_1.06fr_0.42fr] xl:items-stretch">
-            <div className="flex h-full flex-col px-2 py-2 sm:px-4 lg:px-6 lg:py-6">
-              <div className="inline-flex w-fit items-center gap-3 rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-4 py-3 text-[14px] font-bold uppercase tracking-[0.02em] text-white">
-                <Phone className="h-4 w-4" />
-                <span>Contact</span>
-              </div>
+    <section
+      id="contact"
+      className="relative overflow-hidden py-6 sm:py-8"
+    >
+      <div className="pointer-events-none fixed right-4 top-1/2 z-50 hidden -translate-y-1/2 items-center 2xl:flex">
+        <div className="pointer-events-auto inline-flex flex-col items-center gap-3 rounded-[34px] border border-[rgba(235,34,62,0.26)] bg-[linear-gradient(165deg,rgba(13,8,22,0.72)_0%,rgba(8,7,16,0.7)_100%)] px-3 py-4 shadow-[0_14px_30px_rgba(0,0,0,0.26)] backdrop-blur-[7px]">
+          {socialBarLinks.map((link) => {
+            const Icon = link.icon;
+            return (
+              <a
+                key={`desktop-${link.label}`}
+                href={link.href}
+                target={link.href.startsWith("http") && !("isCalendly" in link) ? "_blank" : undefined}
+                rel={
+                  link.href.startsWith("http") && !("isCalendly" in link)
+                    ? "noopener noreferrer"
+                    : undefined
+                }
+                aria-label={link.label}
+                onClick={(event) => {
+                  if ("isCalendly" in link && link.isCalendly) {
+                    event.preventDefault();
+                    void openCalendlyPopup(link.href);
+                  }
+                }}
+                className="inline-flex h-[50px] w-[50px] items-center justify-center rounded-full border border-[rgba(215,28,60,0.34)] bg-[rgba(16,10,20,0.45)] text-white/75 shadow-[0_0_0_1px_rgba(215,28,60,0.12)] transition-all duration-200 hover:border-[#d71c3c] hover:bg-[rgba(42,12,30,0.9)] hover:text-white hover:shadow-[0_0_0_1px_rgba(215,28,60,0.28),0_0_20px_rgba(215,28,60,0.22)]"
+              >
+                <Icon className="h-5 w-5" />
+              </a>
+            );
+          })}
+        </div>
+      </div>
 
-              <h2 className="mt-9 max-w-[420px] text-[30px] font-semibold leading-[1.02] tracking-[-0.05em] text-white sm:text-[48px] lg:text-[56px]">
-                <span className="block">Let&apos;s Build</span>
-                <span className="block">Something</span>
-                <span className="block">
-                  Amazing{" "}
-                  <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text font-[family-name:var(--font-script)] text-[1.08em] font-bold text-transparent tracking-normal [text-shadow:0_10px_28px_rgba(99,102,241,0.22)]">
-                    Together.
-                  </span>
-                </span>
-              </h2>
-
-              <p className="mt-6 max-w-[420px] text-[16px] leading-[1.65] text-[rgba(173,176,210,0.84)] sm:mt-8 sm:text-[18px]">
-                Have a project in mind or just want to say hi? I&apos;d love to hear from you.
-              </p>
-
-              <div className="mt-8 inline-flex max-w-full flex-wrap items-center gap-3 rounded-full pt-4 sm:mt-auto sm:gap-4 sm:pt-12">
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] text-white shadow-[0_14px_34px_rgba(108,92,231,0.28)]">
-                  <MapPin className="h-5 w-5" />
-                </span>
-                <span className="text-[16px] font-medium text-white sm:text-[20px]">{siteConfig.location}</span>
-              </div>
+      <Container className="max-w-[1560px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
+        <div className="w-full">
+          <div className="grid gap-6 xl:grid-cols-[0.94fr_1.06fr] xl:items-start">
+            <div className="flex flex-col px-2 py-1 sm:px-3 lg:px-4 lg:py-3">
+            <div className="section-capsule inline-flex w-fit items-center gap-2 rounded-full border px-5 py-2.5 text-[12px] font-medium tracking-[0.06em] uppercase sm:text-[13px]">
+              <Phone className="section-capsule-icon h-4 w-4" />
+              <span>Contact</span>
             </div>
 
-            <div className="rounded-[24px] border border-[rgba(122,24,255,0.34)] bg-[rgba(14,6,22,0.94)] p-5 shadow-[0_24px_70px_rgba(0,0,0,0.28)] sm:p-7">
-              <form className="grid h-full gap-4" onSubmit={handleSubmit}>
-                <label className="grid gap-2.5">
-                  <span className="text-[15px] font-semibold text-white">
-                    Full Name <span className="text-rose-400">*</span>
-                  </span>
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    placeholder="Your full name"
-                    className="h-12 rounded-[18px] border border-white/12 bg-[linear-gradient(180deg,rgba(244,246,255,0.96)_0%,rgba(227,232,245,0.96)_100%)] px-4 text-[15px] text-slate-900 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] outline-none transition-all duration-200 placeholder:text-slate-500 focus:border-[#b80cff] focus:ring-4 focus:ring-[rgba(184,12,255,0.16)]"
-                  />
-                </label>
+            <h2 className="mt-7 text-[30px] font-semibold leading-[1.02] tracking-[-0.03em] text-white sm:text-[36px] lg:text-[44px]">
+              <span className="block">Let&apos;s Build Something</span>
+              <span className="mt-1 block">
+                <span>Amazing </span>
+                <span className="font-[family-name:var(--font-script)] text-[1.04em] font-normal leading-[0.9] tracking-normal text-[#ef1f30]">
+                  Together.
+                </span>
+              </span>
+            </h2>
 
-                <label className="grid gap-2.5">
-                  <span className="text-[15px] font-semibold text-white">
-                    Email <span className="text-rose-400">*</span>
-                  </span>
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    placeholder="you@example.com"
-                    className="h-12 rounded-[18px] border border-white/12 bg-[linear-gradient(180deg,rgba(244,246,255,0.96)_0%,rgba(227,232,245,0.96)_100%)] px-4 text-[15px] text-slate-900 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] outline-none transition-all duration-200 placeholder:text-slate-500 focus:border-[#b80cff] focus:ring-4 focus:ring-[rgba(184,12,255,0.16)]"
-                  />
-                </label>
+            <p className="mt-6 max-w-[560px] text-[15px] leading-[1.55] text-[#a7a8b7] sm:text-[17px] lg:text-[18px] lg:leading-[1.5]">
+              Have a project in mind or just want to say hi? I&apos;d love to hear from you.
+            </p>
 
-                <label className="grid gap-2.5">
-                  <span className="text-[15px] font-semibold text-white">
-                    Message <span className="text-rose-400">*</span>
-                  </span>
-                  <textarea
-                    name="message"
-                    required
-                    rows={5}
-                    placeholder="Tell me about your project, goals, or anything you'd like to discuss."
-                    className="min-h-[132px] rounded-[20px] border border-white/12 bg-[linear-gradient(180deg,rgba(244,246,255,0.96)_0%,rgba(227,232,245,0.96)_100%)] px-4 py-3.5 text-[15px] leading-7 text-slate-900 shadow-[inset_0_1px_0_rgba(255,255,255,0.4)] outline-none transition-all duration-200 placeholder:text-slate-500 focus:border-[#b80cff] focus:ring-4 focus:ring-[rgba(184,12,255,0.16)]"
-                  />
-                </label>
+            <div className="mt-8 inline-flex items-center gap-3">
+              <span className="inline-flex h-[52px] w-[52px] items-center justify-center rounded-full border border-[#eb4b58] bg-[linear-gradient(90deg,#85131e_0%,#b91a26_45%,#d92635_100%)] text-white sm:h-[56px] sm:w-[56px]">
+                <MapPin className="h-6 w-6" />
+              </span>
+              <span className="text-[16px] font-medium text-white sm:text-[18px] lg:text-[20px]">
+                {siteConfig.location}
+              </span>
+            </div>
+          </div>
 
-                <div className="pt-1">
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="group inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-6 text-[17px] font-semibold text-white shadow-[0_18px_40px_rgba(108,92,231,0.28)] transition-transform duration-200 hover:scale-[1.03] disabled:opacity-75"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <LoaderCircle className="h-4 w-4 animate-spin" />
-                        Sending
-                      </>
-                    ) : (
-                      <>
-                        <span className="transition-transform duration-200 group-hover:-translate-x-1">
-                          Send Message
-                        </span>
-                        <span className="ml-0 inline-flex w-0 items-center justify-center overflow-hidden opacity-0 transition-all duration-200 group-hover:ml-2 group-hover:w-4 group-hover:opacity-100">
-                          <Send className="h-4 w-4" />
-                        </span>
-                      </>
-                    )}
-                  </button>
-                </div>
+            <div className="w-full rounded-[22px] border border-white/18 bg-[linear-gradient(165deg,rgba(15,13,26,0.82)_0%,rgba(10,10,19,0.75)_100%)] p-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_22px_50px_rgba(0,0,0,0.38)] backdrop-blur-[8px] sm:rounded-[28px] sm:p-5 xl:ml-auto xl:max-w-[660px] xl:p-5">
+              <form className="grid gap-3.5" onSubmit={handleSubmit}>
+              <label className="grid gap-2">
+                <span className="text-[15px] font-semibold text-white sm:text-[16px]">
+                  Full Name <span className="text-[#df2434]">*</span>
+                </span>
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  placeholder="Your full name"
+                  className="h-[52px] rounded-[26px] border border-white/35 bg-[linear-gradient(180deg,#f3f0f6_0%,#e8e4ee_100%)] px-4 text-[14px] text-slate-800 outline-none placeholder:text-slate-600 focus:ring-2 focus:ring-[#e43544]/60 sm:h-[58px] sm:rounded-[29px] sm:px-5 sm:text-[15px]"
+                />
+              </label>
 
-                <p
-                  aria-live="polite"
-                  className={`break-words text-[14px] ${
-                    status.type === "error"
-                      ? "text-rose-400"
-                      : status.type === "success"
-                        ? "text-emerald-400"
-                        : "text-[rgba(173,176,210,0.84)]"
-                  }`}
+              <label className="grid gap-2">
+                <span className="text-[15px] font-semibold text-white sm:text-[16px]">
+                  Email <span className="text-[#df2434]">*</span>
+                </span>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="you@example.com"
+                  className="h-[52px] rounded-[26px] border border-white/35 bg-[linear-gradient(180deg,#f3f0f6_0%,#e8e4ee_100%)] px-4 text-[14px] text-slate-800 outline-none placeholder:text-slate-600 focus:ring-2 focus:ring-[#e43544]/60 sm:h-[58px] sm:rounded-[29px] sm:px-5 sm:text-[15px]"
+                />
+              </label>
+
+              <label className="grid gap-2">
+                <span className="text-[15px] font-semibold text-white sm:text-[16px]">
+                  Message <span className="text-[#df2434]">*</span>
+                </span>
+                <textarea
+                  name="message"
+                  required
+                  rows={5}
+                  placeholder="Tell me about your project, goals, or anything you’d like to discuss."
+                  className="min-h-[90px] rounded-[20px] border border-white/35 bg-[linear-gradient(180deg,#f3f0f6_0%,#e8e4ee_100%)] px-4 py-3 text-[14px] leading-[1.5] text-slate-800 outline-none placeholder:text-slate-600 focus:ring-2 focus:ring-[#e43544]/60 sm:min-h-[105px] sm:rounded-[22px] sm:px-5 sm:py-3.5 sm:text-[15px] lg:min-h-[118px]"
+                />
+              </label>
+
+              <div className="pt-0.5">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="inline-flex h-[46px] items-center justify-center rounded-full border border-[#ef4d59] bg-[linear-gradient(90deg,#85131e_0%,#b91a26_45%,#d92635_100%)] px-6 text-[14px] font-semibold text-white disabled:opacity-75 sm:h-[50px] sm:px-7 sm:text-[15px]"
                 >
-                  {status.message}
-                </p>
+                  {isSubmitting ? (
+                    <>
+                      <LoaderCircle className="mr-2 h-5 w-5 animate-spin" />
+                      Sending
+                    </>
+                  ) : (
+                    <>
+                      Send Message <Send className="ml-2 h-5 w-5" />
+                    </>
+                  )}
+                </button>
+              </div>
+
+              <p
+                aria-live="polite"
+                className={`text-[14px] ${
+                  status.type === "error"
+                    ? "text-rose-400"
+                    : status.type === "success"
+                      ? "text-emerald-400"
+                      : "text-[#a7a8b7]"
+                }`}
+              >
+                {status.message}
+              </p>
               </form>
             </div>
+          </div>
 
-            <div className="rounded-[24px] border border-[rgba(122,24,255,0.34)] bg-[rgba(14,6,22,0.94)] p-6 shadow-[0_24px_70px_rgba(0,0,0,0.28)] md:col-span-2 xl:col-span-1">
-              <h3 className="text-center text-[22px] font-semibold text-white sm:text-[24px]">
-                Let&apos;s Connect
-              </h3>
-
-              <div className="mt-8 grid grid-cols-4 justify-items-center gap-2.5 sm:gap-3 md:grid-cols-8 md:gap-2 xl:grid-cols-2 xl:gap-4">
-                {connectLinks.map((link) => {
-                  const Icon = link.icon;
-                  return (
-                    <a
+          <div className="mt-8 flex flex-wrap items-center justify-between gap-6 pt-7 pb-3 sm:pb-0">
+            <div className="w-full rounded-[24px] border border-white/18 bg-[linear-gradient(160deg,rgba(15,12,26,0.85)_0%,rgba(10,10,19,0.82)_100%)] p-2.5 sm:rounded-[32px] sm:p-3 lg:hidden">
+              <div className="flex items-center justify-center gap-2.5 sm:gap-3">
+              {mobileSocialBarLinks.map((link) => {
+                const Icon = link.icon;
+                return (
+                  <a
                     key={link.label}
-                      href={link.href}
-                      target={
-                        !("isCalendly" in link && link.isCalendly) && link.href.startsWith("http")
-                          ? "_blank"
-                          : undefined
+                    href={link.href}
+                    target={link.href.startsWith("http") && !("isCalendly" in link) ? "_blank" : undefined}
+                    rel={
+                      link.href.startsWith("http") && !("isCalendly" in link)
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
+                    aria-label={link.label}
+                    onClick={(event) => {
+                      if ("isCalendly" in link && link.isCalendly) {
+                        event.preventDefault();
+                        void openCalendlyPopup(link.href);
                       }
-                      rel={
-                        !("isCalendly" in link && link.isCalendly) && link.href.startsWith("http")
-                          ? "noreferrer"
-                          : undefined
-                      }
-                      onClick={(event) => {
-                        if ("isCalendly" in link && link.isCalendly) {
-                          event.preventDefault();
-                          void openCalendlyPopup(link.href);
-                        }
-                      }}
-                      aria-label={link.label}
-                      className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] text-white shadow-[0_14px_28px_rgba(108,92,231,0.22)] transition-all duration-200 hover:scale-[1.05] hover:shadow-[0_22px_44px_rgba(108,92,231,0.34)] sm:h-14 sm:w-14 md:h-12 md:w-12 xl:h-16 xl:w-16"
-                    >
-                      <Icon className="h-5 w-5 sm:h-6 sm:w-6 md:h-[22px] md:w-[22px] xl:h-7 xl:w-7" />
-                    </a>
-                  );
-                })}
+                    }}
+                    className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/18 bg-[rgba(255,255,255,0.05)] text-white hover:bg-[rgba(255,255,255,0.12)] sm:h-[52px] sm:w-[52px]"
+                  >
+                    <Icon className="h-[18px] w-[18px] sm:h-6 sm:w-6" />
+                  </a>
+                );
+              })}
               </div>
             </div>
+
+            <p className="w-full pt-3 text-center text-[15px] text-[#adafbf] sm:ml-auto sm:w-auto sm:pt-0 sm:text-left sm:text-[17px]">
+              © 2026 Made by <span className="font-semibold text-white">{siteConfig.name}</span>
+            </p>
           </div>
         </div>
       </Container>

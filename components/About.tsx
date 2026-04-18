@@ -1,129 +1,118 @@
-"use client";
-
-import { useMemo, useState } from "react";
-import Image from "next/image";
-import { Heart } from "lucide-react";
+import {
+  type LucideIcon,
+  BriefcaseBusiness,
+  Braces,
+  Code2,
+  Gauge,
+  Layers,
+  Palette,
+  UserRound,
+} from "lucide-react";
 
 import { aboutHighlights, aboutParagraphs, experienceYears } from "@/lib/site";
 
 import { Container } from "./ui/Container";
 
+const highlightIcons: Record<string, LucideIcon> = {
+  "Full Stack": Code2,
+  Performance: Gauge,
+  Experience: BriefcaseBusiness,
+  "Clean Code": Braces,
+  "UI\\UX": Palette,
+  Scalable: Layers,
+};
+
 function HighlightCard({
   title,
   subtitle,
-  image,
 }: (typeof aboutHighlights)[number]) {
+  const Icon = highlightIcons[title] ?? Code2;
+
   return (
-    <article className="flex min-h-[116px] min-w-[138px] flex-col items-center justify-center rounded-[18px] border border-[rgba(122,24,255,0.34)] bg-[rgba(15,6,28,0.84)] px-2 py-3 text-center shadow-[0_18px_50px_rgba(0,0,0,0.26)] transition-all duration-300 ease-out hover:scale-[1.03] hover:border-[rgba(99,102,241,0.68)] hover:shadow-[0_0_22px_rgba(99,102,241,0.18),0_18px_50px_rgba(0,0,0,0.26)] sm:min-h-[142px] sm:min-w-0 sm:px-3 sm:py-4 xl:min-h-[178px] xl:rounded-[22px] xl:px-5 xl:py-5">
-      <div className="relative h-[44px] w-[44px] overflow-hidden rounded-full sm:h-[58px] sm:w-[58px] xl:h-[76px] xl:w-[76px]">
-        <Image src={image} alt={title} fill sizes="82px" className="object-cover" />
+    <article className="hero-glass-card flex h-full flex-col items-center justify-center rounded-[16px] px-2.5 py-3 text-center sm:px-3 sm:py-4">
+      <div className="mx-auto inline-flex h-[42px] w-[42px] items-center justify-center rounded-full border border-white/16 bg-[rgba(255,255,255,0.04)] sm:h-[48px] sm:w-[48px]">
+        <Icon className="h-5 w-5 text-white/82 sm:h-6 sm:w-6" aria-hidden="true" />
       </div>
 
-      <h3 className="mt-2.5 text-[13px] font-semibold leading-tight tracking-[-0.03em] text-white sm:text-[16px] xl:mt-4 xl:text-[22px]">
-        {title}
-      </h3>
-      <p className="mt-1 text-[10px] leading-tight text-[rgba(173,176,210,0.8)] sm:text-[12px] xl:mt-2 xl:text-[17px]">
-        {subtitle}
-      </p>
+      <p className="mt-2 text-[18px] font-semibold leading-tight text-white sm:text-[20px]">{title}</p>
+      <p className="mt-1 text-[11px] leading-[1.25] text-[#b6b8c7] sm:text-[12px]">{subtitle}</p>
     </article>
   );
 }
 
 export function About() {
-  const [isExpanded, setIsExpanded] = useState(false);
-
-  const [leftHighlights, rightHighlights] = useMemo(
-    () => [aboutHighlights.slice(0, 3), aboutHighlights.slice(3)],
-    [],
-  );
+  const leftHighlights = aboutHighlights.slice(0, 3);
+  const rightHighlights = aboutHighlights.slice(3);
 
   const primaryParagraph = aboutParagraphs[0];
   const secondaryParagraph = aboutParagraphs[1];
   const extendedParagraphs = aboutParagraphs.slice(2);
 
   return (
-    <section id="about" className="section-padding">
-      <Container className="max-w-[1760px]">
-        <div className="rounded-[26px] border border-[rgba(101,17,204,0.35)] bg-[rgba(5,2,12,0.94)] px-5 py-5 shadow-[0_30px_90px_rgba(0,0,0,0.28)] sm:px-7 sm:py-7 lg:px-10 lg:py-7">
-          <div className="grid gap-5 xl:grid-cols-[300px_minmax(0,1fr)_300px] xl:items-stretch">
-            <div className="flex gap-3 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:grid sm:grid-cols-3 sm:gap-4 sm:overflow-visible sm:pb-0 xl:grid-cols-1 xl:gap-5">
+    <section id="about" className="relative overflow-hidden py-2">
+
+      <Container className="max-w-[1560px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
+        <div className="grid gap-4 md:grid-cols-[220px_minmax(0,1fr)_220px] md:items-stretch xl:grid-cols-[280px_minmax(0,1fr)_280px]">
+          <div className="border-none px-1 py-1 md:px-3 md:py-3 xl:px-4 xl:py-4">
+            <div className="grid h-full auto-rows-fr gap-4">
               {leftHighlights.map((item) => (
                 <HighlightCard key={item.title} {...item} />
               ))}
             </div>
+          </div>
 
-            <div className="rounded-[22px] border border-[rgba(122,24,255,0.34)] bg-[rgba(14,6,22,0.94)] px-6 py-5 shadow-[0_24px_70px_rgba(0,0,0,0.28)] sm:px-7 sm:py-6 lg:px-8 lg:py-6">
-              <div className="inline-flex items-center gap-3 rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-6 py-3 text-[14px] font-bold uppercase tracking-[0.02em] text-white">
-                <Heart className="h-4 w-4 fill-current" />
+          <div className="border-none px-1 py-1 md:px-3 md:py-3 xl:px-4 xl:py-4">
+            <div className="hero-glass-card h-full rounded-[28px] px-5 py-6 sm:px-7 sm:py-7">
+              <div className="section-capsule inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-[12px] font-medium uppercase tracking-[0.06em] sm:text-[13px]">
+                <UserRound className="section-capsule-icon h-4 w-4" />
                 <span>About Me</span>
               </div>
 
-              <h2 className="mt-8 max-w-[620px] text-[30px] font-semibold leading-[1.06] tracking-[-0.05em] text-white sm:text-[46px] lg:text-[54px]">
-                <span>More Than </span>
-                <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text font-bold text-transparent">
-                  Code.
-                </span>
-                <br />
-                <span>I Build </span>
-                <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text font-bold text-transparent">
-                  Impact.
+              <h2 className="mt-5 text-[28px] font-semibold leading-[1.1] tracking-[-0.02em] text-white sm:text-[34px] lg:text-[40px]">
+                <span className="block">More Than Code.</span>
+                <span className="block">
+                  I Build <span className="text-[#ff2738]">Impact.</span>
                 </span>
               </h2>
 
-              <div className="mt-6 max-w-[800px] space-y-4">
-                <p className="text-[17px] font-medium leading-[1.42] text-white sm:text-[21px]">
-                  <span className="mr-2 inline-block">👋</span>
+              <div className="mt-5 space-y-3 sm:space-y-4">
+                <p className="text-[19px] font-medium leading-[1.3] text-white sm:text-[22px] lg:text-[25px]">
+                  <span className="mr-2">👋</span>
                   <span>Hi there! I am </span>
-                  <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text font-bold uppercase text-transparent">
-                    ZARRAR PALEKAR.
-                  </span>
+                  <span className="uppercase">ZARRAR PALEKAR.</span>
                 </p>
 
-                <p className="max-w-[800px] text-[16px] leading-[1.48] tracking-[-0.015em] text-[rgba(233,236,255,0.9)] sm:text-[17px]">
+                <p className="max-w-[950px] text-[16px] leading-[1.55] text-[#e3e5ee] sm:text-[17px] lg:text-[18px]">
                   <span>With over </span>
-                  <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text font-bold text-transparent">
-                    {experienceYears} years
-                  </span>
+                  <span className="font-semibold text-[#ff2738]">{experienceYears} years</span>
                   <span>{primaryParagraph.replace(`With over ${experienceYears} years`, "")}</span>
                 </p>
 
-                <p className="max-w-[800px] text-[16px] leading-[1.48] tracking-[-0.015em] text-[rgba(233,236,255,0.9)] sm:text-[17px]">
-                  {secondaryParagraph}
-                </p>
+                <p className="max-w-[950px] text-[16px] leading-[1.55] text-[#e3e5ee] sm:text-[17px] lg:text-[18px]">{secondaryParagraph}</p>
 
-                {isExpanded
-                  ? extendedParagraphs.map((paragraph, index) => (
+                <details className="group flex flex-col pt-2">
+                  <summary className="btn-secondary order-2 mt-3 inline-flex h-[46px] cursor-pointer list-none items-center justify-center rounded-full border px-6 text-[15px] font-medium text-white/88 sm:mt-4 sm:h-[52px] sm:px-7 sm:text-[16px] [&::-webkit-details-marker]:hidden">
+                    <span className="group-open:hidden">Show More</span>
+                    <span className="hidden group-open:inline">Show Less</span>
+                  </summary>
+
+                  <div className="order-1 space-y-3 sm:space-y-4">
+                    {extendedParagraphs.map((paragraph, index) => (
                       <p
-                        key={`${index}-${paragraph.slice(0, 18)}`}
-                        className="max-w-[800px] text-[16px] leading-[1.48] tracking-[-0.015em] text-[rgba(233,236,255,0.9)] sm:text-[17px]"
+                        key={`${index}-${paragraph.slice(0, 16)}`}
+                        className="max-w-[950px] text-[16px] leading-[1.55] text-[#e3e5ee] sm:text-[17px] lg:text-[18px]"
                       >
                         {paragraph}
                       </p>
-                    ))
-                  : null}
-
-                <div className="flex flex-wrap items-center gap-3 pt-1">
-                  <button
-                    type="button"
-                    onClick={() => setIsExpanded((current) => !current)}
-                    className="inline-flex h-10 items-center justify-center rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 text-[14px] font-semibold text-white shadow-[0_14px_30px_rgba(108,92,231,0.24)] transition-transform duration-200 hover:scale-[1.03]"
-                  >
-                    {isExpanded ? "Show Less" : "Show More"}
-                  </button>
-
-                  <a
-                    href="/resume"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex h-10 items-center rounded-full border border-transparent [background:linear-gradient(rgb(var(--background)/0.9),rgb(var(--background)/0.9))_padding-box,linear-gradient(135deg,#6366f1,#06b6d4)_border-box] px-5 text-[14px] font-semibold text-white shadow-[0_12px_28px_rgba(99,102,241,0.14)] transition-transform duration-200 hover:scale-[1.03]"
-                  >
-                    See Resume
-                  </a>
-                </div>
+                    ))}
+                  </div>
+                </details>
               </div>
             </div>
+          </div>
 
-            <div className="flex gap-3 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:grid sm:grid-cols-3 sm:gap-4 sm:overflow-visible sm:pb-0 xl:grid-cols-1 xl:gap-5">
+          <div className="border-none px-1 py-1 md:px-3 md:py-3 xl:px-4 xl:py-4">
+            <div className="grid h-full auto-rows-fr gap-4">
               {rightHighlights.map((item) => (
                 <HighlightCard key={item.title} {...item} />
               ))}

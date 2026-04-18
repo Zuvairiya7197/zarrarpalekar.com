@@ -1,121 +1,140 @@
+"use client";
+
 import Image from "next/image";
-import { Star } from "lucide-react";
+import { Cloud, Code2, Database, FolderGit2, Layers, Server, Sparkles, type LucideIcon } from "lucide-react";
+import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
+import { useMemo, useState } from "react";
 
 import { skillGroups } from "@/lib/site";
 
 import { Container } from "./ui/Container";
 
-type SkillItem = (typeof skillGroups)[number]["items"][number];
+type SkillGroup = (typeof skillGroups)[number];
 
-function SkillTile({ name, icon }: SkillItem) {
-  return (
-    <div className="group flex size-[74px] shrink-0 flex-col items-center justify-center overflow-hidden rounded-[14px] border border-[rgba(105,18,214,0.48)] bg-[rgba(15,6,28,0.84)] px-2 py-2 text-center shadow-[0_16px_36px_rgba(0,0,0,0.2)] transition-all duration-300 ease-out hover:scale-[1.04] hover:border-[rgba(99,102,241,0.72)] hover:bg-[linear-gradient(135deg,#6366f1,#06b6d4)] hover:shadow-[0_0_18px_rgba(99,102,241,0.58),0_0_40px_rgba(99,102,241,0.36)] sm:size-[84px] md:size-[70px] lg:size-[72px] xl:size-[88px]">
-      <div className="relative h-[22px] w-[22px] sm:h-[27px] sm:w-[27px] md:h-[22px] md:w-[22px] lg:h-[23px] lg:w-[23px] xl:h-[28px] xl:w-[28px]">
-        <Image src={icon} alt={name} fill sizes="38px" className="object-contain" />
-      </div>
-      <p className="mt-1.5 text-[8px] font-semibold leading-[1.2] text-white transition-colors duration-300 group-hover:text-white sm:mt-2 sm:text-[9px] md:text-[7px] lg:text-[8px] xl:mt-2.5 xl:text-[10px]">
-        {name}
-      </p>
-    </div>
-  );
-}
+type CategoryMeta = {
+  icon: LucideIcon;
+  displayTitle?: string;
+};
 
-function SkillGroup({
-  title,
-  items,
-  fullWidth = false,
-  className = "",
-}: {
-  title: string;
-  items: readonly SkillItem[];
-  fullWidth?: boolean;
-  className?: string;
-}) {
-  const tileLayoutClass = fullWidth
-    ? "mt-7 grid grid-cols-3 justify-items-center gap-3 sm:gap-4 md:grid-cols-6 xl:grid-cols-12"
-    : items.length === 3
-      ? "mt-7 mx-auto grid w-fit grid-cols-3 justify-items-center gap-3"
-      : "mt-7 mx-auto grid w-fit grid-cols-2 justify-items-center gap-3";
-  const titleClass =
-    title.length > 18
-      ? "px-3 py-2 text-center text-[9px] leading-tight sm:whitespace-nowrap sm:text-[10px] md:text-[7px] lg:text-[9px] xl:px-4 xl:text-[12px]"
-      : title.length > 14
-        ? "px-3 py-2 text-center text-[10px] leading-tight sm:whitespace-nowrap sm:text-[11px] md:text-[8px] lg:text-[10px] xl:px-4 xl:text-[13px]"
-        : "px-3 py-2 text-center text-[11px] leading-tight sm:whitespace-nowrap sm:text-[12px] md:text-[9px] lg:text-[11px] xl:px-4 xl:text-[13px]";
-  const titleBackgroundClass =
-    "border border-[rgba(146,82,255,0.55)] bg-[linear-gradient(135deg,#5e1cc7_0%,#3a0a76_100%)] shadow-[0_10px_24px_rgba(66,20,130,0.35)]";
+const categoryMetaMap: Record<string, CategoryMeta> = {
+  Frontend: { icon: Layers },
+  Backend: { icon: Server },
+  Database: { icon: Database },
+  "Hosting Platform": { icon: Cloud, displayTitle: "Hosting" },
+  "Version Control": { icon: FolderGit2 },
+  "Programming Languages": { icon: Code2, displayTitle: "Languages" },
+};
 
-  return (
-    <article
-      className={`h-full w-full min-w-0 overflow-hidden rounded-[22px] border border-[rgba(105,18,214,0.42)] bg-[rgba(10,4,18,0.84)] p-4 shadow-[0_22px_60px_rgba(0,0,0,0.22)] sm:p-5 ${className}`}
-    >
-      <div
-        className={`inline-flex max-w-full rounded-full font-bold leading-none text-white ${titleBackgroundClass} ${titleClass}`}
-      >
-        {title}
-      </div>
-
-      <div className={tileLayoutClass}>
-        {items.map((item) => (
-          <SkillTile key={`${title}-${item.name}`} {...item} />
-        ))}
-      </div>
-    </article>
-  );
+function getCategoryTitle(group: SkillGroup) {
+  return categoryMetaMap[group.title]?.displayTitle ?? group.title;
 }
 
 export function Skills() {
-  const frontendGroup = skillGroups[0];
-  const secondaryGroups = skillGroups.slice(1);
-  const primarySecondaryGroups = secondaryGroups.filter((group) => group.title !== "Database");
-  const databaseGroup = secondaryGroups.find((group) => group.title === "Database");
+  const groups = skillGroups;
+  const [activeTabIndex, setActiveTabIndex] = useState(0);
+
+  const activeGroup = groups[activeTabIndex] ?? groups[0];
+  const baseLoopItems = useMemo(() => {
+    const minVisibleSet = 12;
+    const copies = Math.max(2, Math.ceil(minVisibleSet / activeGroup.items.length));
+    return Array.from({ length: copies }, () => activeGroup.items).flat();
+  }, [activeGroup.items]);
 
   return (
-    <section id="skills" className="section-padding">
-      <Container className="max-w-[1760px]">
-        <div className="rounded-[26px] border border-[rgba(101,17,204,0.35)] bg-[rgba(5,2,12,0.94)] px-4 py-6 shadow-[0_30px_90px_rgba(0,0,0,0.28)] sm:px-6 sm:py-8 lg:px-7">
-          <div className="max-w-[640px] px-2 sm:px-3">
-            <div className="inline-flex items-center gap-3 rounded-full bg-[linear-gradient(135deg,rgb(var(--accent))_0%,rgb(var(--accent-secondary))_100%)] px-5 py-3 text-[14px] font-bold uppercase tracking-[0.02em] text-white">
-              <Star className="h-4 w-4 fill-current" />
+    <LazyMotion features={domAnimation}>
+      <section id="skills" className="relative overflow-hidden py-6 sm:py-8">
+        <Container className="max-w-[1560px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
+          <div className="max-w-[940px]">
+            <div className="section-capsule inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-[12px] font-medium uppercase tracking-[0.06em] sm:text-[13px]">
+              <Sparkles className="section-capsule-icon h-4 w-4" />
               <span>Tech Skills</span>
             </div>
 
-            <h2 className="mt-9 text-[30px] font-semibold leading-[1.08] tracking-[-0.05em] text-white sm:text-[50px]">
-              <span>Technologies </span>
-              <span className="bg-[linear-gradient(90deg,#6366f1,#06b6d4)] bg-clip-text font-bold text-transparent">
-                I work with.
-              </span>
+            <h2 className="mt-6 text-[30px] font-semibold leading-[1.12] tracking-[-0.03em] text-white sm:text-[36px] lg:text-[46px]">
+              Technologies <span className="text-[#ff2738]">I work</span> with.
             </h2>
 
-            <p className="mt-4 max-w-[520px] text-[17px] leading-[1.7] text-[rgba(173,176,210,0.84)] sm:text-[18px]">
-              I use modern technologies, and tools to build fast, scalable, and
-              high-performance web applications.
+            <p className="mt-3.5 max-w-[860px] text-[16px] leading-[1.62] text-[#b4b7c4] sm:text-[18px] lg:text-[20px]">
+              Explore each category to view its relevant technologies.
             </p>
           </div>
 
-          <div className="mt-10">
-            <SkillGroup {...frontendGroup} fullWidth />
-          </div>
+          <div className="mt-8 rounded-[22px] border border-white/12 bg-[linear-gradient(165deg,rgba(12,14,25,0.82)_0%,rgba(9,11,20,0.84)_100%)] p-4 sm:p-5">
+            <div className="flex gap-3 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:gap-4">
+              {groups.map((group, index) => {
+                const Icon = categoryMetaMap[group.title]?.icon ?? Layers;
+                const isActive = activeTabIndex === index;
 
-          <div className="mt-8 space-y-4">
-            <div className="grid gap-4 md:grid-cols-4 xl:grid-cols-[repeat(4,minmax(0,1fr))_1.18fr]">
-              {primarySecondaryGroups.map((group) => (
-                <SkillGroup key={group.title} {...group} className="min-w-0" />
-              ))}
-
-              {databaseGroup ? (
-                <SkillGroup key={`${databaseGroup.title}-desktop`} {...databaseGroup} className="hidden xl:block" />
-              ) : null}
+                return (
+                  <button
+                    key={group.title}
+                    type="button"
+                    onClick={() => setActiveTabIndex(index)}
+                    className={`shrink-0 rounded-full border px-4 py-2 text-left !font-medium transition-all duration-200 min-h-11 ${
+                      isActive
+                        ? "!border-white/22 !bg-white/10 !text-white !shadow-none"
+                        : "btn-secondary !text-[#a3a9bb] hover:!text-white"
+                    }`}
+                  >
+                    <span className="flex items-center gap-2.5">
+                      <Icon className={`h-4 w-4 ${isActive ? "text-white" : "text-white/70"}`} />
+                      <span className="text-[13px] font-medium sm:text-[14px]">{getCategoryTitle(group)}</span>
+                    </span>
+                  </button>
+                );
+              })}
             </div>
 
-            {databaseGroup ? (
-              <div className="xl:hidden">
-                <SkillGroup {...databaseGroup} />
-              </div>
-            ) : null}
+            <AnimatePresence mode="wait" initial={false}>
+              <m.div
+                key={activeGroup.title}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -6 }}
+                transition={{ duration: 0.22, ease: "easeOut" }}
+                className="mt-4 rounded-[18px] border border-white/12 bg-[rgba(11,14,26,0.72)] p-4 sm:p-5"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <h3 className="text-[22px] font-semibold tracking-[-0.02em] text-white sm:text-[24px]">
+                      {getCategoryTitle(activeGroup)}
+                    </h3>
+                    <p className="mt-1 text-[13px] text-[#9ea5ba]">{activeGroup.items.length} Technologies</p>
+                  </div>
+                </div>
+
+                <div className="skills-marquee mt-4 overflow-hidden">
+                  <div className="skills-marquee-track flex w-max items-stretch gap-4 py-2 sm:gap-5">
+                    {[...baseLoopItems, ...baseLoopItems].map((item, index) => (
+                      <div
+                        key={`${activeGroup.title}-${item.name}-${index}`}
+                        aria-hidden={index >= baseLoopItems.length}
+                        className="shrink-0"
+                      >
+                        <div className="group flex h-[108px] w-[112px] shrink-0 flex-col items-center justify-center rounded-[16px] border border-white/12 bg-[linear-gradient(165deg,rgba(14,16,28,0.76)_0%,rgba(9,11,20,0.7)_100%)] px-2.5 py-3 text-center shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_10px_22px_rgba(0,0,0,0.24)] transition-all duration-250 hover:scale-[1.04] hover:-translate-y-0.5 hover:border-white/20 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_14px_26px_rgba(0,0,0,0.3)] sm:h-[118px] sm:w-[124px] sm:rounded-[18px]">
+                          <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-[rgba(255,255,255,0.03)]">
+                            <Image
+                              src={item.icon}
+                              alt={item.name}
+                              width={36}
+                              height={36}
+                              sizes="36px"
+                              className="h-auto max-h-9 w-auto max-w-9 object-contain grayscale brightness-110 contrast-110 saturate-0 opacity-90 transition-all duration-300 [-webkit-mask-image:radial-gradient(circle,black_68%,transparent_69%)] [mask-image:radial-gradient(circle,black_68%,transparent_69%)] group-hover:saturate-100 group-hover:grayscale-0 group-hover:opacity-100"
+                            />
+                          </div>
+                          <p className="mt-2.5 flex h-[34px] items-center justify-center px-1 text-center text-[12px] font-medium leading-[1.2] tracking-[0.01em] text-[#c0c4d2] sm:mt-3 sm:h-[36px] sm:text-[13px]">
+                            {item.name}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </m.div>
+            </AnimatePresence>
           </div>
-        </div>
-      </Container>
-    </section>
+        </Container>
+      </section>
+    </LazyMotion>
   );
 }

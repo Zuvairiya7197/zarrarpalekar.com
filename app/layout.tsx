@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Serif_Display, Great_Vibes } from "next/font/google";
 
-import { Providers } from "@/components/Providers";
 import { siteConfig } from "@/lib/site";
 
 import "./globals.css";
@@ -41,9 +40,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   icons: {
-    icon: "/Images/LOGO.png",
-    shortcut: "/Images/LOGO.png",
-    apple: "/Images/LOGO.png",
+    icon: "/red-zp-logo.png",
+    shortcut: "/red-zp-logo.png",
+    apple: "/red-zp-logo.png",
   },
   openGraph: {
     title: siteConfig.title,
@@ -90,7 +89,7 @@ export default function RootLayout({
       <body
         className={`${greatVibes.variable} ${dmSerifDisplay.variable} min-h-screen bg-[rgb(var(--background))] font-[family-name:var(--font-sans)] text-[rgb(var(--foreground))] antialiased`}
       >
-        <Providers>{children}</Providers>
+        {children}
       </body>
     </html>
   );

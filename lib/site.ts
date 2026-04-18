@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Zarrar Palekar",
   shortName: "ZP",
-  logo: "/Images/LOGO.png",
+  logo: "/red-zp-logo.png",
   title: "Zarrar Palekar | Full Stack Developer | MERN Stack Developer",
   description:
     "Full Stack Developer & MERN Stack Developer building modern, scalable web applications that solve real-world problems with clean and efficient code.",
@@ -25,8 +25,8 @@ export const siteConfig = {
     { label: "About", href: "#about" },
     { label: "Skills", href: "#skills" },
     { label: "Experience", href: "#experience" },
-    { label: "Projects", href: "#projects" },
     { label: "Testimonials", href: "#testimonials" },
+    { label: "Projects", href: "#projects" },
     { label: "Contact", href: "#contact" },
   ],
 } as const;
@@ -84,8 +84,6 @@ export const aboutHighlights = [
   },
 ] as const;
 
-export const aboutIntro = "Hi there! I am Zarrar Palekar." as const;
-
 export const aboutParagraphs = [
   `With over ${experienceYears} years of dedicated experience in Full Stack Web Development, my passion lies in crafting elegant and intuitive web applications that provide seamless user experiences.`,
   "I excel in utilizing the MERN stack (MongoDB, Express, React, Node.js) and stay up-to-date with the latest technologies and methodologies to deliver innovative, tailor-made solutions that align with clients' specific needs.",
@@ -103,8 +101,12 @@ export const skillGroups = [
         icon: `${assetBase}/bootstrap.svg`,
       },
       {
-        name: "React JS",
+        name: "React",
         icon: `${assetBase}/reactjs.svg`,
+      },
+      {
+        name: "Next.js",
+        icon: "/Images/nextjs.svg",
       },
       {
         name: "Redux",
@@ -115,7 +117,7 @@ export const skillGroups = [
         icon: `${assetBase}/react-router.svg`,
       },
       {
-        name: "HTML5",
+        name: "HTML",
         icon: `${assetBase}/html-5.svg`,
       },
       {
@@ -135,8 +137,8 @@ export const skillGroups = [
         icon: `${assetBase}/material-ui-.svg`,
       },
       {
-        name: "CSS3",
-        icon: `${assetBase}/css3.svg`,
+        name: "CSS / Tailwind CSS",
+        icon: "/Images/tailwindcss.svg",
       },
       {
         name: ".Net",
@@ -159,6 +161,22 @@ export const skillGroups = [
         name: "Express",
         icon: `${assetBase}/express-1.png`,
       },
+      {
+        name: "MongoDB",
+        icon: `${assetBase}/MongoDB.png`,
+      },
+      {
+        name: "MS SQL",
+        icon: `${assetBase}/MSSQL.jpg`,
+      },
+      {
+        name: ".NET",
+        icon: `${assetBase}/net.png`,
+      },
+      {
+        name: "Oracle",
+        icon: `${assetBase}/oracle.jpg`,
+      },
     ],
   },
   {
@@ -166,11 +184,19 @@ export const skillGroups = [
     items: [
       {
         name: "Heroku",
-        icon: `${assetBase}/heroku.svg`,
+        icon: "/Images/heroku.svg",
       },
       {
         name: "Github",
         icon: `${assetBase}/github.png`,
+      },
+      {
+        name: "Vercel",
+        icon: "/Images/vercel.svg",
+      },
+      {
+        name: "Hostinger",
+        icon: "/Images/hostinger.svg",
       },
     ],
   },
@@ -178,12 +204,32 @@ export const skillGroups = [
     title: "Programming Languages",
     items: [
       {
-        name: "Javascript",
+        name: "JavaScript",
         icon: `${assetBase}/javascript.svg`,
       },
       {
-        name: "Typescript",
+        name: "TypeScript",
         icon: `${assetBase}/Type-Script.png`,
+      },
+      {
+        name: "HTML",
+        icon: `${assetBase}/html-5.svg`,
+      },
+      {
+        name: "CSS / Tailwind CSS",
+        icon: "/Images/tailwindcss.svg",
+      },
+      {
+        name: "Node.js",
+        icon: `${assetBase}/Node-js-1.png`,
+      },
+      {
+        name: "React",
+        icon: `${assetBase}/reactjs.svg`,
+      },
+      {
+        name: "Next.js",
+        icon: "/Images/nextjs.svg",
       },
     ],
   },
