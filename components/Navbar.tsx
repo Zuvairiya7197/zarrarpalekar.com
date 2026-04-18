@@ -152,7 +152,7 @@ export function Navbar() {
               })}
             </div>
 
-            <div className="hidden items-center gap-2.5 2xl:flex">
+            <div className="hidden items-center gap-2.5 xl:flex">
               <a
                 href="/resume"
                 target="_blank"

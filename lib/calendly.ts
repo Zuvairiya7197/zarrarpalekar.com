@@ -34,8 +34,8 @@ function ensureCalendlyPopupThemeStyles() {
   style.id = CALENDLY_THEME_STYLE_ID;
   style.textContent = `
     .calendly-overlay {
-      background: rgba(7, 8, 14, 0.8) !important;
-      backdrop-filter: blur(10px);
+      background: rgba(7, 8, 14, 0.62) !important;
+      backdrop-filter: blur(4px);
     }
 
     .calendly-overlay .calendly-popup,
@@ -45,24 +45,17 @@ function ensureCalendlyPopupThemeStyles() {
     }
 
     .calendly-overlay .calendly-popup-content {
-      border-radius: 24px !important;
-      padding: 10px !important;
-      border: 1px solid rgba(255, 96, 118, 0.32) !important;
-      background: linear-gradient(
-        165deg,
-        rgba(18, 20, 34, 0.9) 0%,
-        rgba(10, 12, 22, 0.88) 100%
-      ) !important;
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.1),
-        0 26px 56px rgba(0, 0, 0, 0.5),
-        0 0 0 1px rgba(255, 78, 101, 0.18) !important;
+      border-radius: 14px !important;
+      padding: 6px !important;
+      border: 0 !important;
+      background: rgba(10, 12, 22, 0.92) !important;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35) !important;
     }
 
     .calendly-overlay .calendly-popup-content iframe {
-      border-radius: 18px !important;
-      border: 1px solid rgba(255, 255, 255, 0.1) !important;
-      background: rgba(10, 12, 22, 0.95) !important;
+      border-radius: 10px !important;
+      border: 0 !important;
+      background: #fff !important;
     }
   `;
 
