@@ -101,7 +101,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 bg-[#05040c]">
-      <Container className="max-w-[1560px] px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
+      <Container>
         <nav
           className="rounded-[26px] border border-white/14 bg-[rgba(10,12,22,0.82)] px-3 py-2 shadow-[0_20px_40px_rgba(0,0,0,0.28)] backdrop-blur-[14px] sm:px-4 lg:rounded-[30px] lg:px-5 lg:py-2.5"
           aria-label="Primary navigation"
@@ -128,7 +128,7 @@ export function Navbar() {
               </span>
             </a>
 
-            <div className="hidden items-center gap-2 lg:flex">
+            <div className="hidden items-center gap-2 xl:flex">
               {desktopLinks.map((link) => {
                 const id = link.href.replace("#", "");
                 return (
@@ -152,7 +152,7 @@ export function Navbar() {
               })}
             </div>
 
-            <div className="hidden items-center gap-2.5 xl:flex">
+            <div className="hidden items-center gap-2.5 2xl:flex">
               <a
                 href="/resume"
                 target="_blank"

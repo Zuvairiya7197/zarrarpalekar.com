@@ -52,16 +52,16 @@ export function About() {
     <section id="about" className="relative overflow-hidden py-2">
 
       <Container>
-        <div className="grid gap-4 md:grid-cols-[220px_minmax(0,1fr)_220px] md:items-stretch xl:grid-cols-[280px_minmax(0,1fr)_280px]">
-          <div className="border-none px-1 py-1 md:px-3 md:py-3 xl:px-4 xl:py-4">
-            <div className="grid h-full auto-rows-fr gap-4">
+        <div className="grid gap-4 xl:grid-cols-[220px_minmax(0,1fr)_220px] xl:items-stretch 2xl:grid-cols-[280px_minmax(0,1fr)_280px]">
+          <div className="border-none px-1 py-1 xl:px-3 xl:py-3 2xl:px-4 2xl:py-4">
+            <div className="grid h-full auto-rows-fr gap-4 md:grid-cols-3 md:auto-rows-auto xl:grid-cols-1 xl:auto-rows-fr">
               {leftHighlights.map((item) => (
                 <HighlightCard key={item.title} {...item} />
               ))}
             </div>
           </div>
 
-          <div className="border-none px-1 py-1 md:px-3 md:py-3 xl:px-4 xl:py-4">
+          <div className="border-none px-1 py-1 xl:px-3 xl:py-3 2xl:px-4 2xl:py-4">
             <div className="hero-glass-card h-full rounded-[28px] px-5 py-6 sm:px-7 sm:py-7">
               <div className="section-capsule inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-[12px] font-medium uppercase tracking-[0.06em] sm:text-[13px]">
                 <UserRound className="section-capsule-icon h-4 w-4" />
@@ -111,8 +111,8 @@ export function About() {
             </div>
           </div>
 
-          <div className="border-none px-1 py-1 md:px-3 md:py-3 xl:px-4 xl:py-4">
-            <div className="grid h-full auto-rows-fr gap-4">
+          <div className="border-none px-1 py-1 xl:px-3 xl:py-3 2xl:px-4 2xl:py-4">
+            <div className="grid h-full auto-rows-fr gap-4 md:grid-cols-3 md:auto-rows-auto xl:grid-cols-1 xl:auto-rows-fr">
               {rightHighlights.map((item) => (
                 <HighlightCard key={item.title} {...item} />
               ))}

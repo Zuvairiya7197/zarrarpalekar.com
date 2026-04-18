@@ -25,22 +25,22 @@ export function Hero() {
 
       <Container className="relative">
         <div className="flex min-h-[calc(100vh-92px)] items-center py-6 sm:py-8 lg:py-12">
-          <div className="grid w-full items-center gap-6 md:grid-cols-[minmax(0,1fr)_minmax(300px,0.9fr)] md:gap-6 lg:grid-cols-[minmax(0,560px)_minmax(320px,1fr)] lg:gap-8 xl:gap-10">
-            <div className="w-full max-w-[500px]">
-            <div className="relative mx-auto mb-2 w-full max-w-[380px] md:hidden">
-              <div className="relative aspect-[6/5] w-full overflow-hidden rounded-[26px]">
+          <div className="grid w-full items-center gap-6 xl:grid-cols-[minmax(0,560px)_minmax(320px,1fr)] xl:gap-8 2xl:gap-10">
+            <div className="w-full max-w-[500px] md:mx-auto xl:mx-0 xl:max-w-[470px]">
+            <div className="relative mx-auto mb-2 w-full max-w-[380px] md:mb-4 md:max-w-[520px] xl:hidden">
+              <div className="relative aspect-[6/5] w-full overflow-hidden rounded-[26px] md:aspect-[5/4]">
                 <Image
                   src={zarruProfessional}
                   alt="Zarrar Palekar"
                   fill
-                  sizes="(max-width: 767px) 82vw, 380px"
+                  sizes="(max-width: 767px) 82vw, (max-width: 1279px) 68vw, 380px"
                   className="object-cover"
                   style={{ objectPosition: "50% calc(40% + 20px)" }}
                 />
               </div>
             </div>
 
-            <div className="hero-glass-card relative z-10 -mt-6 rounded-[26px] px-4 py-5 sm:-mt-8 sm:rounded-[36px] sm:px-6.5 sm:py-7.5 md:mt-0 lg:px-8 lg:py-8">
+            <div className="hero-glass-card relative z-10 -mt-6 rounded-[26px] px-4 py-5 sm:-mt-8 sm:rounded-[36px] sm:px-6.5 sm:py-7.5 md:mt-0 md:text-center xl:text-left xl:px-7 xl:py-7">
               <h1 className="text-[36px] font-bold leading-[1.02] tracking-[-0.03em] text-white sm:text-[52px] lg:text-[72px]">
                 <span className="block">
                   I&apos;m <span className="text-[#d31b28]">Zarrar</span>
@@ -52,15 +52,15 @@ export function Hero() {
                 <TypedRoles roles={heroRoles} />
               </p>
 
-              <p className="mt-5 max-w-[540px] text-[15px] leading-[1.55] text-[#b6b8c7] sm:mt-7 sm:text-[18px] lg:text-[22px]">
+              <p className="mt-5 max-w-[540px] text-[15px] leading-[1.55] text-[#b6b8c7] sm:mt-7 sm:text-[18px] md:mx-auto xl:mx-0 xl:text-[22px]">
                 I build modern, scalable web applications that solve real-world
                 problems.
               </p>
 
-              <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:flex-row sm:gap-4">
+              <div className="mt-8 flex flex-col gap-3 sm:mt-9 sm:gap-4 md:justify-center xl:flex-row xl:justify-start">
                 <a
                   href="#projects"
-                  className="group inline-flex h-[52px] items-center justify-center whitespace-nowrap rounded-full border border-[#ee4b57] bg-[linear-gradient(90deg,#81101a_0%,#b71825_45%,#d92534_100%)] px-8 text-[15px] font-semibold text-white sm:h-[56px] sm:px-10 sm:text-[17px]"
+                  className="group inline-flex h-[52px] w-full min-w-0 items-center justify-center whitespace-nowrap rounded-full border border-[#ee4b57] bg-[linear-gradient(90deg,#81101a_0%,#b71825_45%,#d92534_100%)] px-6 text-[14px] font-semibold text-white sm:h-[56px] sm:px-8 sm:text-[16px] xl:w-auto xl:px-10 xl:text-[17px]"
                 >
                   Explore My Work
                   <span className="ml-0 inline-flex w-0 translate-x-[-6px] overflow-hidden opacity-0 transition-all duration-250 group-hover:ml-2 group-hover:w-4 group-hover:translate-x-0 group-hover:opacity-100">
@@ -69,7 +69,7 @@ export function Hero() {
                 </a>
                 <a
                   href="#contact"
-                  className="btn-secondary group inline-flex h-[52px] items-center justify-center whitespace-nowrap rounded-full border border-[#41465f] bg-[rgba(10,11,20,0.82)] px-8 text-[15px] font-semibold text-white sm:h-[56px] sm:px-10 sm:text-[17px]"
+                  className="btn-secondary group inline-flex h-[52px] w-full min-w-0 items-center justify-center whitespace-nowrap rounded-full border border-[#41465f] bg-[rgba(10,11,20,0.82)] px-6 text-[14px] font-semibold text-white sm:h-[56px] sm:px-8 sm:text-[16px] xl:w-auto xl:px-10 xl:text-[17px]"
                 >
                   Get In Touch
                   <span className="ml-0 inline-flex w-0 translate-x-[-6px] overflow-hidden opacity-0 transition-all duration-250 group-hover:ml-2 group-hover:w-4 group-hover:translate-x-0 group-hover:opacity-100">
@@ -94,7 +94,7 @@ export function Hero() {
             </div>
           </div>
 
-            <div className="relative mx-auto hidden w-full max-w-[460px] md:block lg:max-w-[620px]">
+            <div className="relative mx-auto hidden w-full max-w-[460px] xl:block xl:max-w-[620px]">
               <div className="relative aspect-[6/5] w-full overflow-hidden rounded-[26px]">
                 <Image
                   src={zarruProfessional}

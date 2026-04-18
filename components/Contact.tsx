@@ -159,8 +159,8 @@ export function Contact() {
             </div>
           </div>
 
-            <div className="w-full rounded-[22px] border border-white/18 bg-[linear-gradient(165deg,rgba(15,13,26,0.82)_0%,rgba(10,10,19,0.75)_100%)] p-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_22px_50px_rgba(0,0,0,0.38)] backdrop-blur-[8px] sm:rounded-[28px] sm:p-5 xl:ml-auto xl:max-w-[660px] xl:p-5">
-              <form className="grid gap-3.5" onSubmit={handleSubmit}>
+            <div className="w-full rounded-[22px] border border-white/18 bg-[linear-gradient(165deg,rgba(15,13,26,0.82)_0%,rgba(10,10,19,0.75)_100%)] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_22px_50px_rgba(0,0,0,0.38)] backdrop-blur-[8px] sm:rounded-[28px] sm:p-4 xl:ml-auto xl:max-w-[600px] xl:p-4">
+              <form className="grid gap-3" onSubmit={handleSubmit}>
               <label className="grid gap-2">
                 <span className="text-[15px] font-semibold text-white sm:text-[16px]">
                   Full Name <span className="text-[#df2434]">*</span>
