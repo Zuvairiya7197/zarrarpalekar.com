@@ -145,6 +145,10 @@ export function Contact() {
               </span>
             </h2>
 
+            <p className="mt-6 max-w-[560px] text-[15px] leading-[1.55] text-[#a7a8b7] sm:text-[17px] lg:text-[18px] lg:leading-[1.5]">
+              Have a project in mind or just want to say hi? I&apos;d love to hear from you.
+            </p>
+
             <div className="mt-8 inline-flex items-center gap-3">
               <span className="inline-flex h-[52px] w-[52px] items-center justify-center rounded-full border border-[#eb4b58] bg-[linear-gradient(90deg,#85131e_0%,#b91a26_45%,#d92635_100%)] text-white sm:h-[56px] sm:w-[56px]">
                 <MapPin className="h-6 w-6" />
