@@ -96,7 +96,7 @@ export function Contact() {
       id="contact"
       className="relative overflow-hidden py-6 sm:py-8"
     >
-      <div className="pointer-events-none fixed right-4 top-1/2 z-50 hidden -translate-y-1/2 items-center xl:flex">
+      <div className="contact-desktop-rail pointer-events-none fixed right-4 top-1/2 z-50 hidden -translate-y-1/2 items-center xl:flex">
         <div className="pointer-events-auto inline-flex flex-col items-center gap-3 rounded-[34px] border border-[rgba(235,34,62,0.26)] bg-[linear-gradient(165deg,rgba(13,8,22,0.72)_0%,rgba(8,7,16,0.7)_100%)] px-3 py-4 shadow-[0_14px_30px_rgba(0,0,0,0.26)] backdrop-blur-[7px]">
           {socialBarLinks.map((link) => {
             const Icon = link.icon;
@@ -128,7 +128,7 @@ export function Contact() {
 
       <Container>
         <div className="w-full">
-          <div className="grid gap-6 xl:grid-cols-[0.94fr_1.06fr] xl:items-start">
+          <div className="contact-desktop-grid grid gap-6 xl:grid-cols-[0.94fr_1.06fr] xl:items-start">
             <div className="flex flex-col px-2 py-1 sm:px-3 lg:px-4 lg:py-3">
             <div className="section-capsule inline-flex w-fit items-center gap-2 rounded-full border px-5 py-2.5 text-[12px] font-medium tracking-[0.06em] uppercase sm:text-[13px]">
               <Phone className="section-capsule-icon h-4 w-4" />
@@ -159,10 +159,10 @@ export function Contact() {
             </div>
           </div>
 
-            <div className="w-full rounded-[22px] border border-white/18 bg-[linear-gradient(165deg,rgba(15,13,26,0.82)_0%,rgba(10,10,19,0.75)_100%)] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_22px_50px_rgba(0,0,0,0.38)] backdrop-blur-[8px] sm:rounded-[28px] sm:p-4 xl:ml-auto xl:max-w-[600px] xl:p-4">
-              <form className="grid gap-3" onSubmit={handleSubmit}>
-              <label className="grid gap-2">
-                <span className="text-[15px] font-semibold text-white sm:text-[16px]">
+            <div className="contact-desktop-form w-full rounded-[22px] border border-white/18 bg-[linear-gradient(165deg,rgba(15,13,26,0.82)_0%,rgba(10,10,19,0.75)_100%)] p-3 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_22px_50px_rgba(0,0,0,0.38)] backdrop-blur-[8px] sm:rounded-[28px] sm:p-4 xl:ml-auto xl:max-w-[500px] xl:p-4">
+              <form className="grid gap-2.5 xl:gap-2.5" onSubmit={handleSubmit}>
+              <label className="grid gap-1.5">
+                <span className="text-[14px] font-semibold text-white sm:text-[15px]">
                   Full Name <span className="text-[#df2434]">*</span>
                 </span>
                 <input
@@ -170,12 +170,12 @@ export function Contact() {
                   name="name"
                   required
                   placeholder="Your full name"
-                  className="h-[52px] rounded-[26px] border border-white/35 bg-[linear-gradient(180deg,#f3f0f6_0%,#e8e4ee_100%)] px-4 text-[14px] text-slate-800 outline-none placeholder:text-slate-600 focus:ring-2 focus:ring-[#e43544]/60 sm:h-[58px] sm:rounded-[29px] sm:px-5 sm:text-[15px]"
+                  className="h-[50px] rounded-[25px] border border-white/35 bg-[linear-gradient(180deg,#f3f0f6_0%,#e8e4ee_100%)] px-4 text-[14px] text-slate-800 outline-none placeholder:text-slate-600 focus:ring-2 focus:ring-[#e43544]/60 sm:h-[54px] sm:rounded-[27px] sm:px-5 sm:text-[15px] xl:h-[50px]"
                 />
               </label>
 
-              <label className="grid gap-2">
-                <span className="text-[15px] font-semibold text-white sm:text-[16px]">
+              <label className="grid gap-1.5">
+                <span className="text-[14px] font-semibold text-white sm:text-[15px]">
                   Email <span className="text-[#df2434]">*</span>
                 </span>
                 <input
@@ -183,12 +183,12 @@ export function Contact() {
                   name="email"
                   required
                   placeholder="you@example.com"
-                  className="h-[52px] rounded-[26px] border border-white/35 bg-[linear-gradient(180deg,#f3f0f6_0%,#e8e4ee_100%)] px-4 text-[14px] text-slate-800 outline-none placeholder:text-slate-600 focus:ring-2 focus:ring-[#e43544]/60 sm:h-[58px] sm:rounded-[29px] sm:px-5 sm:text-[15px]"
+                  className="h-[50px] rounded-[25px] border border-white/35 bg-[linear-gradient(180deg,#f3f0f6_0%,#e8e4ee_100%)] px-4 text-[14px] text-slate-800 outline-none placeholder:text-slate-600 focus:ring-2 focus:ring-[#e43544]/60 sm:h-[54px] sm:rounded-[27px] sm:px-5 sm:text-[15px] xl:h-[50px]"
                 />
               </label>
 
-              <label className="grid gap-2">
-                <span className="text-[15px] font-semibold text-white sm:text-[16px]">
+              <label className="grid gap-1.5">
+                <span className="text-[14px] font-semibold text-white sm:text-[15px]">
                   Message <span className="text-[#df2434]">*</span>
                 </span>
                 <textarea
@@ -196,15 +196,15 @@ export function Contact() {
                   required
                   rows={5}
                   placeholder="Tell me about your project, goals, or anything you’d like to discuss."
-                  className="min-h-[90px] rounded-[20px] border border-white/35 bg-[linear-gradient(180deg,#f3f0f6_0%,#e8e4ee_100%)] px-4 py-3 text-[14px] leading-[1.5] text-slate-800 outline-none placeholder:text-slate-600 focus:ring-2 focus:ring-[#e43544]/60 sm:min-h-[105px] sm:rounded-[22px] sm:px-5 sm:py-3.5 sm:text-[15px] lg:min-h-[118px]"
+                  className="min-h-[84px] rounded-[18px] border border-white/35 bg-[linear-gradient(180deg,#f3f0f6_0%,#e8e4ee_100%)] px-4 py-2.5 text-[14px] leading-[1.45] text-slate-800 outline-none placeholder:text-slate-600 focus:ring-2 focus:ring-[#e43544]/60 sm:min-h-[96px] sm:rounded-[20px] sm:px-5 sm:py-3 sm:text-[15px] lg:min-h-[108px] xl:min-h-[90px]"
                 />
               </label>
 
-              <div className="pt-0.5">
+              <div className="pt-0">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="inline-flex h-[46px] items-center justify-center rounded-full border border-[#ef4d59] bg-[linear-gradient(90deg,#85131e_0%,#b91a26_45%,#d92635_100%)] px-6 text-[14px] font-semibold text-white disabled:opacity-75 sm:h-[50px] sm:px-7 sm:text-[15px]"
+                  className="group inline-flex h-[44px] items-center justify-center rounded-full border border-[#ef4d59] bg-[linear-gradient(90deg,#85131e_0%,#b91a26_45%,#d92635_100%)] px-6 text-[14px] font-semibold text-white disabled:opacity-75 sm:h-[48px] sm:px-7 sm:text-[15px] xl:h-[44px]"
                 >
                   {isSubmitting ? (
                     <>
@@ -213,7 +213,10 @@ export function Contact() {
                     </>
                   ) : (
                     <>
-                      Send Message <Send className="ml-2 h-5 w-5" />
+                      Send Message
+                      <span className="ml-0 inline-flex w-0 translate-x-[-6px] overflow-hidden opacity-0 transition-all duration-250 group-hover:ml-2 group-hover:w-5 group-hover:translate-x-0 group-hover:opacity-100">
+                        <Send className="h-5 w-5" />
+                      </span>
                     </>
                   )}
                 </button>
