@@ -128,7 +128,7 @@ export function Navbar() {
               </span>
             </a>
 
-            <div className="hidden items-center gap-2 xl:flex">
+            <div className="hidden items-center gap-1.5 xl:flex">
               {desktopLinks.map((link) => {
                 const id = link.href.replace("#", "");
                 return (
@@ -140,7 +140,7 @@ export function Navbar() {
                       scrollToSection(link.href);
                     }}
                     className={cn(
-                      "rounded-full px-4 py-2 text-[14px] leading-none font-medium tracking-[0.01em] transition-all duration-200",
+                      "rounded-full px-3 py-2 text-[13px] leading-none font-medium tracking-[0.01em] transition-all duration-200 2xl:px-4 2xl:text-[14px]",
                       activeSection === id
                         ? "border border-white/16 bg-[rgba(255,255,255,0.1)] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.15)]"
                         : "text-[#a9afc3] hover:bg-white/6 hover:text-white",
@@ -152,19 +152,19 @@ export function Navbar() {
               })}
             </div>
 
-            <div className="hidden items-center gap-2.5 xl:flex">
+            <div className="hidden items-center gap-2 xl:flex">
               <a
                 href="/resume"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary inline-flex h-[46px] items-center justify-center rounded-full border border-[#45465a] bg-[rgba(10,10,19,0.78)] px-6 text-[14px] font-medium text-white"
+                className="btn-secondary inline-flex h-[44px] items-center justify-center whitespace-nowrap rounded-full border border-[#45465a] bg-[rgba(10,10,19,0.78)] px-4 text-[13px] font-medium text-white 2xl:h-[46px] 2xl:px-6 2xl:text-[14px]"
               >
                 Resume
               </a>
               <button
                 type="button"
                 onClick={() => void openCalendlyPopup(siteConfig.calendlyUrl)}
-                className="inline-flex h-[46px] items-center justify-center whitespace-nowrap rounded-full border border-[#f34a56] bg-[linear-gradient(90deg,#85131e_0%,#b71a27_45%,#d92635_100%)] px-6 text-[14px] font-medium text-white"
+                className="inline-flex h-[44px] items-center justify-center whitespace-nowrap rounded-full border border-[#f34a56] bg-[linear-gradient(90deg,#85131e_0%,#b71a27_45%,#d92635_100%)] px-4 text-[13px] font-medium text-white 2xl:h-[46px] 2xl:px-6 2xl:text-[14px]"
               >
                 Book Call
               </button>
