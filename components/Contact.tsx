@@ -45,7 +45,7 @@ const mobileSocialBarLinks = socialBarLinks.filter((link) => link.label !== "Wha
 export function Contact() {
   const [status, setStatus] = useState<StatusState>({
     type: "idle",
-    message: "Have a project in mind or just want to say hi? I’d love to hear from you.",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
