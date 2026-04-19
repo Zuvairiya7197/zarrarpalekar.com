@@ -119,7 +119,8 @@ export function Skills() {
                               width={36}
                               height={36}
                               sizes="36px"
-                              className="h-auto max-h-9 w-auto max-w-9 object-contain grayscale brightness-110 contrast-110 saturate-0 opacity-90 transition-all duration-300 [-webkit-mask-image:radial-gradient(circle,black_68%,transparent_69%)] [mask-image:radial-gradient(circle,black_68%,transparent_69%)] group-hover:saturate-100 group-hover:grayscale-0 group-hover:opacity-100"
+                              className="max-h-9 max-w-9 object-contain grayscale brightness-110 contrast-110 saturate-0 opacity-90 transition-all duration-300 [-webkit-mask-image:radial-gradient(circle,black_68%,transparent_69%)] [mask-image:radial-gradient(circle,black_68%,transparent_69%)] group-hover:saturate-100 group-hover:grayscale-0 group-hover:opacity-100"
+                              style={{ width: "auto", height: "auto" }}
                             />
                           </div>
                           <p className="mt-2.5 flex h-[34px] items-center justify-center px-1 text-center text-[12px] font-medium leading-[1.2] tracking-[0.01em] text-[#c0c4d2] sm:mt-3 sm:h-[36px] sm:text-[13px]">

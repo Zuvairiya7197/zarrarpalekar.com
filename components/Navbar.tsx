@@ -115,7 +115,6 @@ export function Navbar() {
                   fill
                   sizes="52px"
                   className="scale-[1.5] object-contain"
-                  priority
                 />
               </span>
               <span className="hidden sm:block">
