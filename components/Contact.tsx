@@ -150,8 +150,8 @@ export function Contact() {
             </p>
 
             <div className="mt-8 inline-flex items-center gap-3">
-              <span className="inline-flex h-[52px] w-[52px] items-center justify-center rounded-full border border-[#eb4b58] bg-[linear-gradient(90deg,#85131e_0%,#b91a26_45%,#d92635_100%)] text-white sm:h-[56px] sm:w-[56px]">
-                <MapPin className="h-6 w-6" />
+              <span className="inline-flex h-[52px] w-[52px] items-center justify-center rounded-full border border-[rgba(238,75,87,0.8)] bg-[linear-gradient(140deg,rgba(18,7,14,0.95)_0%,rgba(111,20,31,0.96)_52%,rgba(188,51,67,0.96)_100%)] text-[#ffe9ec] shadow-[inset_0_1px_0_rgba(255,255,255,0.18),0_10px_24px_rgba(0,0,0,0.42),0_0_0_1px_rgba(215,28,60,0.35)] sm:h-[56px] sm:w-[56px]">
+                <MapPin className="h-6 w-6 drop-shadow-[0_2px_6px_rgba(0,0,0,0.35)]" />
               </span>
               <span className="text-[16px] font-medium text-white sm:text-[18px] lg:text-[20px]">
                 {siteConfig.location}

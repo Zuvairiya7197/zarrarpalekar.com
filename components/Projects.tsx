@@ -26,7 +26,7 @@ export function Projects() {
   const [openProject, setOpenProject] = useState<string | null>(null);
 
   return (
-    <section id="projects" className="py-10 sm:py-14 lg:py-16">
+    <section id="projects" className="py-12 sm:py-16 lg:py-20">
       <Container>
         <div className="w-full">
           <div className="max-w-3xl">
@@ -41,20 +41,20 @@ export function Projects() {
             </p>
           </div>
 
-          <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-10 grid gap-5 sm:gap-6 md:grid-cols-2 xl:grid-cols-3">
             {projects.map((project) => {
               const sourceCode = "sourceCode" in project ? project.sourceCode : undefined;
               const isOpen = openProject === project.title;
 
               return (
-                <article key={project.title} className="[perspective:1400px]">
+                <article key={project.title} className="h-full [perspective:1400px]">
                   <div
-                    className={`relative h-[400px] w-full transition-transform duration-500 [transform-style:preserve-3d] sm:h-[415px] lg:h-[430px] ${
+                    className={`relative h-[357px] w-full transition-transform duration-500 [transform-style:preserve-3d] sm:h-[374px] lg:h-[391px] ${
                       isOpen ? "[transform:rotateY(180deg)]" : ""
                     }`}
                   >
-                    <div className="absolute inset-0 flex h-full flex-col justify-center rounded-[24px] border border-white/12 bg-[linear-gradient(165deg,rgba(16,14,28,0.9)_0%,rgba(8,8,16,0.86)_100%)] p-4 shadow-[0_16px_34px_rgba(0,0,0,0.32)] [backface-visibility:hidden] sm:p-5">
-                      <div className="overflow-hidden rounded-[16px] border border-white/12 bg-[rgba(8,10,18,0.9)] p-2.5">
+                    <div className="absolute inset-0 flex h-full flex-col rounded-[24px] border border-white/12 bg-[linear-gradient(165deg,rgba(16,14,28,0.9)_0%,rgba(8,8,16,0.86)_100%)] p-4 shadow-[0_16px_34px_rgba(0,0,0,0.32)] [backface-visibility:hidden] sm:p-5 lg:p-6">
+                      <div className="overflow-hidden rounded-[16px] border border-white/12 bg-[rgba(8,10,18,0.9)] p-2.5 sm:p-3">
                         <Image
                           src={project.image}
                           alt={project.title}
@@ -65,7 +65,7 @@ export function Projects() {
                         />
                       </div>
 
-                      <div className="mt-4 flex items-start justify-between gap-3">
+                      <div className="mt-5 flex items-start justify-between gap-3">
                         <h3 className="truncate whitespace-nowrap text-[24px] font-semibold leading-tight text-white sm:text-[28px]">
                           {project.title}
                         </h3>
@@ -74,19 +74,21 @@ export function Projects() {
                         </div>
                       </div>
 
-                      <button
-                        type="button"
-                        onClick={() => setOpenProject(project.title)}
-                        className="btn-secondary mt-4 inline-flex h-[52px] w-full items-center justify-between rounded-full border px-6 text-[14px] font-medium text-white/88 sm:h-[54px] sm:px-8 sm:text-[15px]"
-                      >
-                        <span>Project Details</span>
-                        <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/12 bg-[rgba(255,255,255,0.04)]">
-                          <ChevronDown className="-rotate-90 h-3.5 w-3.5 text-white/78 transition-transform duration-200" />
-                        </span>
-                      </button>
+                      <div className="mt-auto pt-5">
+                        <button
+                          type="button"
+                          onClick={() => setOpenProject(project.title)}
+                          className="btn-secondary inline-flex h-[52px] w-full items-center justify-between rounded-full border px-6 text-[14px] font-medium text-white/88 sm:h-[54px] sm:px-8 sm:text-[15px]"
+                        >
+                          <span>Project Details</span>
+                          <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/12 bg-[rgba(255,255,255,0.04)]">
+                            <ChevronDown className="-rotate-90 h-3.5 w-3.5 text-white/78 transition-transform duration-200" />
+                          </span>
+                        </button>
+                      </div>
                     </div>
 
-                    <div className="absolute inset-0 rounded-[24px] border border-white/12 bg-[linear-gradient(165deg,rgba(16,14,28,0.92)_0%,rgba(8,8,16,0.9)_100%)] p-3.5 shadow-[0_16px_34px_rgba(0,0,0,0.32)] [backface-visibility:hidden] [transform:rotateY(180deg)] sm:p-4">
+                    <div className="absolute inset-0 rounded-[24px] border border-white/12 bg-[linear-gradient(165deg,rgba(16,14,28,0.92)_0%,rgba(8,8,16,0.9)_100%)] p-4 shadow-[0_16px_34px_rgba(0,0,0,0.32)] [backface-visibility:hidden] [transform:rotateY(180deg)] sm:p-5">
                       <div className="flex h-full flex-col overflow-y-auto pr-0.5 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
                         <div className="flex items-start justify-between gap-2.5">
                           <h3 className="truncate whitespace-nowrap text-[20px] font-semibold leading-tight text-white sm:text-[22px]">
