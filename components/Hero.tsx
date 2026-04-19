@@ -23,7 +23,6 @@ export function Hero() {
                     alt="Zarrar Palekar"
                     width={760}
                     height={700}
-                    priority
                     sizes="(max-width: 767px) 82vw, (max-width: 1279px) 68vw, 380px"
                     className="h-auto w-full object-contain"
                   />
@@ -96,7 +95,6 @@ export function Hero() {
                   alt="Zarrar Palekar"
                   width={1240}
                   height={1033}
-                  priority
                   sizes="(min-width: 1280px) 620px, (min-width: 1024px) 46vw, (min-width: 768px) 460px, 100vw"
                   className="h-auto w-full object-contain"
                 />

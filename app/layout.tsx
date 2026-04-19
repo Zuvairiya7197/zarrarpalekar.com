@@ -9,12 +9,14 @@ const greatVibes = Great_Vibes({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-script",
+  preload: false,
 });
 
 const dmSerifDisplay = DM_Serif_Display({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-accent",
+  preload: false,
 });
 
 export const metadata: Metadata = {
