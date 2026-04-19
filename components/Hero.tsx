@@ -17,7 +17,7 @@ export function Hero() {
           <div className="grid w-full items-center gap-6 xl:grid-cols-[minmax(0,560px)_minmax(320px,1fr)] xl:gap-8 2xl:gap-10">
             <div className="w-full max-w-[500px] md:mx-auto xl:mx-0 xl:max-w-[470px]">
               <div className="relative mx-auto mb-2 w-full max-w-[380px] md:mb-4 md:max-w-[520px] xl:hidden">
-                <div className="relative aspect-[6/5] w-full overflow-hidden rounded-[26px] md:aspect-[5/4]">
+                <div className="w-full overflow-hidden rounded-[26px]">
                   <Image
                     src="/Images/Zarrar%20Photo.svg"
                     alt="Zarrar Palekar"
@@ -25,7 +25,7 @@ export function Hero() {
                     height={700}
                     priority
                     sizes="(max-width: 767px) 82vw, (max-width: 1279px) 68vw, 380px"
-                    className="h-full w-full object-contain"
+                    className="h-auto w-full object-contain"
                   />
                 </div>
               </div>
@@ -90,7 +90,7 @@ export function Hero() {
             </div>
 
             <div className="relative mx-auto hidden w-full max-w-[460px] xl:block xl:max-w-[620px]">
-              <div className="relative aspect-[6/5] w-full overflow-hidden rounded-[26px]">
+              <div className="w-full overflow-hidden rounded-[26px]">
                 <Image
                   src="/Images/Zarrar%20Photo.svg"
                   alt="Zarrar Palekar"
@@ -98,7 +98,7 @@ export function Hero() {
                   height={1033}
                   priority
                   sizes="(min-width: 1280px) 620px, (min-width: 1024px) 46vw, (min-width: 768px) 460px, 100vw"
-                  className="h-full w-full object-contain"
+                  className="h-auto w-full object-contain"
                 />
               </div>
             </div>
