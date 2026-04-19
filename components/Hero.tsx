@@ -12,16 +12,6 @@ export function Hero() {
   return (
     <section id="home" className="hero-scene relative overflow-hidden">
       <div className="hero-nebula absolute inset-0 -z-20" />
-      <div className="absolute inset-0 -z-10">
-        <Image
-          src="/red-hero-image.png"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-      </div>
 
       <Container className="relative">
         <div className="flex min-h-[calc(100vh-92px)] items-center py-6 sm:py-8 lg:py-12">
@@ -33,6 +23,7 @@ export function Hero() {
                   src={zarruProfessional}
                   alt="Zarrar Palekar"
                   fill
+                  priority
                   sizes="(max-width: 767px) 82vw, (max-width: 1279px) 68vw, 380px"
                   className="object-cover"
                   style={{ objectPosition: "50% calc(40% + 20px)" }}
