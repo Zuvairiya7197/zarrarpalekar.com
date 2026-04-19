@@ -40,9 +40,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   icons: {
-    icon: "/red-zp-logo.png",
-    shortcut: "/red-zp-logo.png",
-    apple: "/red-zp-logo.png",
+    icon: "/Images/ZP%20Logo.svg",
+    shortcut: "/Images/ZP%20Logo.svg",
+    apple: "/Images/ZP%20Logo.svg",
   },
   openGraph: {
     title: siteConfig.title,

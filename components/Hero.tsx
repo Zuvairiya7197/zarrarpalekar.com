@@ -1,6 +1,5 @@
 import { BriefcaseBusiness, Mail } from "lucide-react";
 import Image from "next/image";
-import zarruProfessional from "@/public/Images/Zarru Professional.png";
 
 import { heroRoles, trustStats } from "@/lib/site";
 
@@ -20,7 +19,7 @@ export function Hero() {
             <div className="relative mx-auto mb-2 w-full max-w-[380px] md:mb-4 md:max-w-[520px] xl:hidden">
               <div className="relative aspect-[6/5] w-full overflow-hidden rounded-[26px] md:aspect-[5/4]">
                 <Image
-                  src={zarruProfessional}
+                  src="/Images/Zarrar%20Photo.svg"
                   alt="Zarrar Palekar"
                   fill
                   priority
@@ -88,7 +87,7 @@ export function Hero() {
             <div className="relative mx-auto hidden w-full max-w-[460px] xl:block xl:max-w-[620px]">
               <div className="relative aspect-[6/5] w-full overflow-hidden rounded-[26px]">
                 <Image
-                  src={zarruProfessional}
+                  src="/Images/Zarrar%20Photo.svg"
                   alt="Zarrar Palekar"
                   fill
                   sizes="(min-width: 1280px) 620px, (min-width: 1024px) 46vw, (min-width: 768px) 460px, 100vw"

@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Zarrar Palekar",
   shortName: "ZP",
-  logo: "/red-zp-logo.png",
+  logo: "/Images/ZP%20Logo.svg",
   title: "Zarrar Palekar | Full Stack Developer | MERN Stack Developer",
   description:
     "Full Stack Developer & MERN Stack Developer building modern, scalable web applications that solve real-world problems with clean and efficient code.",
@@ -442,7 +442,7 @@ export const projects = [
 export const testimonials = [
   {
     name: "Swapnil Patil",
-    image: "/Images/swapnil%20patil.jpeg",
+    image: "/Images/Swapnil%20Patil.svg",
     headline:
       "Sr Software Developer @ Azul Arc | Technical Architecture, Prompt Engineering, Product Development, AI feature integration",
     date: "August 25, 2025",
@@ -452,7 +452,7 @@ export const testimonials = [
   },
   {
     name: "Sadaf Mirza",
-    image: "/Images/Sadaf%20Mirza.jpeg",
+    image: "/Images/Sadaf%20Mirza.svg",
     headline:
       "Senior Software Engineer @AzulArc | exLTIM | MERN & MEAN Stack Developer | PERN | AWS accredited | DSA Enthusiast",
     date: "August 21, 2025",
@@ -462,7 +462,7 @@ export const testimonials = [
   },
   {
     name: "Nihar Makwana",
-    image: "/Images/Nihar%20Makwana.jpeg",
+    image: "/Images/Nihar%20Makwana.svg",
     headline: "Sr. Software Developer at AzulArc",
     date: "August 21, 2025",
     relationship: "Nihar reported to Zarrar directly",
@@ -471,7 +471,7 @@ export const testimonials = [
   },
   {
     name: "Premraj Tripute",
-    image: "/Images/Premraj%20Tripute.jpeg",
+    image: "/Images/Premraj%20Tripute.svg",
     headline: "Full stack developer | NodeJs | Express | ReactJs | Angular 2+ | AWS",
     date: "August 20, 2025",
     relationship: "Premraj reported to Zarrar directly",
@@ -480,7 +480,7 @@ export const testimonials = [
   },
   {
     name: "Nikhil Joshi",
-    image: "/Images/Nikhil%20Joshi.jpeg",
+    image: "/Images/Nikhil%20Joshi.svg",
     headline: "International Business Development | Sales | Partnerships | Strategic Alliances",
     date: "March 8, 2024",
     relationship: "Nikhil worked with Zarrar but on different teams",
@@ -489,7 +489,7 @@ export const testimonials = [
   },
   {
     name: "Shir Avidan",
-    image: "/Images/Shir%20Avidan.jpeg",
+    image: "/Images/Shir.svg",
     headline: "Sr. Software Product Manager",
     date: "February 26, 2024",
     relationship: "Shir managed Zarrar directly",
@@ -498,7 +498,7 @@ export const testimonials = [
   },
   {
     name: "Shubham Singh",
-    image: "/Images/Shubham%20Singh.jpeg",
+    image: "/Images/Shubham%20Singh.svg",
     headline: "Senior Software Engineer at SponsorCloud",
     date: "February 27, 2022",
     relationship: "Shubham worked with Zarrar on the same team",
