@@ -31,12 +31,12 @@ export const siteConfig = {
   ],
 } as const;
 
-const assetBase =
-  "https://lightgoldenrodyellow-fox-787789.hostingersite.com/wp-content/uploads/2026/04";
+const assetBase = "/Images";
 
 const experienceStartYear = 2017;
 
-export const experienceYears = new Date().getUTCFullYear() - experienceStartYear;
+export const experienceYears =
+  new Date().getUTCFullYear() - experienceStartYear;
 
 export const heroRoles = [
   "Full Stack Developer",
@@ -287,7 +287,9 @@ export const experiences = [
     technologies: ["MERN Stack", "Redux", "GraphQL", "Apollo"],
     start: "2021-06-01",
     end: "2022-10-01",
-    points: ["Learning & Implementing React based applications with Apollo GraphQL."],
+    points: [
+      "Learning & Implementing React based applications with Apollo GraphQL.",
+    ],
   },
   {
     company: "Euclid – Tenders Info",
@@ -324,7 +326,14 @@ export const projects = [
     date: "Mar-2021",
     description: "A full-stack MERN e-commerce application.",
     image: `${assetBase}/eshopapp.webp`,
-    technologies: ["React JS", "Node JS", "Express JS", "MongoDB", "Redux", "JWT"],
+    technologies: [
+      "React JS",
+      "Node JS",
+      "Express JS",
+      "MongoDB",
+      "Redux",
+      "JWT",
+    ],
     details: [
       "Lets users buy products with PayPal Sandbox.",
       "Powered by React and Redux",
@@ -337,7 +346,14 @@ export const projects = [
     date: "Nov-2020",
     description: "A social media app for developers.",
     image: `${assetBase}/1DevConnApp.webp`,
-    technologies: ["React JS", "Node JS", "Express JS", "MongoDB", "Redux", "JWT"],
+    technologies: [
+      "React JS",
+      "Node JS",
+      "Express JS",
+      "MongoDB",
+      "Redux",
+      "JWT",
+    ],
     details: [
       "Lets users connect with other developers.",
       "Powered by React and Redux with a responsive design.",
@@ -350,7 +366,14 @@ export const projects = [
     date: "Oct-2020",
     description: "A shopping list application.",
     image: `${assetBase}/7MernShopList.webp`,
-    technologies: ["React JS", "Node JS", "Express JS", "MongoDB", "Redux", "JWT"],
+    technologies: [
+      "React JS",
+      "Node JS",
+      "Express JS",
+      "MongoDB",
+      "Redux",
+      "JWT",
+    ],
     details: [
       "Lets users manage their shopping lists.",
       "Powered by React and Redux",
@@ -410,10 +433,7 @@ export const projects = [
     description: "A personal portfolio website.",
     image: `${assetBase}/pzjportfolio.webp`,
     technologies: ["React JS", "Styled Components", "Github Pages", "WhatsApp"],
-    details: [
-      "Powered by React",
-      "Used WhatsApp API",
-    ],
+    details: ["Powered by React", "Used WhatsApp API"],
   },
   {
     title: "Tindog – Tinder for dogs",
@@ -421,9 +441,7 @@ export const projects = [
     description: "A Tinder-inspired website for dogs.",
     image: `${assetBase}/TinDog.webp`,
     technologies: ["HTML", "CSS", "Bootstrap"],
-    details: [
-      "Tinder-style matching interface for dogs",
-    ],
+    details: ["Tinder-style matching interface for dogs"],
     sourceCode: "https://tindog.zarrarpalekar.com/",
   },
   {
@@ -432,9 +450,7 @@ export const projects = [
     description: "My earlier portfolio website.",
     image: `${assetBase}/My-1st-Website.webp`,
     technologies: ["HTML", "CSS", "Bootstrap"],
-    details: [
-      "My earlier CV",
-    ],
+    details: ["My earlier CV"],
     sourceCode: "https://oldcv.zarrarpalekar.com/",
   },
 ] as const;
@@ -472,7 +488,8 @@ export const testimonials = [
   {
     name: "Premraj Tripute",
     image: "/Images/Premraj%20Tripute.svg",
-    headline: "Full stack developer | NodeJs | Express | ReactJs | Angular 2+ | AWS",
+    headline:
+      "Full stack developer | NodeJs | Express | ReactJs | Angular 2+ | AWS",
     date: "August 20, 2025",
     relationship: "Premraj reported to Zarrar directly",
     quote:
@@ -481,7 +498,8 @@ export const testimonials = [
   {
     name: "Nikhil Joshi",
     image: "/Images/Nikhil%20Joshi.svg",
-    headline: "International Business Development | Sales | Partnerships | Strategic Alliances",
+    headline:
+      "International Business Development | Sales | Partnerships | Strategic Alliances",
     date: "March 8, 2024",
     relationship: "Nikhil worked with Zarrar but on different teams",
     quote:
