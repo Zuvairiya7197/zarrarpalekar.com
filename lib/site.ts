@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Zarrar Palekar",
   shortName: "ZP",
-  logo: "/red-zp-logo.png",
+  logo: "/Images/ZP%20Logo.svg",
   title: "Zarrar Palekar | Full Stack Developer | MERN Stack Developer",
   description:
     "Full Stack Developer & MERN Stack Developer building modern, scalable web applications that solve real-world problems with clean and efficient code.",
@@ -31,12 +31,12 @@ export const siteConfig = {
   ],
 } as const;
 
-const assetBase =
-  "https://lightgoldenrodyellow-fox-787789.hostingersite.com/wp-content/uploads/2026/04";
+const assetBase = "/Images";
 
 const experienceStartYear = 2017;
 
-export const experienceYears = new Date().getUTCFullYear() - experienceStartYear;
+export const experienceYears =
+  new Date().getUTCFullYear() - experienceStartYear;
 
 export const heroRoles = [
   "Full Stack Developer",
@@ -287,7 +287,9 @@ export const experiences = [
     technologies: ["MERN Stack", "Redux", "GraphQL", "Apollo"],
     start: "2021-06-01",
     end: "2022-10-01",
-    points: ["Learning & Implementing React based applications with Apollo GraphQL."],
+    points: [
+      "Learning & Implementing React based applications with Apollo GraphQL.",
+    ],
   },
   {
     company: "Euclid – Tenders Info",
@@ -322,51 +324,72 @@ export const projects = [
   {
     title: "E-Shop App",
     date: "Mar-2021",
-    description: "This is a MERN Full Stack E-Commerce App.",
+    description: "A full-stack MERN e-commerce application.",
     image: `${assetBase}/eshopapp.webp`,
-    technologies: ["React JS", "Node JS", "Express JS", "MongoDB", "Redux", "JWT"],
+    technologies: [
+      "React JS",
+      "Node JS",
+      "Express JS",
+      "MongoDB",
+      "Redux",
+      "JWT",
+    ],
     details: [
-      "Lets you buy products with sandbox paypal",
+      "Lets users buy products with PayPal Sandbox.",
       "Powered by React and Redux",
-      "Responsive Design",
+      "Responsive design",
     ],
     sourceCode: "https://github.com/ZarrarPalekar/ProShop",
   },
   {
     title: "Dev Social App",
     date: "Nov-2020",
-    description: "A Social Media App for developers.",
+    description: "A social media app for developers.",
     image: `${assetBase}/1DevConnApp.webp`,
-    technologies: ["React JS", "Node JS", "Express JS", "MongoDB", "Redux", "JWT"],
+    technologies: [
+      "React JS",
+      "Node JS",
+      "Express JS",
+      "MongoDB",
+      "Redux",
+      "JWT",
+    ],
     details: [
-      "Lets you connect with other people",
-      "Powered by React and Redux Responsive Design",
-      "With almost all social media functionalities.",
+      "Lets users connect with other developers.",
+      "Powered by React and Redux with a responsive design.",
+      "Includes most core social media features.",
     ],
     sourceCode: "https://github.com/ZarrarPalekar/SocialDevApp",
   },
   {
     title: "Shopping List App",
     date: "Oct-2020",
-    description: "This is a Shopping List App.",
+    description: "A shopping list application.",
     image: `${assetBase}/7MernShopList.webp`,
-    technologies: ["React JS", "Node JS", "Express JS", "MongoDB", "Redux", "JWT"],
+    technologies: [
+      "React JS",
+      "Node JS",
+      "Express JS",
+      "MongoDB",
+      "Redux",
+      "JWT",
+    ],
     details: [
-      "Lets you maintain your shopping list",
+      "Lets users manage their shopping lists.",
       "Powered by React and Redux",
-      "Responsive Design",
+      "Responsive design",
     ],
   },
   {
     title: "EJS Todo App",
     date: "Sep-2020",
-    description: "An app based on EJS & used to maintain a todo list.",
+    description: "An EJS-based app for managing to-do lists.",
     image: `${assetBase}/2ToDoApp.webp`,
     technologies: ["React JS", "Node JS", "Express JS", "MongoDB", "EJS"],
     details: [
-      "Add To List",
-      "Delete From List",
-      "Make Your Own Custom List Just by typing in the name you want in the URL after the app url as a querystring",
+      "Add items to a list",
+      "Delete items from a list",
+      "Create custom lists by adding a name in the app URL as a query string",
     ],
   },
   {
@@ -376,20 +399,20 @@ export const projects = [
     image: `${assetBase}/My-blogs.webp`,
     technologies: ["HTML", "CSS", "Bootstrap", "MongoDB", "EJS"],
     details: [
-      "Users can see my blog list and read more",
-      "I have a admin panel to write my blogs",
+      "Users can browse my blog list and read full posts.",
+      "Includes an admin panel to write and manage blog posts.",
     ],
   },
   {
     title: "My Newsletter",
     date: "Sep-2020",
-    description: "An app that signs you up for my newsletter.",
+    description: "An app that lets users subscribe to my newsletter.",
     image: `${assetBase}/4SignUpNewsLetter.webp`,
     technologies: ["EJS", "Node JS", "Express JS", "Mailchimp API"],
     details: [
-      "Register new user for newsletter",
-      "Welcome mail to user",
-      "Awesome monthly content to user",
+      "Registers new users for the newsletter.",
+      "Sends a welcome email to each user.",
+      "Delivers monthly newsletter content.",
     ],
   },
   {
@@ -399,42 +422,35 @@ export const projects = [
     image: `${assetBase}/3Secrets.webp`,
     technologies: ["HTML", "CSS", "React JS", "MongoDB", "Google OAuth"],
     details: [
-      "Post anonymous secrets",
-      "See all anonymous secrets",
+      "Post secrets anonymously.",
+      "View all anonymous secrets.",
       "Google OAuth",
     ],
   },
   {
     title: "Portfolio Website",
     date: "Jul-2020",
-    description: "This portfolio website.",
+    description: "A personal portfolio website.",
     image: `${assetBase}/pzjportfolio.webp`,
     technologies: ["React JS", "Styled Components", "Github Pages", "WhatsApp"],
-    details: [
-      "Powered by React",
-      "Used WhatsApp API",
-    ],
+    details: ["Powered by React", "Used WhatsApp API"],
   },
   {
     title: "Tindog – Tinder for dogs",
     date: "Jun-2020",
-    description: "Website is a clone of Tinder and its for your dogs.",
+    description: "A Tinder-inspired website for dogs.",
     image: `${assetBase}/TinDog.webp`,
     technologies: ["HTML", "CSS", "Bootstrap"],
-    details: [
-      "Tinder Clone for Dogs",
-    ],
+    details: ["Tinder-style matching interface for dogs"],
     sourceCode: "https://tindog.zarrarpalekar.com/",
   },
   {
     title: "My First Website",
     date: "Jun-2020",
-    description: "This website is my earlier portfolio.",
+    description: "My earlier portfolio website.",
     image: `${assetBase}/My-1st-Website.webp`,
     technologies: ["HTML", "CSS", "Bootstrap"],
-    details: [
-      "My Earlier CV",
-    ],
+    details: ["My earlier CV"],
     sourceCode: "https://oldcv.zarrarpalekar.com/",
   },
 ] as const;
@@ -442,7 +458,7 @@ export const projects = [
 export const testimonials = [
   {
     name: "Swapnil Patil",
-    image: "/Images/swapnil%20patil.jpeg",
+    image: "/Images/Swapnil%20Patil.svg",
     headline:
       "Sr Software Developer @ Azul Arc | Technical Architecture, Prompt Engineering, Product Development, AI feature integration",
     date: "August 25, 2025",
@@ -452,7 +468,7 @@ export const testimonials = [
   },
   {
     name: "Sadaf Mirza",
-    image: "/Images/Sadaf%20Mirza.jpeg",
+    image: "/Images/Sadaf%20Mirza.svg",
     headline:
       "Senior Software Engineer @AzulArc | exLTIM | MERN & MEAN Stack Developer | PERN | AWS accredited | DSA Enthusiast",
     date: "August 21, 2025",
@@ -462,7 +478,7 @@ export const testimonials = [
   },
   {
     name: "Nihar Makwana",
-    image: "/Images/Nihar%20Makwana.jpeg",
+    image: "/Images/Nihar%20Makwana.svg",
     headline: "Sr. Software Developer at AzulArc",
     date: "August 21, 2025",
     relationship: "Nihar reported to Zarrar directly",
@@ -471,8 +487,9 @@ export const testimonials = [
   },
   {
     name: "Premraj Tripute",
-    image: "/Images/Premraj%20Tripute.jpeg",
-    headline: "Full stack developer | NodeJs | Express | ReactJs | Angular 2+ | AWS",
+    image: "/Images/Premraj%20Tripute.svg",
+    headline:
+      "Full stack developer | NodeJs | Express | ReactJs | Angular 2+ | AWS",
     date: "August 20, 2025",
     relationship: "Premraj reported to Zarrar directly",
     quote:
@@ -480,8 +497,9 @@ export const testimonials = [
   },
   {
     name: "Nikhil Joshi",
-    image: "/Images/Nikhil%20Joshi.jpeg",
-    headline: "International Business Development | Sales | Partnerships | Strategic Alliances",
+    image: "/Images/Nikhil%20Joshi.svg",
+    headline:
+      "International Business Development | Sales | Partnerships | Strategic Alliances",
     date: "March 8, 2024",
     relationship: "Nikhil worked with Zarrar but on different teams",
     quote:
@@ -489,7 +507,7 @@ export const testimonials = [
   },
   {
     name: "Shir Avidan",
-    image: "/Images/Shir%20Avidan.jpeg",
+    image: "/Images/Shir.svg",
     headline: "Sr. Software Product Manager",
     date: "February 26, 2024",
     relationship: "Shir managed Zarrar directly",
@@ -498,7 +516,7 @@ export const testimonials = [
   },
   {
     name: "Shubham Singh",
-    image: "/Images/Shubham%20Singh.jpeg",
+    image: "/Images/Shubham%20Singh.svg",
     headline: "Senior Software Engineer at SponsorCloud",
     date: "February 27, 2022",
     relationship: "Shubham worked with Zarrar on the same team",
