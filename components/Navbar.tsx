@@ -17,7 +17,7 @@ export function Navbar() {
     () => ["home", "about", "skills", "experience", "testimonials", "projects", "contact"] as const,
     [],
   );
-  const activeSection = useScrollSpy(sectionIds);
+  const { activeSection, setActiveSection } = useScrollSpy(sectionIds);
   const [isOpen, setIsOpen] = useState(false);
   const [useCompactNav, setUseCompactNav] = useState(false);
 
@@ -88,6 +88,7 @@ export function Navbar() {
                   <a
                     key={link.href}
                     href={link.href}
+                    onClick={() => setActiveSection(id)}
                     className={cn(
                       "whitespace-nowrap rounded-full px-2 py-1.5 text-[12px] leading-none font-medium tracking-[0.01em] transition-all duration-200 xl:px-2.5 2xl:px-4 2xl:py-2 2xl:text-[14px]",
                       activeSection === id
@@ -152,6 +153,7 @@ export function Navbar() {
                     key={link.href}
                     href={link.href}
                     onClick={() => {
+                      setActiveSection(id);
                       setIsOpen(false);
                     }}
                     className={cn(

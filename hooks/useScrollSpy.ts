@@ -1,14 +1,21 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 export function useScrollSpy(sectionIds: readonly string[]) {
   const [activeSection, setActiveSection] = useState(sectionIds[0] ?? "home");
   const activeRef = useRef(activeSection);
+  const rafRef = useRef(0);
+  const tickingRef = useRef(false);
 
-  useEffect(() => {
-    activeRef.current = activeSection;
-  }, [activeSection]);
+  const setActiveIfChanged = useCallback((id: string) => {
+    if (!id || activeRef.current === id) {
+      return;
+    }
+
+    activeRef.current = id;
+    setActiveSection(id);
+  }, []);
 
   const idsKey = useMemo(() => sectionIds.join("|"), [sectionIds]);
 
@@ -17,43 +24,57 @@ export function useScrollSpy(sectionIds: readonly string[]) {
       return;
     }
 
-    const elements = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter(Boolean) as HTMLElement[];
+    const markerOffset = 120;
 
-    if (elements.length === 0) {
-      return;
-    }
+    const updateActiveSection = () => {
+      let nextActive = activeRef.current;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (!entry.isIntersecting) {
-            continue;
-          }
-
-          const id = (entry.target as HTMLElement).id;
-          if (activeRef.current !== id) {
-            activeRef.current = id;
-            setActiveSection(id);
-          }
+      for (const id of sectionIds) {
+        const element = document.getElementById(id);
+        if (!element) {
+          continue;
         }
-      },
-      {
-        root: null,
-        threshold: 0,
-        rootMargin: "-45% 0px -45% 0px",
-      },
-    );
 
-    for (const element of elements) {
-      observer.observe(element);
-    }
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= markerOffset && rect.bottom > markerOffset) {
+          nextActive = id;
+          break;
+        }
+      }
+
+      setActiveIfChanged(nextActive);
+    };
+
+    const onScroll = () => {
+      if (tickingRef.current) {
+        return;
+      }
+
+      tickingRef.current = true;
+      rafRef.current = window.requestAnimationFrame(() => {
+        updateActiveSection();
+        tickingRef.current = false;
+      });
+    };
+
+    updateActiveSection();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    window.addEventListener("hashchange", onScroll);
 
     return () => {
-      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      window.removeEventListener("hashchange", onScroll);
+      if (rafRef.current) {
+        window.cancelAnimationFrame(rafRef.current);
+      }
+      tickingRef.current = false;
     };
-  }, [idsKey, sectionIds]);
+  }, [idsKey, sectionIds, setActiveIfChanged]);
 
-  return activeSection;
+  return {
+    activeSection,
+    setActiveSection: setActiveIfChanged,
+  };
 }
