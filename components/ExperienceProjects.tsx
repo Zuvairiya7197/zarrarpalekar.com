@@ -86,6 +86,7 @@ function ExperiencePanel() {
                       src={experience.logo}
                       alt={experience.company}
                       fill
+                      loading="lazy"
                       sizes="48px"
                       className="object-contain p-1"
                     />
@@ -178,6 +179,7 @@ function ExperiencePanel() {
                         src={experience.logo}
                         alt={experience.company}
                         fill
+                        loading="lazy"
                         sizes="58px"
                         className="object-contain p-1.5"
                       />
@@ -206,6 +208,7 @@ function ExperiencePanel() {
                   src={selectedExperience.logo}
                   alt={selectedExperience.company}
                   fill
+                  loading="lazy"
                   sizes="64px"
                   className="object-contain p-1.5"
                 />
@@ -370,7 +373,14 @@ function TestimonialsPanel() {
             >
               <div className="flex items-center gap-2 px-1">
                 <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full border border-white/20 bg-black/40">
-                  <Image src={testimonial.image} alt={testimonial.name} fill sizes="32px" className="object-cover" />
+                  <Image
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    fill
+                    loading="lazy"
+                    sizes="32px"
+                    className="object-cover"
+                  />
                 </div>
                 <div className="min-w-0">
                   <p className="truncate text-[12px] font-semibold text-white sm:text-[13px]">{testimonial.name}</p>

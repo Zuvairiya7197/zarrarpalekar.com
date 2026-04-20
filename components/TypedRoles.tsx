@@ -3,11 +3,32 @@
 import { useEffect, useState } from "react";
 
 export function TypedRoles({ roles }: { roles: readonly string[] }) {
+  const firstRole = roles[0] ?? "";
   const [roleIndex, setRoleIndex] = useState(0);
-  const [displayed, setDisplayed] = useState("");
+  const [displayed, setDisplayed] = useState(firstRole);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
+    if (roles.length === 0) {
+      return;
+    }
+
+    const timer = window.setTimeout(() => {
+      setDisplayed(firstRole);
+      setRoleIndex(0);
+      setIsDeleting(false);
+      setIsReady(true);
+    }, 550);
+
+    return () => window.clearTimeout(timer);
+  }, [firstRole, roles.length]);
+
+  useEffect(() => {
+    if (!isReady || roles.length === 0) {
+      return;
+    }
+
     const current = roles[roleIndex] ?? "";
     const timeout = window.setTimeout(
       () => {
@@ -33,7 +54,7 @@ export function TypedRoles({ roles }: { roles: readonly string[] }) {
     );
 
     return () => window.clearTimeout(timeout);
-  }, [displayed, isDeleting, roleIndex, roles]);
+  }, [displayed, isDeleting, isReady, roleIndex, roles]);
 
   return (
     <span className="inline-flex items-center">

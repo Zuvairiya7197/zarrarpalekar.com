@@ -60,6 +60,7 @@ export function Projects() {
                           alt={project.title}
                           width={1200}
                           height={700}
+                          loading="lazy"
                           sizes="(min-width: 1024px) 32vw, 100vw"
                           className="h-[152px] w-full rounded-[12px] object-cover sm:h-[162px] lg:h-[168px]"
                         />
