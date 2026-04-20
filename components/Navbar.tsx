@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 
+import { useScrollSpy } from "@/hooks/useScrollSpy";
 import { openCalendlyPopup, registerCalendlyPageHideCleanup } from "@/lib/calendly";
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
@@ -12,33 +13,15 @@ import { Container } from "./ui/Container";
 
 export function Navbar() {
   const desktopLinks = useMemo(() => siteConfig.navLinks, []);
-  const [activeSection, setActiveSection] = useState("home");
+  const sectionIds = useMemo(
+    () => desktopLinks.map((link) => link.href.replace("#", "")),
+    [desktopLinks],
+  );
+  const activeSection = useScrollSpy(sectionIds);
   const [isOpen, setIsOpen] = useState(false);
   const [useCompactNav, setUseCompactNav] = useState(false);
 
-  const sectionPositionsRef = useRef<Array<{ id: string; top: number }>>([]);
-  const activeSectionRef = useRef(activeSection);
   const navRef = useRef<HTMLElement | null>(null);
-
-  const scrollToSection = (href: string) => {
-    const id = href.replace("#", "");
-    const element = document.getElementById(id);
-    if (!element) {
-      return;
-    }
-
-    const navOffset = 96;
-    const targetTop = Math.max(0, element.getBoundingClientRect().top + window.scrollY - navOffset);
-    window.scrollTo({ top: targetTop, behavior: "smooth" });
-
-    window.history.replaceState(null, "", href);
-    activeSectionRef.current = id;
-    setActiveSection(id);
-  };
-
-  useEffect(() => {
-    activeSectionRef.current = activeSection;
-  }, [activeSection]);
 
   useEffect(() => {
     return registerCalendlyPageHideCleanup();
@@ -60,97 +43,6 @@ export function Navbar() {
     observer.observe(node);
     return () => observer.disconnect();
   }, []);
-
-  useEffect(() => {
-    const getSections = () =>
-      desktopLinks
-        .map((link) => {
-          const id = link.href.replace("#", "");
-          const element = document.getElementById(id);
-          return element ? { id, element } : null;
-        })
-        .filter(Boolean) as Array<{ id: string; element: HTMLElement }>;
-
-    const updateActiveSection = () => {
-      const sections = sectionPositionsRef.current;
-      if (sections.length === 0) {
-        return;
-      }
-
-      const navOffset = 120;
-      const scrollPosition = window.scrollY + navOffset;
-      const isNearPageBottom =
-        window.innerHeight + window.scrollY >=
-        document.documentElement.scrollHeight - 4;
-
-      let currentSection = sections[0]?.id ?? "home";
-
-      for (const section of sections) {
-        if (scrollPosition >= section.top - 1) {
-          currentSection = section.id;
-        }
-      }
-
-      if (isNearPageBottom) {
-        currentSection = sections[sections.length - 1]?.id ?? currentSection;
-      }
-
-      if (currentSection !== activeSectionRef.current) {
-        activeSectionRef.current = currentSection;
-        setActiveSection(currentSection);
-      }
-    };
-
-    const recalculateSectionPositions = () => {
-      const sections = getSections();
-      sectionPositionsRef.current = sections.map((section) => ({
-        id: section.id,
-        // Read geometry outside the scroll path and cache it.
-        top: section.element.offsetTop,
-      }));
-      updateActiveSection();
-    };
-
-    let scrollTicking = false;
-    let measureTicking = false;
-
-    const onScroll = () => {
-      if (!scrollTicking) {
-        window.requestAnimationFrame(() => {
-          updateActiveSection();
-          scrollTicking = false;
-        });
-        scrollTicking = true;
-      }
-    };
-
-    const scheduleRecalculate = () => {
-      if (!measureTicking) {
-        window.requestAnimationFrame(() => {
-          recalculateSectionPositions();
-          measureTicking = false;
-        });
-        measureTicking = true;
-      }
-    };
-
-    const resizeObserver = new ResizeObserver(scheduleRecalculate);
-    resizeObserver.observe(document.body);
-
-    scheduleRecalculate();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", scheduleRecalculate);
-    window.addEventListener("hashchange", scheduleRecalculate);
-    window.addEventListener("load", scheduleRecalculate);
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", scheduleRecalculate);
-      window.removeEventListener("hashchange", scheduleRecalculate);
-      window.removeEventListener("load", scheduleRecalculate);
-      resizeObserver.disconnect();
-    };
-  }, [desktopLinks]);
 
   return (
     <header className="sticky top-0 z-50 bg-[#05040c]">
@@ -196,10 +88,6 @@ export function Navbar() {
                   <a
                     key={link.href}
                     href={link.href}
-                    onClick={(event) => {
-                      event.preventDefault();
-                      scrollToSection(link.href);
-                    }}
                     className={cn(
                       "whitespace-nowrap rounded-full px-2 py-1.5 text-[12px] leading-none font-medium tracking-[0.01em] transition-all duration-200 xl:px-2.5 2xl:px-4 2xl:py-2 2xl:text-[14px]",
                       activeSection === id
@@ -263,9 +151,7 @@ export function Navbar() {
                   <a
                     key={link.href}
                     href={link.href}
-                    onClick={(event) => {
-                      event.preventDefault();
-                      scrollToSection(link.href);
+                    onClick={() => {
                       setIsOpen(false);
                     }}
                     className={cn(
