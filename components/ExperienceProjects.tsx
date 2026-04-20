@@ -299,6 +299,7 @@ function TestimonialsPanel() {
 
   return (
     <section
+      id="testimonials"
       ref={testimonialsRef}
       className="relative overflow-hidden rounded-[20px] bg-[rgba(4,8,20,0.6)] p-3.5 sm:p-4 md:p-4.5 lg:p-6"
     >
@@ -311,8 +312,6 @@ function TestimonialsPanel() {
       <p className="mt-4 max-w-[540px] text-[15px] leading-[1.65] text-[#a8adbd] lg:text-[17px]">
         Feedback from teammates and collaborators I&apos;ve had the privilege of working with.
       </p>
-
-      <div id="testimonials" className="scroll-mt-[120px]" aria-hidden="true" />
 
       <div className="relative mt-6 rounded-[22px] border border-white/12 bg-[rgba(8,10,18,0.84)]">
         <m.div
@@ -408,7 +407,7 @@ export function ExperienceProjects() {
     <LazyMotion features={domAnimation}>
       <section className="py-5 sm:py-7 lg:py-8">
         <Container>
-          <div className="grid gap-6 sm:gap-7 lg:gap-8 xl:gap-6 xl:grid-cols-[0.94fr_1.06fr]">
+          <div className="mainWrapper space-y-6 sm:space-y-7 lg:space-y-8">
             <ExperiencePanel />
             <TestimonialsPanel />
           </div>

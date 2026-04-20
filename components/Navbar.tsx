@@ -14,8 +14,8 @@ import { Container } from "./ui/Container";
 export function Navbar() {
   const desktopLinks = useMemo(() => siteConfig.navLinks, []);
   const sectionIds = useMemo(
-    () => desktopLinks.map((link) => link.href.replace("#", "")),
-    [desktopLinks],
+    () => ["home", "about", "skills", "experience", "testimonials", "projects", "contact"] as const,
+    [],
   );
   const activeSection = useScrollSpy(sectionIds);
   const [isOpen, setIsOpen] = useState(false);

@@ -23,6 +23,12 @@ html {
 
 section {
   scroll-margin-top: 80px;
+  width: 100%;
+  display: block;
+}
+
+.mainWrapper {
+  display: block;
 }
 
 body {
