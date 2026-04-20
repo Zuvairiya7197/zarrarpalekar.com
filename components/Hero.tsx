@@ -19,14 +19,14 @@ export function Hero() {
               <div className="relative mx-auto mb-2 w-full max-w-[380px] md:mb-4 md:max-w-[520px] xl:hidden">
                 <div className="w-full overflow-hidden rounded-[26px]">
                   <Image
-                    src="/Images/Zarrar%20Photo.svg"
+                    src="/Images/Zarrar-Photo.webp"
                     alt="Zarrar Palekar"
                     width={760}
                     height={700}
                     priority
                     fetchPriority="high"
                     loading="eager"
-                    sizes="(max-width: 767px) 82vw, (max-width: 1279px) 68vw, 380px"
+                    sizes="100vw"
                     className="h-auto w-full object-contain"
                   />
                 </div>
@@ -94,12 +94,12 @@ export function Hero() {
             <div className="relative mx-auto hidden w-full max-w-[460px] xl:block xl:max-w-[620px]">
               <div className="w-full overflow-hidden rounded-[26px]">
                 <Image
-                  src="/Images/Zarrar%20Photo.svg"
+                  src="/Images/Zarrar-Photo.webp"
                   alt="Zarrar Palekar"
                   width={1240}
                   height={1033}
                   loading="lazy"
-                  sizes="(min-width: 1280px) 620px, (min-width: 1024px) 46vw, (min-width: 768px) 460px, 100vw"
+                  sizes="100vw"
                   className="h-auto w-full object-contain"
                 />
               </div>
