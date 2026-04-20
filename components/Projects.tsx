@@ -43,7 +43,10 @@ export function Projects() {
 
           <div className="mt-10 grid gap-5 sm:gap-6 md:grid-cols-2 xl:grid-cols-3">
             {projects.map((project) => {
-              const sourceCode = "sourceCode" in project ? project.sourceCode : undefined;
+              const liveUrl = "liveUrl" in project ? project.liveUrl : undefined;
+              const tagline = "tagline" in project ? project.tagline : undefined;
+              const impact = "impact" in project ? project.impact : undefined;
+              const insight = "insight" in project ? project.insight : undefined;
               const isOpen = openProject === project.title;
 
               return (
@@ -67,9 +70,16 @@ export function Projects() {
                       </div>
 
                       <div className="mt-5 flex items-start justify-between gap-3">
-                        <h3 className="truncate whitespace-nowrap text-[24px] font-semibold leading-tight text-white sm:text-[28px]">
-                          {project.title}
-                        </h3>
+                        <div className="min-w-0">
+                          <h3 className="truncate whitespace-nowrap text-[24px] font-semibold leading-tight text-white sm:text-[28px]">
+                            {project.title}
+                          </h3>
+                          {tagline ? (
+                            <p className="mt-1 truncate text-[12px] font-medium tracking-[0.03em] text-[#c9cfdf] uppercase">
+                              {tagline}
+                            </p>
+                          ) : null}
+                        </div>
                         <div className="mt-0.5 shrink-0 rounded-full border border-[rgba(255,98,118,0.35)] bg-[linear-gradient(90deg,rgba(142,24,39,0.92)_0%,rgba(192,42,62,0.9)_100%)] px-3 py-1 text-[11px] font-semibold tracking-[0.06em] text-white uppercase">
                           {getProjectDateBadge(project.date)}
                         </div>
@@ -81,7 +91,7 @@ export function Projects() {
                           onClick={() => setOpenProject(project.title)}
                           className="btn-secondary inline-flex h-[52px] w-full items-center justify-between rounded-full border px-6 text-[14px] font-medium text-white/88 sm:h-[54px] sm:px-8 sm:text-[15px]"
                         >
-                          <span>Project Details</span>
+                          <span>Project Details →</span>
                           <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-white/12 bg-[rgba(255,255,255,0.04)]">
                             <ChevronDown className="-rotate-90 h-3.5 w-3.5 text-white/78 transition-transform duration-200" />
                           </span>
@@ -130,17 +140,39 @@ export function Projects() {
                           ))}
                         </ul>
 
+                        {impact ? (
+                          <>
+                            <p className="mt-3 text-[11px] font-semibold tracking-[0.05em] text-[#f0f2f8] uppercase">
+                              Impact
+                            </p>
+                            <p className="mt-2 text-[13px] leading-[1.45] text-[#e0e5f2] sm:text-[14px]">
+                              {impact}
+                            </p>
+                          </>
+                        ) : null}
+
+                        {insight ? (
+                          <>
+                            <p className="mt-3 text-[11px] font-semibold tracking-[0.05em] text-[#f0f2f8] uppercase">
+                              Insight
+                            </p>
+                            <p className="mt-2 text-[13px] leading-[1.45] text-[#e0e5f2] sm:text-[14px]">
+                              {insight}
+                            </p>
+                          </>
+                        ) : null}
+
                         <div className="mt-auto pt-3">
                           <div className="mb-3 h-px w-full bg-white/10" />
                           <div className="flex w-full flex-wrap items-center gap-2.5">
-                          {sourceCode ? (
+                          {liveUrl ? (
                             <a
-                              href={sourceCode}
+                              href={liveUrl}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-flex h-[42px] items-center gap-2 rounded-full border border-[#f36b79] bg-[linear-gradient(90deg,#6f141f_0%,#992130_50%,#bc3343_100%)] px-5 text-[12px] font-semibold text-white"
                             >
-                              Source Code <ArrowRight className="h-4 w-4 text-white" />
+                              View Live <ArrowRight className="h-4 w-4 text-white" />
                             </a>
                           ) : null}
                           <button

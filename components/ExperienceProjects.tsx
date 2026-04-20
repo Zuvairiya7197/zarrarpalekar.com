@@ -270,7 +270,6 @@ function TestimonialsPanel() {
   const testimonialsRef = useRef<HTMLElement | null>(null);
   const [isInView, setIsInView] = useState(false);
   const [hasDismissedUnread, setHasDismissedUnread] = useState(false);
-  const [showUnreadPopup, setShowUnreadPopup] = useState(false);
 
   useEffect(() => {
     const node = testimonialsRef.current;
@@ -289,13 +288,7 @@ function TestimonialsPanel() {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    if (!isInView || hasDismissedUnread) {
-      return;
-    }
-
-    setShowUnreadPopup(true);
-  }, [isInView, hasDismissedUnread]);
+  const showUnreadPopup = isInView && !hasDismissedUnread;
 
   return (
     <section
@@ -350,7 +343,6 @@ function TestimonialsPanel() {
 
             if (reachedBottom && !hasDismissedUnread) {
               setHasDismissedUnread(true);
-              setShowUnreadPopup(false);
             }
           }}
           className="h-[460px] snap-y snap-mandatory space-y-4 overflow-y-auto scroll-smooth bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.04),transparent_35%),radial-gradient(circle_at_85%_75%,rgba(255,93,112,0.06),transparent_42%)] px-3 py-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:h-[520px] sm:px-4 sm:py-4 lg:h-[560px] lg:px-6 lg:py-6"
