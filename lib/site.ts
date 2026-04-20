@@ -322,6 +322,36 @@ export const experiences = [
 
 export const projects = [
   {
+    title: "Portfolio Revamp",
+    tagline: "Rebuilt in a weekend",
+    date: "Apr-2026",
+    description: "A full rebuild of my portfolio on modern Next.js architecture.",
+    image: `${assetBase}/Portfolio_revamp.webp`,
+    technologies: [
+      "Next.js",
+      "React",
+      "SEO",
+      "Performance Optimization",
+      "Vercel",
+    ],
+    details: [
+      "Migrated from legacy React to modern Next.js architecture.",
+      "Implemented SEO best practices (meta tags, structured data, clean routing).",
+      "Improved Lighthouse performance & loading speed significantly.",
+      "Redesigned UI with premium black + red aesthetic.",
+      "Added smooth, high-end micro-interactions (Apple-inspired feel).",
+      "Reworked content for faster user understanding & clarity.",
+      "Built fully responsive, mobile-first experience.",
+      "Optimized deployment workflow for scalability.",
+    ],
+    impact:
+      "Rebuilt the entire experience in just a few focused hours — proving speed + clarity beats overthinking.",
+    insight:
+      "UI, performance, SEO & deployment aren’t separate — they compound.",
+    liveUrl: "https://zarrarpalekar.com",
+    sourceCode: "https://github.com/ZarrarPalekar/zarrarpalekar.com",
+  },
+  {
     title: "E-Shop App",
     date: "Mar-2021",
     description: "A full-stack MERN e-commerce application.",
