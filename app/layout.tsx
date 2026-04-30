@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Great_Vibes } from "next/font/google";
 
-import { DeferredStyles } from "@/components/DeferredStyles";
 import { siteConfig } from "@/lib/site";
 
 import "./globals.css";
@@ -82,11 +81,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <noscript>
+          {/* eslint-disable-next-line @next/next/no-css-tags */}
+          <link rel="stylesheet" href="/non-critical.css" />
+        </noscript>
+      </head>
       <body
         className={`${greatVibes.variable} min-h-screen bg-[rgb(var(--background))] font-[family-name:var(--font-sans)] text-[rgb(var(--foreground))] antialiased`}
       >
         {children}
-        <DeferredStyles />
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(()=>{let load=()=>{if(!document.querySelector('link[href=\"/non-critical.css\"]')){let l=document.createElement('link');l.rel='stylesheet';l.href='/non-critical.css';document.head.appendChild(l)}};'requestIdleCallback'in window?requestIdleCallback(load,{timeout:1200}):setTimeout(load,1)})()",
+          }}
+        />
       </body>
     </html>
   );

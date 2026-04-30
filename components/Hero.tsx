@@ -26,7 +26,7 @@ export function Hero() {
                     priority
                     fetchPriority="high"
                     loading="eager"
-                    sizes="100vw"
+                    sizes="(min-width: 768px) 520px, 100vw"
                     className="h-auto w-full object-contain"
                   />
                 </div>
@@ -99,7 +99,7 @@ export function Hero() {
                   width={1240}
                   height={1033}
                   loading="lazy"
-                  sizes="100vw"
+                  sizes="(min-width: 1280px) 620px, 0px"
                   className="h-auto w-full object-contain"
                 />
               </div>
