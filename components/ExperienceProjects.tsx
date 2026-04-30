@@ -294,100 +294,104 @@ function TestimonialsPanel() {
     <section
       id="testimonials"
       ref={testimonialsRef}
-      className="relative overflow-hidden rounded-[20px] bg-[rgba(4,8,20,0.6)] p-3.5 sm:p-4 md:p-4.5 lg:p-6"
+      className="relative overflow-visible rounded-[20px] bg-[rgba(4,8,20,0.6)] p-3.5 sm:p-4 md:p-4.5 lg:p-6"
     >
-      <SectionPill icon={<MessageSquareQuote className="h-4 w-4" />} label="Testimonials" />
+      <div className="grid gap-6 lg:grid-cols-[minmax(250px,0.78fr)_minmax(0,1.22fr)] lg:items-start lg:gap-8 xl:grid-cols-[minmax(300px,0.82fr)_minmax(0,1.18fr)] xl:gap-10">
+        <div className="lg:sticky lg:top-24 lg:self-start">
+          <SectionPill icon={<MessageSquareQuote className="h-4 w-4" />} label="Testimonials" />
 
-      <h2 className="mt-6 text-[26px] font-semibold leading-[1.12] tracking-[-0.02em] text-white sm:text-[32px] lg:text-[42px]">
-        What People <span className="text-[#ff2a3a]">Say.</span>
-      </h2>
+          <h2 className="mt-6 text-[26px] font-semibold leading-[1.12] tracking-[-0.02em] text-white sm:text-[32px] lg:text-[42px]">
+            What People <span className="text-[#ff2a3a]">Say.</span>
+          </h2>
 
-      <p className="mt-4 max-w-[540px] text-[15px] leading-[1.65] text-[#a8adbd] lg:text-[17px]">
-        Feedback from teammates and collaborators I&apos;ve had the privilege of working with.
-      </p>
-
-      <div className="relative mt-6 rounded-[22px] border border-white/12 bg-[rgba(8,10,18,0.84)]">
-        <m.div
-          initial={{ opacity: 0, y: -12, scale: 0.96 }}
-          animate={
-            showUnreadPopup
-              ? { opacity: 1, y: 0, scale: 1 }
-              : { opacity: 0, y: -12, scale: 0.96 }
-          }
-          transition={{ duration: 0.32, ease: "easeOut" }}
-          className="pointer-events-none absolute left-1/2 top-3 z-20 -translate-x-1/2"
-        >
-          <div className="relative rounded-[16px] border border-[rgba(255,96,118,0.34)] bg-[linear-gradient(90deg,rgba(128,22,36,0.92)_0%,rgba(185,39,58,0.9)_100%)] px-3 py-1.5 text-[10px] font-semibold tracking-[0.04em] text-white uppercase shadow-[0_10px_22px_rgba(0,0,0,0.34)] sm:rounded-[18px] sm:px-4 sm:py-2.5 sm:text-[12px]">
-            <span className="absolute -top-2.5 left-1/2 inline-flex h-5 w-5 -translate-x-1/2 items-center justify-center rounded-full border border-[rgba(255,140,156,0.58)] bg-[rgba(30,7,13,0.95)] text-white sm:-top-3 sm:h-6 sm:w-6">
-              <MessageSquareQuote className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
-            </span>
-            <span className="mt-1.5 block whitespace-nowrap sm:mt-2">
-              {testimonials.length} Unseen Messages
-            </span>
-          </div>
-        </m.div>
-
-        <div className="flex items-center border-b border-white/10 px-4 py-3 sm:px-5">
-          <div className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-[#ff4f66]" />
-            <span className="h-2 w-2 rounded-full bg-[#ff9d3f]" />
-            <span className="h-2 w-2 rounded-full bg-[#3ccf7a]" />
-          </div>
-          <MessageSquareQuote className="ml-auto h-4 w-4 text-white/55" />
+          <p className="mt-4 max-w-[540px] text-[15px] leading-[1.65] text-[#a8adbd] lg:max-w-[360px] lg:text-[17px]">
+            Feedback from teammates and collaborators I&apos;ve had the privilege of working with.
+          </p>
         </div>
 
-        <div
-          onScroll={(event) => {
-            const element = event.currentTarget;
-            const reachedBottom = element.scrollTop + element.clientHeight >= element.scrollHeight - 8;
-
-            if (reachedBottom && !hasDismissedUnread) {
-              setHasDismissedUnread(true);
+        <div className="relative rounded-[22px] border border-white/12 bg-[rgba(8,10,18,0.84)] lg:min-w-0">
+          <m.div
+            initial={{ opacity: 0, y: -12, scale: 0.96 }}
+            animate={
+              showUnreadPopup
+                ? { opacity: 1, y: 0, scale: 1 }
+                : { opacity: 0, y: -12, scale: 0.96 }
             }
-          }}
-          className="h-[460px] snap-y snap-mandatory space-y-4 overflow-y-auto scroll-smooth bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.04),transparent_35%),radial-gradient(circle_at_85%_75%,rgba(255,93,112,0.06),transparent_42%)] px-3 py-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:h-[520px] sm:px-4 sm:py-4 lg:h-[560px] lg:px-6 lg:py-6"
-        >
-          {testimonials.map((testimonial, index) => (
-            <m.div
-              key={`${testimonial.name}-${testimonial.date}`}
-              initial={{ opacity: 0.5, y: 14, scale: 0.98, filter: "blur(1.2px)" }}
-              whileInView={{
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                filter: "blur(0px)",
-                boxShadow: "0 0 0 1px rgba(255,104,123,0.2), 0 14px 30px rgba(0,0,0,0.3)",
-              }}
-              viewport={{ once: false, amount: 0.28, margin: "0px 0px -12% 0px" }}
-              transition={{ duration: 0.42, ease: "easeOut", delay: Math.min(index * 0.02, 0.18) }}
-              className="snap-start space-y-1.5"
-            >
-              <div className="flex items-center gap-2 px-1">
-                <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full border border-white/20 bg-black/40">
-                  <Image
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    fill
-                    loading="lazy"
-                    sizes="32px"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="min-w-0">
-                  <p className="truncate text-[12px] font-semibold text-white sm:text-[13px]">{testimonial.name}</p>
-                  <p className="truncate text-[10px] text-[#f26b79] sm:text-[11px]">{testimonial.date}</p>
-                </div>
-              </div>
+            transition={{ duration: 0.32, ease: "easeOut" }}
+            className="pointer-events-none absolute left-1/2 top-3 z-20 -translate-x-1/2"
+          >
+            <div className="relative rounded-[16px] border border-[rgba(255,96,118,0.34)] bg-[linear-gradient(90deg,rgba(128,22,36,0.92)_0%,rgba(185,39,58,0.9)_100%)] px-3 py-1.5 text-[10px] font-semibold tracking-[0.04em] text-white uppercase shadow-[0_10px_22px_rgba(0,0,0,0.34)] sm:rounded-[18px] sm:px-4 sm:py-2.5 sm:text-[12px]">
+              <span className="absolute -top-2.5 left-1/2 inline-flex h-5 w-5 -translate-x-1/2 items-center justify-center rounded-full border border-[rgba(255,140,156,0.58)] bg-[rgba(30,7,13,0.95)] text-white sm:-top-3 sm:h-6 sm:w-6">
+                <MessageSquareQuote className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
+              </span>
+              <span className="mt-1.5 block whitespace-nowrap sm:mt-2">
+                {testimonials.length} Unseen Messages
+              </span>
+            </div>
+          </m.div>
 
-              <div className="max-w-[92%] rounded-[16px] rounded-tl-[6px] border border-white/12 bg-[rgba(255,255,255,0.06)] px-3 py-2.5 text-[13px] leading-[1.55] text-[#e1e5f1] sm:text-[14px]">
-                {testimonial.quote}
-              </div>
+          <div className="flex items-center border-b border-white/10 px-4 py-3 sm:px-5">
+            <div className="flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-[#ff4f66]" />
+              <span className="h-2 w-2 rounded-full bg-[#ff9d3f]" />
+              <span className="h-2 w-2 rounded-full bg-[#3ccf7a]" />
+            </div>
+            <MessageSquareQuote className="ml-auto h-4 w-4 text-white/55" />
+          </div>
 
-              <div className="ml-auto max-w-[80%] rounded-[16px] rounded-tr-[6px] border border-[rgba(255,98,118,0.35)] bg-[linear-gradient(90deg,rgba(142,24,39,0.92)_0%,rgba(192,42,62,0.9)_100%)] px-3 py-2 text-[12px] leading-[1.45] text-white sm:text-[13px]">
-                {testimonial.relationship}
-              </div>
-            </m.div>
-          ))}
+          <div
+            onScroll={(event) => {
+              const element = event.currentTarget;
+              const reachedBottom = element.scrollTop + element.clientHeight >= element.scrollHeight - 8;
+
+              if (reachedBottom && !hasDismissedUnread) {
+                setHasDismissedUnread(true);
+              }
+            }}
+            className="h-[460px] snap-y snap-mandatory space-y-4 overflow-y-auto scroll-smooth bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.04),transparent_35%),radial-gradient(circle_at_85%_75%,rgba(255,93,112,0.06),transparent_42%)] px-3 py-3 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:h-[520px] sm:px-4 sm:py-4 lg:h-[560px] lg:px-6 lg:py-6"
+          >
+            {testimonials.map((testimonial, index) => (
+              <m.div
+                key={`${testimonial.name}-${testimonial.date}`}
+                initial={{ opacity: 0.5, y: 14, scale: 0.98, filter: "blur(1.2px)" }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                  filter: "blur(0px)",
+                  boxShadow: "0 0 0 1px rgba(255,104,123,0.2), 0 14px 30px rgba(0,0,0,0.3)",
+                }}
+                viewport={{ once: false, amount: 0.28, margin: "0px 0px -12% 0px" }}
+                transition={{ duration: 0.42, ease: "easeOut", delay: Math.min(index * 0.02, 0.18) }}
+                className="snap-start space-y-1.5"
+              >
+                <div className="flex items-center gap-2 px-1">
+                  <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full border border-white/20 bg-black/40">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      fill
+                      loading="lazy"
+                      sizes="32px"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="truncate text-[12px] font-semibold text-white sm:text-[13px]">{testimonial.name}</p>
+                    <p className="truncate text-[10px] text-[#f26b79] sm:text-[11px]">{testimonial.date}</p>
+                  </div>
+                </div>
+
+                <div className="max-w-[92%] rounded-[16px] rounded-tl-[6px] border border-white/12 bg-[rgba(255,255,255,0.06)] px-3 py-2.5 text-[13px] leading-[1.55] text-[#e1e5f1] sm:text-[14px]">
+                  {testimonial.quote}
+                </div>
+
+                <div className="ml-auto max-w-[80%] rounded-[16px] rounded-tr-[6px] border border-[rgba(255,98,118,0.35)] bg-[linear-gradient(90deg,rgba(142,24,39,0.92)_0%,rgba(192,42,62,0.9)_100%)] px-3 py-2 text-[12px] leading-[1.45] text-white sm:text-[13px]">
+                  {testimonial.relationship}
+                </div>
+              </m.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
