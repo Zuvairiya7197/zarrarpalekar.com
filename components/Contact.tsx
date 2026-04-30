@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { FormEvent, useState } from "react";
 
-import { openCalendlyPopup } from "@/lib/calendly";
+import { openDeferredCalendly } from "@/lib/openCalendly";
 import { siteConfig } from "@/lib/site";
 
 import { Container } from "./ui/Container";
@@ -114,7 +114,7 @@ export function Contact() {
                 onClick={(event) => {
                   if ("isCalendly" in link && link.isCalendly) {
                     event.preventDefault();
-                    void openCalendlyPopup(link.href);
+                    void openDeferredCalendly(link.href);
                   }
                 }}
                 className="inline-flex h-[50px] w-[50px] items-center justify-center rounded-full border border-[rgba(215,28,60,0.34)] bg-[rgba(16,10,20,0.45)] text-white/75 shadow-[0_0_0_1px_rgba(215,28,60,0.12)] transition-all duration-200 hover:border-[#d71c3c] hover:bg-[rgba(42,12,30,0.9)] hover:text-white hover:shadow-[0_0_0_1px_rgba(215,28,60,0.28),0_0_20px_rgba(215,28,60,0.22)]"
@@ -257,7 +257,7 @@ export function Contact() {
                     onClick={(event) => {
                       if ("isCalendly" in link && link.isCalendly) {
                         event.preventDefault();
-                        void openCalendlyPopup(link.href);
+                        void openDeferredCalendly(link.href);
                       }
                     }}
                     className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/18 bg-[rgba(255,255,255,0.05)] text-white hover:bg-[rgba(255,255,255,0.12)] sm:h-[52px] sm:w-[52px]"
