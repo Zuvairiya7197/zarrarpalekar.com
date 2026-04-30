@@ -1,64 +1,66 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export function TypedRoles({ roles }: { roles: readonly string[] }) {
   const firstRole = roles[0] ?? "";
-  const [roleIndex, setRoleIndex] = useState(0);
-  const [displayed, setDisplayed] = useState(firstRole);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [isReady, setIsReady] = useState(false);
+  const textRef = useRef<HTMLSpanElement | null>(null);
 
   useEffect(() => {
     if (roles.length === 0) {
       return;
     }
 
-    const timer = window.setTimeout(() => {
-      setDisplayed(firstRole);
-      setRoleIndex(0);
-      setIsDeleting(false);
-      setIsReady(true);
-    }, 550);
+    let timeout = 0;
+    let roleIndex = 0;
+    let displayed = firstRole;
+    let isDeleting = false;
 
-    return () => window.clearTimeout(timer);
-  }, [firstRole, roles.length]);
+    const writeDisplayed = () => {
+      if (textRef.current) {
+        textRef.current.textContent = displayed;
+      }
+    };
 
-  useEffect(() => {
-    if (!isReady || roles.length === 0) {
-      return;
-    }
+    const tick = () => {
+      const current = roles[roleIndex] ?? "";
 
-    const current = roles[roleIndex] ?? "";
-    const timeout = window.setTimeout(
-      () => {
-        if (!isDeleting && displayed !== current) {
-          setDisplayed(current.slice(0, displayed.length + 1));
-          return;
-        }
+      if (!isDeleting && displayed !== current) {
+        displayed = current.slice(0, displayed.length + 1);
+        writeDisplayed();
+        timeout = window.setTimeout(tick, 85);
+        return;
+      }
 
-        if (!isDeleting && displayed === current) {
-          setIsDeleting(true);
-          return;
-        }
+      if (!isDeleting && displayed === current) {
+        isDeleting = true;
+        timeout = window.setTimeout(tick, 1400);
+        return;
+      }
 
-        if (isDeleting && displayed.length > 0) {
-          setDisplayed(current.slice(0, displayed.length - 1));
-          return;
-        }
+      if (isDeleting && displayed.length > 0) {
+        displayed = current.slice(0, displayed.length - 1);
+        writeDisplayed();
+        timeout = window.setTimeout(tick, 35);
+        return;
+      }
 
-        setIsDeleting(false);
-        setRoleIndex((previous) => (previous + 1) % roles.length);
-      },
-      !isDeleting && displayed === current ? 1400 : isDeleting ? 35 : 85,
-    );
+      isDeleting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
+      timeout = window.setTimeout(tick, 85);
+    };
 
-    return () => window.clearTimeout(timeout);
-  }, [displayed, isDeleting, isReady, roleIndex, roles]);
+    writeDisplayed();
+    timeout = window.setTimeout(tick, 550);
+
+    return () => {
+      window.clearTimeout(timeout);
+    };
+  }, [firstRole, roles]);
 
   return (
     <span className="inline-flex items-center">
-      {displayed}
+      <span ref={textRef}>{firstRole}</span>
       <span className="ml-1 inline-block h-[1.1em] w-[2px] animate-pulse bg-[rgb(var(--accent-secondary))]" />
     </span>
   );

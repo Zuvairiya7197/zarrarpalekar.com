@@ -25,19 +25,27 @@ export function useScrollSpy(sectionIds: readonly string[]) {
     }
 
     const markerOffset = 120;
+    const sectionElements = sectionIds.map((id) => ({
+      id,
+      element: document.getElementById(id),
+    }));
 
     const updateActiveSection = () => {
       let nextActive = activeRef.current;
 
-      for (const id of sectionIds) {
-        const element = document.getElementById(id);
+      for (const item of sectionElements) {
+        if (!item.element?.isConnected) {
+          item.element = document.getElementById(item.id);
+        }
+
+        const element = item.element;
         if (!element) {
           continue;
         }
 
         const rect = element.getBoundingClientRect();
         if (rect.top <= markerOffset && rect.bottom > markerOffset) {
-          nextActive = id;
+          nextActive = item.id;
           break;
         }
       }

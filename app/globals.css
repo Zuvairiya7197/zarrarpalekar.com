@@ -117,6 +117,7 @@ a[class*="inline-flex"][class*="rounded-full"]:focus-visible {
 
 .hero-scene {
   background: #05040c;
+  transform: translateZ(0);
 }
 
 .hero-nebula {
@@ -138,6 +139,8 @@ a[class*="inline-flex"][class*="rounded-full"]:focus-visible {
   background: linear-gradient(165deg, #0d0f1ec9 0%, #080a13b8 100%);
   border: 1px solid #ffffff29;
   box-shadow: inset 0 1px #ffffff14, 0 28px 55px #00000080;
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 @media (prefers-reduced-motion: reduce) {
