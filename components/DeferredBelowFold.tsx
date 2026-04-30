@@ -43,6 +43,7 @@ const initialLoadedState: Record<DeferredKey, boolean> = {
 export function DeferredBelowFold() {
   const [loaded, setLoaded] = useState(initialLoadedState);
   const loadedRef = useRef(loaded);
+  const pendingIdleIdsRef = useRef<number[]>([]);
   const sentinelRefs = useRef<Record<SectionId, HTMLElement | null>>({
     skills: null,
     experience: null,
@@ -56,6 +57,46 @@ export function DeferredBelowFold() {
   }, [loaded]);
 
   useEffect(() => {
+    const loadKey = (key: DeferredKey) => {
+      if (loadedRef.current[key]) {
+        return;
+      }
+
+      setLoaded((current) => {
+        if (current[key]) {
+          return current;
+        }
+
+        return {
+          ...current,
+          [key]: true,
+        };
+      });
+    };
+
+    const scheduleLoad = (key: DeferredKey) => {
+      if (loadedRef.current[key]) {
+        return;
+      }
+
+      if ("requestIdleCallback" in window) {
+        const idleId = window.requestIdleCallback(() => loadKey(key), { timeout: 900 });
+        pendingIdleIdsRef.current.push(idleId);
+        return;
+      }
+
+      globalThis.setTimeout(() => loadKey(key), 0);
+    };
+
+    const loadFromHash = () => {
+      const id = window.location.hash.replace("#", "") as SectionId;
+      const key = sectionToKey[id];
+
+      if (key) {
+        loadKey(key);
+      }
+    };
+
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -66,24 +107,13 @@ export function DeferredBelowFold() {
           const id = entry.target.id as SectionId;
           const key = sectionToKey[id];
 
-          if (!loadedRef.current[key]) {
-            setLoaded((current) => {
-              if (current[key]) {
-                return current;
-              }
-
-              return {
-                ...current,
-                [key]: true,
-              };
-            });
-          }
+          scheduleLoad(key);
         }
       },
       {
         root: null,
         threshold: 0,
-        rootMargin: "700px 0px",
+        rootMargin: "300px 0px",
       },
     );
 
@@ -93,8 +123,20 @@ export function DeferredBelowFold() {
       observer.observe(node);
     }
 
+    loadFromHash();
+    window.addEventListener("hashchange", loadFromHash);
+
     return () => {
       observer.disconnect();
+      window.removeEventListener("hashchange", loadFromHash);
+
+      if ("cancelIdleCallback" in window) {
+        for (const idleId of pendingIdleIdsRef.current) {
+          window.cancelIdleCallback(idleId);
+        }
+      }
+
+      pendingIdleIdsRef.current = [];
     };
   }, []);
 

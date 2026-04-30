@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Serif_Display, Great_Vibes } from "next/font/google";
+import { Great_Vibes } from "next/font/google";
 
 import { DeferredStyles } from "@/components/DeferredStyles";
 import { siteConfig } from "@/lib/site";
@@ -10,13 +10,6 @@ const greatVibes = Great_Vibes({
   subsets: ["latin"],
   weight: "400",
   variable: "--font-script",
-  preload: false,
-});
-
-const dmSerifDisplay = DM_Serif_Display({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-accent",
   preload: false,
 });
 
@@ -43,9 +36,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   icons: {
-    icon: "/Images/ZP%20Logo.svg",
-    shortcut: "/Images/ZP%20Logo.svg",
-    apple: "/Images/ZP%20Logo.svg",
+    icon: "/Images/ZP-Logo.webp",
+    shortcut: "/Images/ZP-Logo.webp",
+    apple: "/Images/ZP-Logo.webp",
   },
   openGraph: {
     title: siteConfig.title,
@@ -90,7 +83,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${greatVibes.variable} ${dmSerifDisplay.variable} min-h-screen bg-[rgb(var(--background))] font-[family-name:var(--font-sans)] text-[rgb(var(--foreground))] antialiased`}
+        className={`${greatVibes.variable} min-h-screen bg-[rgb(var(--background))] font-[family-name:var(--font-sans)] text-[rgb(var(--foreground))] antialiased`}
       >
         {children}
         <DeferredStyles />

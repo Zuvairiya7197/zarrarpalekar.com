@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Zarrar Palekar",
   shortName: "ZP",
-  logo: "/Images/ZP%20Logo.svg",
+  logo: "/Images/ZP-Logo.webp",
   title: "Zarrar Palekar | Full Stack Developer | MERN Stack Developer",
   description:
     "Full Stack Developer & MERN Stack Developer building modern, scalable web applications that solve real-world problems with clean and efficient code.",
@@ -55,32 +55,26 @@ export const aboutHighlights = [
   {
     title: "Full Stack",
     subtitle: "MERN & .Net",
-    image: `${assetBase}/Full-stack-1-e1775234110648.png`,
   },
   {
     title: "Performance",
     subtitle: "Speed & Efficiency",
-    image: `${assetBase}/peformance-1-e1775234494456.png`,
   },
   {
     title: "Experience",
     subtitle: `${experienceYears}+ Year`,
-    image: `${assetBase}/experience-1-e1775235240646.png`,
   },
   {
     title: "Clean Code",
     subtitle: "Solutions",
-    image: `${assetBase}/Code-1-e1775234222308.png`,
   },
   {
     title: "UI\\UX",
     subtitle: "Focused",
-    image: `${assetBase}/UX-1-e1775234427944.png`,
   },
   {
     title: "Scalable",
     subtitle: "Solutions",
-    image: `${assetBase}/Scalable-1-e1775234763931.png`,
   },
 ] as const;
 
@@ -142,11 +136,11 @@ export const skillGroups = [
       },
       {
         name: ".Net",
-        icon: `${assetBase}/net.png`,
+        icon: `${assetBase}/net.webp`,
       },
       {
         name: "styled components",
-        icon: `${assetBase}/Styled-component-1.png`,
+        icon: `${assetBase}/Styled-component-1.webp`,
       },
     ],
   },
@@ -155,15 +149,15 @@ export const skillGroups = [
     items: [
       {
         name: "Node.js",
-        icon: `${assetBase}/Node-js-1.png`,
+        icon: `${assetBase}/Node-js-1.webp`,
       },
       {
         name: "Express",
-        icon: `${assetBase}/express-1.png`,
+        icon: `${assetBase}/express-1.webp`,
       },
       {
         name: "MongoDB",
-        icon: `${assetBase}/MongoDB.png`,
+        icon: `${assetBase}/MongoDB.webp`,
       },
       {
         name: "MS SQL",
@@ -171,7 +165,7 @@ export const skillGroups = [
       },
       {
         name: ".NET",
-        icon: `${assetBase}/net.png`,
+        icon: `${assetBase}/net.webp`,
       },
       {
         name: "Oracle",
@@ -188,7 +182,7 @@ export const skillGroups = [
       },
       {
         name: "Github",
-        icon: `${assetBase}/github.png`,
+        icon: `${assetBase}/github.webp`,
       },
       {
         name: "Vercel",
@@ -209,7 +203,7 @@ export const skillGroups = [
       },
       {
         name: "TypeScript",
-        icon: `${assetBase}/Type-Script.png`,
+        icon: `${assetBase}/Type-Script.webp`,
       },
       {
         name: "HTML",
@@ -221,7 +215,7 @@ export const skillGroups = [
       },
       {
         name: "Node.js",
-        icon: `${assetBase}/Node-js-1.png`,
+        icon: `${assetBase}/Node-js-1.webp`,
       },
       {
         name: "React",
@@ -242,7 +236,7 @@ export const skillGroups = [
       },
       {
         name: "TortoiseSVN",
-        icon: `${assetBase}/Tortoise-e1775477338512.png`,
+        icon: `${assetBase}/Tortoise-e1775477338512.webp`,
       },
     ],
   },
@@ -255,7 +249,7 @@ export const skillGroups = [
       },
       {
         name: "MongoDB",
-        icon: `${assetBase}/MongoDB.png`,
+        icon: `${assetBase}/MongoDB.webp`,
       },
       {
         name: "PL\\SQL",

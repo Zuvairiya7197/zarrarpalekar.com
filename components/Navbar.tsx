@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import { useScrollSpy } from "@/hooks/useScrollSpy";
-import { openCalendlyPopup, registerCalendlyPageHideCleanup } from "@/lib/calendly";
+import { openDeferredCalendly } from "@/lib/openCalendly";
 import { siteConfig } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
@@ -22,10 +22,6 @@ export function Navbar() {
   const [useCompactNav, setUseCompactNav] = useState(false);
 
   const navRef = useRef<HTMLElement | null>(null);
-
-  useEffect(() => {
-    return registerCalendlyPageHideCleanup();
-  }, []);
 
   useEffect(() => {
     const node = navRef.current;
@@ -59,8 +55,6 @@ export function Navbar() {
                   src={siteConfig.logo}
                   alt={siteConfig.name}
                   fill
-                  priority
-                  fetchPriority="high"
                   loading="eager"
                   sizes="52px"
                   className="scale-[1.5] object-contain"
@@ -113,7 +107,7 @@ export function Navbar() {
               </a>
               <button
                 type="button"
-                onClick={() => void openCalendlyPopup(siteConfig.calendlyUrl)}
+                onClick={() => void openDeferredCalendly(siteConfig.calendlyUrl)}
                 className="inline-flex h-[42px] items-center justify-center whitespace-nowrap rounded-full border border-[#f34a56] bg-[linear-gradient(90deg,#85131e_0%,#b71a27_45%,#d92635_100%)] px-3 text-[12px] font-medium text-white 2xl:h-[46px] 2xl:px-6 2xl:text-[14px]"
               >
                 Book Call
@@ -183,7 +177,7 @@ export function Navbar() {
                 type="button"
                 onClick={() => {
                   setIsOpen(false);
-                  void openCalendlyPopup(siteConfig.calendlyUrl);
+                  void openDeferredCalendly(siteConfig.calendlyUrl);
                 }}
                 className="inline-flex h-11 items-center justify-center whitespace-nowrap rounded-full border border-[#f34a56] bg-[linear-gradient(90deg,#85131e_0%,#b71a27_45%,#d92635_100%)] px-4 text-[13px] font-medium text-white"
               >
